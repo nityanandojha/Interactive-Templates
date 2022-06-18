@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<dataset>
+  <title>Target Audiences and Messaging in Healthcare</title>
+  <instruction>To complete the activity, select each definition and then click the term that it belongs to. Replay this interaction as many times as you need. There is no time limit. Your responses will not be graded</instruction>
+
+  <items>
+    <item>
+      <clickable>
+        <text>Primary audience</text>
+      </clickable>
+      <matching>
+        <text>Individuals that are most affected by the health issue and whose behavior you hope to modify with your health communication intervention.</text>
+      </matching>
+    </item>
+    <item>
+      <clickable>
+        <text>Targeting</text>
+      </clickable>
+      <matching>
+        <text>The process of using group references, such as demographic or culture, in communication strategies to reach specific audiences</text>
+      </matching>
+    </item>
+    <item>
+      <clickable>
+        <text>Tailoring</text>
+      </clickable>
+      <matching>
+        <text>The process of creating health communication materials and messages that meet one person’s needs, based on information about that specific</text>
+      </matching>
+    </item>
+    <item>
+      <clickable>
+        <text> Questioning</text>
+      </clickable>
+      <matching>      
+        <text>The process of gathering data about a person, their family, signs and symptoms, and explanation of concerns to ensure a thorough understanding.</text>
+      </matching>
+    </item>
+    <item>
+      <clickable>
+        <text>Audience segmentation</text>
+      </clickable>
+      <matching>      
+        <text>Individuals that can help you reach the intended audience but who are not part of the health issue you are trying to address.</text>
+      </matching>
+    </item>
+    <item>
+      <clickable>
+        <text>Secondary Audience</text>
+      </clickable>
+      <matching>
+        <text>The process where providers give information appropriate to the patient’s level of understanding and assesses the patient’s knowledge of the same.</text>
+      </matching>
+    </item>
+    <item>
+      <clickable>
+        <text>Explaining</text>
+      </clickable>
+      <matching>      
+        <text>Individuals that affect behaviors of the intermediate audience that may also impact the behavior of the intervention’s intended audience.</text>
+      </matching>
+    </item>
+    <item>
+      <clickable>
+        <text>Tertiary audience </text>
+      </clickable>
+      <matching>
+        <text>The process of dividing a large group into smaller groups based on shared characteristics for the purpose of creating messages and communication</text>
+      </matching>
+    </item>
+  </items>
+</dataset>

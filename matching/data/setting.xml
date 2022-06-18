@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<dataset>
+    <focuscolor color="black"></focuscolor>
+    
+    <themes>
+        <theme>
+            <name>default-theme</name>
+            <title>Default</title>
+            <image>default.svg</image>
+            <color>#001936</color>
+            <background>#FFFFFF</background>           
+            <selectioncolor>#F5BA5C</selectioncolor>
+        </theme>
+        <theme>
+            <name>redgreen-theme</name>
+            <title>Red/Green</title>
+            <image>red-green.svg</image>
+            <color>#4A9D63</color>
+            <background>#CF5D4F</background>           
+            <selectioncolor>#F5BA5C</selectioncolor>
+        </theme>
+        <theme>
+            <name>blueyellow-theme</name>
+            <title>Blue/yellow</title>
+            <image>blue-yellow.svg</image>
+            <color>#F8CD5E</color>
+            <background>#001936</background>
+            <foreground>#F8CD5E</foreground>
+            <selectioncolor>#F5BA5C</selectioncolor>
+        </theme>
+        <theme>
+            <name>highcontrast-theme</name>
+            <title>High Contrast</title>
+            <image>highcontrast.svg</image>
+            <color>#ED70EF</color>
+            <background>#212022</background>            
+            <selectioncolor>#F5BA5C</selectioncolor>
+        </theme>
+    </themes>
+</dataset>

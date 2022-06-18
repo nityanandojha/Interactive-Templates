@@ -1,0 +1,80 @@
+﻿<!DOCTYPE html>
+<html l lang='en'>
+
+<head>
+    <title>Matching Responsive</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="lib/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/settings.css">
+
+    <script src="lib/jquery/jquery-3.1.1.min.js"></script>
+    <script src="lib/bootstrap/js/bootstrap.min.js"></script>
+    <script src="lib/bootstrap/js/popper.min.js"></script>
+    <script src="lib/knockout/knockout-3.5.1.js"></script>
+   
+    <script src="js/util.js"></script>
+    <script src="js/main.js"></script>
+    <!--<script src="js/accessibilityJs.js"></script>-->
+</head>
+
+<body>
+    <div id="matching_template" class="matching_template container-fluid activity-container">
+
+        <header class="activity-header clearfix">
+            <button type="button" class="setting-button" data-bind="click:showSettingsPanelHandler"></button>
+            <button type="button" class="setting-button" data-bind="click:showTextHandler"></button>
+            <div data-bind="visible:showTextPanel">
+                <button class="close-btn" data-bind="click:closeTextPanelHandler"><img src="images/cross.svg"></button>
+                <p>To complete the activity, select each definition and then click the term that it belongs to. Replay the interactiion as many times you need. There is no time limit. Your responses will not be graded</p>
+            </div>
+            <div class="settings-container" data-bind="visible:showSettingsPanel">
+                <button class="close-btn" data-bind="click:closeSettingsPanelHandler"><img src="images/cross.svg"></button>
+                <div class="settings-container-themes">
+                    <div class="settings-container-themes-title"><strong>Color Scheme</strong></div>
+                    <!-- ko foreach: themes-->
+                    <button class="theme-btn" data-bind="click:$parent.selectThemeHandler"><img data-bind="attr:{src:'images/'+image}"><span data-bind="text:title"></span></button>                         
+                    <!-- /ko -->             
+                </div>
+            </div>
+
+            <h2 class="activity-title" data-bind="html:title">11Target Audiences and Messaging in Healthcare</h2>
+            <!-- <p class="activity-instruction" data-bind="html:instruction">To complete the activity, select each definition and then click the term that it belongs to. Replay the interactiion as many times you need. There is no time limit. Your responses will not be graded</p> -->
+        </header>
+        <section class="activity-content">
+            <div class="clickable-items">
+                <div class="row"  data-bind="foreach:clickableItems">
+                    <div class="col-12 col-sm-6 col-md-3">
+                        <button class="clickable-item" data-bind="click:$parent.selectClickableItemHandler,css:{selected:$parent.isClickableSelected($data)},hidden:isMoved">
+                            <p data-bind="html:text"></p>
+                        </button>
+                    </div>
+                </div>
+                <div class="text-center footer">
+                    <button type="button" class="btn btn-primary float-lg-end" data-bind="click:resetHandler, visible:isSubmitted() && isAllCorrect(), enable:isSubmitted() && isAllCorrect()">Reset</button>
+                    <button type="button" class="btn btn-primary float-lg-end" data-bind="click:tryagainHandler, visible:isSubmitted() && !isAllCorrect()">Try Again</button>
+                    <button type="button" class="btn btn-primary float-lg-end" data-bind="click:submitHandler, visible:!isSubmitted(), enable:isAllFilled() && !isSubmitted()">Submit</button>
+                </div>
+            </div>
+
+            <div class="matching-items">
+                <div class="row"  data-bind="foreach: matchingItems">
+                    <div class="col-sm-4 col-lg-3">
+                        <div class="matching-element" data-bind="click:$parent.selectMatchingItemHandler,css:{'submitted':$parent.isSubmitted(),'correct-ans':isCorrect(),'wrong-ans':!isCorrect(),'filled':isFilled()}">   
+                            <!-- ko if:clickableItem--> 
+                            <div class="clickable-item" data-bind="with:clickableItem,visible:isFilled">
+                                <p data-bind="html:text"></p>
+                            </div>                    
+                            <!-- /ko -->                                               
+                            <button class="matching-item">
+                                <p data-bind="html:text"></p>
+                            </button>
+                        </div>
+                    </div>                                       
+                </div>
+            </div>
+        </section>
+    </div>
+</body>
+</html>

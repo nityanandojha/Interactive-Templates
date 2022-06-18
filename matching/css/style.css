@@ -1,0 +1,295 @@
+@font-face {
+    font-family: "Montserrat";
+    src: url("./fonts/Montserrat-Bold.ttf");
+    -webkit-font-smoothing: antialiased;
+    -webkit-text-size-adjust: auto;
+
+    font-weight:bold;
+}
+
+@font-face {
+    font-family: "Montserrat";
+    src: url("./fonts/Montserrat-Regular.ttf");
+    -webkit-font-smoothing: antialiased;
+    -webkit-text-size-adjust: auto;
+
+    font-weight:normal;
+}
+
+html,body{
+    font-size:16px;
+}
+body {
+    margin: 0;
+    background-color: #f4f4f4;
+    font-family: "Montserrat";
+}
+.activity-container{
+    padding:20px;
+}
+.activity-header{
+    background: #FFF;
+    border: solid 1px #ddd;
+    padding:20px 50px;
+    position:relative;
+}
+.activity-title{
+    color: var(--color);
+    font-size: 2rem;
+    font-weight:bold;
+}
+.activity-instruction{
+    font-weight:normal;
+    color: var(--color);
+    font-size: 1.5rem;
+    margin-top: 20px;
+}
+
+.activity-content{
+    background: #E6E6E6;
+    border: solid 1px #ddd;
+    padding:20px 50px;
+}
+
+.buttonCont{
+    float: right;
+}
+
+.clickable-items{
+    position: relative;
+}
+.clickable-items .clickable-item, .matching-items .clickable-item{
+    background: var(--color);
+    color:var(--background);
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    min-height:100px;
+    width:220px;
+    margin: 0 auto 15px auto;
+    border-radius: 10px 10px 0px 0;
+    padding:20px;
+    box-shadow: 0px 3px 6px 0px rgba(112,112,112,1);
+    -webkit-box-shadow: 0px 3px 6px 0px rgba(112,112,112,1);
+    -moz-box-shadow: 0px 3px 6px 0px rgba(112,112,112,1);
+
+    border:solid 2px transparent;
+
+    cursor:pointer;
+
+}
+.clickable-items .clickable-item.selected{
+    border:solid 2px var(--selectioncolor);
+}
+
+.clickable-items .clickable-item p,  .matching-items .clickable-item p{
+    margin-bottom:0px;
+    font-weight:bold;
+    font-size:1.25rem;
+    text-align:center;
+
+}
+
+.matching-element{
+    border:solid 4px transparent;
+    margin: 0 auto 15px auto;
+    border-radius: 6px;
+    display:inline-flex;
+    position:relative;
+}
+.matching-element.submitted::after{ 
+    content: "";
+    width: 36px;
+    height: 36px;
+    /* top: calc(50% - 18px); */
+    top: -17px;
+    right: -18px;
+    position: absolute;
+    display: inline-block;
+    z-index:1;
+    background-size:contain;
+}
+.matching-element.correct-ans.submitted{
+    border:solid 4px #4A9D64;
+}
+.matching-element.wrong-ans.submitted{
+    border:solid 4px #CE5A4C;
+}
+.matching-element.correct-ans.submitted::after{
+    background-image:url(../images/tick.svg);
+}
+.matching-element.wrong-ans.submitted::after{
+    background-image: url(../images/cross.svg);
+}
+
+.matching-items{
+    margin-top:25px;
+    position: relative;
+}
+.matching-items .matching-item{
+    background: var(--background);
+    color: var(--color);
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    min-height:100px;
+    /* max-width:550px; */
+    width: 100%;
+    max-width: 100%;
+    border-radius: 0 0 10px 10px;
+    padding:20px 40px;
+    box-shadow: 0px 3px 6px 0px rgba(112,112,112,1);
+    -webkit-box-shadow: 0px 3px 6px 0px rgba(112,112,112,1);
+    -moz-box-shadow: 0px 3px 6px 0px rgba(112,112,112,1);
+}
+.matching-items .matching-item p{
+    margin-bottom:0px;
+    font-weight:normal;
+    font-size:1rem;
+    text-align:left;
+
+}
+
+.btn.btn-primary{
+    background: #001936;
+    border:solid 1px #001936;
+    border-radius:6px;
+    font-weight:bold;
+    font-size:1.5rem;
+    cursor:pointer;
+    min-width:250px;
+    float: right;
+    position: absolute;
+}
+
+@media (min-width: 992px) {
+    /* .clickable-items{
+        min-height: 50px;
+    }
+    .matching-items .clickable-item, .matching-items .matching-item{
+        display: inline-flex;;
+        vertical-align: top;;
+    }
+    .matching-items .clickable-item{
+        border-top-right-radius: 0;
+        border-bottom-right-radius: 0;
+        margin:0px;
+        flex-shrink: 0;
+    }
+    .matching-items .matching-item:not(.filled){
+        margin-left:215px;
+    } 
+    .matching-items .clickable-item + .matching-item{
+        border-top-left-radius: 0;
+        border-bottom-left-radius: 0;
+        margin-left:-5px;
+    }
+
+    .matching-items .matching-element{
+        display: inline-flex;
+        gap:0;
+    }*/
+}
+
+.matching-items{
+    flex-direction: row;
+}
+.matching-items .matching-element{
+    display: flex;
+    flex-direction: column;;
+    gap:0;
+}
+
+.matching-items .clickable-item{
+    margin:0px;
+    width:100%;
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+    height:auto;
+    min-height:50px;
+}
+.matching-items .matching-item{
+    width: 100%;
+    max-width: 100%;
+}
+.matching-items .clickable-item + .matching-item{
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;        
+}
+
+
+@media (max-width: 991px) {
+    html,body{
+        font-size:12px;
+    }
+    .activity-container{
+        padding:0px;
+    }
+    .activity-header,.activity-content{
+        padding:20px 20px;
+    }
+    .clickable-items{
+        height: 50px;
+    }
+    .clickable-items .clickable-item{
+        position:absolute;
+        left:0px;
+        top:0px;
+        /* width:97%; */
+        min-height:50px;
+        padding:5px 10px;
+        margin-bottom: 0px;
+        border:solid 1px #FFF;
+    }
+    .clickable-items .row > div:nth-child(1) .clickable-item{
+        left:2px;
+    }
+    .clickable-items .row > div:nth-child(2) .clickable-item{
+        left:4px;
+    }
+    .clickable-items .row > div:nth-child(3) .clickable-item{
+        left:6px;
+    }
+    .clickable-items .row > div:nth-child(4) .clickable-item{
+        left:8px;
+    }
+    .clickable-items .row > div:nth-child(5) .clickable-item{
+        left:10px;
+    }
+    .clickable-items .row > div:nth-child(6) .clickable-item{
+        left:12px;
+    }
+    .clickable-items .row > div:nth-child(7) .clickable-item{
+        left:14px;
+    }
+    .clickable-items .row > div:nth-child(8) .clickable-item{
+        left:16px;
+    }
+    .clickable-items .row > div:nth-child(9) .clickable-item{
+        left:18px;
+    }
+    .clickable-items .row > div:nth-child(10) .clickable-item{
+        left:20px;
+    }
+
+    body{
+        padding-bottom:85px;
+    }
+
+    .footer{
+        /* position:fixed;
+        bottom:0px;
+        left:0px;
+        right:0px;
+        background: #F1F1F1; */
+        padding: 20px;        
+    }
+
+    .footer button{
+        margin: 0 auto;
+    }
+}
+
+
+
+
