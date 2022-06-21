@@ -285,7 +285,7 @@ $(document).ready(function () {
 			})
 			console.log('totalDropedItem=', totalDropedItem);
 			if (totalDropedItem == arrAllDraggableitem.length) {
-				$('.nav-container').show()
+				//$('.nav-container').show()
 				$('.submit_btn').show().focus().off().on("click", submitListener);
 			}
 		}

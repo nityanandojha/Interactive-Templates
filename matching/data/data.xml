@@ -1,72 +1,66 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <dataset>
-  <title>Target Audiences and Messaging in Healthcare</title>
-  <instruction>To complete the activity, select each definition and then click the term that it belongs to. Replay this interaction as many times as you need. There is no time limit. Your responses will not be graded</instruction>
-
+  <title>Claims and Counterclaims</title>
+  <instruction>Drag each claim and drop it next to a possible counterclaim. Replay this interaction as many times as you need. There is no time limit. Your responses will not be graded.</instruction>
+  <rightFeedback>Correct! You’ve matched each claim to its counterclaim. You understand this aspect of argument.</rightFeedback>
+  <wrongFeedback>Incorrect. Try again. Refer to Chapter 10 of your textbook to review counterclaims, their relation to claims, and their purpose in argument.</wrongFeedback>
   <items>
     <item>
       <clickable>
-        <text>Primary audience</text>
+        <text>Vaccines against COVID-19 should be mandated.</text>
       </clickable>
       <matching>
-        <text>Individuals that are most affected by the health issue and whose behavior you hope to modify with your health communication intervention.</text>
+        <text>No one has the right to mandate what goes into an individual's body.</text>
       </matching>
     </item>
     <item>
       <clickable>
-        <text>Targeting</text>
+        <text>Content on YouTube should be well regulated.</text>
       </clickable>
       <matching>
-        <text>The process of using group references, such as demographic or culture, in communication strategies to reach specific audiences</text>
+        <text>The principle of freedom of speech means that regulations on social media platforms should not be tightened.</text>
       </matching>
     </item>
     <item>
       <clickable>
-        <text>Tailoring</text>
+        <text>Parents should modify fetuses, if desired.</text>
       </clickable>
       <matching>
-        <text>The process of creating health communication materials and messages that meet one person’s needs, based on information about that specific</text>
+        <text>An unborn child is exactly the way God intended the child to be.</text>
       </matching>
     </item>
     <item>
       <clickable>
-        <text> Questioning</text>
+        <text>College athletes should not be paid.</text>
       </clickable>
       <matching>      
-        <text>The process of gathering data about a person, their family, signs and symptoms, and explanation of concerns to ensure a thorough understanding.</text>
+        <text>Because athletes earn money for their schools, they should be paid for the work they do.</text>
       </matching>
     </item>
     <item>
       <clickable>
-        <text>Audience segmentation</text>
+        <text>Minors should be allowed to buy birth control.</text>
       </clickable>
       <matching>      
-        <text>Individuals that can help you reach the intended audience but who are not part of the health issue you are trying to address.</text>
+        <text>Those under 18 do not have the emotional or mental maturity to access prescription drugs for themselves.</text>
       </matching>
     </item>
     <item>
       <clickable>
-        <text>Secondary Audience</text>
+        <text>U.S. immigration laws should be changed.</text>
       </clickable>
       <matching>
-        <text>The process where providers give information appropriate to the patient’s level of understanding and assesses the patient’s knowledge of the same.</text>
+        <text>The existing laws that allow outsiders into the United States are adequate and ensure the safety of current citizens.</text>
       </matching>
     </item>
     <item>
       <clickable>
-        <text>Explaining</text>
+        <text>Public colleges should be free to attend.</text>
       </clickable>
       <matching>      
-        <text>Individuals that affect behaviors of the intermediate audience that may also impact the behavior of the intervention’s intended audience.</text>
+        <text>Free public colleges would require operating costs to be borne by taxpayers who do not attend or have children in college.</text>
       </matching>
     </item>
-    <item>
-      <clickable>
-        <text>Tertiary audience </text>
-      </clickable>
-      <matching>
-        <text>The process of dividing a large group into smaller groups based on shared characteristics for the purpose of creating messages and communication</text>
-      </matching>
-    </item>
+    
   </items>
 </dataset>
