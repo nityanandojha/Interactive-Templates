@@ -33,6 +33,8 @@ function ClickableItemModel(index,data){
  
      this.isSubmitted = ko.observable(false);
      this.isAllCorrect = ko.observable(false);
+
+     this.isReset = ko.observable(false);
  
      var ref = this;
  
@@ -41,7 +43,7 @@ function ClickableItemModel(index,data){
      }
  
      this.xmlLoaded = function(xml){
-         console.log("xml loaded");
+         //console.log("xml loaded");
          var data = this.xml2json(xml).dataset;
          this.title(data.title);
          this.instruction(data.instruction);
@@ -94,7 +96,6 @@ function ClickableItemModel(index,data){
          }
      }
  
- 
      this.submitHandler = function(){
          var bool = true;
          for(var i = 0; i < ref.matchingItems().length; i++){
@@ -103,6 +104,7 @@ function ClickableItemModel(index,data){
                  bool = false;                
              }
          }
+         ref.isReset(false);
          ref.isAllCorrect(bool);
          ref.isSubmitted(true);
      }
@@ -118,6 +120,7 @@ function ClickableItemModel(index,data){
                  ref.matchingItems()[i].isCorrect(undefined);
              }
          }
+         ref.isReset(true);
          ref.isSubmitted(false);
          ref.selectedClickableItem(undefined);
      }

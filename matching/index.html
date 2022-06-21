@@ -67,7 +67,7 @@
                         </button>
                     </div>
                 </div>
-                <div id="r-feedback" class="feedback" data-bind="visible: isAllCorrect()">
+                <div id="r-feedback" class="feedback" data-bind="visible: isAllCorrect() && !isReset()">
                     <p></p>
                 </div>
                 <div id="w-feedback" class="feedback" data-bind="visible:isSubmitted() && !isAllCorrect()">
@@ -90,9 +90,9 @@
                         <div class="col-sm-4 col-lg-3 col-xl-2 col-6">
                             <div class="matching-element" data-bind="click:$parent.selectMatchingItemHandler,css:{'submitted':$parent.isSubmitted(),'correct-ans':isCorrect(),'wrong-ans':!isCorrect(),'filled':isFilled()}">   
                                 <!-- ko if:clickableItem--> 
-                                <div class="clickable-item" data-bind="with:clickableItem,visible:isFilled">
+                                <button class="clickable-item" data-bind="with:clickableItem,visible:isFilled">
                                     <p data-bind="html:text"></p>
-                                </div>                    
+                                </button>
                                 <!-- /ko -->                                               
                                 <button class="matching-item">
                                     <p data-bind="html:text"></p>
