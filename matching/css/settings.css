@@ -53,6 +53,12 @@
     margin-bottom:10px;
     cursor:pointer;
 }
+.theme-btn:focus{
+    outline: 1px solid;
+}
+.close-btn:focus{
+    outline: 1px solid;
+}
 .settings-container-themes-title{
     text-align:left;
     width:80px;

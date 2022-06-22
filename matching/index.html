@@ -30,16 +30,16 @@
                 <div class="top-description">
                   <div class="head-btn-wrap">
                     <div class="head-btn">
-                        <button type="button" class="note setting-button" data-bind="click:showTextHandler"><img src="images/doubts-button.png" alt=""></button>
-                        <button type="button" class="cog setting-button" data-bind="click:showSettingsPanelHandler"><img src="images/gear-option.png" alt=""></button>
+                        <button aria-label="Help button" type="button" class="note setting-button" data-bind="click:showTextHandler"><img src="images/doubts-button.png" alt="Help"></button>
+                        <button aria-label="Setting button" type="button" class="cog setting-button" data-bind="click:showSettingsPanelHandler"><img src="images/gear-option.png" alt="setting"></button>
                         
                         <div class="notice-card" data-bind="visible:showTextPanel">
-                            <button type="button" data-bind="click:closeTextPanelHandler" class="close-bt">&#x2715</button>
-                            To complete the activity, select each definition and then click the term that it belongs to. Replay the interactiion as many times you need. There is no time limit. Your responses will not be graded
+                            <button aria-label="Close button" type="button" data-bind="click:closeTextPanelHandler" class="close-bt">&#x2715</button>
+                            To complete the activity, select each definition and then click the term that it belongs to. Replay this interaction as many times as you need. There is no time limit. Your responses will not be graded
                         </div>
                     </div>
                   </div>
-                    <p class="activity-title" data-bind="html:title">Target Audiences and Messaging in Healthcare<br></p>
+                    <h1 class="activity-title" data-bind="html:title">Target Audiences and Messaging in Healthcare<br></h1>
                 </div>
             </div>
 
@@ -47,11 +47,11 @@
 
            
             <div class="settings-container" data-bind="visible:showSettingsPanel">
-                <button class="close-btn" data-bind="click:closeSettingsPanelHandler"><img src="images/remove.png"></button>
+                <button aria-label="close button" class="close-btn" data-bind="click:closeSettingsPanelHandler"><img src="images/remove.png" alt="Cross button"></button>
                 <div class="settings-container-themes">
                     <div class="settings-container-themes-title"><strong>Color Scheme</strong></div>
                     <!-- ko foreach: themes-->
-                    <button class="theme-btn" data-bind="click:$parent.selectThemeHandler"><img data-bind="attr:{src:'images/'+image}"><span data-bind="text:title"></span></button>                         
+                    <button aria-label="Graphic circle" class="theme-btn" data-bind="click:$parent.selectThemeHandler"><img data-bind="attr:{src:'images/'+image}"><span data-bind="text:title"></span></button>                         
                     <!-- /ko -->             
                 </div>
             </div>
@@ -62,7 +62,7 @@
             <div class="clickable-items">
                 <div class="row"  data-bind="foreach:clickableItems, style: { display: isAllFilled() ? 'none' : 'flex' }">
                     <div class="col-12 col-sm-6 col-md-3">
-                        <button class="clickable-item" data-bind="click:$parent.selectClickableItemHandler,css:{selected:$parent.isClickableSelected($data)},hidden:isMoved">
+                        <button alt="Items to match:- Romantic comedies used to" class="clickable-item" data-bind="click:$parent.selectClickableItemHandler,css:{selected:$parent.isClickableSelected($data)},hidden:isMoved">
                             <p data-bind="html:text"></p>
                         </button>
                     </div>
@@ -74,9 +74,9 @@
                     <p></p>
                 </div>
                 <div class="text-end footer">
-                    <button type="button" class="btn-submit btn float-lg-end" data-bind="click:resetHandler, visible:isSubmitted() && isAllCorrect(), enable:isSubmitted() && isAllCorrect()">Reset</button>
-                    <button type="button" class="btn-submit btn float-lg-end" data-bind="click:tryagainHandler, visible:isSubmitted() && !isAllCorrect()">Try Again</button>
-                    <button type="button" class="btn-submit btn float-lg-end" data-bind="click:submitHandler, visible:!isSubmitted(), enable:isAllFilled() && !isSubmitted()">Submit</button>
+                    <button aria-label="Submit button" type="button" class="btn-submit btn float-lg-end" data-bind="click:resetHandler, visible:isSubmitted() && isAllCorrect(), enable:isSubmitted() && isAllCorrect()">Reset</button>
+                    <button aria-label="Submit button" type="button" class="btn-submit btn float-lg-end" data-bind="click:tryagainHandler, visible:isSubmitted() && !isAllCorrect()">Try Again</button>
+                    <button aria-label="Submit button" type="button" class="btn-submit btn float-lg-end" data-bind="click:submitHandler, visible:!isSubmitted(), enable:isAllFilled() && !isSubmitted()">Submit</button>
                 </div>
             </div>
            </div>
@@ -90,11 +90,11 @@
                         <div class="col-sm-4 col-lg-3 col-xl-2 col-6">
                             <div class="matching-element" data-bind="click:$parent.selectMatchingItemHandler,css:{'submitted':$parent.isSubmitted(),'correct-ans':isCorrect(),'wrong-ans':!isCorrect(),'filled':isFilled()}">   
                                 <!-- ko if:clickableItem--> 
-                                <button class="clickable-item" data-bind="with:clickableItem,visible:isFilled">
+                                <button class="clickable-item" data-bind="with:clickableItem,visible:isFilled" alt="Description to match:- Primary communicable Disease">
                                     <p data-bind="html:text"></p>
                                 </button>
                                 <!-- /ko -->                                               
-                                <button class="matching-item">
+                                <button aria-label="" class="matching-item">
                                     <p data-bind="html:text"></p>
                                 </button>
                             </div>
