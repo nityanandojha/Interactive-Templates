@@ -30,11 +30,11 @@
                 <div class="top-description">
                   <div class="head-btn-wrap">
                     <div class="head-btn">
-                        <button aria-label="Help button" type="button" class="note setting-button" data-bind="click:showTextHandler"><img src="images/doubts-button.png" alt="Help"></button>
-                        <button aria-label="Setting button" type="button" class="cog setting-button" data-bind="click:showSettingsPanelHandler"><img src="images/gear-option.png" alt="setting"></button>
+                        <button aria-label="Help button" type="button" class="note setting-button" tabindex="1" data-bind="click:showTextHandler"><img src="images/doubts-button.png" alt="Help"></button>
+                        <button aria-label="Setting button" type="button" class="cog setting-button" tabindex="3" data-bind="click:showSettingsPanelHandler"><img src="images/gear-option.png" alt="setting"></button>
                         
                         <div class="notice-card" data-bind="visible:showTextPanel">
-                            <button aria-label="Close button" type="button" data-bind="click:closeTextPanelHandler" class="close-bt">&#x2715</button>
+                            <button aria-label="Close button" type="button" tabindex="2" data-bind="click:closeTextPanelHandler" class="close-bt">&#x2715</button>
                             To complete the activity, select each definition and then click the term that it belongs to. Replay this interaction as many times as you need. There is no time limit. Your responses will not be graded
                         </div>
                     </div>
@@ -47,11 +47,11 @@
 
            
             <div class="settings-container" data-bind="visible:showSettingsPanel">
-                <button aria-label="close button" class="close-btn" data-bind="click:closeSettingsPanelHandler"><img src="images/remove.png" alt="Cross button"></button>
+                <button aria-label="close button" class="close-btn" tabindex="4" data-bind="click:closeSettingsPanelHandler"><img src="images/remove.png" alt="Close button"></button>
                 <div class="settings-container-themes">
                     <div class="settings-container-themes-title"><strong>Color Scheme</strong></div>
                     <!-- ko foreach: themes-->
-                    <button aria-label="Graphic circle" class="theme-btn" data-bind="click:$parent.selectThemeHandler"><img data-bind="attr:{src:'images/'+image}"><span data-bind="text:title"></span></button>                         
+                    <button aria-label="Graphic circle" class="theme-btn" data-bind="click:$parent.selectThemeHandler"><img data-bind="attr:{src:'images/'+image}" alt="Theme button"><span data-bind="text:title"></span></button>                         
                     <!-- /ko -->             
                 </div>
             </div>
