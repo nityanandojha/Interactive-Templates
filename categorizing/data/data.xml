@@ -9,7 +9,7 @@
       <categorytitle cat="two">Secondary Communicable Disease Prevention Methods</categorytitle>
       <categorytitle cat="three">Tertiary Communicable Disease Prevention Methods</categorytitle>
   </category>
-  <draggableitem>
+  <!-- <draggableitem>
     <item cat="one">Vaccinations administration</item>
     <item cat="one">Legislation banning hazardous products</item>
     <item cat="two">Self-administered breast exams</item>
@@ -18,6 +18,24 @@
     <item cat="three">Early disease detection through health screenings and regular exams</item>
     <item cat="three">Nutrition and exercise programs to prevent strokes or heart attacks</item>
     <item cat="two">Nutrition and exercise programs to prevent strokes or heart attacks</item>
+  </draggableitem> -->
+  <draggableitem>
+    <item cat="one">Romantic Comedies used to be a common option
+                                at movie theaters, but recentyly Netflix has taken over the genre</item>
+    <item cat="one">Romantic Comedies used to be a common option
+                                at movie theaters, but recentyly Netflix has taken over the genre</item>
+    <item cat="two">Romantic Comedies used to be a common option
+                                at movie theaters, but recentyly Netflix has taken over the genre</item>
+    <item cat="two">Romantic Comedies used to be a common option
+                                at movie theaters, but recentyly Netflix has taken over the genre</item>
+    <item cat="one">Romantic Comedies used to be a common option
+                                at movie theaters, but recentyly Netflix has taken over the genre</item>
+    <item cat="three">Romantic Comedies used to be a common option
+                                at movie theaters, but recentyly Netflix has taken over the genre</item>
+    <item cat="three">Romantic Comedies used to be a common option
+                                at movie theaters, but recentyly Netflix has taken over the genre</item>
+    <item cat="two">Romantic Comedies used to be a common option
+                                at movie theaters, but recentyly Netflix has taken over the genre</item>
   </draggableitem>
  
 </dataset>
