@@ -73,14 +73,20 @@ header{
     padding-bottom: 22px;
 }
 .category{
-    padding: 14px 0px;
     display: flex;
     border-bottom: 2px dotted #d5d5d5;
     align-items: center;
 }
-.categoryTitleCnt{
-  
-
+.categoryTitleCnt {
+    padding: 13px 0px;
+}
+.categoryTitleCnt.right{
+    background: #C0D9A8;
+    padding: 13px 25px;
+}
+.categoryTitleCnt.wrong{
+    background: #E4A6AD;
+    padding: 13px 25px;
 }
 /* .category-0 {
     width: 8.33%;
@@ -505,10 +511,13 @@ button:focus {
     font-size: 18px;
     line-height: 24px;
     width: 176px;
-    padding: 14px 16px;
+    padding: 22px 16px;
     background: #000;
     border-radius: 10px;
     font-family: "helvetica bold" !important;
+}
+.categoryDroppableCnt{
+    padding: 14px 0px;
 }
 
 .category .draggableitemCnt {
@@ -523,6 +532,17 @@ button:focus {
 .catHr {
     border-top: 1px dashed #707070;
     margin: 0px 0px;
+    display: none;
+}
+.bottom-btn {
+    background: #5e6062;
+    font-size: 16px;
+    color: #fff;
+    font-family: 'helvetica bold';
+    padding: 12px 81px;
+    width: 100%;
+    text-transform: uppercase;
+    text-align: center;
     display: none;
 }
 
@@ -554,6 +574,15 @@ button:focus {
         border-radius: 14px;
         min-height: 16vh;
     }
+    .categoryTitle {
+        font-size: 18px;
+        line-height: 24px;
+        width: 176px;
+        padding: 6px 16px;
+        background: #000;
+        border-radius: 10px;
+        font-family: "helvetica bold" !important;
+    }
     header {
         border-bottom: 2px dotted #d5d5d5;
         padding-bottom: 3px;
@@ -570,9 +599,22 @@ button:focus {
         line-height: 20px;
     }
     .categoryTitle {
-        font-size: 14px;
+        font-size: 12px;
         line-height: 16px;
+        padding: 7px 16px;
         width: 189px;
+    }
+    .categoryTitleCnt {
+        padding: 10px 0px;
+    }
+    .categoryDroppableCnt{
+        height: 81px;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+        overflow-x: auto;
+        justify-content: center;
     }
     
 }
@@ -581,6 +623,12 @@ button:focus {
     .draggableitemWraper {
         width: 316px;
     }
+    header {
+        border-bottom: 2px dotted #d5d5d5;
+        padding-bottom: 47px;
+    }
+    
+    
     .container {
         width: 90%;
     }
@@ -651,6 +699,14 @@ button:focus {
         cursor: pointer;
         position: unset;
     }
+    .reset_btn {
+        cursor: pointer;
+        position: unset;
+    }
+    .tryagain_btn {
+        cursor: pointer;
+        position: unset;
+    }
 }
 
 @media screen and (max-width: 529px){
@@ -661,36 +717,39 @@ button:focus {
         top: 0px !important;
     }
     .draggableitemWraper_1{
-        top: 10px !important;
+        top:  5px !important;
     }
     .draggableitemWraper_2{
-        top: 20px !important;
+        top: 10px !important;
     }
     .draggableitemWraper_3{
-        top: 30px !important;
+        top: 15px !important;
     }
     .draggableitemWraper_4{
-        top: 40px !important;
+        top: 20px !important;
     }
     .draggableitemWraper_5{
-        top: 50px !important;
+        top: 25px !important;
     }
     .draggableitemWraper_6{
-        top: 60px !important;
+        top: 30px !important;
     }
     .draggableitemWraper_7{
-        top: 70px !important;
+        top:    35px !important;
     }
     .draggableitem {
         font-size: 14px;
         border: 0.2px solid #4a4a4a5c;
         height: auto;
         line-height: 20px;
-        box-shadow: 0px 1px 7px 0px #abaaaa;
+        box-shadow: 3px 1px 7px 0px #abaaaa;
     }
     .settingContainer {
         text-align: end;
         position: unset;
+    }
+    #title {
+        margin: 0px 0 10px 0px;
     }
     .draggableitemWraper {
     width: 100%;
@@ -701,16 +760,16 @@ button:focus {
     line-height: 20px;
 }
 header {
-    padding-bottom: 125px;
+    padding-bottom: 72px;
 }
 .categoryTitle {
     font-size: 16px;
     line-height: 20px;
     width: 100%;
-    padding: 16px 16px;
+    padding: 12px 16px;
 }
 .category {
-    padding: 18px 0px;
+    padding: 10px 0px;
     display: block;
     text-align: center;
 }
@@ -739,6 +798,17 @@ header {
 .submit_btn {
     cursor: pointer;
     position: unset;
+}
+.reset_btn {
+    cursor: pointer;
+    position: unset;
+}
+.tryagain_btn {
+    cursor: pointer;
+    position: unset;
+}
+.bottom-btn{
+    display: block;
 }
 
 }
