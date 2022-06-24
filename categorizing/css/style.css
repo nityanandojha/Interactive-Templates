@@ -70,10 +70,10 @@ body {
 
 header{
     border-bottom: 2px dotted #d5d5d5;
-    padding-bottom: 52px;
+    padding-bottom: 22px;
 }
 .category{
-    padding: 18px 0px;
+    padding: 14px 0px;
     display: flex;
     border-bottom: 2px dotted #d5d5d5;
     align-items: center;
@@ -446,13 +446,15 @@ hr.first {
 
 .draggableitem {
     font-size: 16px;
-    padding: 14px 16px;
+    padding: 7px 16px;
     text-align: start;
     box-shadow: 1px 4px 7px 0px #abaaaa;
     background: white;
     border-radius: 14px;
-    min-height: 14vh;
-    font-family: "montserrat regular" !important;
+    min-height: 9vh;
+    font-weight: 700;
+    letter-spacing: 1px;
+    font-family: 'helvetica regular' !important;
 }
 
 #loadingImg {
@@ -503,7 +505,7 @@ button:focus {
     font-size: 18px;
     line-height: 24px;
     width: 176px;
-    padding: 50px 16px;
+    padding: 14px 16px;
     background: #000;
     border-radius: 10px;
     font-family: "helvetica bold" !important;
@@ -512,7 +514,7 @@ button:focus {
 .category .draggableitemCnt {
     margin: 0px 0px 10px 0px;
     position: relative;
-    width: 304px;
+    width: 358px;
     margin-left: 23px;
     float: left;
     white-space: normal;
@@ -545,12 +547,16 @@ button:focus {
 @media screen and (device-width: 650px), (device-height: 365px){
     .draggableitem {
         font-size: 12px;
-        padding: 14px 16px;
+        padding: 10px 16px;
         text-align: start;
         box-shadow: 1px 4px 7px 0px #abaaaa;
         background: white;
         border-radius: 14px;
-        min-height: 24vh;
+        min-height: 16vh;
+    }
+    header {
+        border-bottom: 2px dotted #d5d5d5;
+        padding-bottom: 3px;
     }
     .draggableitemWraper {
         width: 270px;
@@ -585,6 +591,7 @@ button:focus {
         font-size: 14px;
         min-height: 11vh;
         line-height: 20px;
+        border: 0.2px solid #4a4a4a5c;
     }
     #title {
         font-size: 16px;
@@ -637,6 +644,13 @@ button:focus {
     .help-popup {
         width: 320px;
     }
+    .nav-container {
+        text-align: center;
+    }
+    .submit_btn {
+        cursor: pointer;
+        position: unset;
+    }
 }
 
 @media screen and (max-width: 529px){
@@ -669,6 +683,7 @@ button:focus {
     }
     .draggableitem {
         font-size: 14px;
+        border: 0.2px solid #4a4a4a5c;
         height: auto;
         line-height: 20px;
         box-shadow: 0px 1px 7px 0px #abaaaa;
@@ -717,6 +732,13 @@ header {
     font-size: 14px;
     line-height: 18px;
     text-align: start;
+}
+.nav-container {
+    text-align: center;
+}
+.submit_btn {
+    cursor: pointer;
+    position: unset;
 }
 
 }
