@@ -3,7 +3,7 @@ function ClickableItemModel(index,data){
     this.text = data.text;
     this.isMoved = ko.observable(false);
  }
- // Nityanand
+
  function MatchingItemModel(index,data){
      this.index = index;
      this.text = data.text;
@@ -15,7 +15,7 @@ function ClickableItemModel(index,data){
  
      this.isCorrect = ko.observable();
   }
- 
+// abcdefghijklmno 
  function MatchingTemplate() 
  {
      // this.container = null;	
