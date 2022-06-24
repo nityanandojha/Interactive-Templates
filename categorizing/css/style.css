@@ -51,7 +51,7 @@ body {
 
 
 .container {
-    width: 98%;
+    width: 96%;
     margin: auto;
     /* overflow-y: auto; */
     height: 100%;
@@ -76,6 +76,7 @@ header{
     padding: 18px 0px;
     display: flex;
     border-bottom: 2px dotted #d5d5d5;
+    align-items: center;
 }
 .categoryTitleCnt{
   
@@ -412,24 +413,22 @@ header{
     content: "";
     width: 32px;
     height: 32px;
-    background: url(../images/correct.png) no-repeat 0px 0px aliceblue;
+    background: url(../images/correct.png);
     background-size: contain;
-    top: 50%;
-    right: -16px;
+    top: -6px;
+    right: -12px;
     position: absolute;
-    margin-top: -16px;
 }
 
 .submited .incorrect:after {
     content: "";
     width: 32px;
     height: 32px;
-    background: url(../images/incorrect.png) no-repeat 0px 0px aliceblue;
+    background: url(../images/incorrect.png);
     background-size: contain;
-    top: 50%;
-    right: -16px;
+    top: -6px;
+    right: -12px;
     position: absolute;
-    margin-top: -16px;
 }
 
 
@@ -452,7 +451,7 @@ hr.first {
     box-shadow: 1px 4px 7px 0px #abaaaa;
     background: white;
     border-radius: 14px;
-    height: 14vh;
+    min-height: 14vh;
     font-family: "montserrat regular" !important;
 }
 
@@ -511,7 +510,7 @@ button:focus {
 }
 
 .category .draggableitemCnt {
-    margin: 10px 0px;
+    margin: 0px 0px 10px 0px;
     position: relative;
     width: 304px;
     margin-left: 23px;
@@ -551,7 +550,7 @@ button:focus {
         box-shadow: 1px 4px 7px 0px #abaaaa;
         background: white;
         border-radius: 14px;
-        height: 24vh;
+        min-height: 24vh;
     }
     .draggableitemWraper {
         width: 270px;
@@ -576,12 +575,15 @@ button:focus {
     .draggableitemWraper {
         width: 316px;
     }
+    .container {
+        width: 90%;
+    }
     .draggableitemWraper_0, .draggableitemWraper_1, .draggableitemWraper_2, .draggableitemWraper_3, .draggableitemWraper_4, .draggableitemWraper_5, .draggableitemWraper_6, .draggableitemWraper_7{
         top: 0px !important;
     }
     .draggableitem {
         font-size: 14px;
-        height: 11vh;
+        min-height: 11vh;
         line-height: 20px;
     }
     #title {
@@ -590,25 +592,25 @@ button:focus {
         width: 74%;
     }
     .draggableitemWraper_1{
-        left: 10px !important;
+        left: 15px !important;
     }
     .draggableitemWraper_2{
-        left: 20px !important;
-    }
-    .draggableitemWraper_3{
         left: 30px !important;
     }
+    .draggableitemWraper_3{
+        left: 45px !important;
+    }
     .draggableitemWraper_4{
-        left: 40px !important;
-    }
-    .draggableitemWraper_5{
-        left: 50px !important;
-    }
-    .draggableitemWraper_6{
         left: 60px !important;
     }
+    .draggableitemWraper_5{
+        left: 75px !important;
+    }
+    .draggableitemWraper_6{
+        left: 90px !important;
+    }
     .draggableitemWraper_7{
-        left: 70px !important;
+        left: 105px !important;
     }
     .category {
         padding: 18px 0px;
@@ -619,6 +621,7 @@ button:focus {
         font-size: 16px;
         line-height: 20px;
         width: 316px;
+        padding: 16px 16px;
     }
     .category .draggableitemCnt {
         text-align: center;
@@ -626,6 +629,13 @@ button:focus {
         float: none;
         white-space: unset;
         margin: 12px auto;
+    }
+    #instructionnorm {
+        font-size: 14px;
+        line-height: 18px;
+    }
+    .help-popup {
+        width: 320px;
     }
 }
 
@@ -682,12 +692,31 @@ header {
     font-size: 16px;
     line-height: 20px;
     width: 100%;
+    padding: 16px 16px;
 }
 .category {
     padding: 18px 0px;
     display: block;
     text-align: center;
 }
-
+.container {
+    width: 85%;
+}
+.help-popup {
+    width: 255px;
+    padding: 32px 32px 14px 20px;
+}
+.help-popup .popup-close {
+    right: 14px;
+    top: 12px;
+}
+.category .draggableitemCnt {
+    width: 100%;
+}
+#instructionnorm {
+    font-size: 14px;
+    line-height: 18px;
+    text-align: start;
+}
 
 }

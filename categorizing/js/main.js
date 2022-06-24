@@ -300,10 +300,10 @@ $(document).ready(function () {
 			//console.log('catTitle=',catTitle);
 			$(el).find(".categoryDroppableCnt").children().each(function (ind, ell) {
 				if ($(ell).find(".draggableitem").hasClass("correct")) {
-					$(ell).find(".draggableitem").css("border", "1px solid green");
+					$(ell).find(".draggableitem").css("border", "2px solid #63a524");
 					correctCounter++;
 				} else {
-					$(ell).find(".draggableitem").css("border", "1px solid red");
+					$(ell).find(".draggableitem").css("border", "2px solid #c22032");
 				}
 			});
 		});
