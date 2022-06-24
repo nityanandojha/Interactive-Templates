@@ -18,15 +18,15 @@
    <header>
     <div class="container">
         <div class="settingContainer">
-            <button class="showText" title='showText'>
+            <button tabindex="1" class="showText" title='showText'>
                <img src="images/doubts-button.png" alt="">
             </button>
     
-            <button class="setting" title='setting'>
+            <button tabindex="3" class="setting" title='setting'>
                 <img src="images/gear-option.png" alt="">
             </button>
             <div class="help-popup">
-                <button aria-label="" class="popup-close">&#10006;</button>
+                <button tabindex="2" aria-label="" class="popup-close">&#10006;</button>
                 <p id="instructionnorm"></p> 
             </div>
         </div>
@@ -34,7 +34,10 @@
         <!-- <p id="instructionbold"></p> -->
         
         
-        <div class="settinToolsContainer"></div>
+        <div class="settinToolsContainer">
+            <div class="toolsCnt"></div>
+            <button tabindex="4" class="close"></button>
+        </div>
 
         <div class="row dragableItemContainer">
             <div class="nav-container">
@@ -42,11 +45,11 @@
                     Submit
                 </button>
     
-                <button class="tryagain_btn" title="try again">
+                <button class="tryagain_btn invisible" title="try again">
                    Try Again
                 </button>
     
-                <button class="reset_btn" title="reset">
+                <button class="reset_btn invisible" title="reset">
                    Reset
                 </button>
             </div>

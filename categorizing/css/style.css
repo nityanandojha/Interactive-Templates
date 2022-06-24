@@ -59,14 +59,14 @@ body {
 
 }
 
-/* 
-.container:active {
-    border: 1px solid;
+.invisible {
+    visibility: hidden;
+    pointer-events: none;
 }
 
 .container:focus {
     border: 1px solid;
-} */
+}
 
 header{
     border-bottom: 2px dotted #d5d5d5;
@@ -209,7 +209,6 @@ header{
 
 
 .tryagain_btn {
-    display: none;
     cursor: pointer;
     position: absolute;
     right: 0%;
@@ -217,7 +216,6 @@ header{
 }
 
 .reset_btn {
-    display: none;
     cursor: pointer;
     position: absolute;
     right: 0%;
