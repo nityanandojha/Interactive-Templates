@@ -357,3 +357,12 @@ $(document).ready(function () {
 	}
 
 });
+
+$(document).ready(function(){
+  $(".showText").click(function(){
+    $(".help-popup").show();
+  });
+  $(".popup-close").click(function(){
+    $(".help-popup").hide();
+  });
+});

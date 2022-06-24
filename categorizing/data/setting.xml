@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <dataset>
     <focuscolor color="green"></focuscolor>
-    <title fontfamily="Montserrat-Bold" color="#001936"></title>
-    <instructionnorm fontfamily="Montserrat-Regular" color="#001936"></instructionnorm>
+    <title></title>
+    <instructionnorm></instructionnorm>
     <categorytitle fontfamily="Montserrat-Regular" color="#FFFFFF"></categorytitle>
     <draggableitem fontfamily="Montserrat-Regular" color="#4A4A4A"></draggableitem>
     <setting>

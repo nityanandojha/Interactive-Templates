@@ -1,15 +1,33 @@
 @font-face {
-    font-family: "Montserrat-Bold";
-    src: url("./fonts/Montserrat-Bold.ttf");
+    font-family: "helvetica bold";
+    src: url("./fonts/HelveticaNeueBd.ttf");
     -webkit-font-smoothing: antialiased;
     -webkit-text-size-adjust: auto;
+
 }
 
 @font-face {
-    font-family: "Montserrat-Regular";
+    font-family: "helvetica regular";
+    src: url("./fonts/HelveticaNeue.ttf");
+    -webkit-font-smoothing: antialiased;
+    -webkit-text-size-adjust: auto;
+
+}
+
+@font-face {
+    font-family: "montserrat bold";
+    src: url("./fonts/Montserrat-Bold.ttf");
+    -webkit-font-smoothing: antialiased;
+    -webkit-text-size-adjust: auto;
+
+}
+
+@font-face {
+    font-family: "montserrat regular";
     src: url("./fonts/Montserrat-Regular.ttf");
     -webkit-font-smoothing: antialiased;
     -webkit-text-size-adjust: auto;
+
 }
 
 
@@ -229,6 +247,7 @@ header{
     font-size: 20px;
     line-height: 28px;
     margin: 7px 0 12px 0px; 
+    font-family: "helvetica bold";
 }
 
 /* #instructionbold {
@@ -346,15 +365,30 @@ header{
     display: block;
 }
 
-
+.help-popup{
+    position: absolute;
+    background: #5e6062;
+    right: 26px;
+    width: 612px;
+    padding: 22px 66px 14px 20px;
+    z-index: 99;
+    top: 0;
+    display: none;
+}
+.help-popup .popup-close{
+    color: #ffff;
+    z-index: 99999999;
+    font-size: 25px;
+    background: none;
+    position: absolute;
+    right: 16px;
+    top: 16px;
+}
 #instructionnorm {
-    font-family: Montserrat-Regular;
-    color: rgb(0, 25, 54);
-    font-size: 23px;
-
-    width: 88%;
-    margin: 0 auto;
-    margin-top: 20px;
+    font-family: montserrat regular;
+    color: #fff;
+    font-size: 18px;
+    line-height: 26px;
 }
 
 .categoryContainer {
@@ -419,6 +453,7 @@ hr.first {
     background: white;
     border-radius: 14px;
     height: 14vh;
+    font-family: "montserrat regular" !important;
 }
 
 #loadingImg {
@@ -468,10 +503,11 @@ button:focus {
 .categoryTitle {
     font-size: 18px;
     line-height: 24px;
-    width: 162px;
-    padding: 24px 7px;
+    width: 176px;
+    padding: 50px 16px;
     background: #000;
     border-radius: 10px;
+    font-family: "helvetica bold" !important;
 }
 
 .category .draggableitemCnt {
@@ -491,7 +527,11 @@ button:focus {
 
 
 @media screen and  (device-width: 1350px), (device-height: 760px){
- 
+   
+    .nav-container button {
+        font-family: 'helvetica bold';
+        font-size: 20px;
+    }
     
 }
 
