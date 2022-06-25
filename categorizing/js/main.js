@@ -70,7 +70,7 @@ $(document).ready(function () {
 				});
 			})
 
-			$(".container .draggableitem").prop('disabled', true);
+			//$(".container .draggableitem").prop('disabled', true);
 			$(".container .draggableitem").last().removeAttr('disabled');
 		} else {
 			$(".dragableItemContainer").removeClass("mobile-device");
@@ -325,7 +325,7 @@ $(document).ready(function () {
 		$('.categoryContainer').removeClass("submited");
 		$(".draggableitem").css("border", "0px solid green").removeClass("correct incorrect");
 		if (isMobile) {
-			$(".container .draggableitem").prop('disabled', true);
+			//$(".container .draggableitem").prop('disabled', true);
 			$(".container .draggableitem").last().removeAttr('disabled');
 		}
 		$('.reset_btn').addClass("invisible");
