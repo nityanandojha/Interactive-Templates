@@ -52,6 +52,9 @@
     text-align:center;
     margin-bottom:10px;
     cursor:pointer;
+    font-family: 'helvetica regular';
+    letter-spacing: 1px;
+    font-weight: 600;
 }
 .theme-btn:focus{
     outline: 1px solid;

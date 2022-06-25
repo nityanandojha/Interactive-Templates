@@ -317,17 +317,9 @@ header{
     font-family: 'helvetica regular';
     letter-spacing: 1px;
     font-weight: 700;
-    text-transform: uppercase;
+    text-transform: capitalize;
 }
 
-.toolsCnt {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
-    gap: 0px;
-}
 
 .close {
     position: absolute;
@@ -667,17 +659,22 @@ button:focus {
     
     .categoryTitleCnt {
         padding: 8px 0px;
+        background: #fff;
+        position: fixed;
+        z-index: 999;
+        left: 14px;
     }
     .categoryTitleCnt.twoCnt {
         padding: 26px 0px;
     }
-    .categoryDroppableCnt{
+    .categoryDroppableCnt {
         height: 82px;
         width: 100%;
         display: flex;
         flex-direction: column;
         flex-wrap: wrap;
         justify-content: center;
+        margin-left: 191px;
     }
     
 }
@@ -912,5 +909,17 @@ header {
 .categoryDroppableCnt {
     padding: 0px 0px;
 }
-
+.toolTxt {
+    text-align: center;
+}
+.settinToolsContainer {
+    width: 232px;
+}
+.toolContainer {
+    width: 39%;
+    margin: 14px 8px;
+}
+.toolContainer_0 {
+    width: 100%;
+}
 }
