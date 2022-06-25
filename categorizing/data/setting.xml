@@ -6,10 +6,10 @@
     <categorytitle fontfamily="Montserrat-Regular" color="#FFFFFF"></categorytitle>
     <draggableitem fontfamily="Montserrat-Regular" color="#4A4A4A"></draggableitem>
     <setting>
-        <styleitem txt="Color Scheme" fontfamily="Montserrat-Bold" color="#001936"></styleitem>
-        <styleitem colors="#001a36,#4a4545,#c7ebf2" txt="default" fontfamily="Montserrat-Regular" tooltextcolor="#001936" picname='default.svg'></styleitem>
-        <styleitem colors="#b70000,#4a4545,#defaf7" txt="red/green" fontfamily="Montserrat-Regular" tooltextcolor="#001936" picname='red-green.svg'></styleitem>
-        <styleitem colors="#001783,#4a4545,#ccdcff" txt="blue/yellow" fontfamily="Montserrat-Regular" tooltextcolor="#001936" picname='blue-yellow.svg'></styleitem>
-        <styleitem colors="#43596f,#4a4545,#c9ebff" txt="highcontrast" fontfamily="Montserrat-Regular" tooltextcolor="#001936" picname='highcontrast.svg'></styleitem>
+        <styleitem txt="Color Scheme"></styleitem>
+        <styleitem colors="#001a36,#4a4545,#c7ebf2" txt="default" tooltextcolor="#001936" picname='default.svg'></styleitem>
+        <styleitem colors="#b70000,#4a4545,#defaf7" txt="red/green"  tooltextcolor="#001936" picname='red-green.svg'></styleitem>
+        <styleitem colors="#001783,#4a4545,#ccdcff" txt="blue/yellow"  tooltextcolor="#001936" picname='blue-yellow.svg'></styleitem>
+        <styleitem colors="#43596f,#4a4545,#c9ebff" txt="highcontrast"  tooltextcolor="#001936" picname='highcontrast.svg'></styleitem>
     </setting>
 </dataset>

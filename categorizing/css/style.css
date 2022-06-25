@@ -80,6 +80,9 @@ header{
 .categoryTitleCnt {
     padding: 13px 0px;
 }
+.categoryTitleCnt.twoCnt {
+    padding: 42px 0px;
+}
 .categoryTitleCnt.right{
     background: #C0D9A8;
     padding: 13px 25px;
@@ -211,6 +214,7 @@ header{
     background: #d5440b;
     border: none;
     padding: 8px 24px;
+    opacity: 0.65;
     color: #fff;
     font-family: 'helvetica bold';
     font-size: 22px;
@@ -295,37 +299,34 @@ header{
 
 
 .settinToolsContainer {
-
-    background: #BFBFBF;
+    background: #BFBFBF !important;
     padding: 15px;
     border-radius: 6px;
     color: #001936;
     box-shadow: 0px 3px 6px 0px rgb(112 112 112);
     -webkit-box-shadow: 0px 3px 6px 0px rgb(112 112 112);
-    -moz-box-shadow: 0px 3px 6px 0px rgba(112, 112, 112, 1);
+    -moz-box-shadow: 0px 3px 6px 0px rgba(112,112,112,1);
     position: absolute;
-    top: 30px;
-    right: 40px;
+    top: 5px;
+    right: 0px;
     width: 450px;
-    z-index: 1;
+    z-index: 9;
     display: none;
 }
-
-.toolsCnt {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
-    gap: 0px;
+.toolTxt{
+    font-family: 'helvetica regular';
+    letter-spacing: 1px;
+    font-weight: 700;
+    text-transform: capitalize;
 }
+
 
 .close {
     position: absolute;
     width: 18px;
     height: 18px;
-    right: -6px;
-    top: -6px;
+    right: 0px;
+    top: 0px;
     border-radius: 50%;
     cursor: pointer;
     background-image: url(../images/close.svg);
@@ -338,6 +339,7 @@ header{
     background: none;
     padding: 0px;
     outline: none;
+    margin-right: 5px;
     border: none;
     font-size: .7rem;
     width: 80px;
@@ -428,8 +430,8 @@ header{
     height: 30px;
     background: url(../images/correct.png);
     background-size: contain;
-    top: -6px;
-    right: -12px;
+    top: -8px;
+    right: -8px;
     position: absolute;
     background-repeat: no-repeat;
 }
@@ -440,8 +442,8 @@ header{
     height: 30px;
     background: url(../images/incorrect.png);
     background-size: cover;
-    top: -6px;
-    right: -12px;
+    top: -8px;
+    right: -8px;
     position: absolute;
     background-repeat: no-repeat;
 }
@@ -525,6 +527,15 @@ button:focus {
     border-radius: 10px;
     font-family: "helvetica bold" !important;
 }
+.categoryTitle.paddingCnt {
+    font-size: 18px;
+    line-height: 24px;
+    width: 176px;
+    padding: 50px 16px;
+    background: #000;
+    border-radius: 10px;
+    font-family: "helvetica bold" !important;
+}
 .categoryDroppableCnt{
     padding: 14px 0px;
 }
@@ -533,7 +544,7 @@ button:focus {
     margin: 0px 0px 10px 0px;
     position: relative;
     width: 358px;
-    margin-left: 23px;
+    margin-left: 14px;
     float: left;
     white-space: normal;
 }
@@ -550,7 +561,7 @@ button:focus {
     font-family: 'helvetica bold';
     padding: 12px 81px;
     width: 100%;
-    text-transform: uppercase;
+    text-transform: capitalize;
     text-align: center;
     display: none;
 }
@@ -583,6 +594,10 @@ button:focus {
         border-radius: 14px;
         min-height: 16vh;
     }
+    .category .draggableitemCnt {
+        width: 270px;
+        margin: 0px 0px 0px 15px;
+    }
     #instructionnorm {
         font-family: montserrat regular;
         color: #fff;
@@ -607,10 +622,10 @@ button:focus {
         font-family: "helvetica bold" !important;
     }
     .categoryTitleCnt.right {
-        padding: 10px 10px;
+        padding: 8px 10px;
     }
     .categoryTitleCnt.wrong {
-        padding: 10px 10px;
+        padding: 8px 10px;
     }
     header {
         border-bottom: 2px dotted #d5d5d5;
@@ -626,6 +641,7 @@ button:focus {
     #title {
         font-size: 14px;
         line-height: 20px;
+        margin: 7px 0px;
     }
     .categoryTitle {
         font-size: 12px;
@@ -633,17 +649,32 @@ button:focus {
         padding: 7px 16px;
         width: 189px;
     }
-    .categoryTitleCnt {
-        padding: 10px 0px;
+    .categoryTitle.paddingCnt {
+        font-size: 12px;
+        line-height: 16px;
+        padding: 16px 16px;
+        width: 189px;
     }
-    .categoryDroppableCnt{
-        height: 81px;
+    
+    
+    .categoryTitleCnt {
+        padding: 8px 0px;
+        background: #fff;
+        position: fixed;
+        z-index: 999;
+        left: 14px;
+    }
+    .categoryTitleCnt.twoCnt {
+        padding: 26px 0px;
+    }
+    .categoryDroppableCnt {
+        height: 82px;
         width: 100%;
         display: flex;
         flex-direction: column;
         flex-wrap: wrap;
-        overflow-x: auto;
         justify-content: center;
+        margin-left: 191px;
     }
     
 }
@@ -680,7 +711,7 @@ button:focus {
     }
     .draggableitem {
         font-size: 14px;
-        min-height: 11vh;
+        min-height: 8vh;
         line-height: 20px;
         border: 0.2px solid #4a4a4a5c;
     }
@@ -741,15 +772,18 @@ button:focus {
     }
     .submit_btn {
         cursor: pointer;
-        position: unset;
+            position: absolute;
+    right: 40%;
     }
     .reset_btn {
         cursor: pointer;
-        position: unset;
+            position: absolute;
+    right: 40%;
     }
     .tryagain_btn {
         cursor: pointer;
-        position: unset;
+            position: absolute;
+    right: 40%;
     }
 }
 
@@ -815,7 +849,7 @@ button:focus {
     line-height: 20px;
 }
 header {
-    padding-bottom: 72px;
+    padding-bottom: 68px;
 }
 .categoryTitle {
     font-size: 16px;
@@ -852,15 +886,18 @@ header {
 }
 .submit_btn {
     cursor: pointer;
-    position: unset;
+    position: absolute;
+    right: 29%;
 }
 .reset_btn {
     cursor: pointer;
-    position: unset;
+    position: absolute;
+    right: 29%;
 }
 .tryagain_btn {
     cursor: pointer;
-    position: unset;
+    position: absolute;
+    right: 29%;
 }
 .bottom-btn{
     display: block;
@@ -872,5 +909,17 @@ header {
 .categoryDroppableCnt {
     padding: 0px 0px;
 }
-
+.toolTxt {
+    text-align: center;
+}
+.settinToolsContainer {
+    width: 232px;
+}
+.toolContainer {
+    width: 39%;
+    margin: 14px 8px;
+}
+.toolContainer_0 {
+    width: 100%;
+}
 }
