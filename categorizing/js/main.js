@@ -147,7 +147,7 @@ $(document).ready(function () {
 
 		/* generating category view */
 		arrAllCategory.each(function (index, el) {
-			$(".categoryContainer").append('<div class="category category-' + arrAllCategory.length + '"><div class="categoryTitleCnt categoryTitleCnt_' + index + '"><button cat=' + $(el).attr("cat") + ' class="categoryTitle categoryTitle_' + index + '">' + $(el).html() + '</button></div><div class="categoryDroppableCnt categoryDroppableCnt_' + index + '"></div></div><hr class="catHr"/>');
+			$(".categoryContainer").append('<div class="category category-' + arrAllCategory.length + '"><div class="categoryTitleCnt categoryTitleCnt_' + index + '"><button cat=' + $(el).attr("cat") + ' class="categoryTitle categoryTitle_' + index + '">' + $(el).html() + '</button></div><div class="hidden categoryDroppableCnt categoryDroppableCnt_' + index + '"></div></div><hr class="catHr"/>');
 		});
 
 		$('.categoryTitle').css({
@@ -361,4 +361,11 @@ $(document).ready(function(){
     $(".help-popup").hide();
 	$(".settingContainer").css("zIndex","unset");
   });
+  $(".bottom-btn").on("click", function(){
+	console.log("-----------------");
+	$(".categoryDroppableCnt").toggleClass("hidden");
+	var text = $(".categoryDroppableCnt").hasClass("hidden")?"REVIEW YOUR<br>SORTED ANSWERS":"COLLAPSE<br>CATEGORIES";
+	$(this).html(text);
+	
+  })
 });

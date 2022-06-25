@@ -58,6 +58,9 @@ body {
     position: relative;
 
 }
+.hidden{
+    
+}
 
 .invisible {
     visibility: hidden;
@@ -921,5 +924,8 @@ header {
 }
 .toolContainer_0 {
     width: 100%;
+}
+.hidden{
+    display: none;
 }
 }
