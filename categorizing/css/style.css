@@ -325,8 +325,8 @@ header{
     position: absolute;
     width: 18px;
     height: 18px;
-    right: -6px;
-    top: -6px;
+    right: 0px;
+    top: 0px;
     border-radius: 50%;
     cursor: pointer;
     background-image: url(../images/close.svg);
