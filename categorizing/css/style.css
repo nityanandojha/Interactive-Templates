@@ -561,7 +561,7 @@ button:focus {
     font-family: 'helvetica bold';
     padding: 12px 81px;
     width: 100%;
-    text-transform: uppercase;
+    text-transform: capitalize;
     text-align: center;
     display: none;
 }
