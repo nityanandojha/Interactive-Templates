@@ -52,32 +52,32 @@ $(document).ready(function () {
 
 
 
-	function specifyForMobile() {
-		if (isMobile) {
-			$(".dragableItemContainer").addClass("mobile-device");
-			var top = 0;
-			var left = 0;
-			var drawCounter = 0;
+	// function specifyForMobile() {
+	// 	if (isMobile) {
+	// 		$(".dragableItemContainer").addClass("mobile-device");
+	// 		var top = 0;
+	// 		var left = 0;
+	// 		var drawCounter = 0;
 
-			$(".container").find(".mobile-device").find(".draggableitemWraper").each(function (index, el) {
-				drawCounter = drawCounter + .3;
-				top = top + drawCounter;
-				left = left + drawCounter;
-				$(el).css({
-					"position": "absolute",
-					"top": top + "px",
-					"left": left + "px"
-				});
-			})
+	// 		$(".container").find(".mobile-device").find(".draggableitemWraper").each(function (index, el) {
+	// 			drawCounter = drawCounter + .3;
+	// 			top = top + drawCounter;
+	// 			left = left + drawCounter;
+	// 			$(el).css({
+	// 				"position": "absolute",
+	// 				"top": top + "px",
+	// 				"left": left + "px"
+	// 			});
+	// 		})
 
-			//$(".container .draggableitem").prop('disabled', true);
-			$(".container .draggableitem").last().removeAttr('disabled');
-		} else {
-			$(".dragableItemContainer").removeClass("mobile-device");
-		}
-		// $(el).find(".draggableitem").prop('disabled',true);
+	// 		//$(".container .draggableitem").prop('disabled', true);
+	// 		$(".container .draggableitem").last().removeAttr('disabled');
+	// 	} else {
+	// 		$(".dragableItemContainer").removeClass("mobile-device");
+	// 	}
+	// 	// $(el).find(".draggableitem").prop('disabled',true);
 
-	}
+	// }
 
 	function displayStaticContent() {
 		function isMacintosh() {
