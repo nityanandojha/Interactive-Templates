@@ -66,6 +66,9 @@ section .container{
     visibility: hidden;
     pointer-events: none;
 }
+.inactive{
+    pointer-events: none;
+}
 
 .container:focus {
     border: 1px solid;
@@ -431,8 +434,8 @@ header{
 
 .submited .correct:after {
     content: "";
-    width: 30px;
-    height: 30px;
+    width: 25px;
+    height: 25px;
     background: url(../images/correct.png);
     background-size: contain;
     top: -8px;
@@ -443,8 +446,8 @@ header{
 
 .submited .incorrect:after {
     content: "";
-    width: 30px;
-    height: 30px;
+    width: 25px;
+    height: 25px;
     background: url(../images/incorrect.png);
     background-size: cover;
     top: -8px;
@@ -666,6 +669,7 @@ button:focus {
         line-height: 16px;
         padding: 7px 16px;
         width: 189px;
+        min-height: 62px;
     }
     .categoryTitle.paddingCnt {
         font-size: 12px;
@@ -691,7 +695,7 @@ button:focus {
         flex-direction: column;
         flex-wrap: wrap;
         justify-content: center;
-        margin-left: 191px;
+        margin-left: 210px;
     }
     
 }
@@ -944,5 +948,8 @@ section .container {
 }
 .toolContainer_0 {
     width: 100%;
+}
+.hidden{
+    display: none;
 }
 }

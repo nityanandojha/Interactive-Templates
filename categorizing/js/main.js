@@ -34,14 +34,7 @@ $(document).ready(function () {
 					displayStaticContent();
 					//$('.container').focus();
 					//alert('ok');
-
-
-
 					specifyForMobile();
-
-
-
-
 				}
 			});
 		}
@@ -52,32 +45,32 @@ $(document).ready(function () {
 
 
 
-	// function specifyForMobile() {
-	// 	if (isMobile) {
-	// 		$(".dragableItemContainer").addClass("mobile-device");
-	// 		var top = 0;
-	// 		var left = 0;
-	// 		var drawCounter = 0;
+	function specifyForMobile() {
+		if (isMobile) {
+			$(".dragableItemContainer").addClass("mobile-device");
+			var top = 0;
+			var left = 0;
+			var drawCounter = 0;
 
-	// 		$(".container").find(".mobile-device").find(".draggableitemWraper").each(function (index, el) {
-	// 			drawCounter = drawCounter + .3;
-	// 			top = top + drawCounter;
-	// 			left = left + drawCounter;
-	// 			$(el).css({
-	// 				"position": "absolute",
-	// 				"top": top + "px",
-	// 				"left": left + "px"
-	// 			});
-	// 		})
+			$(".container").find(".mobile-device").find(".draggableitemWraper").each(function (index, el) {
+				drawCounter = drawCounter + .3;
+				top = top + drawCounter;
+				left = left + drawCounter;
+				$(el).css({
+					"position": "absolute",
+					"top": top + "px",
+					"left": left + "px"
+				});
+			})
 
-	// 		//$(".container .draggableitem").prop('disabled', true);
-	// 		$(".container .draggableitem").last().removeAttr('disabled');
-	// 	} else {
-	// 		$(".dragableItemContainer").removeClass("mobile-device");
-	// 	}
-	// 	// $(el).find(".draggableitem").prop('disabled',true);
+			//$(".container .draggableitem").prop('disabled', true);
+			$(".container .draggableitem").last().removeAttr('disabled');
+		} else {
+			$(".dragableItemContainer").removeClass("mobile-device");
+		}
+		// $(el).find(".draggableitem").prop('disabled',true);
 
-	// }
+	}
 
 	function displayStaticContent() {
 		function isMacintosh() {
@@ -147,7 +140,7 @@ $(document).ready(function () {
 
 		/* generating category view */
 		arrAllCategory.each(function (index, el) {
-			$(".categoryContainer").append('<div class="category category-' + arrAllCategory.length + '"><div class="categoryTitleCnt categoryTitleCnt_' + index + '"><button cat=' + $(el).attr("cat") + ' class="categoryTitle categoryTitle_' + index + '">' + $(el).html() + '</button></div><div class="categoryDroppableCnt categoryDroppableCnt_' + index + '"></div></div><hr class="catHr"/>');
+			$(".categoryContainer").append('<div class="category category-' + arrAllCategory.length + '"><div class="categoryTitleCnt categoryTitleCnt_' + index + '"><button cat=' + $(el).attr("cat") + ' class="categoryTitle categoryTitle_' + index + '">' + $(el).html() + '</button></div><div class="hidden categoryDroppableCnt categoryDroppableCnt_' + index + '"></div></div><hr class="catHr"/>');
 		});
 
 		$('.categoryTitle').css({
@@ -275,6 +268,7 @@ $(document).ready(function () {
 
 				var catTitle = $(el).find(".categoryTitle").attr("cat");
 				$(el).find(".categoryDroppableCnt").children().each(function (ind, ell) {
+					$(ell).find(".draggableitem").removeClass("correct").removeClass("incorrect");
 					if ($(ell).find(".draggableitem").attr("cat") == catTitle) {
 						$(ell).find(".draggableitem").addClass("correct");
 					} else {
@@ -286,7 +280,8 @@ $(document).ready(function () {
 			console.log('totalDropedItem=', totalDropedItem);
 			if (totalDropedItem == arrAllDraggableitem.length) {
 				//$('.nav-container').show()
-				$('.submit_btn').removeClass("invisible").focus().off().on("click", submitListener);
+				$('.submit_btn').prop("disabled", false);
+				$('.submit_btn').off().on("click", submitListener);
 			}
 		}
 		//$(this).parent().parent().append(curItem);
@@ -294,31 +289,40 @@ $(document).ready(function () {
 
 	function submitListener() {
 		var correctCounter = 0;
+		$(".categoryTitle").addClass("inactive");
+		$(".draggableitem").addClass("inactive");
+		
 		$('.category').each(function (index, el) {
 			var catTitle = $(el).find(".categoryTitle").attr("cat");
 			// totalDropedItem=totalDropedItem+dropedItemLenth
 			//console.log('catTitle=',catTitle);
+			var rightCat="right-cat";
 			$(el).find(".categoryDroppableCnt").children().each(function (ind, ell) {
 				if ($(ell).find(".draggableitem").hasClass("correct")) {
 					$(ell).find(".draggableitem").css("border", "2px solid #63a524");
 					correctCounter++;
 				} else {
 					$(ell).find(".draggableitem").css("border", "2px solid #c22032");
+					rightCat = "wrong-cat";
 				}
 			});
+			$("categoryTitleCnt").addClass(rightCat);
+			
 		});
 		//console.log('correctCounter=',correctCounter);
 		$(this).addClass("invisible");
 		$('.categoryContainer').addClass("submited");
 		//$('.nav-container').removeClass("invisible");
 		if (correctCounter == arrAllDraggableitem.length) { 			
-			$('.reset_btn').removeClass("invisible").focus().off().on("click", resetCategory);
+			$('.reset_btn').removeClass("invisible").focus().off().on("click", resetCategory).prop("disabled", false);
 		} else {
-			$('.tryagain_btn').removeClass("invisible").focus().off().on("click", resetCategory);
+			$('.tryagain_btn').removeClass("invisible").focus().off().on("click", resetCategory).prop("disabled", false);
 		}
 	}
 
 	function resetCategory() {
+		$(".categoryTitle").removeClass("inactive");
+		$(".draggableitem").removeClass("inactive");
 		arrAllDraggableitem.each(function (index, el) {
 			$(".categoryContainer").find(".draggableitemCnt_" + index).appendTo(".draggableitemWraper_" + index);
 		});
@@ -328,9 +332,9 @@ $(document).ready(function () {
 			//$(".container .draggableitem").prop('disabled', true);
 			$(".container .draggableitem").last().removeAttr('disabled');
 		}
-		$('.reset_btn').addClass("invisible");
-		$('.tryagain_btn').addClass("invisible");
-		$('.submit_btn').removeClass("invisible").attr("disabled","");
+		$('.reset_btn').addClass("invisible").prop("disabled", true);
+		$('.tryagain_btn').addClass("invisible").prop("disabled", true);
+		$('.submit_btn').removeClass("invisible").prop("disabled", true);
 	}
 
 
@@ -361,4 +365,11 @@ $(document).ready(function(){
     $(".help-popup").hide();
 	$(".settingContainer").css("zIndex","unset");
   });
+  $(".bottom-btn").on("click", function(){
+	console.log("-----------------");
+	$(".categoryDroppableCnt").toggleClass("hidden");
+	var text = $(".categoryDroppableCnt").hasClass("hidden")?"REVIEW YOUR<br>SORTED ANSWERS":"COLLAPSE<br>CATEGORIES";
+	$(this).html(text);
+	
+  })
 });
