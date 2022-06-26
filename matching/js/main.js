@@ -8,6 +8,8 @@ var matching = (function() {
 
         $(".note").off().on("click",function() {
             $(".notice-card").show();
+            $(".notice-card").css("zIndex","10");
+            $(".settings-container").css("zIndex","10");
 
             $(".close-bt").off().on("click", function(){
                 $(".notice-card").hide();
@@ -16,6 +18,8 @@ var matching = (function() {
 
         $(".setting-button").off().on("click",function() {
             $(".settings-container").show();
+            $(".settings-container").css("zIndex","11");
+            $(".notice-card").css("zIndex","9");
 
             $(".close-btn").off().on("click", function(){
                 $(".settings-container").hide();
@@ -91,7 +95,6 @@ var matching = (function() {
         if(!$(this).attr("data-placed")){
             $(this).find(".matching-element").append(curDiv);
         }else{
-            //console.log($(curDiv).attr("data-placed"), curMatchbox != $(this).attr("id"));
             if($(curDiv).attr("data-placed")){
                 if(curMatchbox == $(this).attr("id")){
                     return;
@@ -115,11 +118,11 @@ var matching = (function() {
         }
 
         var prevMatched = $(curDiv).attr("data-placed");
-        //if(prevMatched != "" || prevMatched != undefined){
+        if(prevMatched != "" || prevMatched != undefined){
             $("#"+prevMatched).attr("data-placed", "");
             $("#"+prevMatched).removeClass("placed");
             $("#"+prevMatched).off().on("click", matchHandler);
-        //}
+        }
         
         if (curDiv) {
             $(curDiv).attr("data-placed", $(this).attr("id"));

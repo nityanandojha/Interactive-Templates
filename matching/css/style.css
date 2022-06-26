@@ -243,7 +243,6 @@ body {
     position: fixed;
     width: 100%;
     right: 0;
-    z-index: 9;
 }
 .sticky .head-btn-wrap{
     position: unset;
@@ -257,7 +256,6 @@ body {
     width: 24%;
     padding: 12px 34px 12px 22px;
     top: 0;
-    z-index: 9999;
     display: none;
 }
 .head-btn .note{
