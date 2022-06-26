@@ -12,11 +12,10 @@
     <script src="lib/jquery/jquery-3.1.1.min.js"></script>
     <script src="lib/bootstrap/js/bootstrap.min.js"></script>
     <script src="lib/bootstrap/js/popper.min.js"></script>
-    <script src="lib/knockout/knockout-3.5.1.js"></script>
+    <!-- <script src="lib/knockout/knockout-3.5.1.js"></script> -->
    
     <script src="js/util.js"></script>
     <script src="js/main.js"></script>
-    <!--<script src="js/accessibilityJs.js"></script>-->
 </head>
 
 <body>
@@ -30,24 +29,21 @@
                 <div class="top-description">
                   <div class="head-btn-wrap">
                     <div class="head-btn">
-                        <button aria-label="Help button" type="button" class="note setting-button" data-bind="click:showTextHandler"><img src="images/doubts-button.png" alt="Help"></button>
-                        <button aria-label="Setting button" type="button" class="cog setting-button" data-bind="click:showSettingsPanelHandler"><img src="images/gear-option.png" alt="setting"></button>
+                        <button aria-label="Help button" type="button" class="note" data-bind="click:showTextHandler"><img src="images/doubts-button.png" alt="Help"></button>
+                        <button aria-label="Setting button" type="button" class="cog setting-button"><img src="images/gear-option.png" alt="setting"></button>
                         
-                        <div class="notice-card" data-bind="visible:showTextPanel">
-                            <button aria-label="Close button" type="button" data-bind="click:closeTextPanelHandler" class="close-bt">&#x2715</button>
-                            To complete the activity, select each definition and then click the term that it belongs to. Replay this interaction as many times as you need. There is no time limit. Your responses will not be graded
+                        <div class="notice-card">
+                            <button aria-label="Close button" type="button" class="close-bt">&#x2715</button>
+                            <p>To complete the activity, select each definition and then click the term that it belongs to. Replay this interaction as many times as you need. There is no time limit. Your responses will not be graded</p>
                         </div>
                     </div>
                   </div>
                     <h1 class="activity-title" data-bind="html:title">Target Audiences and Messaging in Healthcare<br></h1>
                 </div>
             </div>
-
-
-
            
-            <div class="settings-container" data-bind="visible:showSettingsPanel">
-                <button aria-label="close button" class="close-btn" data-bind="click:closeSettingsPanelHandler"><img src="images/remove.png" alt="Cross button"></button>
+            <div class="settings-container">
+                <button aria-label="close button" class="close-btn"><img src="images/remove.png" alt="Cross button"></button>
                 <div class="settings-container-themes">
                     <div class="settings-container-themes-title"><strong>Color Scheme</strong></div>
                     <!-- ko foreach: themes-->
@@ -56,14 +52,11 @@
                 </div>
             </div>
 
-          
-            <!-- <p class="activity-instruction" data-bind="html:instruction">To complete the activity, select each definition and then click the term that it belongs to. Replay the interactiion as many times you need. There is no time limit. Your responses will not be graded</p> -->
-            
             <div class="clickable-items">
-                <div class="row"  data-bind="foreach:clickableItems, style: { display: isAllFilled() ? 'none' : 'flex' }">
-                    <div class="col-12 col-sm-6 col-md-3">
-                        <button alt="Items to match:- Romantic comedies used to" class="clickable-item" data-bind="click:$parent.selectClickableItemHandler,css:{selected:$parent.isClickableSelected($data)},hidden:isMoved">
-                            <p data-bind="html:text"></p>
+                <div class="row clickableBlock shuffle"  data-bind="foreach:clickableItems">
+                    <div class="col-12 col-sm-6 col-md-3" id="cloneItem_d">
+                        <button alt="Items to match:- Romantic comedies used to" class="clickable-item">
+                            <p data-bind="html:text" style="pointer-events: none;"></p>
                         </button>
                     </div>
                 </div>
@@ -74,28 +67,22 @@
                     <p></p>
                 </div>
                 <div class="text-end footer">
-                    <button aria-label="Submit button" type="button" class="btn-submit btn float-lg-end" data-bind="click:resetHandler, visible:isSubmitted() && isAllCorrect(), enable:isSubmitted() && isAllCorrect()">Reset</button>
-                    <button aria-label="Submit button" type="button" class="btn-submit btn float-lg-end" data-bind="click:tryagainHandler, visible:isSubmitted() && !isAllCorrect()">Try Again</button>
-                    <button aria-label="Submit button" type="button" class="btn-submit btn float-lg-end" data-bind="click:submitHandler, visible:!isSubmitted(), enable:isAllFilled() && !isSubmitted()">Submit</button>
+                    <button aria-label="Reset button" type="button" class="reset_btn btn-submit btn float-lg-end">Reset</button>
+                    <button aria-label="Tryagain button" type="button" class="tryagain_btn btn-submit btn float-lg-end">Try Again</button>
+                    <button aria-label="Submit button" type="button" class="submit_btn btn-submit btn float-lg-end disabled">Submit</button>
                 </div>
             </div>
            </div>
 
         </header>
         <section class="activity-content">
-            
             <div class="container-fluid">
                 <div class="matching-items">
-                    <div class="row"  data-bind="foreach: matchingItems">
-                        <div class="col-sm-4 col-lg-3 col-xl-2 col-6">
-                            <div class="matching-element" data-bind="click:$parent.selectMatchingItemHandler,css:{'submitted':$parent.isSubmitted(),'correct-ans':isCorrect(),'wrong-ans':!isCorrect(),'filled':isFilled()}">   
-                                <!-- ko if:clickableItem--> 
-                                <button class="clickable-item" data-bind="with:clickableItem,visible:isFilled" alt="Description to match:- Primary communicable Disease">
-                                    <p data-bind="html:text"></p>
-                                </button>
-                                <!-- /ko -->                                               
+                    <div class="row matchingBlock shuffle"  data-bind="foreach: matchingItems">
+                        <div class="col-sm-4 col-lg-3 col-xl-2 col-6" id="matchBox_d">
+                            <div class="matching-element">   
                                 <button aria-label="" class="matching-item">
-                                    <p data-bind="html:text"></p>
+                                    <p data-bind="html:text" style="pointer-events: none;"></p>
                                 </button>
                             </div>
                         </div>                                       
@@ -104,5 +91,6 @@
             </div>
         </section>
     </div>
+    <div id="tempDiv" style="display:none"></div>
 </body>
 </html>
