@@ -58,12 +58,15 @@ body {
     position: relative;
 
 }
-.hidden{
-    
+section .container{
+    width: 100%;
 }
 
 .invisible {
     visibility: hidden;
+    pointer-events: none;
+}
+.inactive{
     pointer-events: none;
 }
 
@@ -81,18 +84,18 @@ header{
     align-items: center;
 }
 .categoryTitleCnt {
-    padding: 13px 0px;
+    padding: 13px 32px;
 }
 .categoryTitleCnt.twoCnt {
     padding: 42px 0px;
 }
 .categoryTitleCnt.right{
     background: #C0D9A8;
-    padding: 13px 25px;
+    padding: 13px 32px;
 }
 .categoryTitleCnt.wrong{
     background: #E4A6AD;
-    padding: 13px 25px;
+    padding: 13px 32px;
 }
 /* .category-0 {
     width: 8.33%;
@@ -431,8 +434,8 @@ header{
 
 .submited .correct:after {
     content: "";
-    width: 30px;
-    height: 30px;
+    width: 25px;
+    height: 25px;
     background: url(../images/correct.png);
     background-size: contain;
     top: -8px;
@@ -443,8 +446,8 @@ header{
 
 .submited .incorrect:after {
     content: "";
-    width: 30px;
-    height: 30px;
+    width: 25px;
+    height: 25px;
     background: url(../images/incorrect.png);
     background-size: cover;
     top: -8px;
@@ -599,7 +602,7 @@ button:focus {
         box-shadow: 1px 4px 7px 0px #abaaaa;
         background: white;
         border-radius: 14px;
-        min-height: 16vh;
+        min-height: 10vh;
     }
     .category .draggableitemCnt {
         width: 270px;
@@ -630,7 +633,7 @@ button:focus {
         font-family: "helvetica bold" !important;
     }
     .categoryTitleCnt.right {
-        padding: 8px 10px;
+        padding: 8px 16px;
     }
     .categoryTitleCnt.wrong {
         padding: 8px 10px;
@@ -656,6 +659,7 @@ button:focus {
         line-height: 16px;
         padding: 7px 16px;
         width: 189px;
+        min-height: 62px;
     }
     .categoryTitle.paddingCnt {
         font-size: 12px;
@@ -666,11 +670,10 @@ button:focus {
     
     
     .categoryTitleCnt {
-        padding: 8px 0px;
-        background: #fff;
-        position: fixed;
-        z-index: 999;
-        left: 14px;
+        padding: 8px 16px;
+    background: #fff;
+    position: fixed;
+    z-index: 999;
     }
     .categoryTitleCnt.twoCnt {
         padding: 26px 0px;
@@ -682,7 +685,7 @@ button:focus {
         flex-direction: column;
         flex-wrap: wrap;
         justify-content: center;
-        margin-left: 191px;
+        margin-left: 210px;
     }
     
 }
@@ -710,9 +713,11 @@ button:focus {
         padding: 0px 0px;
     }
     
-    
-    .container {
+    .container{
         width: 90%;
+    }
+    section .container {
+        width: 100%;
     }
     .draggableitemWraper_0, .draggableitemWraper_1, .draggableitemWraper_2, .draggableitemWraper_3, .draggableitemWraper_4, .draggableitemWraper_5, .draggableitemWraper_6, .draggableitemWraper_7{
         top: 0px !important;
@@ -863,7 +868,7 @@ header {
 .categoryTitle {
     font-size: 14px;
     line-height: 20px;
-    width: 100%;
+    width: 276px;
     padding: 12px 16px;
 }
 .category {
@@ -871,7 +876,10 @@ header {
     display: block;
     text-align: center;
 }
-.container {
+.container{
+    width: 85%;
+}
+section .container {
     width: 85%;
 }
 .help-popup {

@@ -5,20 +5,20 @@
     <instructionnorm>Drag each item and drop it under the correct category. Replay this interaction as many times as you need. There is no time limit. Your responses will not be graded.</instructionnorm>
 </instruction>
   <category>
-      <categorytitle cat="one">1. In this chapter, you have looked at different ways to respond</categorytitle>
-      <categorytitle cat="one">2. In this chapter, you have looked at different ways to respond</categorytitle>
-      <categorytitle cat="one">3. In this chapter, you have looked at different ways to respond</categorytitle>
+      <categorytitle cat="one">1. In this chapter, you have looked at different</categorytitle>
+      <categorytitle cat="two">2. In this </categorytitle>
+      <!-- <categorytitle cat="three">3. In this chapter, you have looked at different ways to respond</categorytitle> -->
   </category>
 
   <draggableitem>
     <item cat="one">1. Crazy Ex-Girlfriend is about a young lawyer named Rebecca Bunch who follows a crush to California, America, USA.</item>
     <item cat="one">2. Crazy Ex-Girlfriend is about a young lawyer named Rebecca Bunch who follows a crush to California, America, USA.</item>
     <item cat="one">3. Crazy Ex-Girlfriend is about a young lawyer named Rebecca Bunch who follows a crush to California, America, USA.</item>
-    <item cat="one">4. Crazy Ex-Girlfriend is about a young lawyer named Rebecca Bunch who follows a crush to California, America, USA.</item>
-    <item cat="one">5. Crazy Ex-Girlfriend is about a young lawyer named Rebecca Bunch who follows a crush to California, America, USA.</item>
-    <item cat="one">6. Crazy Ex-Girlfriend is about a young lawyer named Rebecca Bunch who follows a crush to California, America, USA.</item>
+    <item cat="two">4. Crazy Ex-Girlfriend is about a young lawyer named Rebecca Bunch who follows a crush to California, America, USA.</item>
+    <item cat="two">5. Crazy Ex-Girlfriend is about a young lawyer named Rebecca Bunch who follows a crush to California, America, USA.</item>
+    <item cat="two">6. Crazy Ex-Girlfriend is about a young lawyer named Rebecca Bunch who follows a crush to California, America, USA.</item>
     <item cat="one">7. Crazy Ex-Girlfriend is about a young lawyer named Rebecca Bunch who follows a crush to California, America, USA.</item>
-    <item cat="one">8. Crazy Ex-Girlfriend is about a young lawyer named Rebecca Bunch who follows a crush to California, America, USA.</item>
+    <item cat="two">8. Crazy Ex-Girlfriend is about a young lawyer named Rebecca Bunch who follows a crush to California, America, USA.</item>
   </draggableitem>
   <feedback>
     <rightans>Correct! You’ve matched each review excerpt to its category. You understand that summaries/observations are objective statements, while evaluations/analyses are subjective statements about the subject of the </rightans>
