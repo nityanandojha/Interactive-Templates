@@ -183,6 +183,9 @@ body {
 .clickable-items .clickable-item.selected{
     border:solid 2px var(--selectioncolor);
 }
+.matching-items .clickable-item.selected{
+    border:solid 2px var(--selectioncolor);
+}
 
 .clickable-items .clickable-item p,  .matching-items .clickable-item p{
     margin-bottom: 0px;
