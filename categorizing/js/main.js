@@ -2,6 +2,7 @@
 $(document).ready(function () {
 
 	var setting;
+	var rightFeedback, wrongFeedback;
 	var arrAllDraggableitem = null;
 	var staticImagePath="images/";
 	const isMobile = detectMob(); 
@@ -34,7 +35,7 @@ $(document).ready(function () {
 					displayStaticContent();
 					//$('.container').focus();
 					//alert('ok');
-					specifyForMobile();
+					//specifyForMobile();
 				}
 			});
 		}
@@ -46,6 +47,7 @@ $(document).ready(function () {
 
 
 	function specifyForMobile() {
+		
 		if (isMobile) {
 			$(".dragableItemContainer").addClass("mobile-device");
 			var top = 0;
@@ -116,7 +118,9 @@ $(document).ready(function () {
 		var instNormFontFamily = setting.find("instructionnorm").attr('fontfamily');
 		var instNormColor = setting.find("instructionnorm").attr('color');
 		var instNormBackgroundcolor = setting.find("instructionnorm").attr('backgroundcolor');
-
+		rightFeedback = xml.find("feedback").find("rightans").html();
+		wrongFeedback = xml.find("feedback").find("wrongans").html();
+		console.log(rightFeedback, wrongFeedback);
 		console.log('fontfamily=', fontfamily);
 
 		var title = xml.find("title").text();
@@ -124,8 +128,8 @@ $(document).ready(function () {
 		//console.log("dgdfgdfgfd=", title, instructionNorm);
 
 		var arrAllCategory = xml.find("category").find("categorytitle");
-		arrAllDraggableitem = xml.find("draggableitem").find("item");
-
+		var arrAllDraggableitem1 = xml.find("draggableitem").find("item");
+		arrAllDraggableitem = shuffleArray(arrAllDraggableitem1);
 
 		$("#title").text(title).css({
 			"font-family": fontfamily,
@@ -140,7 +144,7 @@ $(document).ready(function () {
 
 		/* generating category view */
 		arrAllCategory.each(function (index, el) {
-			$(".categoryContainer").append('<div class="category category-' + arrAllCategory.length + '"><div class="categoryTitleCnt categoryTitleCnt_' + index + '"><button cat=' + $(el).attr("cat") + ' class="categoryTitle categoryTitle_' + index + '">' + $(el).html() + '</button></div><div class="hidden categoryDroppableCnt categoryDroppableCnt_' + index + '"></div></div><hr class="catHr"/>');
+			$(".categoryContainer").append('<div class="category category-' + arrAllCategory.length + '"><div class="categoryTitleCnt categoryTitleCnt_' + index + '"><button aria-label="Category: '+ $(el).html()+'" cat=' + $(el).attr("cat") + ' class="categoryTitle categoryTitle_' + index + '">' + $(el).html() + '</button></div><div class="hidden categoryDroppableCnt categoryDroppableCnt_' + index + '"></div></div><hr class="catHr"/>');
 		});
 
 		$('.categoryTitle').css({
@@ -152,7 +156,8 @@ $(document).ready(function () {
 		/* generating draggable items view */
 		arrAllDraggableitem.each(function (index, el) {
 			console.log('index=', index);
-			$(".dragableItemContainer").append('<div class="draggableitemWraper draggableitemWraper_' + index + '"><div class="draggableitemCnt draggableitemCnt_' + index + '"><button cat=' + $(el).attr("cat") + ' id="draggableitem_' + index + '" class="draggableitem draggableitem_' + index + '">' + $(el).html() + '</button></div></div>');
+			$(".dragableItemContainer").append('<div class="draggableitemWraper draggableitemWraper_' + index + '"><div class="draggableitemCnt draggableitemCnt_' + index + '"><button aria-label="Item to categorize: '+ $(el).html()+'"  cat=' + $(el).attr("cat") + ' id="draggableitem_' + index + '" class="draggableitem draggableitem_' + index + '">' + $(el).html() + '</button></div></div>');
+			$('.draggableitemWraper_'+ index).css("left", (index*15)+"px");
 		});
 
 		$('.draggableitem').css({
@@ -166,13 +171,13 @@ $(document).ready(function () {
 		//$(".settinToolsContainer").append('<button tabindex="2" class="close"></button>');
 
 		arrSettingStyleItem.each(function(ind,el){
-
+			console.log("-=-=-=-", $(el).attr("txt"));
 			if(ind==0)
 			{
-			$(".settinToolsContainer .toolsCnt").append('<div class="toolContainer_'+ind+'"><button bg="'+$(el).attr("background")+'" fg="'+$(el).attr("foreground")+'" class="tool tool_'+ind+'">button</button><p l lang="en" class="toolTxt toolTxt_'+ind+'">'+$(el).attr("txt")+'</p></div>');
+			$(".settinToolsContainer .toolsCnt").append('<div class="toolContainer_'+ind+'"><button aria-label="Color Scheme" bg="'+$(el).attr("background")+'" fg="'+$(el).attr("foreground")+'" class="tool tool_'+ind+'">button</button><p l lang="en" class="toolTxt toolTxt_'+ind+'">'+$(el).attr("txt")+'</p></div>');
 			}else
 			{
-				$(".settinToolsContainer .toolsCnt").append('<button role="settings tool" class="toolContainer toolContainer_'+ind+'" colors="'+$(el).attr("colors")+'"><img src="'+staticImagePath+$(el).attr("picname")+'" class="tool tool_'+ind+'"/><span l lang="en" class="toolTxt toolTxt_'+ind+'">'+$(el).attr("txt")+'</span></button>');
+				$(".settinToolsContainer .toolsCnt").append('<button aria-label="' +$(el).attr("txt")+ '" role="settings tool" class="toolContainer toolContainer_'+ind+'" colors="'+$(el).attr("colors")+'"><img alt="' +$(el).attr("txt")+ '" src="'+staticImagePath+$(el).attr("picname")+'" class="tool tool_'+ind+'"/><span l lang="en" class="toolTxt toolTxt_'+ind+'">'+$(el).attr("txt")+'</span></button>');
 			}
 
 			if(ind==1)
@@ -201,8 +206,16 @@ $(document).ready(function () {
 
 		$('.settinToolsContainer .toolContainer').off().on("click", changeBgFgOfTemplate);
 
+		function shuffleArray(a) {
+			for (let i = a.length - 1; i > 0; i--) {
+				const j = Math.floor(Math.random() * (i + 1));
+				[a[i], a[j]] = [a[j], a[i]];
+			}
+			return a;
+		}
 		function changeBgFgOfTemplate() {
 			//alert("ok");
+			console.log($(this).attr('colors'));
 			color1=$(this).attr('colors').split(",")[0];
 			color2=$(this).attr('colors').split(",")[1];
 			color3=$(this).attr('colors').split(",")[2];
@@ -210,7 +223,7 @@ $(document).ready(function () {
 			// 	backgroundColor: color2
 			// });
 			$('#title').css({
-				color: color1
+				color: color2
 			});
 			$('#instructionnorm').css({
 				color: color2
@@ -222,12 +235,15 @@ $(document).ready(function () {
 			$('.leftSubContainer').css({
 				color: color2
 			});
+			
+			$(".draggableitem").css("background", color1);
+			$(".draggableitem").css("color",  color2);
+
+			$(".categoryTitle").css("background",color2);
+			$(".categoryTitle").css("color",  color1);
 
 			$('.submit_btn,.tryagain_btn,.reset_btn').find("rect").attr('fill', color1);
 			$('.submit_btn,.tryagain_btn,.reset_btn').find("rect").attr('fill', color1);
-			$('.categoryTitle').css({
-					backgroundColor: color1
-				});
 			
 				$('.settinToolsContainer').css({backgroundColor:color3});
 				$('.setting').find("path").attr('fill',color1);
@@ -291,12 +307,13 @@ $(document).ready(function () {
 		var correctCounter = 0;
 		$(".categoryTitle").addClass("inactive");
 		$(".draggableitem").addClass("inactive");
-		
+		var feedback = rightFeedback;
 		$('.category').each(function (index, el) {
 			var catTitle = $(el).find(".categoryTitle").attr("cat");
 			// totalDropedItem=totalDropedItem+dropedItemLenth
 			//console.log('catTitle=',catTitle);
 			var rightCat="right-cat";
+			
 			$(el).find(".categoryDroppableCnt").children().each(function (ind, ell) {
 				if ($(ell).find(".draggableitem").hasClass("correct")) {
 					$(ell).find(".draggableitem").css("border", "2px solid #63a524");
@@ -304,12 +321,15 @@ $(document).ready(function () {
 				} else {
 					$(ell).find(".draggableitem").css("border", "2px solid #c22032");
 					rightCat = "wrong-cat";
+					feedback = wrongFeedback;
 				}
 			});
-			$("categoryTitleCnt").addClass(rightCat);
+			$(".categoryTitleCnt").addClass(rightCat);
 			
 		});
 		//console.log('correctCounter=',correctCounter);
+		$("header").addClass("pad-0");
+		$(".feedback").html(feedback).show();
 		$(this).addClass("invisible");
 		$('.categoryContainer').addClass("submited");
 		//$('.nav-container').removeClass("invisible");
@@ -323,6 +343,10 @@ $(document).ready(function () {
 	function resetCategory() {
 		$(".categoryTitle").removeClass("inactive");
 		$(".draggableitem").removeClass("inactive");
+		$(".right-cat").removeClass("right-cat");
+		$(".wrong-cat").removeClass("wrong-cat");
+		$(".feedback").hide();
+		$("header").removeClass("pad-0");
 		arrAllDraggableitem.each(function (index, el) {
 			$(".categoryContainer").find(".draggableitemCnt_" + index).appendTo(".draggableitemWraper_" + index);
 		});
@@ -356,6 +380,10 @@ $(document).ready(function () {
 });
 
 $(document).ready(function(){
+
+	if(window.innerWidth<529){
+		$(".bottom-btn").html("REVIEW YOUR<br>SORTED ANSWERS");
+	}
   $(".showText").click(function(){
     $(".help-popup").show();
 	$(".settinToolsContainer").css("zIndex","2");
@@ -367,9 +395,23 @@ $(document).ready(function(){
   });
   $(".bottom-btn").on("click", function(){
 	console.log("-----------------");
-	$(".categoryDroppableCnt").toggleClass("hidden");
-	var text = $(".categoryDroppableCnt").hasClass("hidden")?"REVIEW YOUR<br>SORTED ANSWERS":"COLLAPSE<br>CATEGORIES";
-	$(this).html(text);
+	
+	if($(".categoryDroppableCnt").hasClass("hidden")){
+		$(".categoryDroppableCnt").removeClass("hidden");		
+		$(this).html("REVIEW YOUR<br>SORTED ANSWERS");
+	}else{
+		$(".categoryDroppableCnt").addClass("hidden");		
+		$(this).html("COLLAPSE<br>CATEGORIES");
+	}
+	if($(".categoryDroppableCnt").hasClass("hidden2")){
+		$(".categoryDroppableCnt").removeClass("hidden2");		
+		$(this).html("REVIEW YOUR<br>SORTED ANSWERS");
+	}else{
+		$(".categoryDroppableCnt").addClass("hidden2");		
+		$(this).html("COLLAPSE<br>CATEGORIES");
+	}
+	//var text = $(".categoryDroppableCnt").hasClass("hidden")?"REVIEW YOUR<br>SORTED ANSWERS":"COLLAPSE<br>CATEGORIES";
+	//$(this).html(text);
 	
   })
 });
