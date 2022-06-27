@@ -111,7 +111,7 @@ var matching = (function() {
     function matchHandler(e){
         if(!$(this).attr("data-placed")){
             $(this).find(".matching-element").append(curDiv);
-            console.log(" 000000000000000000 ");
+            console.log(" *-*-*-*-*-*-*-*-*-* ");
         }else{
             if($(curDiv).attr("data-placed")){
                 if(curMatchbox == $(this).attr("id")){
@@ -123,7 +123,7 @@ var matching = (function() {
                 parent.find(".matching-element").append(apend);
 
                 apend.attr("data-placed", parent.attr("id"));
-                parent.attr("data-placed", "");
+                parent.removeAttr("data-placed");
                 parent.removeClass("placed");
                 
                 $(this).find(".matching-element").append($(curDiv));
@@ -133,7 +133,7 @@ var matching = (function() {
                         var placedEle = $("#"+$(this).attr("data-placed"));
                         $(".clickableBlock").append(placedEle);
 
-                        placedEle.attr("data-placed", "")
+                        placedEle.removeAttr("data-placed")
                         
                         $(this).find(".matching-element").append(curDiv);
                         console.log(" 11111111111111111 ");
@@ -145,6 +145,10 @@ var matching = (function() {
             }
         }
         
+        var prevMatched = $(curDiv).attr("data-placed");
+        $("#"+prevMatched).removeAttr("data-placed");
+        $("#"+prevMatched).removeClass("placed");
+
         $(curDiv).attr("data-placed", $(this).attr("id"));
         $(this).attr("data-placed", $(curDiv).attr("id"));
         $(this).addClass("placed");
