@@ -37,6 +37,14 @@ body {
     font-weight: 600;
     border-radius: 12px;
 }
+
+.reset_btn{
+    display: none;
+}
+.tryagain_btn{
+    display: none;
+}
+
 .btn:hover {
     color: #fff;
 }

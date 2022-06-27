@@ -37,24 +37,35 @@ var matching = (function() {
 
     var tryAgain = function(){
         $(".clickedEvent").appendTo(".clickableBlock");
-        $(".matchedEvent").removeClass("placed");
         $(".clickedEvent").removeAttr("data-placed");
+
+        $(".matchedEvent").removeClass("placed");
         $(".matchedEvent").removeAttr("data-placed");
         $(".matchedEvent").off().on("click", matchHandler);
+
+        $(".tryagain_btn").hide();
+        $(".reset_btn").hide();
+        $(".submit_btn").show();
+        $(".submit_btn").addClass("disabled");
+
+        $(".matching-element").removeClass("submitted").removeClass("correct-ans");
+        $(".matching-element").removeClass("submitted").removeClass("wrong-ans");
     }
 
     this.loadXML = function(){
         $("#tempDiv").load("data/data.xml", function (response, status, xhr) {
             if (status != "error") {
-                /* $("#tempSetting").load("data/setting.xml", function (response, status, xhr) {
+                $("#tempSetting").load("data/setting.xml", function (response, status, xhr) {
                     if (status != "error") {
-                        
-                    }
-                }); */
+                        var settXml = $.parseXML($("#tempSetting").html());
+                        var settingXML = $(settXml);
+                        console.log(settingXML.find("theme").text());
 
-                var xmlDoc = $.parseXML($("#tempDiv").html());
-                var xml = $(xmlDoc);
-                fetchData(xml);
+                        var xmlDoc = $.parseXML($("#tempDiv").html());
+                        var xml = $(xmlDoc);
+                        fetchData(xml);
+                    }
+                });
             }
         });
 
@@ -64,7 +75,7 @@ var matching = (function() {
         $(".activity-title").html(xml.find("title").text());
         $(".notice-card p").html(xml.find("instruction").text());
 
-        var items = xml.find("items").find("item")//.find("text");
+        var items = xml.find("items").find("item");
         //var matchItem = xml.find("items").find("matching").find("text");
         data["ques"] = [];
         items.each((index, el) => {
@@ -87,6 +98,9 @@ var matching = (function() {
 
         $("#cloneItem_d").remove();
         $("#matchBox_d").remove();
+
+        $("#r-feedback").html(xml.find("rightFeedback").text());
+        $("#w-feedback").html(xml.find("wrongFeedback").text());
         
         $(".shuffle").shuffleChildren();
     }
@@ -94,45 +108,46 @@ var matching = (function() {
     function matchHandler(e){
         if(!$(this).attr("data-placed")){
             $(this).find(".matching-element").append(curDiv);
+            console.log(" 000000000000000000 ");
         }else{
             if($(curDiv).attr("data-placed")){
                 if(curMatchbox == $(this).attr("id")){
                     return;
                 }
+                console.log(" 000000000000000000 ");
                 var parent = $("#"+$(curDiv).attr("data-placed"));                
                 var apend = $("#"+$(this).attr("data-placed"));
-
                 parent.find(".matching-element").append(apend);
+
+                apend.attr("data-placed", parent.attr("id"));
+                parent.attr("data-placed", "");
+                parent.removeClass("placed");
+                
                 $(this).find(".matching-element").append($(curDiv));
             }else{
                 if($("#"+$(this).attr("data-placed"))){
-                    var placedEle = $("#"+$(this).attr("data-placed"));
-                    $(".clickableBlock").append(placedEle);
-                    console.log(" 11111111111111111 ");
-                    $(this).find(".matching-element").append(curDiv);
+                    if (curDiv) {
+                        var placedEle = $("#"+$(this).attr("data-placed"));
+                        $(".clickableBlock").append(placedEle);
+
+                        placedEle.attr("data-placed", "")
+                        
+                        $(this).find(".matching-element").append(curDiv);
+                        console.log(" 11111111111111111 ");
+                    }
                 }else{
-                    $(this).find(".matching-element").append(curDiv);
+                    //$(this).find(".matching-element").append(curDiv);
                     console.log(" 2222222222222222222222 ");
                 }
             }
         }
-
-        var prevMatched = $(curDiv).attr("data-placed");
-        if(prevMatched != "" || prevMatched != undefined){
-            $("#"+prevMatched).attr("data-placed", "");
-            $("#"+prevMatched).removeClass("placed");
-            $("#"+prevMatched).off().on("click", matchHandler);
-        }
         
-        if (curDiv) {
-            $(curDiv).attr("data-placed", $(this).attr("id"));
-            $(this).attr("data-placed", $(curDiv).attr("id"));
-            $(this).addClass("placed");
+        $(curDiv).attr("data-placed", $(this).attr("id"));
+        $(this).attr("data-placed", $(curDiv).attr("id"));
+        $(this).addClass("placed");
 
-            $(curDiv).find(".clickable-item").removeClass("selected");
-            //$(".matchedEvent").off("click");
-            curDiv = null; 
-        }
+        $(curDiv).find(".clickable-item").removeClass("selected");
+        curDiv = null;
 
         if($(".placed").length == data.ques.length){
             $(".submit_btn").removeClass("disabled");
@@ -156,8 +171,18 @@ var matching = (function() {
             }
         }
 
-        if(wCount > 0){
+        if(wCount == 0){
             $(".reset_btn").show();
+            $(".tryagain_btn").hide();
+            $(".submit_btn").hide();
+
+            $("#r-feedback").show();
+        }else{
+            $(".tryagain_btn").show();
+            $(".reset_btn").hide();
+            $(".submit_btn").hide();
+
+            $("#w-feedback").show();
         }
     })
 
