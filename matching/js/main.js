@@ -8,8 +8,8 @@ var matching = (function() {
 
         $(".note").off().on("click",function() {
             $(".notice-card").show();
-            $(".notice-card").css("zIndex","10");
-            $(".settings-container").css("zIndex","10");
+            $(".notice-card").css("zIndex","3");
+            $(".settings-container").css("zIndex","2");
 
             $(".close-bt").off().on("click", function(){
                 $(".notice-card").hide();
@@ -18,8 +18,8 @@ var matching = (function() {
 
         $(".setting-button").off().on("click",function() {
             $(".settings-container").show();
-            $(".settings-container").css("zIndex","11");
-            $(".notice-card").css("zIndex","9");
+            $(".settings-container").css("zIndex","3");
+            $(".notice-card").css("zIndex","2");
 
             $(".close-btn").off().on("click", function(){
                 $(".settings-container").hide();
