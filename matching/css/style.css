@@ -339,6 +339,7 @@ body {
     position: fixed;
     width: 100%;
     right: 0;
+    z-index: 1;
 }
 .sticky .head-btn-wrap{
     position: unset;
