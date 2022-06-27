@@ -110,7 +110,7 @@ var matching = (function() {
 
     function matchHandler(e){
         if(!$(this).attr("data-placed")){
-            $(this).find(".matching-element").append(curDiv);
+            $(this).find(".matching-element").prepend(curDiv);
             console.log(" *-*-*-*-*-*-*-*-*-* ");
         }else{
             if($(curDiv).attr("data-placed")){
@@ -120,13 +120,13 @@ var matching = (function() {
                 console.log(" 000000000000000000 ");
                 var parent = $("#"+$(curDiv).attr("data-placed"));                
                 var apend = $("#"+$(this).attr("data-placed"));
-                parent.find(".matching-element").append(apend);
+                parent.find(".matching-element").prepend(apend);
 
                 apend.attr("data-placed", parent.attr("id"));
                 parent.removeAttr("data-placed");
                 parent.removeClass("placed");
                 
-                $(this).find(".matching-element").append($(curDiv));
+                $(this).find(".matching-element").prepend($(curDiv));
             }else{
                 if($("#"+$(this).attr("data-placed"))){
                     if (curDiv) {
@@ -135,11 +135,11 @@ var matching = (function() {
 
                         placedEle.removeAttr("data-placed")
                         
-                        $(this).find(".matching-element").append(curDiv);
+                        $(this).find(".matching-element").prepend(curDiv);
                         console.log(" 11111111111111111 ");
                     }
                 }else{
-                    //$(this).find(".matching-element").append(curDiv);
+                    //$(this).find(".matching-element").prepend(curDiv);
                     console.log(" 2222222222222222222222 ");
                 }
             }
