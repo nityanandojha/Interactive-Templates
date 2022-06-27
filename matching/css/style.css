@@ -290,14 +290,9 @@ body {
     width: 547px;
     padding: 20px 34px 12px 22px;
     top: 0;
-<<<<<<< HEAD
-    display: none;
-=======
     font-size: 20px;
-    z-index: 9999;
-    display: block;
+    display: none;
     line-height: 26px;
->>>>>>> 622f8b6bc4d64412b261340947fe989fcb56dc82
 }
 .head-btn .note{
     background: #5f6062;
