@@ -51,8 +51,8 @@ var matching = (function() {
         $(".matching-element").removeClass("submitted").removeClass("correct-ans");
         $(".matching-element").removeClass("submitted").removeClass("wrong-ans");
 
-        $("#r-feedback p").hide();
-        $("#w-feedback p").hide();
+        $("#r-feedback").hide();
+        $("#w-feedback").hide();
     }
 
     this.loadXML = function(){
@@ -142,8 +142,12 @@ var matching = (function() {
 
     function matchHandler(e){
         if(!$(this).attr("data-placed")){
-            $(this).find(".matching-element").append(curDiv);
-            console.log(" 000000000000000000 ");
+            $(this).find(".matching-element").prepend(curDiv);
+
+            var prevMatched = $(curDiv).attr("data-placed");
+            $("#"+prevMatched).removeAttr("data-placed");
+            $("#"+prevMatched).removeClass("placed");
+            console.log(" *-*-*-*-*-*-*-*-*-* ");
         }else{
             if($(curDiv).attr("data-placed")){
                 if(curMatchbox == $(this).attr("id")){
@@ -152,31 +156,30 @@ var matching = (function() {
                 console.log(" 000000000000000000 ");
                 var parent = $("#"+$(curDiv).attr("data-placed"));                
                 var apend = $("#"+$(this).attr("data-placed"));
-                parent.find(".matching-element").append(apend);
+                parent.find(".matching-element").prepend(apend);
 
                 apend.attr("data-placed", parent.attr("id"));
-                parent.attr("data-placed", "");
-                parent.removeClass("placed");
+                parent.attr("data-placed", apend.attr("id"));
+                parent.addClass("placed");
                 
-                $(this).find(".matching-element").append($(curDiv));
+                $(this).find(".matching-element").prepend($(curDiv));
             }else{
                 if($("#"+$(this).attr("data-placed"))){
                     if (curDiv) {
                         var placedEle = $("#"+$(this).attr("data-placed"));
                         $(".clickableBlock").append(placedEle);
 
-                        placedEle.attr("data-placed", "")
+                        placedEle.removeAttr("data-placed")
                         
-                        $(this).find(".matching-element").append(curDiv);
+                        $(this).find(".matching-element").prepend(curDiv);
                         console.log(" 11111111111111111 ");
                     }
                 }else{
-                    //$(this).find(".matching-element").append(curDiv);
                     console.log(" 2222222222222222222222 ");
                 }
             }
         }
-        
+
         $(curDiv).attr("data-placed", $(this).attr("id"));
         $(this).attr("data-placed", $(curDiv).attr("id"));
         $(this).addClass("placed");

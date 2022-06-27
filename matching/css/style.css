@@ -673,7 +673,7 @@ body {
     }
     .matching-items .clickable-item {
         position: unset;
-        max-height: initial;`
+        max-height: initial;
         padding: 20px;
     }
     .matching-items .matching-item {
