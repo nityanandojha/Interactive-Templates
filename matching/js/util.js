@@ -21,12 +21,14 @@ Util.prototype.settingXmlLoaded = function (xml) {
 }
 Util.prototype.showSettingsPanelHandler = function () {
   this.showSettingsPanel(true);
+  this.showTextPanel(false);
 }
 Util.prototype.closeSettingsPanelHandler = function () {
   this.showSettingsPanel(false);
 }
 Util.prototype.showTextHandler = function () {
   this.showTextPanel(true);
+  this.showSettingsPanel(false);
 }
 Util.prototype.closeTextPanelHandler = function () {
   this.showTextPanel(false);

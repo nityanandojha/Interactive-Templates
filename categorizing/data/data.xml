@@ -1,23 +1,28 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <dataset>
-<title>Primary, Secondary, and Tertiary Prevention Methods</title>
+<title>In this chapter, you have looked at different ways to respond</title>
 <instruction>
-    <instructionnorm>To complete the activity, select each item and then select the corresponding category.  Replay this interaction as many times as you need. There is no time limit. Your responses will not be graded.</instructionnorm>
+    <instructionnorm>Drag each item and drop it under the correct category. Replay this interaction as many times as you need. There is no time limit. Your responses will not be graded.</instructionnorm>
 </instruction>
   <category>
-      <categorytitle cat="one">Primary Communicable Prevention Disease Methods</categorytitle>
-      <categorytitle cat="two">Secondary Communicable Disease Prevention Methods</categorytitle>
-      <categorytitle cat="three">Tertiary Communicable Disease Prevention Methods</categorytitle>
+      <categorytitle cat="one">1. In this chapter, you have looked at different</categorytitle>
+      <categorytitle cat="two">2. In this </categorytitle>
+      <!-- <categorytitle cat="three">3. In this chapter, you have looked at different ways to respond</categorytitle> -->
   </category>
+
   <draggableitem>
-    <item cat="one">Vaccinations administration</item>
-    <item cat="one">Legislation banning hazardous products</item>
-    <item cat="two">Self-administered breast exams</item>
-    <item cat="two">Self-administered breast exams</item>
-    <item cat="one">Utilize seatbelts and bike helmets</item>
-    <item cat="three">Early disease detection through health screenings and regular exams</item>
-    <item cat="three">Nutrition and exercise programs to prevent strokes or heart attacks</item>
-    <item cat="two">Nutrition and exercise programs to prevent strokes or heart attacks</item>
+    <item cat="one">1. Crazy Ex-Girlfriend is about a young lawyer named Rebecca Bunch who follows a crush to California, America, USA.</item>
+    <item cat="one">2. Crazy Ex-Girlfriend is about a young lawyer named Rebecca Bunch who follows a crush to California, America, USA.</item>
+    <item cat="one">3. Crazy Ex-Girlfriend is about a young lawyer named Rebecca Bunch who follows a crush to California, America, USA.</item>
+    <item cat="two">4. Crazy Ex-Girlfriend is about a young lawyer named Rebecca Bunch who follows a crush to California, America, USA.</item>
+    <item cat="two">5. Crazy Ex-Girlfriend is about a young lawyer named Rebecca Bunch who follows a crush to California, America, USA.</item>
+    <item cat="two">6. Crazy Ex-Girlfriend is about a young lawyer named Rebecca Bunch who follows a crush to California, America, USA.</item>
+    <item cat="one">7. Crazy Ex-Girlfriend is about a young lawyer named Rebecca Bunch who follows a crush to California, America, USA.</item>
+    <item cat="two">8. Crazy Ex-Girlfriend is about a young lawyer named Rebecca Bunch who follows a crush to California, America, USA.</item>
   </draggableitem>
+  <feedback>
+    <rightans>Correct! You’ve matched each review excerpt to its category. You understand that summaries/observations are objective statements, while evaluations/analyses are subjective statements about the subject of the </rightans>
+    <rightans>Wrong!!! You’ve matched each review excerpt to its category. You understand that summaries/observations are objective statements, while evaluations/analyses are subjective statements about the subject of the </rightans>
+  </feedback>
  
 </dataset>

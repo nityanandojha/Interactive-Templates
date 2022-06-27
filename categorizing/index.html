@@ -5,6 +5,7 @@
     <title>Categorizing</title>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1">
+
     <link rel="stylesheet" href="css/style.css">
     <script src="js/jquery-3.1.1.min.js"></script>
 
@@ -13,94 +14,83 @@
 </head>
 
 <body>
-    <input type="button" value="template background" class="template" />
-    <div class="container">
+    <!-- <input type="button" value="template background" class="template" /> -->
 
-        <h2 id="title"></h2>
-        <!-- <p id="instructionbold"></p> -->
-        <p id="instructionnorm"></p>
-        <div class="row dragableItemContainer">
+
+    <header>
+        <div class="container">
+            <div class="settingContainer">
+                <button tabindex="1" class="showText" title='showText'>
+                    <img src="images/doubts-button.png" alt="">
+                </button>
+
+                <button tabindex="3" class="setting" title='setting'>
+                    <img src="images/gear-option.png" alt="">
+                </button>
+                <div class="help-popup">
+                    <button tabindex="2" aria-label="" class="popup-close">&#10006;</button>
+                    <p id="instructionnorm"></p>
+                </div>
+            </div>
+            <h2 id="title"></h2>
+            <p id="instructionbold"></p>
+
+
+            <div class="settinToolsContainer">
+                <div class="toolsCnt"></div>
+                <button tabindex="4" class="close"></button>
+            </div>
+
+            <div class="row dragableItemContainer">
+
+                <div class="feedback">
+                    <p>[Feedback text] dolor sit amet, consectetur adipiscing elit, sed do lorem ipsum dolor sit amet,
+                        lorem ipsum dolor sit amet, consectetur adipiscing</p>
+                </div>
+                <div class="nav-container">
+                    <button class="submit_btn" disabled title="submit">
+                        Submit
+                    </button>
+
+                    <button class="tryagain_btn invisible" disabled title="try again">
+                        Try Again
+                    </button>
+
+                    <button class="reset_btn invisible" disabled title="reset">
+                        Reset
+                    </button>
+                </div>
+            </div>
+
+
+
+            <!-- <hr class="first"> -->
+
+
+            <!-- <img id="loadingImg" src="images/loading.gif" /> -->
         </div>
 
-        <div class="nav-container">
-            <button class="submit_btn" title="submit">
-                <svg xmlns="http://www.w3.org/2000/svg" width="253" height="63" viewBox="0 0 253 63">
-                    <g id="Group_131" data-name="Group 131" transform="translate(-68.986 -697.299)">
-                        <rect id="Rectangle_126" data-name="Rectangle 126" width="253" height="63" rx="11"
-                            transform="translate(68.986 697.299)" fill="#001936" />
-                        <text id="Submit" transform="translate(145.986 714.299)" fill="#fff" font-size="25"
-                            font-family="Montserrat-Bold, Montserrat" font-weight="700">
-                            <tspan x="0" y="24">Submit</tspan>
-                        </text>
-                    </g>
-                </svg>
-    
-            </button>
-            
-            <button class="tryagain_btn" title="try again">
-                <svg xmlns="http://www.w3.org/2000/svg" width="253" height="63" viewBox="0 0 253 63">
-                    <g id="Group_131" data-name="Group 131" transform="translate(-68.986 -697.299)">
-                        <rect id="Rectangle_126" data-name="Rectangle 126" width="253" height="63" rx="11"
-                            transform="translate(68.986 697.299)" fill="#001936" />
-                        <text id="Try_Again" data-name="Try Again" transform="translate(133.986 714.299)" fill="#fff"
-                            font-size="25" font-family="Montserrat-Bold, Montserrat" font-weight="700">
-                            <tspan x="0" y="24">Try Again</tspan>
-                        </text>
-                    </g>
-                </svg>
-    
-            </button>
-            
-            <button class="reset_btn" title="reset">
-                <svg xmlns="http://www.w3.org/2000/svg" width="253" height="63" viewBox="0 0 253 63">
-                    <g id="Group_131" data-name="Group 131" transform="translate(-68.986 -697.299)">
-                        <rect id="Rectangle_126" data-name="Rectangle 126" width="253" height="63" rx="11"
-                            transform="translate(68.986 697.299)" fill="#001936" />
-                        <text id="Reset" transform="translate(157.986 714.299)" fill="#fff" font-size="25"
-                            font-family="Montserrat-Bold, Montserrat" font-weight="700">
-                            <tspan x="0" y="24">Reset</tspan>
-                        </text>
-                    </g>
-                </svg>
-    
-            </button>
-        </div>
-        
-        <hr class="first">
-        <div class="content">
-            <div id="tempDiv" style="display:none"></div>
-            <div id="tempSetting" style="display:none"></div>
 
-            <div class="row categoryContainer">
+    </header>
+
+    <section>
+        <div class="container">
+            <div class="content">
+                <div id="tempDiv" style="display:none"></div>
+                <div id="tempSetting" style="display:none"></div>
+
+                <div class="row categoryContainer">
+                  
+                </div>
             </div>
         </div>
 
-        <img id="loadingImg" src="images/loading.gif" />
-    </div>
+       
+    </section>
 
-    <div class="settingContainer">
-        <button class="showText" title='showText'>
-            <svg xmlns="http://www.w3.org/2000/svg" width="38" height="38" viewBox="0 0 38 38">
-                <g id="noun_Settings_735232" transform="translate(-14.5 -15.5)">
-                    <path id="Path_4" data-name="Path 4"
-                        d="M51.644,31.572,49.2,30.5a3.345,3.345,0,0,1-1.755-1.788h0a3.345,3.345,0,0,1,0-2.5l.974-2.473a1.07,1.07,0,0,0-.118-1.375l-2.676-2.676a1.07,1.07,0,0,0-1.375-.118l-2.467,1.017a3.345,3.345,0,0,1-2.5,0h0a3.345,3.345,0,0,1-1.788-1.755l-1.07-2.441a1.07,1.07,0,0,0-1.07-.888H31.605a1.07,1.07,0,0,0-1.07.888l-1.07,2.441a3.345,3.345,0,0,1-4.282,1.777L22.742,19.6a1.07,1.07,0,0,0-1.375.118l-2.676,2.676a1.07,1.07,0,0,0-.118,1.375l1.012,2.446a3.345,3.345,0,0,1,0,2.515h0a3.345,3.345,0,0,1-1.755,1.777l-2.441,1.07a1.07,1.07,0,0,0-.888,1.07v3.746a1.07,1.07,0,0,0,.888,1.07l2.441,1.07a3.345,3.345,0,0,1,1.755,1.788h0a3.345,3.345,0,0,1,0,2.5l-.985,2.43a1.07,1.07,0,0,0,.118,1.375l2.676,2.676a1.07,1.07,0,0,0,1.375.118l2.446-1.012a3.345,3.345,0,0,1,2.5,0h0a3.345,3.345,0,0,1,1.788,1.755l1.07,2.441a1.07,1.07,0,0,0,1.07.888h3.746a1.07,1.07,0,0,0,1.07-.888l1.07-2.441a3.345,3.345,0,0,1,1.793-1.761h0a3.345,3.345,0,0,1,2.5,0l2.473.974a1.07,1.07,0,0,0,1.375-.118l2.676-2.676a1.07,1.07,0,0,0,.118-1.375l-1.054-2.43a3.345,3.345,0,0,1,0-2.515h0a3.345,3.345,0,0,1,1.755-1.777l2.441-1.07a1.07,1.07,0,0,0,.888-1.07V32.605A1.07,1.07,0,0,0,51.644,31.572ZM33.5,43.5a9,9,0,1,1,9-9,9,9,0,0,1-9,9Z"
-                        transform="translate(0 0)" fill="#001a36" />
-                </g>
-            </svg>
-        </button>
-
-        <button class="setting" title='setting'>
-            <svg xmlns="http://www.w3.org/2000/svg" width="38" height="38" viewBox="0 0 38 38">
-                <g id="noun_Settings_735233" transform="translate(-14.5 -15.5)">
-                    <path id="Path_4" data-name="Path 4"
-                        d="M51.644,31.572,49.2,30.5a3.345,3.345,0,0,1-1.755-1.788h0a3.345,3.345,0,0,1,0-2.5l.974-2.473a1.07,1.07,0,0,0-.118-1.375l-2.676-2.676a1.07,1.07,0,0,0-1.375-.118l-2.467,1.017a3.345,3.345,0,0,1-2.5,0h0a3.345,3.345,0,0,1-1.788-1.755l-1.07-2.441a1.07,1.07,0,0,0-1.07-.888H31.605a1.07,1.07,0,0,0-1.07.888l-1.07,2.441a3.345,3.345,0,0,1-4.282,1.777L22.742,19.6a1.07,1.07,0,0,0-1.375.118l-2.676,2.676a1.07,1.07,0,0,0-.118,1.375l1.012,2.446a3.345,3.345,0,0,1,0,2.515h0a3.345,3.345,0,0,1-1.755,1.777l-2.441,1.07a1.07,1.07,0,0,0-.888,1.07v3.746a1.07,1.07,0,0,0,.888,1.07l2.441,1.07a3.345,3.345,0,0,1,1.755,1.788h0a3.345,3.345,0,0,1,0,2.5l-.985,2.43a1.07,1.07,0,0,0,.118,1.375l2.676,2.676a1.07,1.07,0,0,0,1.375.118l2.446-1.012a3.345,3.345,0,0,1,2.5,0h0a3.345,3.345,0,0,1,1.788,1.755l1.07,2.441a1.07,1.07,0,0,0,1.07.888h3.746a1.07,1.07,0,0,0,1.07-.888l1.07-2.441a3.345,3.345,0,0,1,1.793-1.761h0a3.345,3.345,0,0,1,2.5,0l2.473.974a1.07,1.07,0,0,0,1.375-.118l2.676-2.676a1.07,1.07,0,0,0,.118-1.375l-1.054-2.43a3.345,3.345,0,0,1,0-2.515h0a3.345,3.345,0,0,1,1.755-1.777l2.441-1.07a1.07,1.07,0,0,0,.888-1.07V32.605A1.07,1.07,0,0,0,51.644,31.572ZM33.5,43.5a9,9,0,1,1,9-9,9,9,0,0,1-9,9Z"
-                        transform="translate(0 0)" fill="#001a36" />
-                </g>
-            </svg>
-        </button>
-    </div>
-    <div class="settinToolsContainer"></div>
-
+    <button class="bottom-btn">
+        REVIEW YOUR<br>SORTED ANSWERS
+    </button>
 
 </body>
 

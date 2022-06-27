@@ -1,13 +1,10 @@
 /*******************************************************/
 $(document).ready(function () {
 
-	var counter = 0;
-	var pageLength = 0;
 	var setting;
-	var objAccessibility = null;
 	var arrAllDraggableitem = null;
 	var staticImagePath="images/";
-
+	const isMobile = detectMob(); 
 	/* detect mobile device start*/
 	function detectMob() {
 		const toMatch = [
@@ -37,14 +34,7 @@ $(document).ready(function () {
 					displayStaticContent();
 					//$('.container').focus();
 					//alert('ok');
-
-
-
 					specifyForMobile();
-
-
-
-
 				}
 			});
 		}
@@ -56,7 +46,7 @@ $(document).ready(function () {
 
 
 	function specifyForMobile() {
-		if (detectMob()) {
+		if (isMobile) {
 			$(".dragableItemContainer").addClass("mobile-device");
 			var top = 0;
 			var left = 0;
@@ -73,7 +63,7 @@ $(document).ready(function () {
 				});
 			})
 
-			$(".container .draggableitem").prop('disabled', true);
+			//$(".container .draggableitem").prop('disabled', true);
 			$(".container .draggableitem").last().removeAttr('disabled');
 		} else {
 			$(".dragableItemContainer").removeClass("mobile-device");
@@ -150,8 +140,7 @@ $(document).ready(function () {
 
 		/* generating category view */
 		arrAllCategory.each(function (index, el) {
-			console.log('index=', index);
-			$(".categoryContainer").append('<div class="category category-' + arrAllCategory.length + '"><div class="categoryTitleCnt categoryTitleCnt_' + index + '"><button cat=' + $(el).attr("cat") + ' class="categoryTitle categoryTitle_' + index + '">' + $(el).html() + '</button></div><div class="categoryDroppableCnt categoryDroppableCnt_' + index + '"></div></div><hr class="catHr"/>');
+			$(".categoryContainer").append('<div class="category category-' + arrAllCategory.length + '"><div class="categoryTitleCnt categoryTitleCnt_' + index + '"><button cat=' + $(el).attr("cat") + ' class="categoryTitle categoryTitle_' + index + '">' + $(el).html() + '</button></div><div class="hidden categoryDroppableCnt categoryDroppableCnt_' + index + '"></div></div><hr class="catHr"/>');
 		});
 
 		$('.categoryTitle').css({
@@ -172,9 +161,9 @@ $(document).ready(function () {
 			"backgroundColor": draggableitemBackgroundcolor
 		}).off().on("click", selectDraggable);
 
-
-		$(".settinToolsContainer").append('<div class="toolsCnt"></div>');
-		$(".settinToolsContainer").append('<button class="close"></button>');
+		console.log("------------------------");
+		//$(".settinToolsContainer").append('<div class="toolsCnt"></div>');
+		//$(".settinToolsContainer").append('<button tabindex="2" class="close"></button>');
 
 		arrSettingStyleItem.each(function(ind,el){
 
@@ -249,32 +238,37 @@ $(document).ready(function () {
 
 	function selectDraggable() {
 		var curId = $(this).attr("id");
-		$(this).parents(".dragableItemContainer").attr("curitem", curId);
+		var gid = $(".dragableItemContainer").attr("curitem");
+		if(curId == gid){
+			$(this).blur();
+			$(".dragableItemContainer").attr("curitem", null);
+			return;
+		}
+		$(".dragableItemContainer").attr("curitem", curId);
 	}
 
 	function selectCategory() {
-
 		var id = $(".dragableItemContainer").attr("curitem");
 		if (id) {
 			var index = id.split("_")[1];
 			var categoryDroppableCnt = $(this).parents(".category").find(".categoryDroppableCnt");
-			if (detectMob()) {
-				$(".draggableitemCnt_" + index).find(".draggableitem").removeAttr('disabled');
-			}
+			isMobile && $(".draggableitemCnt_" + index).find(".draggableitem").removeAttr('disabled');
+			
 			$(".draggableitemCnt_" + index).appendTo(categoryDroppableCnt);
 			$(".dragableItemContainer").removeAttr("curitem");
-			if (detectMob()) {
-				$(".container .draggableitem").last().removeAttr('disabled');
-			}
+			
+			isMobile && $(".container .draggableitem").last().removeAttr('disabled');
+			
 			//alert("ok");
 			var totalDropedItem = 0;
 			$('.category').each(function (index, el) {
 				var dropedItemLenth = $(el).find(".categoryDroppableCnt").children().length;
 				totalDropedItem = totalDropedItem + dropedItemLenth
-				console.log('dropedItemLenth=', dropedItemLenth);
+				//console.log('dropedItemLenth=', dropedItemLenth);
 
 				var catTitle = $(el).find(".categoryTitle").attr("cat");
 				$(el).find(".categoryDroppableCnt").children().each(function (ind, ell) {
+					$(ell).find(".draggableitem").removeClass("correct").removeClass("incorrect");
 					if ($(ell).find(".draggableitem").attr("cat") == catTitle) {
 						$(ell).find(".draggableitem").addClass("correct");
 					} else {
@@ -286,7 +280,8 @@ $(document).ready(function () {
 			console.log('totalDropedItem=', totalDropedItem);
 			if (totalDropedItem == arrAllDraggableitem.length) {
 				//$('.nav-container').show()
-				$('.submit_btn').show().focus().off().on("click", submitListener);
+				$('.submit_btn').prop("disabled", false);
+				$('.submit_btn').off().on("click", submitListener);
 			}
 		}
 		//$(this).parent().parent().append(curItem);
@@ -294,59 +289,60 @@ $(document).ready(function () {
 
 	function submitListener() {
 		var correctCounter = 0;
+		$(".categoryTitle").addClass("inactive");
+		$(".draggableitem").addClass("inactive");
+		
 		$('.category').each(function (index, el) {
 			var catTitle = $(el).find(".categoryTitle").attr("cat");
 			// totalDropedItem=totalDropedItem+dropedItemLenth
 			//console.log('catTitle=',catTitle);
+			var rightCat="right-cat";
 			$(el).find(".categoryDroppableCnt").children().each(function (ind, ell) {
 				if ($(ell).find(".draggableitem").hasClass("correct")) {
-					$(ell).find(".draggableitem").css("border", "1px solid green");
+					$(ell).find(".draggableitem").css("border", "2px solid #63a524");
 					correctCounter++;
 				} else {
-					$(ell).find(".draggableitem").css("border", "1px solid red");
+					$(ell).find(".draggableitem").css("border", "2px solid #c22032");
+					rightCat = "wrong-cat";
 				}
 			});
+			$("categoryTitleCnt").addClass(rightCat);
+			
 		});
 		//console.log('correctCounter=',correctCounter);
-		$(this).hide();
+		$(this).addClass("invisible");
 		$('.categoryContainer').addClass("submited");
-		$('.nav-container').show();
-		if (correctCounter == arrAllDraggableitem.length) {
-
-			$('.reset_btn').show().focus().off().on("click", resetListener);
+		//$('.nav-container').removeClass("invisible");
+		if (correctCounter == arrAllDraggableitem.length) { 			
+			$('.reset_btn').removeClass("invisible").focus().off().on("click", resetCategory).prop("disabled", false);
 		} else {
-			$('.tryagain_btn').show().focus().off().on("click", tryagainListener);
+			$('.tryagain_btn').removeClass("invisible").focus().off().on("click", resetCategory).prop("disabled", false);
 		}
 	}
 
-	function resetListener() {
-		resetCategory(this);
-	}
-
-
-	function tryagainListener() {
-		resetCategory(this);
-	}
-
-	function resetCategory(objThis) {
-
+	function resetCategory() {
+		$(".categoryTitle").removeClass("inactive");
+		$(".draggableitem").removeClass("inactive");
 		arrAllDraggableitem.each(function (index, el) {
 			$(".categoryContainer").find(".draggableitemCnt_" + index).appendTo(".draggableitemWraper_" + index);
 		});
 		$('.categoryContainer').removeClass("submited");
 		$(".draggableitem").css("border", "0px solid green").removeClass("correct incorrect");
-		$(objThis).hide();
-		$(objThis).parent(".nav-container").hide();
-		if (detectMob()) {
-			$(".container .draggableitem").prop('disabled', true);
+		if (isMobile) {
+			//$(".container .draggableitem").prop('disabled', true);
 			$(".container .draggableitem").last().removeAttr('disabled');
 		}
+		$('.reset_btn').addClass("invisible").prop("disabled", true);
+		$('.tryagain_btn').addClass("invisible").prop("disabled", true);
+		$('.submit_btn').removeClass("invisible").prop("disabled", true);
 	}
 
 
 	$('.setting').off().on('click', settingListener);
 
 	function settingListener() {
+		$(".settinToolsContainer").css("zIndex","3");
+		$(".settingContainer").css("zIndex","2");
 		$('.settinToolsContainer').addClass('showhide');
 		$('.settinToolsContainer .close').off().on('click', closeSetting);
 
@@ -354,6 +350,26 @@ $(document).ready(function () {
 
 	function closeSetting() {
 		$('.settinToolsContainer').removeClass('showhide');
+		$(".settinToolsContainer").css("zIndex","unset");
 	}
 
+});
+
+$(document).ready(function(){
+  $(".showText").click(function(){
+    $(".help-popup").show();
+	$(".settinToolsContainer").css("zIndex","2");
+	$(".settingContainer").css("zIndex","3");
+  });
+  $(".popup-close").click(function(){
+    $(".help-popup").hide();
+	$(".settingContainer").css("zIndex","unset");
+  });
+  $(".bottom-btn").on("click", function(){
+	console.log("-----------------");
+	$(".categoryDroppableCnt").toggleClass("hidden");
+	var text = $(".categoryDroppableCnt").hasClass("hidden")?"REVIEW YOUR<br>SORTED ANSWERS":"COLLAPSE<br>CATEGORIES";
+	$(this).html(text);
+	
+  })
 });
