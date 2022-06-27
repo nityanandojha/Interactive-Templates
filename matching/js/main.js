@@ -189,6 +189,7 @@ var matching = (function() {
 
         if($(".placed").length == data.ques.length){
             $(".submit_btn").removeClass("disabled");
+            $(".submit_btn").removeClass("mobile-submit");
         }
     }
 

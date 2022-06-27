@@ -715,6 +715,10 @@ body {
         width: 198px;
         padding: 20px;
     }
+
+    .mobile-submit{
+        display: none;
+    }
 }
 
 
