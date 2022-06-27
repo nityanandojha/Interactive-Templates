@@ -120,6 +120,7 @@ var matching = (function() {
                 "role": "settings tool",
                 "data-color": $(element).find("color").html(),
                 "data-background": $(element).find("background").html(),
+                "data-selectioncolor": $(element).find("selectioncolor").html(),
                 "class": "toolContainer toolContainer_" + (index+1),
                 "aria-label": $(element).find("title").html(),
                 "title": $(element).find("title").html(),
@@ -138,6 +139,7 @@ var matching = (function() {
                 var r = document.querySelector(':root');
                 r.style.setProperty('--color', $(this).attr("data-color"));
                 r.style.setProperty('--background', $(this).attr("data-background"));
+                r.style.setProperty('--selectioncolor', $(this).attr("data-selectioncolor"));
             })
         });
     }

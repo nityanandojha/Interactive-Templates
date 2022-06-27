@@ -44,6 +44,7 @@
 :root {
     --color: #001936;
     --background: #FFF; 
+    --selectioncolor: #F5BA5C; 
   }
 
 html,body{
