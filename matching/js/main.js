@@ -50,6 +50,9 @@ var matching = (function() {
 
         $(".matching-element").removeClass("submitted").removeClass("correct-ans");
         $(".matching-element").removeClass("submitted").removeClass("wrong-ans");
+
+        $("#r-feedback p").hide();
+        $("#w-feedback p").hide();
     }
 
     this.loadXML = function(){
@@ -99,8 +102,8 @@ var matching = (function() {
         $("#cloneItem_d").remove();
         $("#matchBox_d").remove();
 
-        $("#r-feedback").html(xml.find("rightFeedback").text());
-        $("#w-feedback").html(xml.find("wrongFeedback").text());
+        $("#r-feedback p").html(xml.find("rightfeedback").text());
+        $("#w-feedback p").html(xml.find("wrongfeedback").text());
         
         $(".shuffle").shuffleChildren();
     }

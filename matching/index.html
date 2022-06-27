@@ -54,9 +54,6 @@
                     <!-- /ko -->             
                 </div>
             </div>
-
-          
-            <!-- <p class="activity-instruction" data-bind="html:instruction">To complete the activity, select each definition and then click the term that it belongs to. Replay the interactiion as many times you need. There is no time limit. Your responses will not be graded</p> -->
             
             <div class="clickable-items">
                 <div class="row clickableBlock shuffle"  data-bind="foreach:clickableItems">
@@ -66,10 +63,10 @@
                         </button>
                     </div>
                 </div>
-                <div id="r-feedback" class="feedback" data-bind="visible: isAllCorrect() && !isReset()">
+                <div id="r-feedback" class="feedback">
                     <p></p>
                 </div>
-                <div id="w-feedback" class="feedback" data-bind="visible:isSubmitted() && !isAllCorrect()">
+                <div id="w-feedback" class="feedback">
                     <p></p>
                 </div>
                 <div class="text-end footer">
