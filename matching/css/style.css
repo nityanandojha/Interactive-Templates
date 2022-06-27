@@ -299,6 +299,7 @@ body {
     font-size: 20px;
     display: none;
     line-height: 26px;
+    font-family: helvetica bold;
 }
 .head-btn .note{
     background: #5f6062;
