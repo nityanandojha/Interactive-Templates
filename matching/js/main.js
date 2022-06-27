@@ -53,6 +53,8 @@ var matching = (function() {
 
         $("#r-feedback").hide();
         $("#w-feedback").hide();
+
+        $(".activity-header").removeClass("pad0");
     }
 
     this.loadXML = function(){
@@ -190,6 +192,7 @@ var matching = (function() {
         if($(".placed").length == data.ques.length){
             $(".submit_btn").removeClass("disabled");
             $(".submit_btn").removeClass("mobile-submit");
+            $(".activity-header").addClass("pad0");
         }
     }
 

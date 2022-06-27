@@ -16,6 +16,14 @@
 }
 
 @font-face {
+    font-family: "helvetica regular1";
+    src: url("./fonts/Helvetica-regular.ttf");
+    -webkit-font-smoothing: antialiased;
+    -webkit-text-size-adjust: auto;
+
+}
+
+@font-face {
     font-family: "montserrat bold";
     src: url("./fonts/Montserrat-Bold.ttf");
     -webkit-font-smoothing: antialiased;
@@ -72,6 +80,7 @@ body {
     font-family: 'helvetica regular';
     letter-spacing: 1px;
     font-weight: 700;
+    text-align: center;
     text-transform: capitalize;
 }
 .settinToolsContainer {
@@ -146,9 +155,9 @@ body {
 }
 
 .feedback{
-    width: calc(100% - 130px);
+    width: calc(100% - 135px);
     margin-left: 15px;
-    font-family: helvetica bold;
+    font-family: helvetica regular1;
 }
 
 .buttonCont{
@@ -161,6 +170,7 @@ body {
     align-items: center;
     justify-content: end;
     margin-top: 15px;
+    z-index: 0;
 }
 .clickable-items .clickable-item, .matching-items .clickable-item {
     background: var(--color);;
@@ -381,22 +391,6 @@ body {
     font-weight: 700;
 }
 
-.settings-container{
-    background: #BFBFBF !important;
-    padding: 15px;
-    border-radius: 6pxpx;
-    color: #001936;
-    box-shadow: 0px 3px 6px 0px rgb(112 112 112);
-    -webkit-box-shadow: 0px 3px 6px 0px rgb(112 112 112);
-    -moz-box-shadow: 0px 3px 6px 0px rgba(112,112,112,1);
-    position: absolute;
-    top: 5px;
-    right: 0px;
-    width: 450px;
-    z-index: 9;
-    display: none;
-}
-
 @media screen and  (device-width: 1350px), (device-height: 760px){
     .col-xl-2 {
         flex: 0 0 auto;
@@ -569,6 +563,10 @@ body {
         left:180px;
     }
 
+    .pad0{
+        padding-bottom: 0px;
+    }
+
 }
 
 @media screen and (device-width: 530px), (device-height: 943px), (orientation: portrait) {
@@ -714,6 +712,14 @@ body {
     .clickable-items .clickable-item {
         width: 198px;
         padding: 20px;
+    }
+
+    .settings-container{
+        width: 232px;
+    }
+
+    .toolContainer_0 {
+        width: 100%;
     }
 
     .mobile-submit{
