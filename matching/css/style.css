@@ -268,6 +268,12 @@ body {
 .top-description p{
     font-weight: 600;
 }
+#r-feedback{
+    display: none;
+}
+#w-feedback{
+    display: none;
+}
 .head-btn{
     position: relative;
     right: 14px;
