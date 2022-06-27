@@ -47,9 +47,16 @@
             <div class="settings-container" data-bind="visible:showSettingsPanel">
                 <button aria-label="close button" class="close-btn" tabindex="4" data-bind="click:closeSettingsPanelHandler"><img src="images/remove.png" alt="Close button"></button>
                 <div class="settings-container-themes">
-                    <div class="settings-container-themes-title"><strong>Color Scheme</strong></div>
+                    <!-- <div class="settings-container-themes-title"><strong>Color Scheme</strong></div> -->
                     <!-- ko foreach: themes-->
-                    <button aria-label="Graphic circle" class="theme-btn" data-bind="click:$parent.selectThemeHandler"><img data-bind="attr:{src:'images/'+image}" alt="Theme button"><span data-bind="text:title"></span></button>                         
+                    <div class="toolCnt">
+                        <div class="toolContainer_0">
+                            <p l="" lang="en" class="toolTxt toolTxt_0">Color Scheme</p>
+                        </div>
+                        
+                    </div>
+
+
                     <!-- /ko -->             
                 </div>
             </div>

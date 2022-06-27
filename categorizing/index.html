@@ -1,97 +1,65 @@
 ﻿<!DOCTYPE html>
-<html>
-
+<html lang="en">
 <head>
-    <title>Categorizing</title>
+    <title>Summary or Evaluation?</title>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1">
-
     <link rel="stylesheet" href="css/style.css">
     <script src="js/jquery-3.1.1.min.js"></script>
-
     <script src="js/main.js"></script>
     <script src="js/accessibilityJs.js"></script>
 </head>
-
 <body>
-    <!-- <input type="button" value="template background" class="template" /> -->
-
-
     <header>
         <div class="container">
             <div class="settingContainer">
-                <button tabindex="1" class="showText" title='showText'>
-                    <img src="images/doubts-button.png" alt="">
+                <button aria-label="help button" tabindex="1" class="showText" title='showText'>
+                    <img src="images/doubts-button.png" alt="help-button">
                 </button>
-
-                <button tabindex="3" class="setting" title='setting'>
-                    <img src="images/gear-option.png" alt="">
+                <button aria-label="setting button" tabindex="3" class="setting" title='setting'>
+                    <img src="images/gear-option.png" alt="settings-button">
                 </button>
                 <div class="help-popup">
-                    <button tabindex="2" aria-label="" class="popup-close">&#10006;</button>
+                    <button tabindex="2" aria-label="close button" class="popup-close" title='close'>&#10006;</button>
                     <p id="instructionnorm"></p>
                 </div>
             </div>
             <h2 id="title"></h2>
             <p id="instructionbold"></p>
-
-
             <div class="settinToolsContainer">
                 <div class="toolsCnt"></div>
-                <button tabindex="4" class="close"></button>
+                <button aria-label="close button" tabindex="4" class="close" title='close'>Close</button>
             </div>
-
             <div class="row dragableItemContainer">
-
                 <div class="feedback">
-                    <p>[Feedback text] dolor sit amet, consectetur adipiscing elit, sed do lorem ipsum dolor sit amet,
-                        lorem ipsum dolor sit amet, consectetur adipiscing</p>
+                    <p>Correct! You’ve matched each review excerpt to its category. You understand that summaries/observations are objective statements, while evaluations/analyses are subjective statements about the subject of the review. Correct! You’ve matched each review excerpt to its category. You understand that summaries/observations are objective statements, while evaluations analyses are subjective statements ab</p>
                 </div>
                 <div class="nav-container">
-                    <button class="submit_btn" disabled title="submit">
+                    <button aria-label="submit button" class="submit_btn" disabled title="submit">
                         Submit
                     </button>
-
-                    <button class="tryagain_btn invisible" disabled title="try again">
+                    <button aria-label="try again button" class="tryagain_btn invisible" disabled title="try again">
                         Try Again
                     </button>
-
-                    <button class="reset_btn invisible" disabled title="reset">
+                    <button aria-label="reset button" class="reset_btn invisible" disabled title="reset">
                         Reset
                     </button>
                 </div>
             </div>
-
-
-
-            <!-- <hr class="first"> -->
-
-
-            <!-- <img id="loadingImg" src="images/loading.gif" /> -->
         </div>
-
-
     </header>
-
-    <section>
+    <section class="main-sec">
         <div class="container">
             <div class="content">
                 <div id="tempDiv" style="display:none"></div>
                 <div id="tempSetting" style="display:none"></div>
-
                 <div class="row categoryContainer">
-                  
                 </div>
             </div>
         </div>
-
-       
     </section>
-
-    <button class="bottom-btn">
-        REVIEW YOUR<br>SORTED ANSWERS
+    <button aria-label="collapse/expand categories button" class="bottom-btn">
+        COLLAPSE<br>CATEGORIES
     </button>
-
 </body>
-
 </html>

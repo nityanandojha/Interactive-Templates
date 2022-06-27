@@ -67,6 +67,7 @@ var matching = (function() {
                         var xmlDoc = $.parseXML($("#tempDiv").html());
                         var xml = $(xmlDoc);
                         fetchData(xml);
+                        createSettingBox(settingXML);
                     }
                 });
             }
@@ -106,6 +107,37 @@ var matching = (function() {
         $("#w-feedback p").html(xml.find("wrongfeedback").text());
         
         $(".shuffle").shuffleChildren();
+    }
+
+    function createSettingBox(data){
+        console.log("DATA: ", data.find("themes").find("theme").length);
+        var themes = Array.from(data.find("themes").find("theme"));
+        themes.forEach((element, index) => {
+            console.log("element", element.innerHTML);
+            var btn = $("<button>",{
+                "role": "settings tool",
+                "data-color": $(element).find("color").html(),
+                "data-background": $(element).find("background").html(),
+                "class": "toolContainer toolContainer_" + (index+1),
+                "aria-label": $(element).find("title").html(),
+                "title": $(element).find("title").html(),
+            }).appendTo($(".toolCnt"));
+
+            $("<img>",{
+                "alt": $(element).find("name").html(),
+                "class": "tool tool_" + (index+1),
+                "src": "images/" + $(element).find("images").html()
+            }).appendTo($(btn));
+            $("<span>",{
+                "class": "toolTxt toolTxt_"+(index+1),                
+            }).html($(element).find("title").html()).appendTo(btn);
+            $(btn).on("click", function(e){
+                console.log($(this).attr("data-color"));
+                var r = document.querySelector(':root');
+                r.style.setProperty('--color', $(this).attr("data-color"));
+                r.style.setProperty('--background', $(this).attr("data-background"));
+            })
+        });
     }
 
     function matchHandler(e){

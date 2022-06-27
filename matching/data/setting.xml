@@ -15,8 +15,8 @@
             <name>redgreen-theme</name>
             <title>Red/Green</title>
             <images>red-green.svg</images>
-            <color>#4A9D63</color>
-            <background>#CF5D4F</background>           
+            <color>#C6DCD0</color>
+            <background>#97322b</background>           
             <selectioncolor>#F5BA5C</selectioncolor>
         </theme>
         <theme>
