@@ -147,8 +147,9 @@ body {
 
 .feedback{
     width: calc(100% - 130px);
+    margin-left: 15px;
+    font-family: helvetica bold;
 }
-
 
 .buttonCont{
     float: right;
