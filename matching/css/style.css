@@ -41,6 +41,10 @@ body {
     background-color: #fafafa;
     font-family: "helvetica regular";
 }
+.disabled{
+    pointer-events: none;
+    opacity: 0.5;
+}
 .btn-submit{
     background: #d5440b;
     border: none;
@@ -50,6 +54,14 @@ body {
     font-size: 22px;
     border-radius: 10px;
 }
+
+.reset_btn{
+    display: none;
+}
+.tryagain_btn{
+    display: none;
+}
+
 .btn:hover {
     color: #fff;
 }
@@ -265,7 +277,6 @@ body {
     position: fixed;
     width: 100%;
     right: 0;
-    z-index: 9;
 }
 .sticky .head-btn-wrap{
     position: unset;
@@ -280,8 +291,7 @@ body {
     padding: 20px 34px 12px 22px;
     top: 0;
     font-size: 20px;
-    z-index: 9999;
-    display: block;
+    display: none;
     line-height: 26px;
 }
 .head-btn .note{
@@ -305,6 +315,11 @@ body {
     top: 6px;
     font-weight: 700;
 }
+
+.settings-container{
+    display: none;
+}
+
 @media screen and  (device-width: 1350px), (device-height: 760px){
     .col-xl-2 {
         flex: 0 0 auto;
@@ -584,7 +599,7 @@ body {
     }
     .matching-items .clickable-item {
         position: unset;
-        max-height: initial;
+        max-height: initial;`
         padding: 20px;
     }
     .matching-items .matching-item {
@@ -595,10 +610,6 @@ body {
     .col-6 {
         flex: 0 0 auto;
         width: 100%;
-    }
-    .btn.disabled, .btn:disabled, fieldset:disabled .btn {
-        pointer-events: none;
-        opacity: 0;
     }
     .head-btn-wrap{
         position: unset;

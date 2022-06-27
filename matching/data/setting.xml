@@ -6,7 +6,7 @@
         <theme>
             <name>default-theme</name>
             <title>Default</title>
-            <image>default.svg</image>
+            <images>default.svg</images>
             <color>#001936</color>
             <background>#FFFFFF</background>           
             <selectioncolor>#F5BA5C</selectioncolor>
@@ -14,7 +14,7 @@
         <theme>
             <name>redgreen-theme</name>
             <title>Red/Green</title>
-            <image>red-green.svg</image>
+            <images>red-green.svg</images>
             <color>#4A9D63</color>
             <background>#CF5D4F</background>           
             <selectioncolor>#F5BA5C</selectioncolor>
@@ -22,7 +22,7 @@
         <theme>
             <name>blueyellow-theme</name>
             <title>Blue/yellow</title>
-            <image>blue-yellow.svg</image>
+            <images>blue-yellow.svg</images>
             <color>#F8CD5E</color>
             <background>#001936</background>
             <foreground>#F8CD5E</foreground>
@@ -31,7 +31,7 @@
         <theme>
             <name>highcontrast-theme</name>
             <title>High Contrast</title>
-            <image>highcontrast.svg</image>
+            <images>highcontrast.svg</images>
             <color>#ED70EF</color>
             <background>#212022</background>            
             <selectioncolor>#F5BA5C</selectioncolor>
