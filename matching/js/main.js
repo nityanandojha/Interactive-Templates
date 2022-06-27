@@ -51,8 +51,8 @@ var matching = (function() {
         $(".matching-element").removeClass("submitted").removeClass("correct-ans");
         $(".matching-element").removeClass("submitted").removeClass("wrong-ans");
 
-        $("#r-feedback p").hide();
-        $("#w-feedback p").hide();
+        $("#r-feedback").hide();
+        $("#w-feedback").hide();
     }
 
     this.loadXML = function(){
@@ -111,6 +111,10 @@ var matching = (function() {
     function matchHandler(e){
         if(!$(this).attr("data-placed")){
             $(this).find(".matching-element").prepend(curDiv);
+
+            var prevMatched = $(curDiv).attr("data-placed");
+            $("#"+prevMatched).removeAttr("data-placed");
+            $("#"+prevMatched).removeClass("placed");
             console.log(" *-*-*-*-*-*-*-*-*-* ");
         }else{
             if($(curDiv).attr("data-placed")){
@@ -123,8 +127,8 @@ var matching = (function() {
                 parent.find(".matching-element").prepend(apend);
 
                 apend.attr("data-placed", parent.attr("id"));
-                parent.removeAttr("data-placed");
-                parent.removeClass("placed");
+                parent.attr("data-placed", apend.attr("id"));
+                parent.addClass("placed");
                 
                 $(this).find(".matching-element").prepend($(curDiv));
             }else{
@@ -139,15 +143,10 @@ var matching = (function() {
                         console.log(" 11111111111111111 ");
                     }
                 }else{
-                    //$(this).find(".matching-element").prepend(curDiv);
                     console.log(" 2222222222222222222222 ");
                 }
             }
         }
-        
-        var prevMatched = $(curDiv).attr("data-placed");
-        $("#"+prevMatched).removeAttr("data-placed");
-        $("#"+prevMatched).removeClass("placed");
 
         $(curDiv).attr("data-placed", $(this).attr("id"));
         $(this).attr("data-placed", $(curDiv).attr("id"));
