@@ -15,13 +15,7 @@
 
 }
 
-@font-face {
-    font-family: "helvetica regular1";
-    src: url("./fonts/Helvetica-regular.ttf");
-    -webkit-font-smoothing: antialiased;
-    -webkit-text-size-adjust: auto;
 
-}
 
 @font-face {
     font-family: "montserrat bold";
@@ -54,6 +48,20 @@ body {
     margin: 0;
     background-color: #fafafa;
     font-family: "helvetica regular";
+    font-weight: 700;
+}
+.text-end {
+    text-align: right!important;
+    width: 100%;
+    margin-top: 54px;
+}
+
+.container, .container-fluid, .container-lg, .container-md, .container-sm, .container-xl, .container-xxl {
+    width: 97%;
+    padding-right: var(--bs-gutter-x,.75rem);
+    padding-left: var(--bs-gutter-x,.75rem);
+    margin-right: auto;
+    margin-left: auto;
 }
 .disabled{
     pointer-events: none;
@@ -62,11 +70,12 @@ body {
 .btn-submit{
     background: #d5440b;
     border: none;
-    padding: 8px 24px;
+    padding: 13px 24px 15px 24px;
     color: #fff;
     font-family: 'helvetica bold';
     font-size: 22px;
     border-radius: 10px;
+    line-height: 16px;
 }
 .toolCnt{
     display: flex;
@@ -80,7 +89,6 @@ body {
 .toolTxt {
     font-family: 'helvetica regular';
     letter-spacing: 1px;
-    font-weight: 700;
     text-align: center;
     text-transform: capitalize;
 }
@@ -139,7 +147,7 @@ body {
     border-bottom: solid 1px #ddd;
     position: relative;
     box-shadow: 0px 1px 10px #d6d6d6;
-    padding-bottom: 90px;
+    padding-bottom: 30px;
 }
 .activity-title{
     color: var(--color);
@@ -157,8 +165,8 @@ body {
 
 .feedback{
     width: calc(100% - 135px);
-    margin-left: 15px;
-    font-family: helvetica regular1;
+    margin-left: 30px;
+    font-family: 'helvetica regular';
 }
 
 .buttonCont{
@@ -183,7 +191,7 @@ body {
     width: 220px;
     margin: 0 auto 15px auto;
     border-radius: 15px 15px 0px 0;
-    padding: 20px;
+    padding: 20px 18px;
     border: solid 1px #fff;
     cursor: pointer;
 }
@@ -192,21 +200,21 @@ body {
     box-shadow: 0px 4px 4px 1px #c5c5c5;
 }
 .clickable-items .clickable-item.selected{
-    border:solid 2px var(--selectioncolor);
+    border:solid 1px var(--selectioncolor);
 }
 .matching-items .clickable-item.selected{
-    border:solid 2px var(--selectioncolor);
+    border:solid 1px var(--selectioncolor);
 }
 
 .clickable-items .clickable-item p,  .matching-items .clickable-item p{
     margin-bottom: 0px;
-    font-size: 16px;
+    font-size: 18px;
     text-align: center;
     font-family: "montserrat bold";
 }
 .matching-element .clickable-item p{
     font-size: 18px;
-    font-family: "helvetica bold";
+    font-family: "montserrat bold";
 }
 
 .matching-element{
@@ -261,14 +269,13 @@ body {
 }
 .matching-items .matching-item p{
     margin-bottom: 0px;
-    font-weight: normal;
     font-size: 16px;
     text-align: left;
     color: var(--color);
     line-height: 20px;
     font-family: "helvetica regular";
     letter-spacing: 1px;
-        font-weight: 700;
+    font-weight: 700;
 }
 
 .btn.btn-primary{
@@ -303,7 +310,7 @@ body {
     position: absolute;
     top: 0;
     max-height: 18.2vh;
-    padding: 20px;
+    padding: 20px 18px;
     border: none;
 }
 .matching-items .matching-item {
@@ -335,9 +342,6 @@ body {
     border: none;
     font-size: 18px;
     margin-right: 8px;
-}
-.top-description p{
-    font-weight: 600;
 }
 #r-feedback{
     display: none;
@@ -371,7 +375,10 @@ body {
     font-size: 20px;
     display: none;
     line-height: 26px;
-    font-family: helvetica bold;
+    font-family: 'helvetica regular';
+}
+.notice-card p{
+    letter-spacing: 1px;
 }
 .head-btn .note{
     background: #5f6062;
@@ -422,7 +429,7 @@ body {
         position: relative;
     }
     .head-btn .notice-card {
-        width: 31% !important;
+        width: 547px;
     }
     .matching-items .matching-item {
         margin-top: 102px;
@@ -457,6 +464,7 @@ body {
     .activity-title {
         font-size: 22PX;
         line-height: 28px;
+        width: 60%;
     }
     
     
@@ -513,14 +521,21 @@ body {
 @media screen and (device-width: 650px), (device-height: 365px){
     .head-btn .notice-card {
         width: 301px;
-        font-size: 14px;
-        line-height: 18px;
+    font-size: 14px;
+    font-family: 'helvetica regular';
+    line-height: 18px;
+    letter-spacing: 1px;
     }
     .activity-title {
-        font-size: 20PX;
+        font-size: 16PX;
         font-family: "helvetica bold";
-        font-weight: bold;
         line-height: 20px;
+    }
+    .clickable-items .clickable-item p, .matching-items .clickable-item p {
+        margin-bottom: 0px;
+        font-size: 16px;
+        text-align: center;
+        font-family: 'helvetica bold';
     }
     .matching-items .matching-item p {
         font-size: 14px;
@@ -610,7 +625,16 @@ body {
     }
     
     .head-btn .notice-card {
-        width: 309px;
+        width: 303px;
+    }
+    .notice-card p {
+        letter-spacing: 1px;
+        font-size: 14px;
+        line-height: 18px;
+    }
+    .matching-items .matching-item p {
+        margin-bottom: 0px;
+        font-size: 14px;
     }
 
     /* .clickable-items{
@@ -665,16 +689,21 @@ body {
         width: 547px;
         line-height: 20px;
     }
+    .activity-title {
+        padding-top: 0;
+    }
+    
+    .activity-header {
+        padding-bottom: 71px;
+    }
     .matching-items .matching-item p {
         margin-bottom: 0px;
-        font-weight: normal;
         font-size: 14px;
         text-align: left;
         color: #4a4a4a;
         line-height: 18px;
         font-family: "helvetica regular";
         letter-spacing: 1px;
-        font-weight: 700;
     }
     .matching-items .clickable-item {
         position: unset;
