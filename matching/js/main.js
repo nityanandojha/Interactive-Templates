@@ -199,9 +199,11 @@ var matching = (function() {
     }
 
     $(".submit_btn").click(function(){
+        alert("---")
         var wCount = 0;
         var rCount = 0;
-
+        console.log("-------", $(".activity-header"));
+        $(".activity-header").addClass("h-179");
         for(var i=0; i<data.ques.length; i++){
             var clicksId = $("#cloneItem_"+i).attr("id").replace("cloneItem_", "");
             var machedId = $("#cloneItem_"+i).attr("data-placed").replace("matchBox_", "");
