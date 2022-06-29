@@ -371,9 +371,9 @@ body {
     width: 547px;
     padding: 20px 34px 12px 22px;
     top: 0;
-    font-size: 20px;
+    font-size: 14px;
     display: none;
-    line-height: 26px;
+    line-height: 18px;
     font-family: 'helvetica regular';
 }
 .notice-card p{
