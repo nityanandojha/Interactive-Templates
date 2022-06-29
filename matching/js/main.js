@@ -64,7 +64,6 @@ var matching = (function() {
                     if (status != "error") {
                         var settXml = $.parseXML($("#tempSetting").html());
                         var settingXML = $(settXml);
-                        console.log(settingXML.find("theme").text());
 
                         var xmlDoc = $.parseXML($("#tempDiv").html());
                         var xml = $(xmlDoc);
@@ -115,7 +114,7 @@ var matching = (function() {
         console.log("DATA: ", data.find("themes").find("theme").length);
         var themes = Array.from(data.find("themes").find("theme"));
         themes.forEach((element, index) => {
-            console.log("element", element.innerHTML);
+            // console.log("element", element.innerHTML);
             var btn = $("<button>",{
                 "role": "settings tool",
                 "data-color": $(element).find("color").html(),
@@ -248,6 +247,16 @@ var matching = (function() {
         })
 
         $(".matchedEvent").off().on("click", matchHandler);
+
+        $(".clickable-items").click(function() {
+            //console.log($(curDiv).attr("data-placed"));
+
+            if($(curDiv).parent().hasclass("clickedEvent")){
+                $(".clickedEvent").appendTo($(this).find(".clickableBlock"));
+                $(curDiv).removeAttr("data-placed");
+            }
+
+        })
     }
 
     $.fn.shuffleChildren = function() {
