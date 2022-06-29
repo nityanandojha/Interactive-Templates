@@ -626,20 +626,20 @@ body {
         width: 198px;
     }
     .activity-title {
-        font-size: 16PX;
+        font-size: 17px;
         font-family: "helvetica bold";
         font-weight: bold;
         line-height: 22px;
     }
     .clickable-items .clickable-item p, .matching-items .clickable-item p {
         margin-bottom: 0px;
-        font-size: 16px;
+        font-size: 17px;
         text-align: center;
         font-family: 'helvetica bold';
     }
     .matching-items .clickable-item {
         max-height: 8.2vh;
-        padding: 20px;
+        padding: 18px;
     }
     .matching-items .matching-item {
         width: 100%;

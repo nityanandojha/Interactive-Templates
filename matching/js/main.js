@@ -2,6 +2,7 @@ var matching = (function() {
     var data = {};
     var curDiv = null;
     var curMatchbox = true;
+    var prevBtn = null;
 
     this.init = function(data) {
         this.loadXML();
@@ -147,6 +148,11 @@ var matching = (function() {
     }
 
     function matchHandler(e){
+        console.log("match...............", e.target, e.currentTarget);
+        
+        if(!$(e.target).hasClass("clickable-item")){
+            prevBtn = null;
+        }
         if(!$(this).attr("data-placed")){
             $(this).find(".matching-element").prepend(curDiv);
 
@@ -184,6 +190,7 @@ var matching = (function() {
                     console.log(" 2222222222222222222222 ");
                 }
             }
+           
         }
 
         $(curDiv).attr("data-placed", $(this).attr("id"));
@@ -237,6 +244,15 @@ var matching = (function() {
 
     function bindEvents(){
         $(".clickedEvent").click(function clickableHandler(e){
+            console.log("btn", $(this).closest('.clickable-items').length);
+            if(prevBtn){
+                console.log("back.......");
+            }else{
+                if(!$(this).closest('.clickable-items').length){
+                    console.log("placed");
+                    prevBtn = e.target;
+                }
+            }
             if(curDiv){
                 $(curDiv).find(".clickable-item").removeClass("selected");
             }
@@ -252,13 +268,32 @@ var matching = (function() {
 
         $(".matchedEvent").off().on("click", matchHandler);
 
-        $(".clickable-items").click(function() {
-            //console.log($(curDiv).attr("data-placed"));
-
-            if($(curDiv).parent().hasclass("clickedEvent")){
-                $(".clickedEvent").appendTo($(this).find(".clickableBlock"));
-                $(curDiv).removeAttr("data-placed");
+        $(".clickable-items").click(function(e) {
+            console.log("PREV: ", prevBtn);
+            if(prevBtn){
+                if($(prevBtn).parent().hasClass("clickable-items")){
+                    console.log("SAME......");
+                }else{
+                    
+                    console.log("BACK.....", prevBtn);
+                    $(prevBtn).parent().appendTo($(".clickableBlock"));                    
+                    var iid = $(prevBtn).parent().attr("data-placed");
+                    console.log("id ", iid);
+                    $("#"+iid).removeClass("placed");
+                    $("#"+iid).removeAttr("data-placed");
+                    $(prevBtn).parent().removeAttr("data-placed");
+                    
+                    prevBtn=null;
+                    return;
+                }
             }
+
+            console.log("Normal click....");
+            prevBtn = e.target;
+            // if($(curDiv).parent().hasClass("clickedEvent")){
+            //     $(".clickedEvent").appendTo($(this).find(".clickableBlock"));
+            //     $(curDiv).removeAttr("data-placed");
+            // }
 
         })
     }
