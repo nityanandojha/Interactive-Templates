@@ -37,6 +37,11 @@ var matching = (function() {
     }
 
     var tryAgain = function(){
+        $(".matching-element").find(".clickable-item").removeClass("wrong-border-up");
+        $(".matching-element").find(".matching-item").removeClass("wrong-border-bottom");
+        $(".matching-element").find(".clickable-item").removeClass("right-border-bottom");
+        $(".matching-element").find(".matching-item").removeClass("right-border-bottom");
+
         $(".activity-header").removeClass("h-48p");
         $(".activity-content").removeClass("p-48p");
 
@@ -220,9 +225,13 @@ var matching = (function() {
 
             if(clicksId == machedId){
                 $("#matchBox_"+machedId).find(".matching-element").addClass("submitted").addClass("correct-ans");
+                $("#matchBox_"+machedId).find(".matching-element").find(".clickable-item").addClass("right-border-up");
+                $("#matchBox_"+machedId).find(".matching-element").find(".matching-item").addClass("right-border-bottom");
                 rCount++;
             }else{
                 $("#matchBox_"+machedId).find(".matching-element").addClass("submitted").addClass("wrong-ans");
+                $("#matchBox_"+machedId).find(".matching-element").find(".clickable-item").addClass("wrong-border-up");
+                $("#matchBox_"+machedId).find(".matching-element").find(".matching-item").addClass("wrong-border-bottom");
                 wCount++;
             }
         }
@@ -282,7 +291,7 @@ var matching = (function() {
                     $("#"+iid).removeClass("placed");
                     $("#"+iid).removeAttr("data-placed");
                     $(prevBtn).parent().removeAttr("data-placed");
-                    
+                    $(".submit_btn").addClass("disabled");
                     prevBtn=null;
                     return;
                 }
