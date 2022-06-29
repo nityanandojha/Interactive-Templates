@@ -162,8 +162,9 @@ body {
 }
 
 .feedback{
-    width: calc(100% - 135px);
+    /* width: calc(100% - 135px); */
     margin-left: 30px;
+    line-height: 20px;
     font-family: 'helvetica regular';
 }
 
@@ -517,8 +518,20 @@ body {
 }
 
 @media screen and (device-width: 650px), (device-height: 365px){
+    .activity-header{
+        position: fixed;
+        width: 100%;
+        height: 49%;
+    }
+    .activity-content{
+        position: fixed;
+        top: 49%;
+        height: 51%;
+        overflow-y: auto;
+    }
+
     .head-btn .notice-card {
-        width: 301px;
+    width: 301px;
     font-size: 14px;
     font-family: 'helvetica regular';
     line-height: 18px;
@@ -590,8 +603,20 @@ body {
 }
 
 @media screen and (device-width: 530px), (device-height: 943px), (orientation: portrait) {
+    .activity-header{
+        position: fixed;
+        width: 100%;
+        height: 19%;
+
+    }
+    .activity-content{
+        position: fixed;
+        top: 19%;
+        height: 81%;
+        overflow-y: auto;
+    }
     .feedback{
-        width: calc(100% - 140px);
+        /* width: calc(100% - 140px); */
     }
     .clickable-items .clickable-item{
         width: 198px;
@@ -683,8 +708,30 @@ body {
 }
 
 @media screen and (max-width: 529px){
+    .h-48p{
+        height: 48% !important;
+    }
+    .p-48p{
+        top: 48% !important;
+    }
+    .activity-header{
+        position: fixed;
+        width: 100%;
+        height: 38%;
+    }
+    .activity-content{
+        position: fixed;
+        top: 38%;
+        height: 62%;
+        overflow-y: auto;
+    }
     .feedback{
         width: 100%;
+        margin: 0;
+        letter-spacing: 1px;
+    }
+    .text-end{
+        margin-top: 20px;
     }
     .head-btn .notice-card {
         width: 547px;
@@ -701,7 +748,7 @@ body {
         margin-bottom: 0px;
         font-size: 14px;
         text-align: left;
-        color: #4a4a4a;
+        color: var(--color);
         line-height: 18px;
         font-family: "helvetica regular";
         letter-spacing: 1px;
