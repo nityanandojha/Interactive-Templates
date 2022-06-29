@@ -82,7 +82,7 @@ body {
     opacity: 0.5;
 }
 .btn-submit{
-    background: #d5440b;
+    background: #d4450c;
     border: none;
     padding: 13px 24px 15px 24px;
     color: #fff;
@@ -180,8 +180,11 @@ body {
 .feedback{
     /* width: calc(100% - 135px); */
     margin-left: 30px;
-    line-height: 20px;
-    font-family: 'helvetica regular';
+    line-height: 26px;
+    letter-spacing: 1px;
+    font-weight: 700;
+    color: #5e6062;
+    font-size: 20px;
 }
 
 .buttonCont{
@@ -385,7 +388,7 @@ body {
     background: #5e6062;
     color: #fff;
     width: 547px;
-    padding: 20px 34px 12px 22px;
+    padding: 16px 34px 16px 22px;
     top: 0;
     font-size: 14px;
     display: none;
@@ -394,11 +397,12 @@ body {
 }
 .notice-card p{
     letter-spacing: 1px;
+    margin-bottom: 0px;
 }
 .head-btn .note{
     background: #5f6062;
     color: #fff;
-    padding: 8px 5px 0 5px;
+    padding: 2px 5px 0 5px;
     border: none;
     font-size: 18px;
     margin-right: 8px;
@@ -447,7 +451,7 @@ body {
         width: 547px;
     }
     .matching-items .matching-item {
-        margin-top: 102px;
+        margin-top: 101px;
     }
     .matching-items .clickable-item {
         margin: 0px;
@@ -538,6 +542,18 @@ body {
         position: fixed;
         width: 100%;
         height: 49%;
+    }
+    .feedback {
+        /* width: calc(100% - 135px); */
+        margin-left: 30px;
+        line-height: 20px;
+        letter-spacing: 1px;
+        font-weight: 700;
+        color: #5e6062;
+        font-size: 16px;
+    }
+    .notice-card button {
+        top: 14px;
     }
     .activity-content{
         position: fixed;
@@ -631,8 +647,14 @@ body {
         height: 81%;
         overflow-y: auto;
     }
-    .feedback{
-        /* width: calc(100% - 140px); */
+    .feedback {
+        /* width: calc(100% - 135px); */
+        margin-left: 30px;
+        line-height: 20px;
+        letter-spacing: 1px;
+        font-weight: 700;
+        color: #5e6062;
+        font-size: 16px;
     }
     .clickable-items .clickable-item{
         width: 198px;
@@ -745,6 +767,8 @@ body {
         width: 100%;
         margin: 0;
         letter-spacing: 1px;
+        font-size: 16px;
+        line-height: 20px;
     }
     .text-end{
         margin-top: 20px;
