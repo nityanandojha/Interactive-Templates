@@ -11,9 +11,11 @@ var matching = (function() {
             $(".notice-card").show();
             $(".notice-card").css("zIndex","3");
             $(".settings-container").css("zIndex","2");
+            $(".close-bt").focus();
 
             $(".close-bt").off().on("click", function(){
                 $(".notice-card").hide();
+                $(".note").focus();
             })
         })
 
@@ -21,9 +23,12 @@ var matching = (function() {
             $(".settings-container").show();
             $(".settings-container").css("zIndex","3");
             $(".notice-card").css("zIndex","2");
+            $(".setting-button").blur();
+            $(".close-btn").focus();
 
             $(".close-btn").off().on("click", function(){
                 $(".settings-container").hide();
+                $(".setting-button").focus();
             })
         })
         
@@ -37,10 +42,14 @@ var matching = (function() {
     }
 
     var tryAgain = function(){
+        $(".clickable-item").prop("disabled", false);
+        $(".matching-item").prop("disabled", false);
+
         $(".matching-element").find(".clickable-item").removeClass("wrong-border-up");
         $(".matching-element").find(".matching-item").removeClass("wrong-border-bottom");
-        $(".matching-element").find(".clickable-item").removeClass("right-border-bottom");
+        $(".matching-element").find(".clickable-item").removeClass("right-border-up");
         $(".matching-element").find(".matching-item").removeClass("right-border-bottom");
+       
 
         $(".activity-header").removeClass("h-48p");
         $(".activity-content").removeClass("p-48p");
@@ -56,6 +65,7 @@ var matching = (function() {
         $(".reset_btn").hide();
         $(".submit_btn").show();
         $(".submit_btn").addClass("disabled");
+        $(".submit_btn").prop("disabled", true);
 
         $(".matching-element").removeClass("submitted").removeClass("correct-ans");
         $(".matching-element").removeClass("submitted").removeClass("wrong-ans");
@@ -98,12 +108,16 @@ var matching = (function() {
             tempObj["matching"] = $(el).find("matching text").html();
 
             data.ques.push(tempObj);
-
+            var txt = data.ques[index].clickable;
             $("#cloneItem_d").clone().appendTo(".clickableBlock");
-            $("#cloneItem_d .clickable-item p").html(data.ques[index].clickable);
+            $("#cloneItem_d .clickable-item").attr("alt", "Item to match: [pause] "+ txt);
+            
+            $("#cloneItem_d .clickable-item p").html(txt);
             $("#cloneItem_d").addClass("clickedEvent");
             $("#cloneItem_d").attr("id", "cloneItem_"+index);
 
+            var txt = data.ques[index].matching;
+            $("#matchBox_d .matching-item").attr("alt", "Item to match: [pause] "+ txt);
             $("#matchBox_d").clone().appendTo(".matchingBlock");
             $("#matchBox_d .matching-item p").html(data.ques[index].matching);
             $("#matchBox_d").addClass("matchedEvent");
@@ -164,13 +178,13 @@ var matching = (function() {
             var prevMatched = $(curDiv).attr("data-placed");
             $("#"+prevMatched).removeAttr("data-placed");
             $("#"+prevMatched).removeClass("placed");
-            console.log(" *-*-*-*-*-*-*-*-*-* ");
+            //console.log(" *-*-*-*-*-*-*-*-*-* ");
         }else{
             if($(curDiv).attr("data-placed")){
                 if(curMatchbox == $(this).attr("id")){
                     return;
                 }
-                console.log(" 000000000000000000 ");
+                //console.log(" 000000000000000000 ");
                 var parent = $("#"+$(curDiv).attr("data-placed"));                
                 var apend = $("#"+$(this).attr("data-placed"));
                 parent.find(".matching-element").prepend(apend);
@@ -206,6 +220,7 @@ var matching = (function() {
         curDiv = null;
 
         if($(".placed").length == data.ques.length){
+            $(".submit_btn").prop("disabled", false)
             $(".submit_btn").removeClass("disabled");
             $(".submit_btn").removeClass("mobile-submit");
             $(".activity-header").addClass("pad0");
@@ -216,6 +231,8 @@ var matching = (function() {
         
         var wCount = 0;
         var rCount = 0;
+        $(".clickable-item").prop("disabled", true);
+        $(".matching-item").prop("disabled", true);
         
         $(".activity-header").addClass("h-48p");
         $(".activity-content").addClass("p-48p");
@@ -278,22 +295,34 @@ var matching = (function() {
         $(".matchedEvent").off().on("click", matchHandler);
 
         $(".clickable-items").click(function(e) {
-            console.log("PREV: ", prevBtn);
-            if(prevBtn){
-                if($(prevBtn).parent().hasClass("clickable-items")){
-                    console.log("SAME......");
-                }else{
-                    
-                    console.log("BACK.....", prevBtn);
-                    $(prevBtn).parent().appendTo($(".clickableBlock"));                    
-                    var iid = $(prevBtn).parent().attr("data-placed");
-                    console.log("id ", iid);
-                    $("#"+iid).removeClass("placed");
-                    $("#"+iid).removeAttr("data-placed");
-                    $(prevBtn).parent().removeAttr("data-placed");
-                    $(".submit_btn").addClass("disabled");
-                    prevBtn=null;
-                    return;
+           // console.log("PREV: ", prevBtn);
+           // console.log("CT: ", e.target);
+            var same = true;
+            try{
+                
+                same = prevBtn.parentNode.parentNode == e.target.parentNode.parentNode;
+            }catch(err){
+                //console.log(err);
+                same=true;
+            }
+            if(!same){
+                if(prevBtn){
+                    if($(prevBtn).parent().hasClass("clickable-items")){
+                        //console.log("SAME......");
+                    }else{
+                        
+                        //console.log("BACK.....", prevBtn);
+                        $(prevBtn).parent().appendTo($(".clickableBlock"));                    
+                        var iid = $(prevBtn).parent().attr("data-placed");
+                       // console.log("id ", iid);
+                        $("#"+iid).removeClass("placed");
+                        $("#"+iid).removeAttr("data-placed");
+                        $(prevBtn).parent().removeAttr("data-placed");
+                        $(".submit_btn").addClass("disabled");
+                        $(".submit_btn").prop("disabled", true);
+                        prevBtn=null;
+                        return;
+                    }
                 }
             }
 

@@ -56,18 +56,22 @@ body {
 .wrong-border-up{
     border: 2px solid red !important;
     border-bottom: none !important;
+    cursor: auto !important;
 }
 .wrong-border-bottom{
     border: 2px solid red !important;
     border-top: none !important;
+    cursor: auto !important;
 }
 .right-border-up{
     border: 2px solid rgb(1, 207, 32) !important;
     border-bottom: none !important;
+    cursor: auto !important;
 }
 .right-border-bottom{
     border: 2px solid rgb(1, 207, 32) !important;
     border-top: none !important;
+    cursor: auto !important;
 }
 
 .container, .container-fluid, .container-lg, .container-md, .container-sm, .container-xl, .container-xxl {
@@ -210,7 +214,7 @@ body {
     margin: 0 auto 15px auto;
     border-radius: 15px 15px 0px 0;
     padding: 20px 18px;
-    border: solid 1px #fff;
+    border: solid 2px #BCBCBC;
     cursor: pointer;
 }
 .clickable-items .clickable-item{
@@ -218,10 +222,10 @@ body {
     box-shadow: 0px 4px 4px 1px #c5c5c5;
 }
 .clickable-items .clickable-item.selected{
-    border:solid 1px var(--selectioncolor);
+    border:solid 2px var(--selectioncolor);
 }
 .matching-items .clickable-item.selected{
-    border:solid 1px var(--selectioncolor);
+    border:solid 2px var(--selectioncolor);
 }
 
 .clickable-items .clickable-item p,  .matching-items .clickable-item p{
@@ -283,7 +287,7 @@ body {
     max-width: 100%;
     border-radius: 0 0 15px 15px;
     padding: 10px 10px;
-    border: 1px solid #707070;
+    border: 2px solid #707070;
 }
 .matching-items .matching-item p{
     margin-bottom: 0px;
@@ -328,8 +332,8 @@ body {
     position: absolute;
     top: 0;
     max-height: 18.2vh;
-    padding: 20px 18px;
-    border: none;
+    padding: 20px 16px;
+    border: 2px solid rgba(0,0,0,0);
 }
 .matching-items .matching-item {
     width: 100%;
@@ -373,7 +377,7 @@ body {
     text-align: end;
 }
 .head-btn-wrap{
-    position: fixed;
+    position: absolute;
     width: 100%;
     right: 0;
     z-index: 1;
