@@ -1,5 +1,5 @@
 @font-face {
-    font-family: "helvetica bold";
+    font-family: "HelveticaNeue-Bold";
     src: url("./fonts/HelveticaNeueBd.ttf");
     -webkit-font-smoothing: antialiased;
     -webkit-text-size-adjust: auto;
@@ -7,7 +7,7 @@
 }
 
 @font-face {
-    font-family: "helvetica regular";
+    font-family: "HelveticaNeue-Regular";
     src: url("./fonts/HelveticaNeue.ttf");
     -webkit-font-smoothing: antialiased;
     -webkit-text-size-adjust: auto;
@@ -45,7 +45,7 @@ html,body{
 body {
     margin: 0;
     background-color: #fafafa;
-    font-family: "helvetica regular";
+    font-family: "HelveticaNeue-Regular";
     font-weight: 700;
 }
 .text-end {
@@ -90,7 +90,7 @@ body {
     border: none;
     padding: 13px 24px 15px 24px;
     color: #fff;
-    font-family: 'helvetica bold';
+    font-family: "HelveticaNeue-Bold";
     font-size: 22px;
     border-radius: 10px;
     line-height: 16px;
@@ -105,7 +105,7 @@ body {
 }
 
 .toolTxt {
-    font-family: 'helvetica regular';
+    font-family: "HelveticaNeue-Regular";
     letter-spacing: 1px;
     text-align: center;
     text-transform: capitalize;
@@ -170,7 +170,7 @@ body {
 .activity-title{
     color: var(--color);
     font-size: 22PX;
-    font-family: "helvetica bold";
+   font-family: "HelveticaNeue-Bold";
     padding-top: 15px;
     font-weight: bold;
 }
@@ -210,7 +210,7 @@ body {
     align-items: center;
     justify-content: center;
     min-height: 100px;
-    width: 220px;
+    width: 224px;
     margin: 0 auto 15px auto;
     border-radius: 15px 15px 0px 0;
     padding: 20px 18px;
@@ -249,8 +249,8 @@ body {
     width: 36px;
     height: 36px;
     /* top: calc(50% - 18px); */
-    top: -12px;
-    right: -9px;
+    top: -11px;
+    right: -14px;
     position: absolute;
     display: inline-block;
     z-index: 1;
@@ -282,9 +282,9 @@ body {
     align-items: center;
     justify-content: center;
     min-height: 100px;
-    /* max-width: 550px; */
-    width: 100%;
-    max-width: 100%;
+    width: 224px;
+    min-width: 224px;
+    max-width: 224px;
     border-radius: 0 0 15px 15px;
     padding: 10px 10px;
     border: 2px solid #707070;
@@ -295,7 +295,7 @@ body {
     text-align: left;
     color: var(--color);
     line-height: 20px;
-    font-family: "helvetica regular";
+    font-family: "HelveticaNeue-Regular";
     letter-spacing: 1px;
     font-weight: 700;
 }
@@ -326,7 +326,7 @@ body {
 
 .matching-items .clickable-item {
     margin: 0px;
-    width: 100%;
+    width: 224px;
     border-bottom-left-radius: 0;
     border-bottom-right-radius: 0;
     position: absolute;
@@ -336,8 +336,6 @@ body {
     border: 2px solid rgba(0,0,0,0);
 }
 .matching-items .matching-item {
-    width: 100%;
-    max-width: 100%;
     margin-top: 99px;
 }
 .matching-items .clickable-item + .matching-item{
@@ -385,20 +383,22 @@ body {
 .sticky .head-btn-wrap{
     position: unset;
 }
-.head-btn .notice-card{
+.head-btn .notice-card {
     right: 28px;
     text-align: start;
     position: absolute;
     background: #5e6062;
     color: #fff;
     width: 547px;
-    padding: 16px 34px 16px 22px;
+    padding: 24px 59px 16px 22px;
     top: 0;
-    font-size: 14px;
+    font-size: 20px;
     display: none;
-    line-height: 18px;
-    font-family: 'helvetica regular';
+    line-height: 26px;
+    font-family: "HelveticaNeue-Regular";
 }
+
+
 .notice-card p{
     letter-spacing: 1px;
     margin-bottom: 0px;
@@ -420,16 +420,14 @@ body {
     border: none;
     color: #fff;
     position: absolute;
-    right: 6px;
-    top: 6px;
+    right: 10px;
+    top: 20px;
     font-weight: 700;
 }
 
+
 @media screen and  (device-width: 1350px), (device-height: 760px){
-    .col-xl-2 {
-        flex: 0 0 auto;
-        width: 19.666667%;
-    }
+   
     .clickable-items .clickable-item{
         width: 224px;
         padding: 20px;
@@ -459,7 +457,6 @@ body {
     }
     .matching-items .clickable-item {
         margin: 0px;
-        width: 100%;
         border-bottom-left-radius: 0;
         border-bottom-right-radius: 0;
         position: absolute;
@@ -474,6 +471,7 @@ body {
     .clickable-items .clickable-item {
         height: 8.2vh;
     }
+  
     .matching-items .clickable-item {
         max-height: 8.2vh;
     }
@@ -481,9 +479,7 @@ body {
         width: 224px;
         padding: 20px;
     }
-    .matching-items .matching-item {
-        width: 100%;
-    }
+    
     .activity-title {
         font-size: 22PX;
         line-height: 28px;
@@ -495,7 +491,6 @@ body {
         position: absolute;
         left: 0px;
         top: 0px;
-        /* width: 97%; */
         z-index: 999999999;
         padding: 20px;
         margin-bottom: 0px;
@@ -532,11 +527,18 @@ body {
     }
     
 }
+@media (min-width: 1200px){
+.col-xl-2 {
+    flex: 0 0 auto;
+    width: 19.666667%;
+}
+}
 
 @media screen and (max-width: 900px) {
     .clickable-items .clickable-item {
         height: 10.2vh;
     }
+   
     
    
 }
@@ -546,6 +548,13 @@ body {
         position: fixed;
         width: 100%;
         height: 49%;
+    }
+    .matching-items .clickable-item {
+        width: 198px;
+    }
+    .matching-items .matching-item {
+        max-width: 198px;
+        min-width: 198px;
     }
     .feedback {
         /* width: calc(100% - 135px); */
@@ -557,7 +566,8 @@ body {
         font-size: 16px;
     }
     .notice-card button {
-        top: 14px;
+        top: 10px;
+        right: 7px;
     }
     .activity-content{
         position: fixed;
@@ -569,23 +579,24 @@ body {
     .head-btn .notice-card {
     width: 301px;
     font-size: 14px;
-    font-family: 'helvetica regular';
+    font-family: "HelveticaNeue-Regular";
     line-height: 18px;
     letter-spacing: 1px;
+    padding: 19px 18px 16px 15px;
     }
     .h-179{
         min-height: 179px;
     }
     .activity-title {
-        font-size: 17px;
-        font-family: "helvetica bold";
+        font-size: 16px;
+       font-family: "HelveticaNeue-Bold";
         line-height: 20px;
     }
     .clickable-items .clickable-item p, .matching-items .clickable-item p {
         margin-bottom: 0px;
         font-size: 17px;
         text-align: center;
-        font-family: 'helvetica bold';
+        font-family: "HelveticaNeue-Bold";
     }
     .matching-items .matching-item p {
         font-size: 14px;
@@ -669,7 +680,7 @@ body {
     }
     .activity-title {
         font-size: 17px;
-        font-family: "helvetica bold";
+       font-family: "HelveticaNeue-Bold";
         font-weight: bold;
         line-height: 22px;
     }
@@ -677,16 +688,17 @@ body {
         margin-bottom: 0px;
         font-size: 17px;
         text-align: center;
-        font-family: 'helvetica bold';
+        font-family: "HelveticaNeue-Bold";
     }
     .matching-items .clickable-item {
         max-height: 8.2vh;
         padding: 18px;
+        width: 198px;
     }
     .matching-items .matching-item {
-        width: 100%;
-        max-width: 100%;
-        margin-top: 101px;
+        width: 198px;
+        margin-top: 100px;
+        min-width: 198px;
     }
     .btn-submit {
         font-size: 16px;
@@ -694,6 +706,12 @@ body {
     
     .head-btn .notice-card {
         width: 303px;
+        font-size: 14px;
+        line-height: 18px;
+    }
+    .notice-card button {
+        right: 7px;
+        top: 10px;
     }
     .notice-card p {
         letter-spacing: 1px;
@@ -794,18 +812,18 @@ body {
         text-align: left;
         color: var(--color);
         line-height: 18px;
-        font-family: "helvetica regular";
+        font-family: "HelveticaNeue-Regular";
         letter-spacing: 1px;
     }
     .matching-items .clickable-item {
         position: unset;
-        max-height: initial;
         padding: 20px;
     }
     .matching-items .matching-item {
-        width: 100%;
-        max-width: 100%;
+        width: 198px;
+        min-width: 198px;
         margin-top: auto;
+        max-width: 198px;
     }
     .col-6 {
         flex: 0 0 auto;
@@ -821,7 +839,10 @@ body {
         text-align: end;
     }
     .head-btn .notice-card {
-        width: 88% !important;
+        width: 255px !important;
+    }
+    .head-btn .notice-card {
+        padding: 27px 18px 16px 15px;
     }
     .clickable-items{
         display: unset;
@@ -835,9 +856,11 @@ body {
         padding: 0 52px;
     }
     .clickable-items .clickable-item {
-        width: 198px;
+        min-width: 198px;
         padding: 20px;
     }
+    
+    
 
     .settings-container{
         width: 232px;
