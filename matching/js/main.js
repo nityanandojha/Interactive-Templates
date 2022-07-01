@@ -270,13 +270,12 @@ var matching = (function() {
 
     function bindEvents(){
         $(".clickedEvent").click(function clickableHandler(e){
-            console.log("btn", $(this).closest('.clickable-items').length);
             if(prevBtn){
                 console.log("back.......");
             }else{
                 if(!$(this).closest('.clickable-items').length){
                     console.log("placed");
-                    prevBtn = e.target;
+                    prevBtn = $(this);
                 }
             }
             if(curDiv){
@@ -295,29 +294,25 @@ var matching = (function() {
         $(".matchedEvent").off().on("click", matchHandler);
 
         $(".clickable-items").click(function(e) {
-           // console.log("PREV: ", prevBtn);
-           // console.log("CT: ", e.target);
             var same = true;
             try{
-                
-                same = prevBtn.parentNode.parentNode == e.target.parentNode.parentNode;
+                same = prevBtn == $(this);
             }catch(err){
                 //console.log(err);
                 same=true;
             }
             if(!same){
                 if(prevBtn){
-                    if($(prevBtn).parent().hasClass("clickable-items")){
+                    if($(prevBtn).hasClass("clickable-items")){
                         //console.log("SAME......");
                     }else{
-                        
-                        //console.log("BACK.....", prevBtn);
-                        $(prevBtn).parent().appendTo($(".clickableBlock"));                    
-                        var iid = $(prevBtn).parent().attr("data-placed");
+                        console.log("BACK.....", prevBtn);
+                        $(prevBtn).appendTo($(".clickable-items").find(".clickableBlock"));                    
+                        var iid = $(prevBtn).attr("data-placed");
                        // console.log("id ", iid);
                         $("#"+iid).removeClass("placed");
                         $("#"+iid).removeAttr("data-placed");
-                        $(prevBtn).parent().removeAttr("data-placed");
+                        $(prevBtn).removeAttr("data-placed");
                         $(".submit_btn").addClass("disabled");
                         $(".submit_btn").prop("disabled", true);
                         prevBtn=null;
@@ -327,12 +322,7 @@ var matching = (function() {
             }
 
             console.log("Normal click....");
-            prevBtn = e.target;
-            // if($(curDiv).parent().hasClass("clickedEvent")){
-            //     $(".clickedEvent").appendTo($(this).find(".clickableBlock"));
-            //     $(curDiv).removeAttr("data-placed");
-            // }
-
+            prevBtn = $(this);
         })
     }
 
