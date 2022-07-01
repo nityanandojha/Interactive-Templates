@@ -5,6 +5,7 @@ $(document).ready(function () {
 	var rightFeedback, wrongFeedback;
 	var arrAllDraggableitem = null;
 	var staticImagePath="images/";
+	var prevBtn = null;
 	const isMobile = detectMob(); 
 	/* detect mobile device start*/
 	function detectMob() {
@@ -120,8 +121,6 @@ $(document).ready(function () {
 		var instNormBackgroundcolor = setting.find("instructionnorm").attr('backgroundcolor');
 		rightFeedback = xml.find("feedback").find("rightans").html();
 		wrongFeedback = xml.find("feedback").find("wrongans").html();
-		console.log(rightFeedback, wrongFeedback);
-		console.log('fontfamily=', fontfamily);
 
 		var title = xml.find("title").text();
 		var instructionNorm = xml.find("instruction").find("instructionnorm").html();
@@ -155,7 +154,6 @@ $(document).ready(function () {
 
 		/* generating draggable items view */
 		arrAllDraggableitem.each(function (index, el) {
-			console.log('index=', index);
 			$(".dragableItemContainer").append('<div class="draggableitemWraper draggableitemWraper_' + index + '"><div class="draggableitemCnt draggableitemCnt_' + index + '"><button aria-label="Item to categorize: '+ $(el).html()+'"  cat=' + $(el).attr("cat") + ' id="draggableitem_' + index + '" class="draggableitem draggableitem_' + index + '">' + $(el).html() + '</button></div></div>');
 			$('.draggableitemWraper_'+ index).css("left", (index*15)+"px");
 		});
@@ -167,6 +165,44 @@ $(document).ready(function () {
 		}).off().on("click", selectDraggable);
 
 		console.log("------------------------");
+
+		$(".dragableItemContainer").click(function() {
+			//console.log($(this));
+            var same = true;
+            try{
+                same = prevBtn == $(this);
+            }catch(err){
+                console.log(err);
+                same=true;
+            }
+            if(!same){
+                if(prevBtn){
+                    if($(prevBtn).parent().parent().parent().hasClass("dragableItemContainer")){
+                        //console.log("SAME......");
+                    }else{
+						totalDropedItem--;
+                        console.log("BACK.....", totalDropedItem, arrAllDraggableitem.length);
+						
+						var idd =  prevBtn.attr("id").replace("draggableitem_", "");
+						var parent = $(".draggableitemWraper_"+idd);
+						parent.append(prevBtn.parent());
+						$(prevBtn).removeClass("correct").removeClass("incorrect");
+
+						if (totalDropedItem != arrAllDraggableitem.length) {
+							$('.submit_btn').prop("disabled", true);
+						}
+
+                        //$(prevBtn).parent().appendTo($(".dragableItemContainer"));                    
+                        /* var iid = $(prevBtn).attr("data-placed");*/
+                        return;
+                    }
+                }
+            }
+
+            console.log("Normal click....");
+            prevBtn = $(this);
+        })
+
 		//$(".settinToolsContainer").append('<div class="toolsCnt"></div>');
 		//$(".settinToolsContainer").append('<button tabindex="2" class="close"></button>');
 
@@ -196,7 +232,6 @@ $(document).ready(function () {
 
 		$('.settinToolsContainer .toolContainer').each(function(index,el){
 			var arr = $(arrSettingStyleItem[index]).attr('fontfamily');
-			console.log("raj=",arr);
 			$(el).find('.toolTxt').css({"font-family":$(arrSettingStyleItem[index+1]).attr('fontfamily'),"color":$(arrSettingStyleItem[index+1]).attr('tooltextcolor')});
 		});
 
@@ -255,6 +290,8 @@ $(document).ready(function () {
 	function selectDraggable() {
 		var curId = $(this).attr("id");
 		var gid = $(".dragableItemContainer").attr("curitem");
+
+		prevBtn = $(this);
 		if(curId == gid){
 			$(this).blur();
 			$(".dragableItemContainer").attr("curitem", null);
@@ -276,11 +313,10 @@ $(document).ready(function () {
 			isMobile && $(".container .draggableitem").last().removeAttr('disabled');
 			
 			//alert("ok");
-			var totalDropedItem = 0;
+			totalDropedItem = 0;
 			$('.category').each(function (index, el) {
 				var dropedItemLenth = $(el).find(".categoryDroppableCnt").children().length;
 				totalDropedItem = totalDropedItem + dropedItemLenth
-				//console.log('dropedItemLenth=', dropedItemLenth);
 
 				var catTitle = $(el).find(".categoryTitle").attr("cat");
 				$(el).find(".categoryDroppableCnt").children().each(function (ind, ell) {
@@ -300,7 +336,6 @@ $(document).ready(function () {
 				$('.submit_btn').off().on("click", submitListener);
 			}
 		}
-		//$(this).parent().parent().append(curItem);
 	}
 
 	function submitListener() {
@@ -310,8 +345,6 @@ $(document).ready(function () {
 		var feedback = rightFeedback;
 		$('.category').each(function (index, el) {
 			var catTitle = $(el).find(".categoryTitle").attr("cat");
-			// totalDropedItem=totalDropedItem+dropedItemLenth
-			//console.log('catTitle=',catTitle);
 			var rightCat="right-cat";
 			
 			$(el).find(".categoryDroppableCnt").children().each(function (ind, ell) {
