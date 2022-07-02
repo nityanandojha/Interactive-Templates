@@ -286,7 +286,8 @@ header{
 #title {
     font-size: 20px;
     line-height: 28px;
-    margin: 7px 0 12px 0px; 
+    width: 808px;
+    margin: 7px 0 12px 0px;
     font-family: "helvetica bold";
 }
 
@@ -685,7 +686,12 @@ button:focus {
     }
     .help-popup {
         width: 287px;
-        padding: 22px 43px 14px 20px;
+        padding: 14px 43px 14px 20px;
+    }
+    .help-popup .popup-close {
+        font-size: 21px;
+        right: 12px;
+        top: 7px;
     }
     .feedback p {
         font-size: 12px;
@@ -726,7 +732,7 @@ button:focus {
         margin: 7px 0px;
     }
     .categoryTitle {
-        font-size: 12px;
+        font-size: 14px;
         line-height: 16px;
         padding: 7px 16px;
         width: 189px;
