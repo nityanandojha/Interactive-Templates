@@ -93,10 +93,7 @@ header{
 .categoryTitleCnt {
     padding: 13px 32px;
 }
-.category-2 .categoryTitleCnt {
-    /* position: fixed; */
-    padding: 26px 32px;
-}
+
 .categoryTitleCnt.twoCnt {
     padding: 42px 32px;
 }
@@ -548,10 +545,6 @@ button:focus {
     position: absolute;
     top: 0.2%;
     left: 0.2%;
-}
-.category-2 .categoryTitle {
-    height: 231px;
-    min-height: 231px;
 }
 
 .categoryTitle {
