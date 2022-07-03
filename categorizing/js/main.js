@@ -341,7 +341,6 @@ $(document).ready(function () {
 		var correctCounter = 0;
 		$(".categoryTitle").addClass("inactive");
 		$(".draggableitem").addClass("inactive");
-		$(".nav-container").addClass("width-reduce");
 		var feedback = rightFeedback;
 		$('.category').each(function (index, el) {
 			var catTitle = $(el).find(".categoryTitle").attr("cat");
@@ -356,9 +355,10 @@ $(document).ready(function () {
 					rightCat = "wrong-cat";
 					feedback = wrongFeedback;
 				}
+				
 			});
-			$(".categoryTitleCnt").addClass(rightCat);
-			
+			console.log("FINAL CAT: ", rightCat);
+			$(".categoryTitleCnt_"+index).addClass(rightCat);
 		});
 		//console.log('correctCounter=',correctCounter);
 		$("header").addClass("pad-0");

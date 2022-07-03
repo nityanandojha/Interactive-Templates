@@ -595,7 +595,7 @@ button:focus {
     font-size: 16px;
     color: #fff;
     font-family: "HelveticaNeue-Bold";
-    padding: 12px 81px;
+    padding: 5px 81px;
     width: 100%;
     text-transform: capitalize;
     text-align: center;
@@ -673,6 +673,37 @@ button:focus {
         border-radius: 14px;
         min-height: 10vh;
         border: 2px solid #fff;
+    }
+    .category-3 .categoryTitle {
+        font-size: 14px;
+        line-height: 16px;
+        padding: 7px 16px;
+        width: 189px;
+        min-height: 62px;
+    }
+    .category-3 .categoryTitleCnt {
+        padding: 6px 16px;
+        background: #fafafa;
+        position: fixed;
+        z-index: 999;
+        box-shadow: 0 3px 6px 0px rgb(0 0 0 / 16%);
+    }
+    .category-3 .categoryTitleCnt_0 {
+        padding: 6px 16px;
+        background: #fafafa;
+        position: fixed;
+        z-index: 999;
+        top: 126px;
+        box-shadow: 0 3px 6px 0px rgb(0 0 0 / 16%);
+    }
+    .category-3 .categoryTitleCnt_1 {
+        top: 200px;
+    }
+     .category-3 .categoryTitleCnt_2 {
+        top: 274px;
+    }
+    .category-3 .categoryDroppableCnt {
+        height: 72px;
     }
     .nav-container.width-reduce {
         width: 110px;
@@ -986,7 +1017,7 @@ button:focus {
     .draggableitem {
         font-size: 14px;
         border: 0.2px solid #4a4a4a5c;
-        min-height: 16vh;
+        min-height: 92px;
         line-height: 20px;
         box-shadow: 3px 1px 7px 0px #abaaaa;
     }
@@ -1018,8 +1049,8 @@ header {
 .categoryTitle {
     font-size: 14px;
     line-height: 20px;
-    min-height: 63px;
-    width: 256px;
+    min-height: 55px;
+    width: 276px;
     padding: 6px 16px;
 }
 .category {
@@ -1071,8 +1102,10 @@ section .container {
     display: block;
 }
 .categoryTitleCnt {
-    padding: 6px 0px;
+    padding: 10px 0px;
 }
+
+
 
 .categoryDroppableCnt {
     padding: 0px 0px;
@@ -1097,6 +1130,16 @@ section .container {
     font-size: 16px;
     line-height: 20px;
     width: 284px;
-    margin: 14px 0 12px 0px;
+    min-height: 79px;
+    margin: 0px 0 0px 0px;
+}
+.feedback {
+    font-size: 16px;
+    line-height: 20px;
+    width: 284px;
+    margin-top: 12px;
+}
+.nav-container button {
+    font-size: 16px;
 }
 }
