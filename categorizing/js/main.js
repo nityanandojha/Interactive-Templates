@@ -47,33 +47,33 @@ $(document).ready(function () {
 
 
 
-	function specifyForMobile() {
+	// function specifyForMobile() {
 		
-		if (isMobile) {
-			$(".dragableItemContainer").addClass("mobile-device");
-			var top = 0;
-			var left = 0;
-			var drawCounter = 0;
+	// 	if (isMobile) {
+	// 		$(".dragableItemContainer").addClass("mobile-device");
+	// 		var top = 0;
+	// 		var left = 0;
+	// 		var drawCounter = 0;
 
-			$(".container").find(".mobile-device").find(".draggableitemWraper").each(function (index, el) {
-				drawCounter = drawCounter + .3;
-				top = top + drawCounter;
-				left = left + drawCounter;
-				$(el).css({
-					"position": "absolute",
-					"top": top + "px",
-					"left": left + "px"
-				});
-			})
+	// 		$(".container").find(".mobile-device").find(".draggableitemWraper").each(function (index, el) {
+	// 			drawCounter = drawCounter + .3;
+	// 			top = top + drawCounter;
+	// 			left = left + drawCounter;
+	// 			$(el).css({
+	// 				"position": "absolute",
+	// 				"top": top + "px",
+	// 				"left": left + "px"
+	// 			});
+	// 		})
 
-			//$(".container .draggableitem").prop('disabled', true);
-			$(".container .draggableitem").last().removeAttr('disabled');
-		} else {
-			$(".dragableItemContainer").removeClass("mobile-device");
-		}
-		// $(el).find(".draggableitem").prop('disabled',true);
+	// 		//$(".container .draggableitem").prop('disabled', true);
+	// 		$(".container .draggableitem").last().removeAttr('disabled');
+	// 	} else {
+	// 		$(".dragableItemContainer").removeClass("mobile-device");
+	// 	}
+	// 	// $(el).find(".draggableitem").prop('disabled',true);
 
-	}
+	// }
 
 	function displayStaticContent() {
 		function isMacintosh() {
@@ -191,7 +191,6 @@ $(document).ready(function () {
 						if (totalDropedItem != arrAllDraggableitem.length) {
 							$('.submit_btn').prop("disabled", true);
 						}
-
                         //$(prevBtn).parent().appendTo($(".dragableItemContainer"));                    
                         /* var iid = $(prevBtn).attr("data-placed");*/
                         return;
@@ -342,6 +341,7 @@ $(document).ready(function () {
 		var correctCounter = 0;
 		$(".categoryTitle").addClass("inactive");
 		$(".draggableitem").addClass("inactive");
+		$(".nav-container").addClass("width-reduce");
 		var feedback = rightFeedback;
 		$('.category').each(function (index, el) {
 			var catTitle = $(el).find(".categoryTitle").attr("cat");
@@ -378,6 +378,7 @@ $(document).ready(function () {
 		$(".draggableitem").removeClass("inactive");
 		$(".right-cat").removeClass("right-cat");
 		$(".wrong-cat").removeClass("wrong-cat");
+		$(".draggableitem").removeClass("inactive");
 		$(".feedback").hide();
 		$("header").removeClass("pad-0");
 		arrAllDraggableitem.each(function (index, el) {
@@ -448,3 +449,4 @@ $(document).ready(function(){
 	
   })
 });
+

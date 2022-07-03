@@ -224,7 +224,11 @@ header{
     left: 135px;
 } */
 
-
+.feedback {
+    letter-spacing: 1px;
+    font-weight: 700;
+    font-family: "HelveticaNeue-Regular";
+}
 .nav-container {
     position: relative;
     width: 100%;
@@ -484,16 +488,18 @@ hr.first {
     width: 100%;
     display: flex;
     position: relative;
-    justify-content: end;
+    align-items: center;
+    justify-content: space-between;
 }
 
 .draggableitem {
     font-size: 16px;
-    padding: 7px 16px;
+    padding: 7px 14px;
     text-align: start;
     box-shadow: 1px 4px 7px 0px #abaaaa;
     background: white;
     border-radius: 14px;
+    border: 2px solid #fff;
     min-height: 9vh;
     font-weight: 700;
     letter-spacing: 1px;
@@ -618,7 +624,8 @@ button:focus {
         position: fixed;
         top: 144px;  
         padding: 33px 32px;
-        /* background: aqua;*/
+        background: #fff;
+        z-index: 99;
     }
     .category-2 .categoryTitleCnt{
         padding: 38px 32px;
@@ -659,15 +666,28 @@ button:focus {
 @media screen and (device-width: 650px), (device-height: 365px){
     .draggableitem {
         font-size: 12px;
-        padding: 10px 16px;
+        padding: 7px 14px;
         text-align: start;
         box-shadow: 1px 4px 7px 0px #abaaaa;
         background: white;
         border-radius: 14px;
         min-height: 10vh;
+        border: 2px solid #fff;
     }
+    .nav-container.width-reduce {
+        width: 110px;
+    }
+    .feedback{
+        font-size: 14px;
+        width: 522px;
+        letter-spacing: 1px;
+        font-weight: 700;
+        line-height: 20px;
+        font-family: "HelveticaNeue-Regular";
+    }
+    
     .bottom-btn {
-        padding: 1px 18px;
+        padding: 4px 18px;
         width: 34%;
         font-size: 10px;
         display: block;
@@ -688,7 +708,7 @@ button:focus {
     }
     .help-popup {
         width: 287px;
-        padding: 14px 43px 14px 20px;
+        padding: 14px 43px 10px 20px;
     }
     .help-popup .popup-close {
         font-size: 21px;
@@ -729,16 +749,18 @@ button:focus {
         bottom: 10px;
     }
     #title {
-        font-size: 15px;
+        font-size: 14px;
         line-height: 20px;
-        margin: 7px 0px;
+        margin: 5px 0px 4px 0px;
+        width: 548px;
+        min-height: 40px;
     }
     .categoryTitle {
         font-size: 14px;
         line-height: 16px;
         padding: 7px 16px;
         width: 189px;
-        min-height: 62px;
+        min-height: 71px;
     }
     .categoryTitle.paddingCnt {
         font-size: 12px;
@@ -770,16 +792,16 @@ button:focus {
     .bottom-btn br{
         display: none;
     }
-    .category-2 .categoryTitleCnt_0{
-        top: 112px;
-        padding: 28px 16px;
+    .category-2 .categoryTitleCnt_0 {
+        top: 127px;
+        padding: 19px 16px;
     }
     .category-2 .categoryTitleCnt_1{
-        top: 232px;
-    	padding: 28px 16px;
+        top: 236px;
+        padding: 19px 16px;
     }
     .category-2 .categoryDroppableCnt{
-        height: 118px;
+        height: 108px;
     }
     .hidden2{
         visibility: hidden;
@@ -792,13 +814,14 @@ button:focus {
     .draggableitemWraper {
         width: 316px;
     }    
-    .feedback p {
+    .feedback {
         font-size: 16px;
         line-height: 20px;
-        width: auto;
-        font-family: "HelveticaNeue-Regular";
-        font-weight: 700;
-        letter-spacing: 1px;
+        width: 488px;
+        margin-top: 12px;
+    }
+    .nav-container {
+        margin-top: 10px;
     }
     .dragableItemContainer{
         display: block;
@@ -830,8 +853,11 @@ button:focus {
         font-size: 16px;
         line-height: 20px;
         width: 410px;
-        margin: 14px 0 12px 0px;
+        margin: 16px 0 10px 0px;
+        min-height: 59px;
     }
+    
+    
     .draggableitemWraper_1{
         left: 15px !important;
     }
@@ -862,8 +888,13 @@ button:focus {
         font-size: 16px;
         line-height: 20px;
         width: 316px;
-        min-height: 72px;
-        padding: 16px 16px;
+        min-height: 64px;
+        padding: 8px 16px;
+    }
+    
+    
+    .categoryTitleCnt {
+        padding: 14px 32px;
     }
     .category .draggableitemCnt {
         text-align: center;
@@ -878,7 +909,12 @@ button:focus {
     }
     .help-popup {
         width: 320px;
-        padding: 22px 60px 14px 20px;
+        padding: 12px 57px 8px 20px;
+    }
+    .help-popup .popup-close {
+        font-size: 19px;
+        right: 11px;
+        top: 4px;
     }
     .nav-container {
         text-align: center;
