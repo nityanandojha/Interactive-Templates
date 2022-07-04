@@ -232,11 +232,11 @@ body {
     margin-bottom: 0px;
     font-size: 18px;
     text-align: center;
-    font-family: "montserrat bold";
+    font-family: "HelveticaNeue-Bold";
 }
 .matching-element .clickable-item p{
     font-size: 18px;
-    font-family: "montserrat bold";
+    font-family: "HelveticaNeue-Bold";
 }
 
 .matching-element{
@@ -332,7 +332,7 @@ body {
     position: absolute;
     top: 0;
     max-height: 18.2vh;
-    padding: 20px 16px;
+    padding: 20px 20px;
     border: 2px solid rgba(0,0,0,0);
 }
 .matching-items .matching-item {
@@ -426,8 +426,42 @@ body {
 }
 
 
+
+@media screen and  (min-width: 1920px){
+    .matching-element.submitted::after {
+        right: 100px !important;
+    }
+}
+@media screen and  (min-width: 2560px){
+    .matching-element.submitted::after {
+        right: 232px !important;
+    }
+}
+@media screen and  (min-width: 1439px){
+    .matching-element.submitted::after {
+        content: "";
+        width: 36px;
+        height: 36px;
+        /* top: calc(50% - 18px); */
+        top: -17px;
+        right: 21px;
+        position: absolute;
+        display: inline-block;
+        z-index: 1;
+        background-size: contain;
+    }
+}
+
 @media screen and  (device-width: 1350px), (device-height: 760px){
-   
+    .matching-element.submitted::after {
+        top: -15px;
+        right: -4px;
+    }
+    .activity-title {
+        font-size: 22PX;
+        line-height: 28px;
+        width: 808px;
+    }
     .clickable-items .clickable-item{
         width: 224px;
         padding: 20px;
@@ -453,7 +487,7 @@ body {
         width: 547px;
     }
     .matching-items .matching-item {
-        margin-top: 101px;
+        margin-top: 99px;
     }
     .matching-items .clickable-item {
         margin: 0px;
@@ -462,7 +496,7 @@ body {
         position: absolute;
         top: 0;
         max-height: 18.2vh;
-        padding: 20px 18px;
+        padding: 20px 20px;
     }
     
 }
@@ -483,7 +517,7 @@ body {
     .activity-title {
         font-size: 22PX;
         line-height: 28px;
-        width: 60%;
+        width: 808px;
     }
     
     
@@ -549,6 +583,9 @@ body {
         width: 100%;
         height: 49%;
     }
+    .matching-element.submitted::after {
+        right: -21px;
+    }
     .matching-items .clickable-item {
         width: 198px;
     }
@@ -607,7 +644,7 @@ body {
     }
     .clickable-items .clickable-item{
         width: 198px;
-        padding: 18px;
+        padding: 20px;
     }
     .matching-items .matching-item {
         width: 198px;
