@@ -179,8 +179,8 @@ header{
 }
 .activity-content{
     position: fixed;
-    height: calc(100vh - 181px);
-    top: 181px;
+    height: calc(100vh - 209px);
+    top: 209px;
     overflow-y: auto;
     width: 100%;
 }
@@ -190,6 +190,7 @@ header{
    font-family: "HelveticaNeue-Bold";
     padding-top: 15px;
     font-weight: bold;
+    min-height: 71px;
 }
 .activity-instruction{
     font-weight:normal;
