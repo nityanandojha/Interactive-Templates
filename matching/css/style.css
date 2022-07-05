@@ -318,7 +318,7 @@ body {
     flex-direction: row;
 }
 .matching-items .matching-element{
-    display: flex;
+    /* display: flex; */
     flex-direction: column;;
     gap:0;
     position: relative;

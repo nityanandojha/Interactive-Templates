@@ -131,6 +131,21 @@ var matching = (function() {
         $("#w-feedback p").html(xml.find("wrongfeedback").text());
         
         $(".shuffle").shuffleChildren();
+
+        var heightArr = [];
+        $('.matching-item').each(function(index, element) {
+            var height = $(element).outerHeight();
+            heightArr.push(height);
+        });
+
+        var maxHeight = Math.max(...heightArr);
+        $('.matching-item').css({"height":maxHeight+"px"});
+        console.log(maxHeight);
+
+        $(document).keypress(function(event){
+            var keycode = (event.keyCode ? event.keyCode : event.which);
+            console.log(keycode, " ************ ");
+        });
     }
 
     function createSettingBox(data){
