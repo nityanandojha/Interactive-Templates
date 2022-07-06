@@ -65,6 +65,7 @@ var matching = (function() {
         $(".reset_btn").hide();
         $(".submit_btn").show();
         $(".submit_btn").addClass("disabled");
+        $(".submit_btn").addClass("mobile-submit");
         $(".submit_btn").prop("disabled", true);
 
         $(".matching-element").removeClass("submitted").removeClass("correct-ans");
@@ -147,7 +148,7 @@ var matching = (function() {
             event.preventDefault();
             var keycode = (event.keyCode ? event.keyCode : event.which);
             if(keycode == 27){
-                prevBtn.removeClass("selected");
+                //prevBtn.removeClass("selected");
                 prevBtn = null;
                 $(curDiv).find(".clickable-item").removeClass("selected");
                 curDiv = null;
@@ -368,6 +369,9 @@ var matching = (function() {
                     if($(prevBtn).hasClass("clickable-items")){
                         //console.log("SAME......");
                     }else{
+                        if($(e.target).hasClass("submit_btn")){
+                            return;
+                        }
                         console.log("BACK.....", prevBtn);
                         $(prevBtn).appendTo($(".clickable-items").find(".clickableBlock"));                    
                         var iid = $(prevBtn).attr("data-placed");
