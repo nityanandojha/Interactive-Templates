@@ -142,18 +142,55 @@ var matching = (function() {
         $('.matching-item').css({"height":maxHeight+"px"});
         console.log(maxHeight);
 
+        var enterCount = 1;
         $(document).keyup(function(event){
+            event.preventDefault();
             var keycode = (event.keyCode ? event.keyCode : event.which);
             if(keycode == 27){
                 prevBtn.removeClass("selected");
                 prevBtn = null;
+                $(curDiv).find(".clickable-item").removeClass("selected");
                 curDiv = null;
             }
 
-            if (keycode == 13) {
+            /* if (keycode == 13) {
                 
+                if(enterCount == 2){
+                    enterCount=1;
+                    
+                    var same = true;
+                    try{
+                        same = prevBtn == $(this);
+                    }catch(err){
+                        //console.log(err);
+                        same=true;
+                    }
+                    if(!same){
+                        if(prevBtn){
+                            if($(prevBtn).hasClass("clickable-items")){
+                                //console.log("SAME......");
+                            }else{
+                                console.log("BACK.....", prevBtn);
+                                $(prevBtn).appendTo($(".clickable-items").find(".clickableBlock"));                    
+                                var iid = $(prevBtn).attr("data-placed");
+                            // console.log("id ", iid);
+                                $("#"+iid).removeClass("placed");
+                                $("#"+iid).removeAttr("data-placed");
+                                $(prevBtn).removeAttr("data-placed");
+                                $(".submit_btn").addClass("disabled");
+                                $(".submit_btn").prop("disabled", true);
+                                prevBtn=null;
+                                return;
+                            }
+                        }
+                    }
+
+                    console.log("Normal click....");
+                    prevBtn = $(this);
+                }
+                enterCount++;
             }
-            console.log(keycode, " ************ ");
+            console.log(keycode, " ************ "); */
         });
     }
 
@@ -190,11 +227,12 @@ var matching = (function() {
         });
     }
 
-    function matchHandler(e){
-        console.log("match...............", e.target, e.currentTarget);
-        
+    function matchHandler(e){        
         if(!$(e.target).hasClass("clickable-item")){
             prevBtn = null;
+        }
+        if(curDiv == null){
+            return;
         }
         if(!$(this).attr("data-placed")){
             $(this).find(".matching-element").prepend(curDiv);
