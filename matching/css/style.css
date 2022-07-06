@@ -293,6 +293,10 @@ header{
     z-index: 1;
     background-size: contain; 
 }
+.matchedEvent{
+    display: flex;
+    justify-content: flex-end;
+}
 /* .matching-element.correct-ans.submitted {
     border: solid 2px #63a524;
     border-radius: 17px;
@@ -540,36 +544,6 @@ header{
         padding: 20px;
         margin-bottom: 0px;
     }
-    /* .clickable-items .row > div:nth-child(1) .clickable-item{
-        left:0px;
-    }
-    .clickable-items .row > div:nth-child(2) .clickable-item{
-        left:20px;
-    }
-    .clickable-items .row > div:nth-child(3) .clickable-item{
-        left:40px;
-    }
-    .clickable-items .row > div:nth-child(4) .clickable-item{
-        left:60px;
-    }
-    .clickable-items .row > div:nth-child(5) .clickable-item{
-        left:80px;
-    }
-    .clickable-items .row > div:nth-child(6) .clickable-item{
-        left:100px;
-    }
-    .clickable-items .row > div:nth-child(7) .clickable-item{
-        left:120px;
-    }
-    .clickable-items .row > div:nth-child(8) .clickable-item{
-        left:140px;
-    }
-    .clickable-items .row > div:nth-child(9) .clickable-item{
-        left:160px;
-    }
-    .clickable-items .row > div:nth-child(10) .clickable-item{
-        left:180px;
-    } */
     
 }
 @media (min-width: 1200px){
@@ -675,10 +649,7 @@ header{
 
     }
     .activity-content{
-        position: fixed;
-        top: 19%;
-        height: 81%;
-        overflow-y: auto;
+        top: 250px;
     }
     .feedback {
         /* width: calc(100% - 135px); */
@@ -749,36 +720,6 @@ header{
         top:0px; */
         margin-bottom: 0px;
     }
-    /* .clickable-items .row > div:nth-child(1) .clickable-item{
-        left:0px;
-    }
-    .clickable-items .row > div:nth-child(2) .clickable-item{
-        left:10px;
-    }
-    .clickable-items .row > div:nth-child(3) .clickable-item{
-        left:20px;
-    }
-    .clickable-items .row > div:nth-child(4) .clickable-item{
-        left:30px;
-    }
-    .clickable-items .row > div:nth-child(5) .clickable-item{
-        left:40px;
-    }
-    .clickable-items .row > div:nth-child(6) .clickable-item{
-        left:50px;
-    }
-    .clickable-items .row > div:nth-child(7) .clickable-item{
-        left:60px;
-    }
-    .clickable-items .row > div:nth-child(8) .clickable-item{
-        left:70px;
-    }
-    .clickable-items .row > div:nth-child(9) .clickable-item{
-        left:80px;
-    }
-    .clickable-items .row > div:nth-child(10) .clickable-item{
-        left:90px;
-    } */
     .matching-element{
         width: 198px;
         flex-direction: column;
@@ -796,8 +737,6 @@ header{
     }
     .activity-content{
         position: fixed;
-        top: 38%;
-        height: 62%;
         overflow-y: auto;
     }
     .feedback{
@@ -818,13 +757,6 @@ header{
         padding-top: 0;
     }
     
-    /* .activity-header {
-        padding-bottom: 100px;
-    } */
-    /* .h-48p{
-         height: 48% !important;
-        padding-bottom: 19px;
-    } */
     .matching-items .matching-item p {
         margin-bottom: 0px;
         font-size: 14px;
@@ -835,7 +767,7 @@ header{
         letter-spacing: 1px;
     }
     .matching-items .clickable-item {
-        position: unset;
+        /* position: unset; */
         padding: 20px;
     }
     .matching-items .matching-item {
@@ -843,6 +775,8 @@ header{
         min-width: 198px;
         margin-top: auto;
         max-width: 198px;
+        /* display: flex;
+    align-items: flex-end; */
     }
     .col-6 {
         flex: 0 0 auto;
