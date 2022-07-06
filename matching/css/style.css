@@ -240,6 +240,7 @@ header{
     display: grid;
     grid-template-columns: repeat(var(--cardCount), 12px);
     column-gap: 0px;
+    z-index: 2;
 }
 .clickable-items .clickable-item{
     height: 71px;
