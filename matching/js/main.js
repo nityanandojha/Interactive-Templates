@@ -3,6 +3,7 @@ var matching = (function() {
     var curDiv = null;
     var curMatchbox = true;
     var prevBtn = null;
+    var classnames = "";
 
     this.init = function(data) {
         this.loadXML();
@@ -56,6 +57,7 @@ var matching = (function() {
 
         $(".clickedEvent").appendTo(".clickableBlock");
         $(".clickedEvent").removeAttr("data-placed");
+        $(".clickedEvent").attr("class", classnames);
 
         $(".matchedEvent").removeClass("placed");
         $(".matchedEvent").removeAttr("data-placed");
@@ -139,9 +141,17 @@ var matching = (function() {
             heightArr.push(height);
         });
 
+/*         $('.clickable-item').each(function(index, element) {
+            var height2 = $(element).outerHeight();
+            heightArr.push(height);
+        }); */
+
         var maxHeight = Math.max(...heightArr);
+        var maxHofClickitem = $('.clickable-item').outerHeight();
         $('.matching-item').css({"height":maxHeight+"px"});
-        console.log(maxHeight);
+
+        $('.matchedEvent').css({"height": (maxHeight+maxHofClickitem)+"px"});
+        console.log(maxHofClickitem);
 
         var enterCount = 1;
         $(document).keyup(function(event){
@@ -238,6 +248,9 @@ var matching = (function() {
         if(!$(this).attr("data-placed")){
             $(this).find(".matching-element").prepend(curDiv);
 
+            classnames = $(this).find(".clickedEvent").attr('class');
+            $(this).find(".clickedEvent").attr("class", 'clickedEvent');
+
             var prevMatched = $(curDiv).attr("data-placed");
             $("#"+prevMatched).removeAttr("data-placed");
             $("#"+prevMatched).removeClass("placed");
@@ -252,11 +265,17 @@ var matching = (function() {
                 var apend = $("#"+$(this).attr("data-placed"));
                 parent.find(".matching-element").prepend(apend);
 
+                classnames = $(this).find(".clickedEvent").attr('class');
+                $(this).find(".clickedEvent").attr("class", 'clickedEvent');
+
                 apend.attr("data-placed", parent.attr("id"));
                 parent.attr("data-placed", apend.attr("id"));
                 parent.addClass("placed");
                 
                 $(this).find(".matching-element").prepend($(curDiv));
+
+                classnames = $(this).find(".clickedEvent").attr('class');
+                $(this).find(".clickedEvent").attr("class", 'clickedEvent');
             }else{
                 if($("#"+$(this).attr("data-placed"))){
                     if (curDiv) {
@@ -266,7 +285,10 @@ var matching = (function() {
                         placedEle.removeAttr("data-placed")
                         
                         $(this).find(".matching-element").prepend(curDiv);
-                        console.log(" 11111111111111111 ");
+
+                        classnames = $(this).find(".clickedEvent").attr('class');
+                        $(this).find(".clickedEvent").attr("class", 'clickedEvent');
+                        //console.log(" 11111111111111111 ");
                     }
                 }else{
                     console.log(" 2222222222222222222222 ");

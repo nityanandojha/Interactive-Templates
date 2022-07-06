@@ -355,8 +355,8 @@ header{
     flex-direction: row;
 }
 .matching-items .matching-element{
-    /* display: flex; */
-    flex-direction: column;;
+    /* display: flex;
+    flex-direction: column; */
     gap:0;
     position: relative;
 }
@@ -781,6 +781,7 @@ header{
     } */
     .matching-element{
         width: 198px;
+        flex-direction: column;
     }
 }
 
