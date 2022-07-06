@@ -142,8 +142,17 @@ var matching = (function() {
         $('.matching-item').css({"height":maxHeight+"px"});
         console.log(maxHeight);
 
-        $(document).keypress(function(event){
+        $(document).keyup(function(event){
             var keycode = (event.keyCode ? event.keyCode : event.which);
+            if(keycode == 27){
+                prevBtn.removeClass("selected");
+                prevBtn = null;
+                curDiv = null;
+            }
+
+            if (keycode == 13) {
+                
+            }
             console.log(keycode, " ************ ");
         });
     }
