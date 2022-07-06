@@ -150,7 +150,7 @@ var matching = (function() {
         var maxHofClickitem = $('.clickable-item').outerHeight();
         $('.matching-item').css({"height":maxHeight+"px"});
 
-        $('.matchedEvent').css({"height": (maxHeight+maxHofClickitem)+"px"});
+        $('.matchedEvent').css({"height": (maxHeight+maxHofClickitem+15)+"px"});
         console.log(maxHofClickitem);
 
         var enterCount = 1;
