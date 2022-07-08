@@ -94,7 +94,7 @@ $(document).ready(function () {
 
 		//focus setting
 		var focusColor = setting.find("focuscolor").attr('color');
-		$('body').append('<style>input[type=button]:focus{outline: 1px solid ' + focusColor + '; border: 0px solid transparent;} button:focus{outline: 1px solid ' + focusColor + '; border: 0px solid transparent;}</style>');
+		$('body').append('<style>input[type=button]:focus{outline: 1px solid ' + focusColor + '; border: 2px solid transparent;} button:focus{outline: 1px solid ' + focusColor + '; border: 2px solid transparent;}</style>');
 
 		// title style from from setting.xml
 		var fontfamily = setting.find("title").attr('fontfamily');
@@ -154,7 +154,7 @@ $(document).ready(function () {
 
 		/* generating draggable items view */
 		arrAllDraggableitem.each(function (index, el) {
-			$(".dragableItemContainer").append('<div class="draggableitemWraper draggableitemWraper_' + index + '"><div class="draggableitemCnt draggableitemCnt_' + index + '"><button aria-label="Item to categorize: '+ $(el).html()+'"  cat=' + $(el).attr("cat") + ' id="draggableitem_' + index + '" class="draggableitem draggableitem_' + index + '">' + $(el).html() + '</button></div></div>');
+			$(".card-wrap").append('<div class="draggableitemWraper draggableitemWraper_' + index + '"><div class="draggableitemCnt draggableitemCnt_' + index + '"><button aria-label="Item to categorize: '+ $(el).html()+'"  cat=' + $(el).attr("cat") + ' id="draggableitem_' + index + '" class="draggableitem draggableitem_' + index + '">' + $(el).html() + '</button></div></div>');
 			$('.draggableitemWraper_'+ index).css("left", (index*15)+"px");
 		});
 
