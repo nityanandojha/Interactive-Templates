@@ -8,7 +8,7 @@
 
 @font-face {
     font-family: "HelveticaNeue-Regular";
-    src: url("./fonts/HelveticaNeue.ttf");
+    src: url("./fonts/HelveticaNeue-Regular.ttf");
     -webkit-font-smoothing: antialiased;
     -webkit-text-size-adjust: auto;
 }
@@ -636,9 +636,9 @@ header{
     }
    
 
-    .pad0{
+    /* .pad0{
         padding-bottom: 0px;
-    }
+    } */
 
 }
 

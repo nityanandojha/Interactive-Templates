@@ -30,7 +30,10 @@
 
 }
 
-
+.mobile-hidden{
+visibility: hidden;
+pointer-events: none;
+}
 
 * {
     margin: 0;
@@ -153,31 +156,31 @@ header{
     height: 12px;
     width: 12px;
     background-position: 0px 0px;
-    background-image: url(../img/left-arrow.png);
+    background-image: url(../images/left.png);
 
 }
 
 ::-webkit-scrollbar-button:single-button:horizontal:decrement:hover {
-    background-image: url(../img/left-arrow.png);
+    background-image: url(../images/left.png);
 }
 
 ::-webkit-scrollbar-button:single-button:horizontal:decrement:active {
-    background-image: url(../img/left-arrow.png);
+    background-image: url(../images/left.png);
 }
 /*right*/
 ::-webkit-scrollbar-button:single-button:horizontal:increment {
     height: 12px;
     width: 12px;
     background-position: 0px 0px;
-    background-image: url(../img/right-arrow.png);
+    background-image: url(../images/right.png);
 }
 
 ::-webkit-scrollbar-button:single-button:horizontal:increment:hover {
-    background-image: url(../img/right-arrow.png);
+    background-image: url(../images/right.png);
 }
 
 ::-webkit-scrollbar-button:single-button:horizontal:increment:active {
-    background-image: url(../img/right-arrow.png);
+    background-image: url(../images/right.png);
 }
 /* .category-0 {
     width: 8.33%;
@@ -318,10 +321,10 @@ header{
 .nav-container button{
     background: #d4450c;
     border: none;
-    padding: 8px 24px;
+    padding: 18px 34px;
     color: #fff;
     font-family: "HelveticaNeue-Bold";
-    font-size: 22px;
+    font-size: 20px;
     border-radius: 14px;
 }
 .nav-container button[disabled]{
@@ -758,7 +761,7 @@ button:focus {
     .category-3 .categoryTitle {
         font-size: 14px;
         line-height: 16px;
-        padding: 7px 16px;
+        padding: 4px 13px;
         width: 189px;
         min-height: 62px;
     }
@@ -825,7 +828,7 @@ button:focus {
     .help-popup .popup-close {
         font-size: 16px;
         right: 9px;
-        top: 5px;
+        top: 7px;
     }
     .feedback p {
         font-size: 12px;
@@ -1022,8 +1025,8 @@ button:focus {
         line-height: 18px;
     }
     .help-popup {
-        width: 320px;
-        padding: 12px 57px 8px 20px;
+        width: 295px;
+        padding: 14px 11px 10px 14px;
     }
     .help-popup .popup-close {
         font-size: 19px;
@@ -1154,7 +1157,7 @@ section .container {
 }
 .help-popup {
     width: 255px;
-    padding: 32px 10px 14px 13px;
+    padding: 34px 10px 12px 13px;
 }
 .help-popup .popup-close {
     right: 14px;
@@ -1239,9 +1242,10 @@ section .container {
 }
 .card-wrap {
     display: grid !important;
-    grid-template-rows: repeat(15, 6px);
+    grid-template-rows: repeat(15, 3px);
     column-gap: 0px;
     z-index: 2;
+    grid-template-columns: unset;
 }
 
 
