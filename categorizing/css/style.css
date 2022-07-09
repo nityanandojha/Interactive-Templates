@@ -48,6 +48,12 @@ body {
 .mainContainer {
     overflow: auto;
 }
+.toolsCnt button:focus {
+    outline: 1px solid green;
+    border: 2px solid transparent;
+    padding: 8px 0px;
+}
+
 
 
 .container {
@@ -111,23 +117,23 @@ header{
     background: #E4A6AD;
     padding: 13px 32px;
 }
-.custom-Scroll::-webkit-scrollbar {
+::-webkit-scrollbar {
     width: 10px;
-    height: 10px;
+    height: 7px;
     border-radius: 10px;
   }
   
   /* Track */
-  .custom-Scroll::-webkit-scrollbar-track {
+  ::-webkit-scrollbar-track {
     border: 1px solid #ddd;
     border-radius: 10px;
     -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.1);
-	background-color: #F5F5F5;
+	background-color: #d5d5d5;
     opacity: 1;
   }
   
   /* Handle */
-  .custom-Scroll::-webkit-scrollbar-thumb {
+  ::-webkit-scrollbar-thumb {
     background: #fff;
     border-radius: 10px;
     background-clip: content-box;
@@ -135,7 +141,7 @@ header{
     width: 1px;
     opacity: 0.4;
   }
-  .custom-Scroll::-webkit-scrollbar-button:single-button {
+  ::-webkit-scrollbar-button:single-button {
     background-color: rgb(0, 0, 0);
 
     display: block;
