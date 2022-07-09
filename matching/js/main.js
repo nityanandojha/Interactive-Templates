@@ -1,5 +1,7 @@
 var matching = (function() {
     var data = {};
+    //counter to store enter count for each id of clickable div
+    let enterCounter = { };
     var curDiv = null;
     var curMatchbox = true;
     var prevBtn = null;
@@ -119,6 +121,8 @@ var matching = (function() {
             $("#cloneItem_d").addClass("clickedEvent");
             $("#cloneItem_d").attr("id", "cloneItem_"+index);
 
+            enterCounter[`cloneItem_${index}`] = 1;
+
             var txt = data.ques[index].matching;
             $("#matchBox_d .matching-item").attr("alt", "Item to match: [pause] "+ txt);
             $("#matchBox_d").clone().appendTo(".matchingBlock");
@@ -153,10 +157,15 @@ var matching = (function() {
         $('.matchedEvent').css({"height": (maxHeight+maxHofClickitem+15)+"px"});
         console.log(maxHofClickitem);
 
-        var enterCount = 1;
-        $(document).keyup(function(event){
+        //var enterCount = 1;
+        $(document).keyup(function(event) {
+            //get the id of element on which enter key pressed
+            const elemId = $(prevBtn).attr('id');
+
             event.preventDefault();
             var keycode = (event.keyCode ? event.keyCode : event.which);
+
+            //escape key for deselect 
             if(keycode == 27){
                 //prevBtn.removeClass("selected");
                 prevBtn = null;
@@ -164,11 +173,15 @@ var matching = (function() {
                 curDiv = null;
             }
 
-            /* if (keycode == 13) {
-                
-                if(enterCount == 2){
-                    enterCount=1;
-                    
+            //if key for enter event
+            if (keycode == 13) {
+                //get the count of enter pressed on element
+                const enterCount = enterCounter[elemId];
+                //if enter has pressed two times
+                if (enterCount == 2) {
+                    //reset the value
+                    enterCounter[elemId] = 1;
+
                     var same = true;
                     try{
                         same = prevBtn == $(this);
@@ -180,10 +193,12 @@ var matching = (function() {
                         if(prevBtn){
                             if($(prevBtn).hasClass("clickable-items")){
                                 //console.log("SAME......");
+                                console.info('if', {prevBtn})
                             }else{
-                                console.log("BACK.....", prevBtn);
+                                console.log("BACK.....Else", prevBtn);
                                 $(prevBtn).appendTo($(".clickable-items").find(".clickableBlock"));                    
                                 var iid = $(prevBtn).attr("data-placed");
+                                console.info('iid', iid);
                             // console.log("id ", iid);
                                 $("#"+iid).removeClass("placed");
                                 $("#"+iid).removeAttr("data-placed");
@@ -199,9 +214,9 @@ var matching = (function() {
                     console.log("Normal click....");
                     prevBtn = $(this);
                 }
-                enterCount++;
+                enterCounter[elemId] += 1;
             }
-            console.log(keycode, " ************ "); */
+            console.log(keycode, " ************ ");
         });
     }
 
