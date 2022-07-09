@@ -8,6 +8,86 @@
     <script src="js/jquery-3.1.1.min.js"></script>
     <script src="js/main.js"></script>
     <script src="js/accessibilityJs.js"></script>
+
+    <style>
+        .category-3 .left-card{
+                width: 216px;
+    float: left;
+        }
+        .category-3 .right-card{
+            width: calc(100vw - 216px);
+    overflow-x: auto;
+        }
+        .category-3 .card1 button{
+            background: #000;
+    width: 176px;
+    height: 166px;
+    border-radius: 10px;
+    color: #fff;
+        }
+        .category-3 .card1 button p{
+            font-size: 18px;
+    line-height: 26px;
+    font-family: 'HelveticaNeue-Bold';
+        }
+        .category-3 .card1{
+            width: 216px;
+    height: 197px;
+    background: red;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+        }
+        .category-3 .card2{
+            width: 216px;
+    height: 200px;
+    background: blue;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+        }
+        .category-3 .card3{
+            width: 216px;
+    height: 200px;
+    background: green;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+        }
+
+        .category-3 .rt-card1 button{
+            width: 358px;
+    display: flex;
+    height: 73px;
+    background: #fff;
+    border: 1px solid gray;
+    border-radius: 14px;
+    justify-content: center;
+    align-items: center;
+        }
+        .category-3 .rt-card1 button p{
+            font-size: 16px;
+    font-family: 'HelveticaNeue-Regular';
+    letter-spacing: 1px;
+    font-weight: 700;
+    width: 336px;
+    text-align: start;
+        }
+        .category-3 .rt-card1{
+            height: 197px;
+    padding: 20px 15px;
+    overflow: hidden;
+    width: calc(100vw - 216px);
+        }
+        .category-3 .rt-card-wrap{
+            display: grid;
+    grid-template-rows: repeat(2, 80px);
+    gap: 10px;
+    grid-template-columns: repeat(3, 359px);
+        }
+    </style>
+
+
 </head>
 <body>
     <header>
@@ -55,7 +135,7 @@
             </div>
         </div>
     </header>
-    <section class="main-sec">
+      <section class="main-sec">
         <div class="container">
             <div class="content custom-Scroll">
                 <div id="tempDiv" style="display:none"></div>
@@ -70,5 +150,109 @@
         COLLAPSE<br>CATEGORIES &#62;
     </button>
    </section>
+
+   <section>
+    <div class="row category-3">
+        <div class="left-card">
+            <div class="card1">
+                <button type="button">
+                    <p>Primary Communicable Disease Prevention 
+                        Methods</p>
+                </button>
+            </div>
+            <div class="card1">
+                <button type="button">
+                    <p>Primary Communicable Disease Prevention 
+                        Methods</p>
+                </button>
+            </div>
+            <div class="card1">
+                <button type="button">
+                    <p>Primary Communicable Disease Prevention 
+                        Methods</p>
+                </button>
+            </div>
+        </div>
+
+        <div class="right-card">
+            <div class="rt-card1">
+                <div class="rt-card-wrap">
+                 <button type="button">
+                     <p>Romantic comedies used to be a common option at movie theaters, but recently Netflix has taken over the genre</p>
+                 </button>
+                 <button type="button">
+                     <p>Romantic comedies used to be a common option at movie theaters, but recently Netflix has taken over the genre</p>
+                 </button>
+                 <button type="button">
+                     <p>Romantic comedies used to be a common option at movie theaters, but recently Netflix has taken over the genre</p>
+                 </button>
+                 <button type="button">
+                     <p>Romantic comedies used to be a common option at movie theaters, but recently Netflix has taken over the genre</p>
+                 </button>
+                 <button type="button">
+                     <p>Romantic comedies used to be a common option at movie theaters, but recently Netflix has taken over the genre</p>
+                 </button>
+                 <button type="button">
+                     <p>Romantic comedies used to be a common option at movie theaters, but recently Netflix has taken over the genre</p>
+                 </button>
+                 <button type="button">
+                     <p>Romantic comedies used to be a common option at movie theaters, but recently Netflix has taken over the genre</p>
+                 </button>
+                </div>
+             </div>
+            <div class="rt-card1">
+               <div class="rt-card-wrap">
+                <button type="button">
+                    <p>Romantic comedies used to be a common option at movie theaters, but recently Netflix has taken over the genre</p>
+                </button>
+                <button type="button">
+                    <p>Romantic comedies used to be a common option at movie theaters, but recently Netflix has taken over the genre</p>
+                </button>
+                <button type="button">
+                    <p>Romantic comedies used to be a common option at movie theaters, but recently Netflix has taken over the genre</p>
+                </button>
+                <button type="button">
+                    <p>Romantic comedies used to be a common option at movie theaters, but recently Netflix has taken over the genre</p>
+                </button>
+                <button type="button">
+                    <p>Romantic comedies used to be a common option at movie theaters, but recently Netflix has taken over the genre</p>
+                </button>
+                <button type="button">
+                    <p>Romantic comedies used to be a common option at movie theaters, but recently Netflix has taken over the genre</p>
+                </button>
+                <button type="button">
+                    <p>Romantic comedies used to be a common option at movie theaters, but recently Netflix has taken over the genre</p>
+                </button>
+               </div>
+            </div>
+            <div class="rt-card1">
+                <div class="rt-card-wrap">
+                 <button type="button">
+                     <p>Romantic comedies used to be a common option at movie theaters, but recently Netflix has taken over the genre</p>
+                 </button>
+                 <button type="button">
+                     <p>Romantic comedies used to be a common option at movie theaters, but recently Netflix has taken over the genre</p>
+                 </button>
+                 <button type="button">
+                     <p>Romantic comedies used to be a common option at movie theaters, but recently Netflix has taken over the genre</p>
+                 </button>
+                 <button type="button">
+                     <p>Romantic comedies used to be a common option at movie theaters, but recently Netflix has taken over the genre</p>
+                 </button>
+                 <button type="button">
+                     <p>Romantic comedies used to be a common option at movie theaters, but recently Netflix has taken over the genre</p>
+                 </button>
+                 <button type="button">
+                     <p>Romantic comedies used to be a common option at movie theaters, but recently Netflix has taken over the genre</p>
+                 </button>
+                 <button type="button">
+                     <p>Romantic comedies used to be a common option at movie theaters, but recently Netflix has taken over the genre</p>
+                 </button>
+                </div>
+             </div>
+        </div>
+    </div>
+   </section>
+
 </body>
 </html>
