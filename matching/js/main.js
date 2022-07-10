@@ -189,7 +189,7 @@ var matching = (function() {
                                 //console.log("SAME......");
                                 console.info('if', {prevBtn})
                             }else{
-                                console.log("BACK.....Else", prevBtn);
+                                //console.log("BACK.....Else", prevBtn);
                                 $(prevBtn).appendTo($(".clickable-items").find(".clickableBlock"));                    
                                 var iid = $(prevBtn).attr("data-placed");
                                 console.info('iid', iid);
@@ -253,8 +253,13 @@ var matching = (function() {
         if(curDiv == null){
             return;
         }
+
         if(!$(this).attr("data-placed")){
             $(this).find(".matching-element").prepend(curDiv);
+
+            const elemId = $(curDiv).attr('id');
+            //reset the value
+            enterCounter[elemId] = 1;
 
             classnames = $(this).find(".clickedEvent").attr('class');
             $(this).find(".clickedEvent").attr("class", 'clickedEvent');
@@ -272,6 +277,10 @@ var matching = (function() {
                 var parent = $("#"+$(curDiv).attr("data-placed"));                
                 var apend = $("#"+$(this).attr("data-placed"));
                 parent.find(".matching-element").prepend(apend);
+
+                const elemId = $(curDiv).attr('id');
+                //reset the value
+                enterCounter[elemId] = 1;
 
                 classnames = $(this).find(".clickedEvent").attr('class');
                 $(this).find(".clickedEvent").attr("class", 'clickedEvent');
@@ -293,6 +302,10 @@ var matching = (function() {
                         placedEle.removeAttr("data-placed")
                         
                         $(this).find(".matching-element").prepend(curDiv);
+
+                        const elemId = $(curDiv).attr('id');
+                        //reset the value
+                        enterCounter[elemId] = 1;
 
                         classnames = $(this).find(".clickedEvent").attr('class');
                         $(this).find(".clickedEvent").attr("class", 'clickedEvent');
