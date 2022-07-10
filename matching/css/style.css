@@ -214,6 +214,11 @@ header{
     float: right;
 }
 
+
+.clickable-item:focus-visible, .clickable-item:focus{
+    border: 2px solid blue !important;
+}
+
 .clickable-items{
     position: relative;
     display: flex;
@@ -225,6 +230,7 @@ header{
 .clickable-items .clickable-item, .matching-items .clickable-item {
     background: var(--color);;
     color: var(--background);
+    outline: none;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -320,7 +326,11 @@ header{
     margin-top:25px;
     position: relative;
 }
+.matching-item:focus, .matching-item:focus-visible{
+    border: 2px solid blue !important;
+}
 .matching-items .matching-item{
+    outline: none;
     background: var(--background);
     color: #4a4a4a;
     display: flex;

@@ -47,7 +47,9 @@ html{
 body {
     margin: 0;
 }
-
+.hidden-feed{
+    display: none !important;
+}
 .mainContainer {
     overflow: auto;
 }
@@ -57,7 +59,9 @@ body {
     padding: 8px 0px;
 }
 
-
+.mouse-none{
+    pointer-events: none;
+}
 
 .container {
     width: 96%;
@@ -252,7 +256,7 @@ header{
     width: 25%;
 }
 .card-wrap{
-    display: grid !important;
+    display: grid;
     grid-template-columns: repeat(15, 10px);
     column-gap: 0px;
     z-index: 2;
@@ -764,9 +768,10 @@ button:focus {
 }
 
 @media screen and (device-width: 650px), (device-height: 365px){
+
     .draggableitem {
         font-size: 12px;
-        padding: 7px 14px;
+        padding: 7px 8px;
         text-align: start;
         background: white;
         border-radius: 14px;
@@ -966,6 +971,15 @@ button:focus {
     .draggableitemWraper {
         width: 316px;
     }    
+    .submit-hide{
+        visibility: hidden;
+        pointer-events: none;
+        position: absolute;
+        z-index: -999;
+        width: 0 !important;
+        font-size: 0px !important;
+        padding: 0 !important;
+    }
     .feedback {
         font-size: 16px;
         line-height: 20px;
@@ -1097,7 +1111,16 @@ button:focus {
 }
 
 @media screen and (max-width: 529px){
-    .draggableitemWraper_0, .draggableitemWraper_1, .draggableitemWraper_2, .draggableitemWraper_3, .draggableitemWraper_4, .draggableitemWraper_5, .draggableitemWraper_6, .draggableitemWraper_7, .draggableitemWraper_8, .draggableitemWraper_9{
+    .submit-hide{
+        visibility: hidden;
+        pointer-events: none;
+        position: absolute;
+        z-index: -999;
+        width: 0 !important;
+        font-size: 0px !important;
+        padding: 0 !important;
+    }
+    /* .draggableitemWraper_0, .draggableitemWraper_1, .draggableitemWraper_2, .draggableitemWraper_3, .draggableitemWraper_4, .draggableitemWraper_5, .draggableitemWraper_6, .draggableitemWraper_7, .draggableitemWraper_8, .draggableitemWraper_9{
         left: 0px !important;
     }
     .draggableitemWraper_0{
@@ -1129,7 +1152,7 @@ button:focus {
     }
     .draggableitemWraper_9{
         top:    45px !important;
-    }
+    } */
     .feedback p {
         font-size: 16px;
         line-height: 20px;
@@ -1275,7 +1298,7 @@ section .container {
     border-radius: 11px;
 }
 .card-wrap {
-    display: grid !important;
+    display: grid;
     grid-template-rows: repeat(15, 3px);
     column-gap: 0px;
     z-index: 2;
