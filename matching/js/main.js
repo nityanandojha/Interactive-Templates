@@ -122,7 +122,7 @@ var matching = (function() {
             $("#cloneItem_d").attr("id", "cloneItem_"+index);
 
             enterCounter[`cloneItem_${index}`] = 1;
-
+            
             var txt = data.ques[index].matching;
             $("#matchBox_d .matching-item").attr("alt", "Item to match: [pause] "+ txt);
             $("#matchBox_d").clone().appendTo(".matchingBlock");
@@ -145,19 +145,12 @@ var matching = (function() {
             heightArr.push(height);
         });
 
-/*         $('.clickable-item').each(function(index, element) {
-            var height2 = $(element).outerHeight();
-            heightArr.push(height);
-        }); */
-
         var maxHeight = Math.max(...heightArr);
         var maxHofClickitem = $('.clickable-item').outerHeight();
         $('.matching-item').css({"height":maxHeight+"px"});
 
         $('.matchedEvent').css({"height": (maxHeight+maxHofClickitem+15)+"px"});
-        console.log(maxHofClickitem);
 
-        //var enterCount = 1;
         $(document).keyup(function(event) {
             //get the id of element on which enter key pressed
             const elemId = $(prevBtn).attr('id');
@@ -178,7 +171,8 @@ var matching = (function() {
                 //get the count of enter pressed on element
                 const enterCount = enterCounter[elemId];
                 //if enter has pressed two times
-                if (enterCount == 2) {
+                console.log(enterCount, " enter count ", enterCounter);
+                if (enterCount > 2) {
                     //reset the value
                     enterCounter[elemId] = 1;
 
@@ -199,7 +193,6 @@ var matching = (function() {
                                 $(prevBtn).appendTo($(".clickable-items").find(".clickableBlock"));                    
                                 var iid = $(prevBtn).attr("data-placed");
                                 console.info('iid', iid);
-                            // console.log("id ", iid);
                                 $("#"+iid).removeClass("placed");
                                 $("#"+iid).removeAttr("data-placed");
                                 $(prevBtn).removeAttr("data-placed");
@@ -383,6 +376,11 @@ var matching = (function() {
             }
             curDiv = this;
             $(curDiv).find(".clickable-item").addClass("selected");
+
+            if($(curDiv).attr('data-placed') != ""){
+                const elemId = $(curDiv).attr('id');
+                enterCounter[elemId] += 1;
+            }
 
             if($(this).attr("data-placed")){
                 curMatchbox = $(this).attr("data-placed");

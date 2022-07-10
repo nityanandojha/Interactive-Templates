@@ -253,6 +253,10 @@ header{
     border:solid 2px var(--selectioncolor);
 }
 
+.selected:focus{
+    outline: none;
+}
+
 .clickable-items .clickable-item p,  .matching-items .clickable-item p{
     margin-bottom: 0px;
     font-size: 18px;
