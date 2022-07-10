@@ -26,8 +26,10 @@ item and then select the corresponding category.  Replay this interaction as man
     
   </draggableitem>
   <feedback>
-    <rightans>Correct! You've matched each review excerpt to its category. You understand that summaries/observations are objective statements, while evaluations/analyses are subjective statements about the subject of the review.</rightans>
-    <wrongans>Incorrect. Try again. Refer to the beginning of Chapter 7 of your textbook to review the different types of responses in a review.</wrongans>
+    <rightans>Correct! You’ve matched each review excerpt to its category. You understand that summaries/observations are objective statements, while evaluations/analyses are subjective statements about the subject of the review.
+each review excerpt to its category. You understand that summaries/observations are objective statements, while evaluations/analyses are subjective statements about the subject of thew word</rightans>
+    <wrongans>Correct! You’ve matched each review excerpt to its category. You understand that summaries/observations are objective statements, while evaluations/analyses are subjective statements about the subject of the review.
+each review excerpt to its category. You understand that summaries/observations are objective statements, while evaluations/analyses are subjective statements about the subject of thew word</wrongans>
   </feedback>
  
 </dataset>
