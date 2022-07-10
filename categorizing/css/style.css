@@ -85,8 +85,8 @@ section .container{
 }
 
 header{
-    border-bottom: 2px dotted #d5d5d5;
-    padding-bottom: 22px;
+    /* border-bottom: 2px dotted #d5d5d5; */
+    padding-bottom: 11px;
 }
 .category{
     display: flex;
@@ -101,7 +101,10 @@ header{
     height: 2px;
     background: red;
 } */
-
+.categoryTitle button:focus {
+    outline: 2px solid green;
+    border: 2px solid transparent;
+}
 .wrong-cat{
     background-color: #e4a6ad !important;
 }
@@ -555,8 +558,8 @@ header{
     height: 25px;
     background: url(../images/correct.png);
     background-size: contain;
-    top: -8px;
-    right: -8px;
+    top: -5px;
+    right: -5px;
     position: absolute;
     background-repeat: no-repeat;
 }
@@ -567,8 +570,8 @@ header{
     height: 25px;
     background: url(../images/incorrect.png);
     background-size: cover;
-    top: -8px;
-    right: -8px;
+    top: -5px;
+    right: -5px;
     position: absolute;
     background-repeat: no-repeat;
 }
@@ -789,9 +792,10 @@ button:focus {
         min-height: 62px;
     }
     .category-3 .categoryTitleCnt {
-        padding: 6px 16px;
+        padding: 4px 16px;
         background: #fafafa;
         position: fixed;
+        border-bottom: 2px dotted #d5d5d5;
         z-index: 999;
         box-shadow: 0 3px 6px 0px rgb(0 0 0 / 16%);
     }
@@ -800,16 +804,16 @@ button:focus {
         background: #fafafa;
         position: fixed;
         z-index: 999;
-        top: 126px;
+        top: 125px;
         left: 0px;
         box-shadow: 0 3px 6px 0px rgb(0 0 0 / 16%);
     }
     .category-3 .categoryTitleCnt_1 {
-        top: 200px;
+        top: 201px;
         left: 0px;
     }
      .category-3 .categoryTitleCnt_2 {
-        top: 274px;
+        top: 273px;
         left: 0px;
     }
     .category-3 .categoryDroppableCnt {
