@@ -237,7 +237,7 @@ $(document).ready(function () {
 
 		$(".dragableItemContainer").click(function(e) {
 
-			var curId = $(e.target).attr("id");
+			/* var curId = $(e.target).attr("id");
 			console.log("DDDD: ", curId);
 			var gid = $(".dragableItemContainer").attr("curitem");
 
@@ -248,13 +248,13 @@ $(document).ready(function () {
 				return;
 			}else{
 				$(".dragableItemContainer").attr("curitem", curId);
-			}
+			} */
 			
 			//console.log($(this));
             var same = true;
 			console.log(prevBtn);
             try{
-                same = prevBtn == $(this);
+                same = prevBtn == $(e.target);
             }catch(err){
                 console.log(err);
                 same=true;
@@ -266,9 +266,10 @@ $(document).ready(function () {
                     }else{
 						totalDropedItem--;
                         console.log("BACK.....", totalDropedItem, arrAllDraggableitem.length);
-						
-						var idd =  prevBtn.attr("id").replace("draggableitem_", "");
-						
+						console.log("PREV: ", $(prevBtn));
+						if($(prevBtn).attr("id").length){
+							var idd =  $(prevBtn).attr("id").replace("draggableitem_", "");
+						}
 						var parent = $(".draggableitemWraper_"+idd);
 
 						parent.append(prevBtn.parent());
@@ -284,7 +285,7 @@ $(document).ready(function () {
                 }
             }
             console.log("Normal click....");
-            prevBtn = $(this);
+            prevBtn =$(e.target);
         })
 
 		//$(".settinToolsContainer").append('<div class="toolsCnt"></div>');
@@ -404,6 +405,7 @@ $(document).ready(function () {
 			totalDropedItem = 0;
 			$('.category').each(function (index, el) {
 				var dropedItemLenth = $(el).find(".categoryDroppableCnt").children().length;
+				console.log("cccccc",dropedItemLenth);
 				if(dropedItemLenth == 6){
 					return;
 				}
