@@ -47,7 +47,9 @@ html{
 body {
     margin: 0;
 }
-
+.hidden-feed{
+    display: none !important;
+}
 .mainContainer {
     overflow: auto;
 }
@@ -57,7 +59,9 @@ body {
     padding: 8px 0px;
 }
 
-
+.mouse-none{
+    pointer-events: none;
+}
 
 .container {
     width: 96%;
@@ -85,8 +89,9 @@ section .container{
 }
 
 header{
-    border-bottom: 2px dotted #d5d5d5;
-    padding-bottom: 22px;
+    /* border-bottom: 2px dotted #d5d5d5; */
+    padding-bottom: 11px;
+    box-shadow: 0px 1px 10px #d6d6d6;
 }
 .category{
     display: flex;
@@ -101,7 +106,10 @@ header{
     height: 2px;
     background: red;
 } */
-
+.categoryTitle button:focus {
+    outline: 2px solid green;
+    border: 2px solid transparent;
+}
 .wrong-cat{
     background-color: #e4a6ad !important;
 }
@@ -252,7 +260,7 @@ header{
     width: 25%;
 }
 .card-wrap{
-    display: grid !important;
+    display: grid;
     grid-template-columns: repeat(15, 10px);
     column-gap: 0px;
     z-index: 2;
@@ -322,6 +330,7 @@ header{
     letter-spacing: 1px;
     font-weight: 700;
     font-family: "HelveticaNeue-Regular";
+    font-size: 18px;
 }
 .nav-container {
     position: relative;
@@ -332,11 +341,12 @@ header{
 .nav-container button{
     background: #d4450c;
     border: none;
-    padding: 18px 34px;
+    padding: 13px 24px 15px 24px;
     color: #fff;
     font-family: "HelveticaNeue-Bold";
-    font-size: 20px;
-    border-radius: 14px;
+    font-size: 22px;
+    border-radius: 10px;
+    line-height: 16px;
 }
 .nav-container button[disabled]{
     opacity: 0.65;
@@ -345,6 +355,7 @@ header{
     cursor: pointer;
     position: absolute;
     right: 0%;
+    bottom: 0;
 }
 
 
@@ -352,14 +363,14 @@ header{
     cursor: pointer;
     position: absolute;
     right: 0%;
-
+    bottom: 0;
 }
 
 .reset_btn {
     cursor: pointer;
     position: absolute;
     right: 0%;
-
+    bottom: 0;
 }
 
 .submit_btn>svg,
@@ -423,7 +434,7 @@ header{
 
 .settinToolsContainer {
     background: #BFBFBF !important;
-    padding: 15px;
+    padding: 10px;
     border-radius: 6px;
     color: #001936;
     box-shadow: 0px 3px 6px 0px rgb(112 112 112);
@@ -460,10 +471,11 @@ header{
 .toolContainer {
 
     background: none;
-    padding: 0px;
+    padding: 8px 0px;
     outline: none;
     margin-right: 5px;
-    border: none;
+    outline: 1px solid transparent;
+    border: 2px solid transparent;
     font-size: .7rem;
     width: 80px;
     text-align: center;
@@ -555,8 +567,8 @@ header{
     height: 25px;
     background: url(../images/correct.png);
     background-size: contain;
-    top: -8px;
-    right: -8px;
+    top: -5px;
+    right: -5px;
     position: absolute;
     background-repeat: no-repeat;
 }
@@ -567,8 +579,8 @@ header{
     height: 25px;
     background: url(../images/incorrect.png);
     background-size: cover;
-    top: -8px;
-    right: -8px;
+    top: -5px;
+    right: -5px;
     position: absolute;
     background-repeat: no-repeat;
 }
@@ -686,7 +698,6 @@ button:focus {
     border: none;
     border-bottom: 2px dotted #d5d5d5;
     margin: 0px 0px;
-    position: fixed;
     display: block;
     width: 100%;
 }
@@ -764,14 +775,19 @@ button:focus {
 }
 
 @media screen and (device-width: 650px), (device-height: 365px){
+
     .draggableitem {
         font-size: 12px;
-        padding: 7px 14px;
+        padding: 7px 8px;
         text-align: start;
         background: white;
         border-radius: 14px;
         min-height: 55px;
         border: 2px solid #fff;
+    }
+    .catHr {
+        position: fixed;
+
     }
     .submited .incorrect:after {
         top: -6px;
@@ -789,9 +805,10 @@ button:focus {
         min-height: 62px;
     }
     .category-3 .categoryTitleCnt {
-        padding: 6px 16px;
+        padding: 4px 16px;
         background: #fafafa;
         position: fixed;
+        border-bottom: 2px dotted #d5d5d5;
         z-index: 999;
         box-shadow: 0 3px 6px 0px rgb(0 0 0 / 16%);
     }
@@ -800,16 +817,16 @@ button:focus {
         background: #fafafa;
         position: fixed;
         z-index: 999;
-        top: 126px;
+        top: 125px;
         left: 0px;
         box-shadow: 0 3px 6px 0px rgb(0 0 0 / 16%);
     }
     .category-3 .categoryTitleCnt_1 {
-        top: 200px;
+        top: 201px;
         left: 0px;
     }
      .category-3 .categoryTitleCnt_2 {
-        top: 274px;
+        top: 273px;
         left: 0px;
     }
     .category-3 .categoryDroppableCnt {
@@ -966,6 +983,15 @@ button:focus {
     .draggableitemWraper {
         width: 316px;
     }    
+    .submit-hide{
+        visibility: hidden;
+        pointer-events: none;
+        position: absolute;
+        z-index: -999;
+        width: 0 !important;
+        font-size: 0px !important;
+        padding: 0 !important;
+    }
     .feedback {
         font-size: 16px;
         line-height: 20px;
@@ -1097,7 +1123,16 @@ button:focus {
 }
 
 @media screen and (max-width: 529px){
-    .draggableitemWraper_0, .draggableitemWraper_1, .draggableitemWraper_2, .draggableitemWraper_3, .draggableitemWraper_4, .draggableitemWraper_5, .draggableitemWraper_6, .draggableitemWraper_7, .draggableitemWraper_8, .draggableitemWraper_9{
+    .submit-hide{
+        visibility: hidden;
+        pointer-events: none;
+        position: absolute;
+        z-index: -999;
+        width: 0 !important;
+        font-size: 0px !important;
+        padding: 0 !important;
+    }
+    /* .draggableitemWraper_0, .draggableitemWraper_1, .draggableitemWraper_2, .draggableitemWraper_3, .draggableitemWraper_4, .draggableitemWraper_5, .draggableitemWraper_6, .draggableitemWraper_7, .draggableitemWraper_8, .draggableitemWraper_9{
         left: 0px !important;
     }
     .draggableitemWraper_0{
@@ -1129,7 +1164,7 @@ button:focus {
     }
     .draggableitemWraper_9{
         top:    45px !important;
-    }
+    } */
     .feedback p {
         font-size: 16px;
         line-height: 20px;
@@ -1275,7 +1310,7 @@ section .container {
     border-radius: 11px;
 }
 .card-wrap {
-    display: grid !important;
+    display: grid;
     grid-template-rows: repeat(15, 3px);
     column-gap: 0px;
     z-index: 2;

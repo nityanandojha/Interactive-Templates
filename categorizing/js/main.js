@@ -6,7 +6,8 @@ $(document).ready(function () {
 	var arrAllDraggableitem = null;
 	var staticImagePath="images/";
 	var prevBtn = null;
-	var totalDropedItem = 0;
+	var totalDropedItem =0;
+	let enterCounter = { };
 	const isMobile = detectMob(); 
 	/* detect mobile device start*/
 	function detectMob() {
@@ -25,6 +26,70 @@ $(document).ready(function () {
 		});
 		/* detect mobile device ends */
 	}
+	
+	$(document).keyup(function(event) {
+		//console.log("--------------");
+		//get the id of element on which enter key pressed
+		const elemId = $(prevBtn).attr('id');
+
+		event.preventDefault();
+		var keycode = (event.keyCode ? event.keyCode : event.which);
+
+		//escape key for deselect 
+		if(keycode == 27){
+			//prevBtn.removeClass("selected");
+			prevBtn = null;
+			$(curDiv).find(".clickable-item").removeClass("selected");
+			curDiv = null;
+			$(".selected").removeClass("selected");
+			$(".matching-item").blur();
+			$(".clickable-item").blur();
+		}
+
+		//if key for enter event
+		if (keycode == 13) {
+			//get the count of enter pressed on element
+			const enterCount = enterCounter[elemId];
+			//if enter has pressed two times
+			console.log(enterCount, " enter count ", enterCounter);
+			if (enterCount > 2) {
+				var same = true;
+				try{
+					same = prevBtn == $(this);
+				}catch(err){
+					console.log(err);
+					same=true;
+				}
+				if(!same){
+					if(prevBtn){
+						if($(prevBtn).parent().parent().parent().hasClass("dragableItemContainer")){
+							//console.log("SAME......");
+						}else{
+							totalDropedItem--;
+							console.log("BACK.....", totalDropedItem, arrAllDraggableitem.length);
+							
+							var idd =  prevBtn.attr("id").replace("draggableitem_", "");
+							var parent = $(".draggableitemWraper_"+idd);
+							parent.append(prevBtn.parent());
+							$(prevBtn).removeClass("correct").removeClass("incorrect");
+	
+							if (totalDropedItem != arrAllDraggableitem.length) {
+								$('.submit_btn').prop("disabled", true);
+							}
+							//$(prevBtn).parent().appendTo($(".dragableItemContainer"));                    
+							/* var iid = $(prevBtn).attr("data-placed");*/
+							return;
+						}
+					}
+				}
+	
+				console.log("Normal click....");
+				prevBtn = $(this);
+			}
+			enterCounter[elemId] += 1;
+		}
+		console.log(keycode, " ************ ");
+	}); 
 
 	$("#tempDiv").load("data/data.xml", function (response, status, xhr) {
 		if (status != "error") {
@@ -155,9 +220,13 @@ $(document).ready(function () {
 
 		/* generating draggable items view */
 		arrAllDraggableitem.each(function (index, el) {
-			$(".card-wrap").append('<div class="draggableitemWraper draggableitemWraper_' + index + '"><div class="draggableitemCnt draggableitemCnt_' + index + '"><button aria-label="Item to categorize: '+ $(el).html()+'"  cat=' + $(el).attr("cat") + ' id="draggableitem_' + index + '" class="draggableitem draggableitem_' + index + '">' + $(el).html() + '</button></div></div>');
+			var plain = $(el).html().replace("<i>","").replace("</i>","");
+			$(".card-wrap").append('<div class="draggableitemWraper draggableitemWraper_' + index + '"><div class="draggableitemCnt draggableitemCnt_' + index + '"><button aria-label="Item to categorize: '+ plain+'"  cat=' + $(el).attr("cat") + ' id="draggableitem_' + index + '" class="draggableitem draggableitem_' + index + '">' + $(el).html() + '</button></div></div>');
 			$('.draggableitemWraper_'+ index).css("left", (index*15)+"px");
+			enterCounter[`draggableitemWraper_${index}`] = 1;
+			
 		});
+		//console.log(enterCounter);
 
 		$('.draggableitem').css({
 			"font-family": draggableitemFontfamily,
@@ -165,13 +234,28 @@ $(document).ready(function () {
 			"backgroundColor": draggableitemBackgroundcolor
 		}).off().on("click", selectDraggable);
 
-		console.log("------------------------");
+		//console.log("------------------------");
 
-		$(".dragableItemContainer").click(function() {
+		$(".draggableitemCnt").click(function(e) {
+
+			var curId = $(e.target).attr("id");
+			console.log("DDDD: ", curId);
+			var gid = $(".dragableItemContainer").attr("curitem");
+
+			//prevBtn = $(this);
+			if(curId == gid){
+				$(this).blur();
+				$(".dragableItemContainer").attr("curitem", null);
+				return;
+			}else{
+				$(".dragableItemContainer").attr("curitem", curId);
+			}
+			
 			//console.log($(this));
             var same = true;
+			console.log(prevBtn, curId);
             try{
-                same = prevBtn == $(this);
+                same = prevBtn == $(e.target);
             }catch(err){
                 console.log(err);
                 same=true;
@@ -183,11 +267,19 @@ $(document).ready(function () {
                     }else{
 						totalDropedItem--;
                         console.log("BACK.....", totalDropedItem, arrAllDraggableitem.length);
-						
-						var idd =  prevBtn.attr("id").replace("draggableitem_", "");
+						console.log("PREV: ", $(prevBtn));
+						if($(prevBtn).attr("id").length){
+							var idd =  $(prevBtn).attr("id").replace("draggableitem_", "");
+						}
 						var parent = $(".draggableitemWraper_"+idd);
+
 						parent.append(prevBtn.parent());
-						$(prevBtn).removeClass("correct").removeClass("incorrect");
+						console.log(prevBtn.parent());
+						curDiv = null;
+						prevBtn= null;
+						$(parent).removeClass("mouse-none");
+						$(".selected").removeClass("selected").blur();
+						$(prevBtn).removeClass("correct").removeClass("incorrect").removeClass("mouse-none");
 
 						if (totalDropedItem != arrAllDraggableitem.length) {
 							$('.submit_btn').prop("disabled", true);
@@ -198,16 +290,15 @@ $(document).ready(function () {
                     }
                 }
             }
-
             console.log("Normal click....");
-            prevBtn = $(this);
+            prevBtn =$(e.target);
         })
 
 		//$(".settinToolsContainer").append('<div class="toolsCnt"></div>');
 		//$(".settinToolsContainer").append('<button tabindex="2" class="close"></button>');
 
 		arrSettingStyleItem.each(function(ind,el){
-			console.log("-=-=-=-", $(el).attr("txt"));
+			//console.log("-=-=-=-", $(el).attr("txt"));
 			if(ind==0)
 			{
 			$(".settinToolsContainer .toolsCnt").append('<div class="toolContainer_'+ind+'"><button aria-label="Color Scheme" bg="'+$(el).attr("background")+'" fg="'+$(el).attr("foreground")+'" class="tool tool_'+ind+'">button</button><p l lang="en" class="toolTxt toolTxt_'+ind+'">'+$(el).attr("txt")+'</p></div>');
@@ -288,7 +379,7 @@ $(document).ready(function () {
 	}
 
 	function selectDraggable() {
-		var curId = $(this).attr("id");
+		/* var curId = $(this).attr("id");
 		var gid = $(".dragableItemContainer").attr("curitem");
 
 		prevBtn = $(this);
@@ -298,6 +389,7 @@ $(document).ready(function () {
 			return;
 		}
 		$(".dragableItemContainer").attr("curitem", curId);
+		console.log(curId); */
 	}
 
 	function selectCategory() {
@@ -307,15 +399,28 @@ $(document).ready(function () {
 			var categoryDroppableCnt = $(this).parents(".category").find(".categoryDroppableCnt");
 			isMobile && $(".draggableitemCnt_" + index).find(".draggableitem").removeAttr('disabled');
 			
+			if($(categoryDroppableCnt).children().length ==6){
+				curDiv = null;
+				prevBtn= null;
+				return;
+			}
+
 			$(".draggableitemCnt_" + index).appendTo(categoryDroppableCnt);
+			$(".draggableitemWraper_"+ index).addClass("mouse-none");
+			console.log($(categoryDroppableCnt).children().length,"=====")
+
+			enterCounter["draggableitemCnt_" + index] = 1;
 			$(".dragableItemContainer").removeAttr("curitem");
 			
 			isMobile && $(".container .draggableitem").last().removeAttr('disabled');
-			
+			curDiv = null;
+			prevBtn= null;
 			//alert("ok");
 			totalDropedItem = 0;
 			$('.category').each(function (index, el) {
 				var dropedItemLenth = $(el).find(".categoryDroppableCnt").children().length;
+				//console.log("cccccc",dropedItemLenth);
+				
 				totalDropedItem = totalDropedItem + dropedItemLenth
 
 				var catTitle = $(el).find(".categoryTitle").attr("cat");
@@ -333,6 +438,7 @@ $(document).ready(function () {
 			if (totalDropedItem == arrAllDraggableitem.length) {
 				//$('.nav-container').show()
 				$('.submit_btn').prop("disabled", false);
+				$('.submit_btn').removeClass("submit-hide");
 				$('.submit_btn').off().on("click", submitListener);
 			}
 		}
@@ -342,6 +448,8 @@ $(document).ready(function () {
 		var correctCounter = 0;
 		$(".categoryTitle").addClass("inactive");
 		$(".draggableitem").addClass("inactive");
+		$(".card-wrap").addClass("hidden-feed");
+		$('.submit_btn').addClass("submit-hide");
 		var feedback = rightFeedback;
 		$('.category').each(function (index, el) {
 			var catTitle = $(el).find(".categoryTitle").attr("cat");
@@ -382,6 +490,8 @@ $(document).ready(function () {
 		$(".draggableitem").removeClass("inactive");
 		$(".feedback").hide();
 		$("header").removeClass("pad-0");
+		$(".mouse-none").removeClass("mouse-none");
+		$(".card-wrap").removeClass("hidden-feed");
 		arrAllDraggableitem.each(function (index, el) {
 			$(".categoryContainer").find(".draggableitemCnt_" + index).appendTo(".draggableitemWraper_" + index);
 		});
@@ -402,6 +512,7 @@ $(document).ready(function () {
 	function settingListener() {
 		$(".settinToolsContainer").css("zIndex","3");
 		$(".settingContainer").css("zIndex","2");
+		$(".help-popup").css("zIndex","1");
 		$('.settinToolsContainer').addClass('showhide');
 		$('.settinToolsContainer .close').off().on('click', closeSetting);
 
@@ -423,10 +534,11 @@ $(document).ready(function(){
     $(".help-popup").show();
 	$(".settinToolsContainer").css("zIndex","2");
 	$(".settingContainer").css("zIndex","3");
+	$(".help-popup").css("zIndex","4");
   });
   $(".popup-close").click(function(){
     $(".help-popup").hide();
-	$(".settingContainer").css("zIndex","unset");
+	//$(".settingContainer").css("zIndex","unset");
   });
   $(".bottom-btn").on("click", function(){
 	console.log("-----------------");

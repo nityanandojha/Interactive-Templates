@@ -47,6 +47,7 @@ var matching = (function() {
     var tryAgain = function(){
         $(".clickable-item").prop("disabled", false);
         $(".matching-item").prop("disabled", false);
+        $(".clickableBlock").removeClass("no-grid");
 
         $(".matching-element").find(".clickable-item").removeClass("wrong-border-up");
         $(".matching-element").find(".matching-item").removeClass("wrong-border-bottom");
@@ -164,6 +165,9 @@ var matching = (function() {
                 prevBtn = null;
                 $(curDiv).find(".clickable-item").removeClass("selected");
                 curDiv = null;
+                $(".selected").removeClass("selected");
+                $(".matching-item").blur();
+                $(".clickable-item").blur();
             }
 
             //if key for enter event
@@ -199,6 +203,9 @@ var matching = (function() {
                                 $(".submit_btn").addClass("disabled");
                                 $(".submit_btn").prop("disabled", true);
                                 prevBtn=null;
+                                $(".selected").removeClass("selected");
+                                $(".matching-item").blur();
+                                $(".clickable-item").blur();
                                 return;
                             }
                         }
@@ -267,13 +274,16 @@ var matching = (function() {
             var prevMatched = $(curDiv).attr("data-placed");
             $("#"+prevMatched).removeAttr("data-placed");
             $("#"+prevMatched).removeClass("placed");
-            //console.log(" *-*-*-*-*-*-*-*-*-* ");
+            console.log(" *-*-*-*-*-*-*-*-*-* ");
+            $(".selected").removeClass("selected");
+            $(".matching-item").blur();
+            $(".clickable-item").blur();
         }else{
             if($(curDiv).attr("data-placed")){
                 if(curMatchbox == $(this).attr("id")){
                     return;
                 }
-                //console.log(" 000000000000000000 ");
+                console.log(" 000000000000000000 ");
                 var parent = $("#"+$(curDiv).attr("data-placed"));                
                 var apend = $("#"+$(this).attr("data-placed"));
                 parent.find(".matching-element").prepend(apend);
@@ -309,7 +319,7 @@ var matching = (function() {
 
                         classnames = $(this).find(".clickedEvent").attr('class');
                         $(this).find(".clickedEvent").attr("class", 'clickedEvent');
-                        //console.log(" 11111111111111111 ");
+                        console.log(" 11111111111111111 ");
                     }
                 }else{
                     console.log(" 2222222222222222222222 ");
@@ -330,6 +340,7 @@ var matching = (function() {
             $(".submit_btn").removeClass("disabled");
             $(".submit_btn").removeClass("mobile-submit");
             $(".activity-header").addClass("pad0");
+            $(".clickableBlock").addClass("no-grid");
         }
     }
 
@@ -432,6 +443,9 @@ var matching = (function() {
                         $(prevBtn).removeAttr("data-placed");
                         $(".submit_btn").addClass("disabled");
                         $(".submit_btn").prop("disabled", true);
+                        $(".selected").removeClass("selected");
+                        $(".matching-item").blur();
+                        $(".clickable-item").blur();
                         prevBtn=null;
                         return;
                     }
