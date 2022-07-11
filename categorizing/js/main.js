@@ -6,6 +6,7 @@ $(document).ready(function () {
 	var arrAllDraggableitem = null;
 	var staticImagePath="images/";
 	var prevBtn = null;
+	var totalDropedItem = 0;
 	const isMobile = detectMob(); 
 	/* detect mobile device start*/
 	function detectMob() {

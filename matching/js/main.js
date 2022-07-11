@@ -372,6 +372,9 @@ var matching = (function() {
 
             $("#w-feedback").show();
         }
+
+        curDiv = null;
+        prevBtn = null;
     })
 
     function bindEvents(){
