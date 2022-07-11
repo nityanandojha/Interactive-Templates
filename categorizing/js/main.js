@@ -237,7 +237,7 @@ $(document).ready(function () {
 
 		$(".dragableItemContainer").click(function(e) {
 
-			/* var curId = $(e.target).attr("id");
+			var curId = $(e.target).attr("id");
 			console.log("DDDD: ", curId);
 			var gid = $(".dragableItemContainer").attr("curitem");
 
@@ -248,7 +248,7 @@ $(document).ready(function () {
 				return;
 			}else{
 				$(".dragableItemContainer").attr("curitem", curId);
-			} */
+			}
 			
 			//console.log($(this));
             var same = true;
@@ -393,22 +393,28 @@ $(document).ready(function () {
 			var categoryDroppableCnt = $(this).parents(".category").find(".categoryDroppableCnt");
 			isMobile && $(".draggableitemCnt_" + index).find(".draggableitem").removeAttr('disabled');
 			
+			if($(categoryDroppableCnt).children().length ==6){
+				curDiv = null;
+				prevBtn= null;
+				return;
+			}
+
 			$(".draggableitemCnt_" + index).appendTo(categoryDroppableCnt);
 			$(".draggableitemWraper_"+ index).addClass("mouse-none");
+			console.log($(categoryDroppableCnt).children().length,"=====")
 
 			enterCounter["draggableitemCnt_" + index] = 1;
 			$(".dragableItemContainer").removeAttr("curitem");
 			
 			isMobile && $(".container .draggableitem").last().removeAttr('disabled');
-			
+			curDiv = null;
+			prevBtn= null;
 			//alert("ok");
 			totalDropedItem = 0;
 			$('.category').each(function (index, el) {
 				var dropedItemLenth = $(el).find(".categoryDroppableCnt").children().length;
 				console.log("cccccc",dropedItemLenth);
-				if(dropedItemLenth == 6){
-					return;
-				}
+				
 				totalDropedItem = totalDropedItem + dropedItemLenth
 
 				var catTitle = $(el).find(".categoryTitle").attr("cat");

@@ -549,8 +549,6 @@ header{
         line-height: 28px;
         width: 808px;
     }
-    
-    
     .clickable-items .clickable-item{
         /* left: 0px;
         top: 0px; */
@@ -558,7 +556,6 @@ header{
         padding: 20px;
         margin-bottom: 0px;
     }
-    
 }
 @media (min-width: 1200px){
 .col-xl-2 {
@@ -571,9 +568,6 @@ header{
     .clickable-items .clickable-item {
         height: 10.2vh;
     }
-   
-    
-   
 }
 
 @media screen and (device-width: 650px), (device-height: 365px){
@@ -592,9 +586,25 @@ header{
         max-width: 198px;
         min-width: 198px;
     }
+    .no-grid{
+        display: none !important;
+    }
+    .clickable-item.wrong-border-up::after{
+        height: 20px;
+        width: 20px;
+        right: -8px;
+        top: -8px;
+    }
+    .clickable-item.right-border-up::after{
+        height: 20px;
+        width: 20px;
+        right: -8px;
+        top: -8px;
+    }
+
     .feedback {
         /* width: calc(100% - 135px); */
-        margin-left: 30px;
+        margin-left: 0px;
         line-height: 20px;
         letter-spacing: 1px;
         font-weight: 700;
@@ -607,7 +617,7 @@ header{
     }
     .activity-content{
         position: fixed;
-        top: 49%;
+        top: 52%;
         height: 51%;
         overflow-y: auto;
     }
@@ -627,6 +637,7 @@ header{
         font-size: 16px;
        font-family: "HelveticaNeue-Bold";
         line-height: 20px;
+        max-height: 141px;
     }
     .clickable-items .clickable-item p, .matching-items .clickable-item p {
         margin-bottom: 0px;
@@ -667,7 +678,7 @@ header{
     }
     .feedback {
         /* width: calc(100% - 135px); */
-        margin-left: 30px;
+        margin-left: 0px;
         line-height: 20px;
         letter-spacing: 1px;
         font-weight: 700;
@@ -687,6 +698,17 @@ header{
         font-weight: bold;
         line-height: 22px;
     }
+    .no-grid{
+        display: none !important;
+    }
+
+    .clickable-item.wrong-border-up::after, .clickable-item.right-border-up::after{
+        width: 20px;
+        height: 20px;
+        top: -8px;
+        right: -8px;
+    }
+
     .clickable-items .clickable-item p, .matching-items .clickable-item p {
         margin-bottom: 0px;
         font-size: 17px;
@@ -744,6 +766,9 @@ header{
     
     .p-48p{
         top: 48% !important;
+    }
+    .matchedEvent:last-of-type{
+        margin-bottom: 50px;
     }
     .activity-header{
         position: fixed;
