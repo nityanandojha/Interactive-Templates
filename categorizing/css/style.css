@@ -693,7 +693,6 @@ button:focus {
     border: none;
     border-bottom: 2px dotted #d5d5d5;
     margin: 0px 0px;
-    position: fixed;
     display: block;
     width: 100%;
 }
@@ -780,6 +779,10 @@ button:focus {
         border-radius: 14px;
         min-height: 55px;
         border: 2px solid #fff;
+    }
+    .catHr {
+        position: fixed;
+
     }
     .submited .incorrect:after {
         top: -6px;
