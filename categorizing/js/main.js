@@ -28,7 +28,7 @@ $(document).ready(function () {
 	}
 	
 	$(document).keyup(function(event) {
-		console.log("--------------");
+		//console.log("--------------");
 		//get the id of element on which enter key pressed
 		const elemId = $(prevBtn).attr('id');
 
@@ -220,12 +220,13 @@ $(document).ready(function () {
 
 		/* generating draggable items view */
 		arrAllDraggableitem.each(function (index, el) {
-			$(".card-wrap").append('<div class="draggableitemWraper draggableitemWraper_' + index + '"><div class="draggableitemCnt draggableitemCnt_' + index + '"><button aria-label="Item to categorize: '+ $(el).html()+'"  cat=' + $(el).attr("cat") + ' id="draggableitem_' + index + '" class="draggableitem draggableitem_' + index + '">' + $(el).html() + '</button></div></div>');
+			var plain = $(el).html().replace("<i>","").replace("</i>","");
+			$(".card-wrap").append('<div class="draggableitemWraper draggableitemWraper_' + index + '"><div class="draggableitemCnt draggableitemCnt_' + index + '"><button aria-label="Item to categorize: '+ plain+'"  cat=' + $(el).attr("cat") + ' id="draggableitem_' + index + '" class="draggableitem draggableitem_' + index + '">' + $(el).html() + '</button></div></div>');
 			$('.draggableitemWraper_'+ index).css("left", (index*15)+"px");
 			enterCounter[`draggableitemWraper_${index}`] = 1;
 			
 		});
-		console.log(enterCounter);
+		//console.log(enterCounter);
 
 		$('.draggableitem').css({
 			"font-family": draggableitemFontfamily,
@@ -233,9 +234,9 @@ $(document).ready(function () {
 			"backgroundColor": draggableitemBackgroundcolor
 		}).off().on("click", selectDraggable);
 
-		console.log("------------------------");
+		//console.log("------------------------");
 
-		$(".dragableItemContainer").click(function(e) {
+		$(".draggableitemCnt").click(function(e) {
 
 			var curId = $(e.target).attr("id");
 			console.log("DDDD: ", curId);
@@ -252,7 +253,7 @@ $(document).ready(function () {
 			
 			//console.log($(this));
             var same = true;
-			console.log(prevBtn);
+			console.log(prevBtn, curId);
             try{
                 same = prevBtn == $(e.target);
             }catch(err){
@@ -273,6 +274,11 @@ $(document).ready(function () {
 						var parent = $(".draggableitemWraper_"+idd);
 
 						parent.append(prevBtn.parent());
+						console.log(prevBtn.parent());
+						curDiv = null;
+						prevBtn= null;
+						$(parent).removeClass("mouse-none");
+						$(".selected").removeClass("selected").blur();
 						$(prevBtn).removeClass("correct").removeClass("incorrect").removeClass("mouse-none");
 
 						if (totalDropedItem != arrAllDraggableitem.length) {
@@ -292,7 +298,7 @@ $(document).ready(function () {
 		//$(".settinToolsContainer").append('<button tabindex="2" class="close"></button>');
 
 		arrSettingStyleItem.each(function(ind,el){
-			console.log("-=-=-=-", $(el).attr("txt"));
+			//console.log("-=-=-=-", $(el).attr("txt"));
 			if(ind==0)
 			{
 			$(".settinToolsContainer .toolsCnt").append('<div class="toolContainer_'+ind+'"><button aria-label="Color Scheme" bg="'+$(el).attr("background")+'" fg="'+$(el).attr("foreground")+'" class="tool tool_'+ind+'">button</button><p l lang="en" class="toolTxt toolTxt_'+ind+'">'+$(el).attr("txt")+'</p></div>');
@@ -413,7 +419,7 @@ $(document).ready(function () {
 			totalDropedItem = 0;
 			$('.category').each(function (index, el) {
 				var dropedItemLenth = $(el).find(".categoryDroppableCnt").children().length;
-				console.log("cccccc",dropedItemLenth);
+				//console.log("cccccc",dropedItemLenth);
 				
 				totalDropedItem = totalDropedItem + dropedItemLenth
 

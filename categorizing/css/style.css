@@ -91,6 +91,7 @@ section .container{
 header{
     /* border-bottom: 2px dotted #d5d5d5; */
     padding-bottom: 11px;
+    box-shadow: 0px 1px 10px #d6d6d6;
 }
 .category{
     display: flex;
@@ -329,6 +330,7 @@ header{
     letter-spacing: 1px;
     font-weight: 700;
     font-family: "HelveticaNeue-Regular";
+    font-size: 18px;
 }
 .nav-container {
     position: relative;
@@ -339,11 +341,12 @@ header{
 .nav-container button{
     background: #d4450c;
     border: none;
-    padding: 18px 34px;
+    padding: 13px 24px 15px 24px;
     color: #fff;
     font-family: "HelveticaNeue-Bold";
-    font-size: 20px;
-    border-radius: 14px;
+    font-size: 22px;
+    border-radius: 10px;
+    line-height: 16px;
 }
 .nav-container button[disabled]{
     opacity: 0.65;
@@ -352,6 +355,7 @@ header{
     cursor: pointer;
     position: absolute;
     right: 0%;
+    bottom: 0;
 }
 
 
@@ -359,14 +363,14 @@ header{
     cursor: pointer;
     position: absolute;
     right: 0%;
-
+    bottom: 0;
 }
 
 .reset_btn {
     cursor: pointer;
     position: absolute;
     right: 0%;
-
+    bottom: 0;
 }
 
 .submit_btn>svg,
@@ -430,7 +434,7 @@ header{
 
 .settinToolsContainer {
     background: #BFBFBF !important;
-    padding: 15px;
+    padding: 10px;
     border-radius: 6px;
     color: #001936;
     box-shadow: 0px 3px 6px 0px rgb(112 112 112);
@@ -467,10 +471,11 @@ header{
 .toolContainer {
 
     background: none;
-    padding: 0px;
+    padding: 8px 0px;
     outline: none;
     margin-right: 5px;
-    border: none;
+    outline: 1px solid transparent;
+    border: 2px solid transparent;
     font-size: .7rem;
     width: 80px;
     text-align: center;
