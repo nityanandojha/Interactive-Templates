@@ -219,7 +219,7 @@ header{
 
 
 .clickable-item:focus-visible, .clickable-item:focus{
-    border: 2px solid blue !important;
+    border: 2px solid #6666FF !important;
 }
 
 .clickable-items{
@@ -330,7 +330,7 @@ header{
     position: relative;
 }
 .matching-item:focus, .matching-item:focus-visible{
-    border: 2px solid blue !important;
+    border: 2px solid #6666FF !important;
 }
 .matching-items .matching-item{
     outline: none;
@@ -421,6 +421,9 @@ header{
     font-size: 18px;
     margin-right: 8px;
 }
+.cog:focus-visible{
+    outline: -webkit-focus-ring-color auto 2px;;
+}
 #r-feedback{
     display: none;
 }
@@ -470,8 +473,12 @@ header{
     margin-right: 8px;
 }
 .head-btn .cog{
-    background: none;
+    background: transparent;
+    color: #fff;
+    padding: 2px 5px 0 5px;
     border: none;
+    font-size: 18px;
+    margin-right: 8px;
 }
 .notice-card button{
     background: none;
