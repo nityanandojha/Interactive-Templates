@@ -117,7 +117,8 @@ var matching = (function() {
             var txt = data.ques[index].clickable;
             $("#cloneItem_d").clone().appendTo(".clickableBlock");
             $("#cloneItem_d .clickable-item").attr("alt", "Item to match: [pause] "+ txt);
-            
+            $("#cloneItem_d .clickable-item").attr("aria-label", "Iteam to match: [pause] "+txt);
+
             $("#cloneItem_d .clickable-item p").html(txt);
             $("#cloneItem_d").addClass("clickedEvent");
             $("#cloneItem_d").attr("id", "cloneItem_"+index);
@@ -126,6 +127,7 @@ var matching = (function() {
             
             var txt = data.ques[index].matching;
             $("#matchBox_d .matching-item").attr("alt", "Item to match: [pause] "+ txt);
+            $("#matchBox_d .matching-item").attr("aria-label", "Description to match: [pause] "+txt);
             $("#matchBox_d").clone().appendTo(".matchingBlock");
             $("#matchBox_d .matching-item p").html(data.ques[index].matching);
             $("#matchBox_d").addClass("matchedEvent");
@@ -221,7 +223,7 @@ var matching = (function() {
     }
 
     function createSettingBox(data){
-        console.log("DATA: ", data.find("themes").find("theme").length);
+        //console.log("DATA: ", data.find("themes").find("theme").length);
         var themes = Array.from(data.find("themes").find("theme"));
         themes.forEach((element, index) => {
             // console.log("element", element.innerHTML);
@@ -232,6 +234,7 @@ var matching = (function() {
                 "data-selectioncolor": $(element).find("selectioncolor").html(),
                 "class": "toolContainer toolContainer_" + (index+1),
                 "aria-label": $(element).find("title").html(),
+                "aria-pressed": "false",
                 "title": $(element).find("title").html(),
             }).appendTo($(".toolCnt"));
 
@@ -243,8 +246,13 @@ var matching = (function() {
             $("<span>",{
                 "class": "toolTxt toolTxt_"+(index+1),                
             }).html($(element).find("title").html()).appendTo(btn);
+
+            console.log($(".toolContainer")[0]);
+            $(".toolContainer:first").attr("aria-pressed", "true");
             $(btn).on("click", function(e){
                 console.log($(this).attr("data-color"));
+                $(".toolContainer").attr("aria-pressed","false");
+                $(this).attr("aria-pressed", "true");
                 var r = document.querySelector(':root');
                 r.style.setProperty('--color', $(this).attr("data-color"));
                 r.style.setProperty('--background', $(this).attr("data-background"));
@@ -383,6 +391,9 @@ var matching = (function() {
 
             $("#w-feedback").show();
         }
+
+        curDiv = null;
+        prevBtn = null;
     })
 
     function bindEvents(){
