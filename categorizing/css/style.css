@@ -397,9 +397,10 @@ header{
     font-size: 20px;
     line-height: 28px;
     width: 808px;
-    margin: 8px 0 4px 0px;
+    margin: 0px 0 4px 0px;
     font-family: "HelveticaNeue-Bold";
     min-height: 56px;
+    padding: 8px;
 }
 
 /* #instructionbold {
@@ -650,7 +651,7 @@ button[disabled]{
 }
 button:focus {
     outline: 1px solid red;
-    border: 0px solid transparent;
+    border: 0px solid transparent !important;
 }
 
 .template {
