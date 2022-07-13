@@ -10,6 +10,14 @@ var matching = (function() {
     this.init = function(data) {
         this.loadXML();
 
+        $(".notice-card").show();
+        $(".notice-card").css("zIndex","3");
+        $(".settings-container").css("zIndex","2");
+        $(".close-bt").off().on("click", function(){
+            $(".notice-card").hide();
+            $(".note").focus();
+        })
+
         $(".note").off().on("click",function() {
             $(".notice-card").show();
             $(".notice-card").css("zIndex","3");
@@ -116,8 +124,8 @@ var matching = (function() {
             data.ques.push(tempObj);
             var txt = data.ques[index].clickable;
             $("#cloneItem_d").clone().appendTo(".clickableBlock");
-            $("#cloneItem_d .clickable-item").attr("alt", "Item to match: [pause] "+ txt);
-            $("#cloneItem_d .clickable-item").attr("aria-label", "Iteam to match: [pause] "+txt);
+            $("#cloneItem_d .clickable-item").attr("alt", "Item to match:  "+ txt);
+            $("#cloneItem_d .clickable-item").attr("aria-label", "Iteam to match: "+txt);
 
             $("#cloneItem_d .clickable-item p").html(txt);
             $("#cloneItem_d").addClass("clickedEvent");
@@ -126,8 +134,8 @@ var matching = (function() {
             enterCounter[`cloneItem_${index}`] = 1;
             
             var txt = data.ques[index].matching;
-            $("#matchBox_d .matching-item").attr("alt", "Item to match: [pause] "+ txt);
-            $("#matchBox_d .matching-item").attr("aria-label", "Description to match: [pause] "+txt);
+            $("#matchBox_d .matching-item").attr("alt", "Item to match: "+ txt);
+            $("#matchBox_d .matching-item").attr("aria-label", "Description to match: "+txt);
             $("#matchBox_d").clone().appendTo(".matchingBlock");
             $("#matchBox_d .matching-item p").html(data.ques[index].matching);
             $("#matchBox_d").addClass("matchedEvent");
@@ -379,13 +387,13 @@ var matching = (function() {
         }
 
         if(wCount == 0){
-            $(".reset_btn").show();
+            $(".reset_btn").show().focus();
             $(".tryagain_btn").hide();
             $(".submit_btn").hide();
 
             $("#r-feedback").show();
         }else{
-            $(".tryagain_btn").show();
+            $(".tryagain_btn").show().focus();
             $(".reset_btn").hide();
             $(".submit_btn").hide();
 
