@@ -63,7 +63,7 @@
     outline: 1px solid;
 }
 .close-btn:focus{
-    outline: 1px solid;
+    outline: 2px solid;
 }
 .settings-container-themes-title{
     text-align:left;

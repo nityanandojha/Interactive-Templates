@@ -73,7 +73,7 @@ header{
     border: 1px solid transparent;
 }
 .toolContainer:focus, .toolContainer:focus-visible{
-    border: 1px solid black;
+    border: 2px solid black;
 }
 
 .wrong-border-up{
@@ -148,7 +148,7 @@ header{
     padding: 0px;
     outline: none;
     margin-right: 5px;
-    border: 1px solid transparent;
+    border: 2px solid transparent;
     font-size: .7rem;
     width: 80px;
     text-align: center;
@@ -799,7 +799,7 @@ header{
         top: 48% !important;
     }
     .matchedEvent:last-of-type{
-        margin-bottom: 50px;
+        margin-bottom: 100px;
     }
     .activity-header{
         position: fixed;
