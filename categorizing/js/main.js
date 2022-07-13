@@ -294,9 +294,6 @@ $(document).ready(function () {
             prevBtn =$(e.target);
         })
 
-		//$(".settinToolsContainer").append('<div class="toolsCnt"></div>');
-		//$(".settinToolsContainer").append('<button tabindex="2" class="close"></button>');
-
 		arrSettingStyleItem.each(function(ind,el){
 			//console.log("-=-=-=-", $(el).attr("txt"));
 			if(ind==0)
@@ -304,11 +301,10 @@ $(document).ready(function () {
 			$(".settinToolsContainer .toolsCnt").append('<div class="toolContainer_'+ind+'"><button aria-label="Color Scheme" bg="'+$(el).attr("background")+'" fg="'+$(el).attr("foreground")+'" class="tool tool_'+ind+'">button</button><p l lang="en" class="toolTxt toolTxt_'+ind+'">'+$(el).attr("txt")+'</p></div>');
 			}else
 			{
-				$(".settinToolsContainer .toolsCnt").append('<button aria-label="' +$(el).attr("txt")+ '" role="settings tool" class="toolContainer toolContainer_'+ind+'" colors="'+$(el).attr("colors")+'"><img alt="' +$(el).attr("txt")+ '" src="'+staticImagePath+$(el).attr("picname")+'" class="tool tool_'+ind+'"/><span l lang="en" class="toolTxt toolTxt_'+ind+'">'+$(el).attr("txt")+'</span></button>');
+				$(".settinToolsContainer .toolsCnt").append('<button aria-pressed= "false" aria-label="' +$(el).attr("txt")+ '" role="settings tool" class="toolContainer toolContainer_'+ind+'" colors="'+$(el).attr("colors")+'"><img alt="' +$(el).attr("txt")+ '" src="'+staticImagePath+$(el).attr("picname")+'" class="tool tool_'+ind+'"/><span l lang="en" class="toolTxt toolTxt_'+ind+'">'+$(el).attr("txt")+'</span></button>');
 			}
 
-			if(ind==1)
-			{
+			if(ind==1){
 				var colors=$(el).attr("colors");
 				color1=colors.split(",")[0];
 				color2=colors.split(",")[1];
@@ -326,10 +322,8 @@ $(document).ready(function () {
 			$(el).find('.toolTxt').css({"font-family":$(arrSettingStyleItem[index+1]).attr('fontfamily'),"color":$(arrSettingStyleItem[index+1]).attr('tooltextcolor')});
 		});
 
-
-
 		//displayDynContent(counter);
-
+		$('.settinToolsContainer .toolContainer').eq(0).attr("aria-pressed", "true");
 		$('.settinToolsContainer .toolContainer').off().on("click", changeBgFgOfTemplate);
 
 		function shuffleArray(a) {
@@ -341,13 +335,12 @@ $(document).ready(function () {
 		}
 		function changeBgFgOfTemplate() {
 			//alert("ok");
-			console.log($(this).attr('colors'));
+			$('.settinToolsContainer .toolContainer').eq(0).attr("aria-pressed", "false");
+			$(this).attr("aria-pressed", "true");
 			color1=$(this).attr('colors').split(",")[0];
 			color2=$(this).attr('colors').split(",")[1];
 			color3=$(this).attr('colors').split(",")[2];
-			// $('.content').css({
-			// 	backgroundColor: color2
-			// });
+			
 			$('#title').css({
 				color: color2
 			});
@@ -556,10 +549,7 @@ $(document).ready(function(){
 	}else{
 		$(".categoryDroppableCnt").addClass("hidden2");		
 		$(this).html("COLLAPSE<br>CATEGORIES");
-	}
-	//var text = $(".categoryDroppableCnt").hasClass("hidden")?"REVIEW YOUR<br>SORTED ANSWERS":"COLLAPSE<br>CATEGORIES";
-	//$(this).html(text);
-	
+	}	
   })
 });
 
