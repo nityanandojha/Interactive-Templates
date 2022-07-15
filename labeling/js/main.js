@@ -490,9 +490,11 @@ var matching = (function() {
         $('#reviewBtn').click(function(){
             if(isDown){
                 $("#reviewContainer").css({"transform" : "translate(0px, -535px)"});
+                $("#reviewBtn i").removeClass("up").addClass("down");
                 isDown = false;
             }else{
                 $("#reviewContainer").css({"transform" : "translate(0px, -29px)"});
+                $("#reviewBtn i").removeClass("down").addClass("up");
                 isDown = true;
             }
             
