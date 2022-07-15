@@ -259,6 +259,12 @@ header{
     bottom: -29px;
 }
 
+#reviewBtn{
+    border-radius: 0 0 10px 10px;
+    outline: none;
+    width: 100px;
+}
+
 #matchingImage{
     width: 100%;
     height: 100%;
