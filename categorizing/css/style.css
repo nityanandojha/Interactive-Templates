@@ -512,8 +512,8 @@ header{
 .help-popup{
     position: absolute;
     background: #5e6062;
-    right: 26px;
-    width: 612px;
+    right: 18px;
+    width: 547px;
     padding: 23px 107px 18px 20px;
     z-index: 4;
     top: 0;
@@ -525,15 +525,16 @@ header{
     background: none;
     position: absolute;
     right: 23px;
-    top: 16px;
+    top: 11px;
+    font-family: "HelveticaNeue";
 }
 #instructionnorm {
     font-family: "HelveticaNeue";
     color: #fff;
-    font-size: 18px;
+    font-size: 20px;
     line-height: 26px;
-    letter-spacing: 1px;
-    font-weight: 700;
+    letter-spacing: 0.2px;
+    font-weight: normal;
 }
 
 .categoryContainer {
@@ -641,7 +642,7 @@ button[disabled]{
 }
 button:focus {
     outline: 1px solid red;
-    border: 0px solid transparent !important;
+    /* border: 0px solid transparent !important; */
 }
 
 .template {
