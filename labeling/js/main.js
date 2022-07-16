@@ -117,6 +117,9 @@ var matching = (function() {
         $("#reviewImg").attr("src", xml.find("reviewimage").text());
 
         var items = xml.find("items").find("item");
+        var counter=0;
+        var imgMaxHeight=0;
+        var iArr = [];
         //var matchItem = xml.find("items").find("matching").find("text");
         data["ques"] = [];
         items.each((index, el) => {
@@ -142,10 +145,32 @@ var matching = (function() {
 
             var txt = data.ques[index].matching;
             m = txt.match(regex);
-            var img = "";
+            
             if(m != null){
-                img = `<img id='matchingImage' src=${txt} alt='Item to match: '${txt}>`;
-                $("#matchBox_d .matching-item").html(img);
+                $(".matching-item").addClass("img-wrap");
+                var img;
+                //img = `<img class='matchingImage' src=${txt} alt='Item to match: '${txt}>`;
+                //$("#matchBox_d .matching-item").html(img);
+
+                img = new Image();
+                console.log("new image");
+                img.src = txt;
+                img.className = "matchingImage";
+                temp = img;
+                iArr.push(temp);
+                img.onload = function (){
+                    console.log("loaded", this, this.height);
+                    $("#matchBox_d .matching-item").append($(iArr[counter]));
+                    imgMaxHeight = Math.max(imgMaxHeight, this.height);
+                    if(++counter == items.length){
+                        console.log("all loaded....", imgMaxHeight, iArr);
+                        $(".matching-item").each(function(index){
+                            $(this).append(iArr[index]);
+                        });
+                    }
+                   
+                }
+
             }else{
                 $("#matchBox_d .matching-item").html("<p></p>");
                 $("#matchBox_d .matching-item p").html(txt);
@@ -171,9 +196,9 @@ var matching = (function() {
 
         var maxHeight = Math.max(...heightArr);
         var maxHofClickitem = $('.clickable-item').outerHeight();
-        $('.matching-item').css({"height":maxHeight+"px"});
+        //$('.matching-item').css({"height":maxHeight+"px"});
 
-        $('.matchedEvent').css({"height": (maxHeight+maxHofClickitem+15)+"px"});
+        //$('.matchedEvent').css({"height": (maxHeight+maxHofClickitem+15)+"px"});
 
         $(document).keyup(function(event) {
             //get the id of element on which enter key pressed
