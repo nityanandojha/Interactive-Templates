@@ -6,7 +6,7 @@ var matching = (function() {
     var curMatchbox = true;
     var prevBtn = null;
     var classnames = "";
-    const regex = /images.*\.(png|jpg|jpeg)/gm;
+    const regex = /assets.*\.(png|jpg|jpeg)/gm;
 
     this.init = function(data) {
         this.loadXML();
@@ -141,9 +141,9 @@ var matching = (function() {
             $("#matchBox_d").clone().appendTo(".matchingBlock");
 
             var txt = data.ques[index].matching;
-            m = regex.test(txt);
+            m = txt.match(regex);
             var img = "";
-            if(m == true){
+            if(m != null){
                 img = `<img id='matchingImage' src=${txt} alt='Item to match: '${txt}>`;
                 $("#matchBox_d .matching-item").html(img);
             }else{
@@ -268,7 +268,6 @@ var matching = (function() {
                 "class": "toolTxt toolTxt_"+(index+1),                
             }).html($(element).find("title").html()).appendTo(btn);
 
-            console.log($(".toolContainer")[0]);
             $(".toolContainer:first").attr("aria-pressed", "true");
             $(btn).on("click", function(e){
                 console.log($(this).attr("data-color"));

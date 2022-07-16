@@ -4,14 +4,15 @@
   <instruction>To complete the activity, select each item and then select the corresponding category.  Replay this interaction as many times as you need. There is no time limit. Your responses will not be graded.</instruction>
   <rightfeedback>Correct! You've matched each claim to its counterclaim. You understand this aspect of argument.</rightfeedback>
   <wrongfeedback>Incorrect. Try again. Refer to Chapter 10 of your textbook to review counterclaims, their relation to claims, and their purpose in argument.</wrongfeedback>
-  <reviewimage>images/heart.png</reviewimage>
+  <reviewimage>assets/images/heart.png</reviewimage>
   <items>
     <item>
+    
       <clickable>
         <text>Vaccines against COVID-19 should be mandated.</text>
       </clickable>
       <matching>
-        <text>images/heart.png</text>
+        <text>assets/images/img1.png</text>
       </matching>
     </item>
     <item>
@@ -19,7 +20,7 @@
         <text>Content on YouTube should be well regulated.</text>
       </clickable>
       <matching>
-        <text>The principle of freedom of speech means that regulations on social media platforms should not be tightened.</text>
+        <text>assets/images/img2.png</text>
       </matching>
     </item>
     <item>
@@ -27,7 +28,7 @@
         <text>Parents should modify fetuses, if desired.</text>
       </clickable>
       <matching>
-        <text>An unborn child is exactly the way God intended the child to be.</text>
+        <text>assets/images/img3.png</text>
       </matching>
     </item>
     <item>
@@ -35,7 +36,7 @@
         <text>College athletes should not be paid.</text>
       </clickable>
       <matching>      
-        <text>Because athletes earn money for their schools, they should be paid for the work they do.</text>
+        <text>assets/images/img4.png</text>
       </matching>
     </item>
     <item>
@@ -43,7 +44,7 @@
         <text>Minors should be allowed to buy birth control.</text>
       </clickable>
       <matching>      
-        <text>Those under 18 do not have the emotional or mental maturity to access prescription drugs for themselves.</text>
+        <text>assets/images/img5.png</text>
       </matching>
     </item>
     <item>
@@ -51,7 +52,7 @@
         <text>U.S. immigration laws should be changed.</text>
       </clickable>
       <matching>
-        <text>The existing laws that allow outsiders into the United States are adequate and ensure the safety of current citizens.</text>
+        <text>assets/images/img6.png</text>
       </matching>
     </item>
     <item>
@@ -59,7 +60,7 @@
         <text>Public colleges should be free to attend.</text>
       </clickable>
       <matching>      
-        <text>Free public colleges would require operating costs to be borne by taxpayers who do not attend or have children in college.</text>
+        <text>assets/images/img7.png</text>
       </matching>
     </item>
 
