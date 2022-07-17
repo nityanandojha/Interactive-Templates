@@ -153,7 +153,6 @@ var matching = (function() {
                 //$("#matchBox_d .matching-item").html(img);
 
                 img = new Image();
-                console.log("new image");
                 img.src = txt;
                 img.className = "matchingImage";
                 temp = img;
@@ -170,7 +169,6 @@ var matching = (function() {
                     }
                    
                 }
-
             }else{
                 $("#matchBox_d .matching-item").html("<p></p>");
                 $("#matchBox_d .matching-item p").html(txt);
@@ -495,6 +493,7 @@ var matching = (function() {
                         $("#"+iid).removeAttr("data-placed");
                         $(prevBtn).removeAttr("data-placed");
                         $(".submit_btn").addClass("disabled");
+                        $(".clickableBlock").removeClass("no-grid");
                         $(".submit_btn").prop("disabled", true);
                         $(".selected").removeClass("selected");
                         $(".matching-item").blur();
@@ -504,7 +503,6 @@ var matching = (function() {
                     }
                 }
             }
-
             console.log("Normal click....");
             prevBtn = $(this);
         })
