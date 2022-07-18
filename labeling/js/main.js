@@ -120,6 +120,7 @@ var matching = (function() {
         var counter=0;
         var imgMaxHeight=0;
         var iArr = [];
+        var maxH = 0;
         //var matchItem = xml.find("items").find("matching").find("text");
         data["ques"] = [];
         items.each((index, el) => {
@@ -158,14 +159,17 @@ var matching = (function() {
                 temp = img;
                 iArr.push(temp);
                 img.onload = function (){
-                    console.log("loaded", this, this.height);
+                    console.log("loaded", this.height);
                     $("#matchBox_d .matching-item").append($(iArr[counter]));
                     imgMaxHeight = Math.max(imgMaxHeight, this.height);
                     if(++counter == items.length){
                         console.log("all loaded....", imgMaxHeight, iArr);
                         $(".matching-item").each(function(index){
                             $(this).append(iArr[index]);
+                            console.log($(this).outerHeight());
+                            maxH = Math.max(maxH,$(this).outerHeight());
                         });
+                        $(".matching-item").css("height", maxH);
                     }
                    
                 }
