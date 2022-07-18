@@ -51,8 +51,7 @@ body {
 }
 header{
     background: #fff;
-    z-index: 999;
-   
+    z-index: 4;
 }
 .text-end {
     text-align: right!important;
@@ -91,19 +90,7 @@ header{
     border-bottom: none !important;
     cursor: auto !important;
 }
-.right-border-bottom{
-    border: 2px solid rgb(1, 207, 32) !important;
-    border-top: none !important;
-    cursor: auto !important;
-}
 
-.container, .container-fluid, .container-lg, .container-md, .container-sm, .container-xl, .container-xxl {
-    width: 97%;
-    padding-right: var(--bs-gutter-x,.75rem);
-    padding-left: var(--bs-gutter-x,.75rem);
-    margin-right: auto;
-    margin-left: auto;
-}
 .disabled{
     pointer-events: none;
     opacity: 0.5;
@@ -192,13 +179,10 @@ header{
 }
 .activity-header{
     border-bottom: solid 1px #ddd;
-    position: relative;
     box-shadow: 0px 1px 10px #d6d6d6;
     padding-bottom: 22px;
     position: fixed;
     width: 100%;
-    
-    top: 0px;
 }
 .activity-content{
     position: fixed;
