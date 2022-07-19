@@ -6,7 +6,7 @@ var matching = (function() {
     var curMatchbox = true;
     var prevBtn = null;
     var classnames = "";
-    const regex = /images.*\.(png|jpg|jpeg)/gm;
+    const regex = /assets.*\.(png|jpg|jpeg)/gm;
 
     this.init = function(data) {
         this.loadXML();
@@ -117,6 +117,10 @@ var matching = (function() {
         $("#reviewImg").attr("src", xml.find("reviewimage").text());
 
         var items = xml.find("items").find("item");
+        var counter=0;
+        var imgMaxHeight=0;
+        var iArr = [];
+        var maxH = 0;
         //var matchItem = xml.find("items").find("matching").find("text");
         data["ques"] = [];
         items.each((index, el) => {
@@ -141,11 +145,34 @@ var matching = (function() {
             $("#matchBox_d").clone().appendTo(".matchingBlock");
 
             var txt = data.ques[index].matching;
-            m = regex.test(txt);
-            var img = "";
-            if(m == true){
-                img = `<img id='matchingImage' src=${txt} alt='Item to match: '${txt}>`;
-                $("#matchBox_d .matching-item").html(img);
+            m = txt.match(regex);
+            
+            if(m != null){
+                $(".matching-item").addClass("img-wrap");
+                var img;
+                //img = `<img class='matchingImage' src=${txt} alt='Item to match: '${txt}>`;
+                //$("#matchBox_d .matching-item").html(img);
+
+                img = new Image();
+                img.src = txt;
+                img.className = "matchingImage";
+                temp = img;
+                iArr.push(temp);
+                img.onload = function (){
+                    console.log("loaded", this.height);
+                    $("#matchBox_d .matching-item").append($(iArr[counter]));
+                    imgMaxHeight = Math.max(imgMaxHeight, this.height);
+                    if(++counter == items.length){
+                        console.log("all loaded....", imgMaxHeight, iArr);
+                        $(".matching-item").each(function(index){
+                            $(this).append(iArr[index]);
+                            console.log($(this).outerHeight());
+                            maxH = Math.max(maxH,$(this).outerHeight());
+                        });
+                        $(".matching-item").css("height", maxH);
+                    }
+                   
+                }
             }else{
                 $("#matchBox_d .matching-item").html("<p></p>");
                 $("#matchBox_d .matching-item p").html(txt);
@@ -171,9 +198,9 @@ var matching = (function() {
 
         var maxHeight = Math.max(...heightArr);
         var maxHofClickitem = $('.clickable-item').outerHeight();
-        $('.matching-item').css({"height":maxHeight+"px"});
+        //$('.matching-item').css({"height":maxHeight+"px"});
 
-        $('.matchedEvent').css({"height": (maxHeight+maxHofClickitem+15)+"px"});
+        //$('.matchedEvent').css({"height": (maxHeight+maxHofClickitem+15)+"px"});
 
         $(document).keyup(function(event) {
             //get the id of element on which enter key pressed
@@ -268,7 +295,6 @@ var matching = (function() {
                 "class": "toolTxt toolTxt_"+(index+1),                
             }).html($(element).find("title").html()).appendTo(btn);
 
-            console.log($(".toolContainer")[0]);
             $(".toolContainer:first").attr("aria-pressed", "true");
             $(btn).on("click", function(e){
                 console.log($(this).attr("data-color"));
@@ -471,6 +497,7 @@ var matching = (function() {
                         $("#"+iid).removeAttr("data-placed");
                         $(prevBtn).removeAttr("data-placed");
                         $(".submit_btn").addClass("disabled");
+                        $(".clickableBlock").removeClass("no-grid");
                         $(".submit_btn").prop("disabled", true);
                         $(".selected").removeClass("selected");
                         $(".matching-item").blur();
@@ -480,7 +507,6 @@ var matching = (function() {
                     }
                 }
             }
-
             console.log("Normal click....");
             prevBtn = $(this);
         })
