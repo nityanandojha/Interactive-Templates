@@ -521,7 +521,7 @@ var matching = (function() {
 
         $('#reviewBtn').click(function(){
             if(isDown){
-                $("#reviewContainer").css({"transform" : "translate(0px, -515px)"});
+                $("#reviewContainer").css({"transform" : "translate(0px, -582px)"});
                 $("#reviewBtn i").removeClass("up").addClass("down");
                 $("#reviewBtn p").html("Review Activity");
                 isDown = false;
