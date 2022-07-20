@@ -190,6 +190,9 @@ var matching = (function() {
         
         $(".shuffle").shuffleChildren();
 
+        var r = document.querySelector(':root');
+        r.style.setProperty('--cardCount', items.length);
+
         var heightArr = [];
         $('.matching-item').each(function(index, element) {
             var height = $(element).outerHeight();
