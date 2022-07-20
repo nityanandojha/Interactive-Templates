@@ -88,6 +88,7 @@ var matching = (function() {
         $("#r-feedback").hide();
         $("#w-feedback").hide();
 
+        $(".clickable-items").removeClass("clickable-itemsunset");
         $(".activity-header").removeClass("pad0");
     }
 
@@ -399,6 +400,7 @@ var matching = (function() {
             $(".submit_btn").removeClass("mobile-submit");
             $(".activity-header").addClass("pad0");
             $(".clickableBlock").addClass("no-grid");
+            $(".clickable-items").removeClass("clickable-itemsunset");
         }
     }
 
@@ -501,6 +503,7 @@ var matching = (function() {
                         $(prevBtn).removeAttr("data-placed");
                         $(".submit_btn").addClass("disabled");
                         $(".clickableBlock").removeClass("no-grid");
+                        $(".clickable-items").addClass("clickable-itemsunset");
                         $(".submit_btn").prop("disabled", true);
                         $(".selected").removeClass("selected");
                         $(".matching-item").blur();

@@ -751,7 +751,7 @@ header{
 @media screen and (device-width: 530px), (device-height: 943px), (orientation: portrait) {
     .activity-header{
         position: fixed;
-        width: 100%;
+        width: 93%;
 
     }
     .activity-content{
@@ -853,7 +853,7 @@ header{
     }
     .activity-header{
         position: fixed;
-        width: 100%;
+        width: 93%;
     }
     .activity-content{
         position: fixed;
@@ -917,7 +917,7 @@ header{
     .head-btn .notice-card {
         padding: 27px 18px 16px 15px;
     }
-    .clickable-items{
+    .clickable-itemsunset{
         display: unset;
     }
     .text-end.footer{
