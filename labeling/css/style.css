@@ -51,12 +51,10 @@ body {
 }
 header{
     background: #fff;
-    z-index: 999;
-   
+    z-index: 4;
 }
 .text-end {
-    text-align: right!important;
-    width: 100%;
+    width: 1105px;
     margin-top: 54px;
 }
 .no-grid{
@@ -91,19 +89,7 @@ header{
     border-bottom: none !important;
     cursor: auto !important;
 }
-.right-border-bottom{
-    border: 2px solid rgb(1, 207, 32) !important;
-    border-top: none !important;
-    cursor: auto !important;
-}
 
-.container, .container-fluid, .container-lg, .container-md, .container-sm, .container-xl, .container-xxl {
-    width: 97%;
-    padding-right: var(--bs-gutter-x,.75rem);
-    padding-left: var(--bs-gutter-x,.75rem);
-    margin-right: auto;
-    margin-left: auto;
-}
 .disabled{
     pointer-events: none;
     opacity: 0.5;
@@ -192,13 +178,10 @@ header{
 }
 .activity-header{
     border-bottom: solid 1px #ddd;
-    position: relative;
     box-shadow: 0px 1px 10px #d6d6d6;
     padding-bottom: 22px;
     position: fixed;
-    width: 100%;
-    
-    top: 0px;
+    width: 93%;
 }
 .activity-content{
     position: fixed;
@@ -238,40 +221,54 @@ header{
 
 #reviewContainer{
     position: relative;
-    top: 210px;
+    top: 209px;
     width: 100%;
-    transform: translate(0px, -535px);
+    transform: translate(0px, -82px);
     transition: transform 1s;
+    background-color: rgb(112 112 112 / 80%);
+    overflow: hidden;
+    height: calc(100vh - 188px);
+    border-radius: 0 0 0 11px;
 }
 
 #imageCont{
     position: relative;
-    width: 100%;
-    height: calc(100vh - 211px);
-    border: 1px solid red;
+    width: 80%;
+    height: 466px;
+    top: 81px;
+    background-color: #fff;
+    border-radius: 0 0 25px 0px;
+    text-align: center;
+    box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.29);
+    background-color: #fafafa;
 }
 #imageCont img{
-    width: 100%;
     height: 100%;
  }
 #reviewCont{
     position: absolute;
-    bottom: -29px;
+    bottom: 0px;
 }
 
 #reviewBtn{
     border-radius: 0 0 10px 10px;
     outline: none;
-    width: 100px;
+    color: #d4450c;
+    font-family: HelveticaNeue-Regular;
+    font-size: 14px;
+    line-height: 16px;
+    background-color: #fff;
+    width: 132px;
+    height: 24px;
+    border: none;
 }
 
 .matchingImage{
     width: 100%;
-    
 }
 
 .arrow {
-    border: solid black;
+    border: solid #d4450c;;
     border-width: 0 3px 3px 0;
     display: inline-block;
     padding: 3px;
@@ -295,7 +292,7 @@ header{
     position: relative;
     display: flex;
     align-items: center;
-    justify-content: end;
+    justify-content: space-between;
     margin-top: 15px;
     z-index: 0;
 }
@@ -319,6 +316,7 @@ header{
     grid-template-columns: repeat(var(--cardCount), 12px);
     column-gap: 0px;
     z-index: 2;
+    width: 300px;
 }
 .clickable-items .clickable-item{
     height: 71px;
@@ -504,14 +502,14 @@ header{
     display: none;
 }
 .head-btn{
-    position: relative;
-    right: 14px;
+    position: absolute;
+    right: 0px;
     text-align: end;
+    width: 250px;
 }
 .head-btn-wrap{
-    position: absolute;
+    position: relative;
     width: 100%;
-    right: 0;
     z-index: 1;
 }
 .sticky .head-btn-wrap{
@@ -525,7 +523,7 @@ header{
     color: #fff;
     width: 547px;
     padding: 24px 59px 16px 22px;
-    top: 0;
+    top: 0px;
     font-size: 20px;
     display: none;
     line-height: 26px;

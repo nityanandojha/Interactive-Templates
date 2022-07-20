@@ -4,7 +4,7 @@
   <instruction>To complete the activity, select each item and then select the corresponding category.  Replay this interaction as many times as you need. There is no time limit. Your responses will not be graded.</instruction>
   <rightfeedback>Correct! You've matched each claim to its counterclaim. You understand this aspect of argument.</rightfeedback>
   <wrongfeedback>Incorrect. Try again. Refer to Chapter 10 of your textbook to review counterclaims, their relation to claims, and their purpose in argument.</wrongfeedback>
-  <reviewimage>assets/images/heart.png</reviewimage>
+  <reviewimage>assets/images/HeartAnatomy.png</reviewimage>
   <items>
     <item>
     
@@ -12,7 +12,7 @@
         <text>Vaccines against COVID-19 should be mandated.</text>
       </clickable>
       <matching>
-        <text>assets/images/img1.png</text>
+        <text>assets/images/HeartAnatomy_01.png</text>
       </matching>
     </item>
     <item>
@@ -20,7 +20,7 @@
         <text>Content on YouTube should be well regulated.</text>
       </clickable>
       <matching>
-        <text>assets/images/img2.png</text>
+        <text>assets/images/HeartAnatomy_02.png</text>
       </matching>
     </item>
     <item>
@@ -28,7 +28,7 @@
         <text>Parents should modify fetuses, if desired.</text>
       </clickable>
       <matching>
-        <text>assets/images/img3.png</text>
+        <text>assets/images/HeartAnatomy_03.png</text>
       </matching>
     </item>
     <item>
@@ -36,7 +36,7 @@
         <text>College athletes should not be paid.</text>
       </clickable>
       <matching>      
-        <text>assets/images/img4.png</text>
+        <text>assets/images/HeartAnatomy_04.png</text>
       </matching>
     </item>
     <item>
@@ -44,7 +44,7 @@
         <text>Minors should be allowed to buy birth control.</text>
       </clickable>
       <matching>      
-        <text>assets/images/img5.png</text>
+        <text>assets/images/HeartAnatomy_05.png</text>
       </matching>
     </item>
     <item>
@@ -52,7 +52,7 @@
         <text>U.S. immigration laws should be changed.</text>
       </clickable>
       <matching>
-        <text>assets/images/img6.png</text>
+        <text>assets/images/HeartAnatomy_06.png</text>
       </matching>
     </item>
     <item>
@@ -60,11 +60,33 @@
         <text>Public colleges should be free to attend.</text>
       </clickable>
       <matching>      
-        <text>assets/images/img7.png</text>
+        <text>assets/images/HeartAnatomy_07.png</text>
       </matching>
     </item>
-
-    
+    <item>
+      <clickable>
+        <text>Public colleges should be free to attend.</text>
+      </clickable>
+      <matching>      
+        <text>assets/images/HeartAnatomy_08.png</text>
+      </matching>
+    </item>
+    <item>
+      <clickable>
+        <text>Public colleges should be free to attend.</text>
+      </clickable>
+      <matching>      
+        <text>assets/images/HeartAnatomy_09.png</text>
+      </matching>
+    </item>
+    <item>
+      <clickable>
+        <text>Public colleges should be free to attend.</text>
+      </clickable>
+      <matching>      
+        <text>assets/images/HeartAnatomy_10.png</text>
+      </matching>
+    </item>
     
     
   </items>
