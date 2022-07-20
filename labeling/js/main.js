@@ -511,16 +511,18 @@ var matching = (function() {
             prevBtn = $(this);
         })
 
-        var isDown = false;
+        var isDown = true;
 
         $('#reviewBtn').click(function(){
             if(isDown){
-                $("#reviewContainer").css({"transform" : "translate(0px, -535px)"});
+                $("#reviewContainer").css({"transform" : "translate(0px, -515px)"});
                 $("#reviewBtn i").removeClass("up").addClass("down");
+                $("#reviewBtn p").html("Review Activity");
                 isDown = false;
             }else{
-                $("#reviewContainer").css({"transform" : "translate(0px, -29px)"});
+                $("#reviewContainer").css({"transform" : "translate(0px, -82px)"});
                 $("#reviewBtn i").removeClass("down").addClass("up");
+                $("#reviewBtn p").html("Begin Activity");
                 isDown = true;
             }
             
