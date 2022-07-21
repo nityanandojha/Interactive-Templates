@@ -247,13 +247,16 @@ header{
     text-align: center;
     box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.29);
     background-color: #fafafa;
+    border-bottom: 2px solid gray;
 }
 #imageCont img{
-    height: 100%;
+    width: 464px;
  }
 #reviewCont{
     position: absolute;
     bottom: 0px;
+    border-bottom: 2px solid gray;
+    border-radius: 0 0 10px 10px;
 }
 
 #reviewBtn{
@@ -522,7 +525,7 @@ header{
     position: unset;
 }
 .head-btn .notice-card {
-    right: 28px;
+    right: 36px;
     text-align: start;
     position: absolute;
     background: #5e6062;
@@ -868,7 +871,7 @@ header{
     #imageCont{
         width: 100%;
     }
-    
+
     .feedback{
         width: 100%;
         margin: 0;
@@ -896,8 +899,8 @@ header{
         font-family: "HelveticaNeue-Regular";
         letter-spacing: 1px;
     }
-    .matching-items .clickable-item {
-        /* position: unset; */
+    .matching-element .clickable-item {
+        position: unset;
         padding: 20px;
     }
     .matching-items .matching-item {
@@ -905,9 +908,20 @@ header{
         min-width: 198px;
         margin-top: auto;
         max-width: 198px;
-        /* display: flex;
-    align-items: flex-end; */
     }
+    
+    #reviewContainer{
+       
+    }
+
+    .clickable-items{
+        display: block;
+    }
+
+    .text-end{
+        width: 100%;
+    }
+
     .col-6 {
         flex: 0 0 auto;
         width: 100%;

@@ -529,10 +529,17 @@ var matching = (function() {
                 $("#reviewContainer").css({"transform" : "translate(0px, -82px)"});
                 $("#reviewBtn i").removeClass("down").addClass("up");
                 $("#reviewBtn p").html("Begin Activity");
+                $("#reviewContainer").css({"background-color": "rgb(112 112 112 / 80%)"});
                 isDown = true;
             }
             
-        })        
+        });
+
+        $("#reviewContainer").on( 'transitionend', function() {
+            if(!isDown){
+                $(this).css({"background-color": "rgb(112 112 112 / 0%)"});
+            }
+        });
     }
 
     $.fn.shuffleChildren = function() {
