@@ -411,18 +411,37 @@ header{
 }
 
 .setting {
-  background: none;
-  border: 2px solid transparent;
-}
-
-.showText {
-    background: #5f6062;
+    background-image: url(../images/gear-option.png);
     color: #fff;
-    padding: 8px 5px 0 5px;
+    background-color: #fff;
+    width: 30px;
+    height: 32px;
     border: 2px solid transparent;
     font-size: 18px;
     margin-right: 8px;
+    background-size: auto;
+    background-repeat: no-repeat;
+    background-position: bottom;
+    background-position-y: 14px;
+    border: 2px transparent;
 }
+
+.showText {
+    background-image: url(../images/doubts-button.png);
+    color: #fff;
+    background-color: #5f6062;
+    width: 30px;
+    border: 2px transparent;
+    height: 32px;
+    border: 2px solid transparent;
+    font-size: 18px;
+    margin-right: 8px;
+    background-size: auto;
+    background-repeat: no-repeat;
+    background-position: bottom;
+    background-position-y: 11px;
+}
+
 
 
 
@@ -1196,8 +1215,8 @@ button:focus {
     overflow: auto;
     height: 260px;
 }
-.pad-0{
-    padding-bottom: 0px;
+header.pad-0{
+    padding-bottom: 12px;
 }
 .categoryTitle {
     font-size: 14px;
