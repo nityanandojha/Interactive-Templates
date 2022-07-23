@@ -147,9 +147,6 @@ $(document).ready(function () {
 		var draggableitemColor = setting.find("draggableitem").attr('color');
 		var draggableitemBackgroundcolor = setting.find("draggableitem").attr('backgroundcolor');
 
-
-
-
 		// title style from from setting.xml
 		var instNormFontFamily = setting.find("instructionnorm").attr('fontfamily');
 		var instNormColor = setting.find("instructionnorm").attr('color');
@@ -189,7 +186,7 @@ $(document).ready(function () {
 
 		/* generating draggable items view */
 		arrAllDraggableitem.each(function (index, el) {
-			var plain = $(el).html().replace("<i>", "").replace("</i>", "");//<div class="draggableitemWraper draggableitemWraper_' + index + '"></div>
+			var plain = $(el).html().replace("<i>", "").replace("</i>", "");
 			$(".card-wrap").append('<div class="draggableitemCnt draggableitemCnt_' + index + '"><button aria-label="Item to categorize: ' + plain + '"  cat=' + $(el).attr("cat") + ' id="draggableitem_' + index + '" class="draggableitem draggableitem_' + index + '">' + $(el).html() + '</button></div>');
 
 			enterCounter[`draggableitemWraper_${index}`] = 1;
@@ -199,7 +196,7 @@ $(document).ready(function () {
 			"font-family": draggableitemFontfamily,
 			"color": draggableitemColor,
 			"backgroundColor": draggableitemBackgroundcolor
-		}).off().on("click", selectDraggable);
+		});
 
 		$(".draggableitemCnt").click(function (e) {
 			var curId = $(e.target).attr("id");
@@ -335,20 +332,6 @@ $(document).ready(function () {
 
 	}
 
-	function selectDraggable() {
-		/* var curId = $(this).attr("id");
-		var gid = $(".dragableItemContainer").attr("curitem");
-
-		prevBtn = $(this);
-		if(curId == gid){
-			$(this).blur();
-			$(".dragableItemContainer").attr("curitem", null);
-			return;
-		}
-		$(".dragableItemContainer").attr("curitem", curId);
-		console.log(curId); */
-	}
-
 	function selectCategory() {
 		var id = $(".dragableItemContainer").attr("curitem");
 		if (id) {
@@ -372,11 +355,10 @@ $(document).ready(function () {
 			isMobile && $(".container .draggableitem").last().removeAttr('disabled');
 			curDiv = null;
 			prevBtn = null;
-			//alert("ok");
+			
 			totalDropedItem = 0;
 			$('.category').each(function (index, el) {
 				var dropedItemLenth = $(el).find(".categoryDroppableCnt").children().length;
-				//console.log("cccccc",dropedItemLenth);
 
 				totalDropedItem = totalDropedItem + dropedItemLenth
 
@@ -431,7 +413,7 @@ $(document).ready(function () {
 		$(".feedback").html(feedback).show();
 		$(this).addClass("invisible");
 		$('.categoryContainer').addClass("submited");
-		//$('.nav-container').removeClass("invisible");
+		
 		if (correctCounter == arrAllDraggableitem.length) {
 			$('.reset_btn').removeClass("invisible").focus().off().on("click", resetCategory).prop("disabled", false);
 		} else {
@@ -449,20 +431,17 @@ $(document).ready(function () {
 		$("header").removeClass("pad-0");
 		$(".mouse-none").removeClass("mouse-none");
 		$(".card-wrap").removeClass("hidden-feed");
-		arrAllDraggableitem.each(function (index, el) {
-			$(".categoryContainer").find(".draggableitemCnt_" + index).appendTo(".draggableitemWraper_" + index);
-		});
+		
+		$(".card-wrap").append($('.draggableitemCnt'));
 		$('.categoryContainer').removeClass("submited");
 		$(".draggableitem").css("border", "0px solid green").removeClass("correct incorrect");
 		if (isMobile) {
-			//$(".container .draggableitem").prop('disabled', true);
 			$(".container .draggableitem").last().removeAttr('disabled');
 		}
 		$('.reset_btn').addClass("invisible").prop("disabled", true);
 		$('.tryagain_btn').addClass("invisible").prop("disabled", true);
 		$('.submit_btn').removeClass("invisible").prop("disabled", true);
 	}
-
 
 	$('.setting').off().on('click', settingListener);
 
@@ -472,14 +451,12 @@ $(document).ready(function () {
 		$(".help-popup").css("zIndex", "1");
 		$('.settinToolsContainer').addClass('showhide');
 		$('.settinToolsContainer .close').off().on('click', closeSetting);
-
 	}
 
 	function closeSetting() {
 		$('.settinToolsContainer').removeClass('showhide');
 		$(".settinToolsContainer").css("zIndex", "unset");
 	}
-
 });
 
 $(document).ready(function () {
