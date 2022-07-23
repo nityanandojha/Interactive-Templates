@@ -5,6 +5,7 @@ $(document).ready(function () {
 	var arrAllDraggableitem = null;
 	var staticImagePath = "images/";
 	var prevBtn = null;
+	var curDiv = null;
 	var totalDropedItem = 0;
 	let enterCounter = {};
 	const isMobile = detectMob();
@@ -27,7 +28,6 @@ $(document).ready(function () {
 	}
 
 	$(document).keyup(function (event) {
-		//console.log("--------------");
 		//get the id of element on which enter key pressed
 		const elemId = $(prevBtn).attr('id');
 
@@ -50,7 +50,6 @@ $(document).ready(function () {
 			//get the count of enter pressed on element
 			const enterCount = enterCounter[elemId];
 			//if enter has pressed two times
-			console.log(enterCount, " enter count ", enterCounter);
 			if (enterCount > 2) {
 				var same = true;
 				try {
@@ -61,27 +60,29 @@ $(document).ready(function () {
 				}
 				if (!same) {
 					if (prevBtn) {
-						if ($(prevBtn).parent().parent().parent().hasClass("dragableItemContainer")) {
+						if ($(prevBtn).hasClass("dragableItemContainer")) {
 							//console.log("SAME......");
 						} else {
 							totalDropedItem--;
-							console.log("BACK.....", totalDropedItem, arrAllDraggableitem.length);
-
-							var idd = prevBtn.attr("id").replace("draggableitem_", "");
-							var parent = $(".draggableitemWraper_" + idd);
-							parent.append(prevBtn.parent());
-							$(prevBtn).removeClass("correct").removeClass("incorrect");
+							if($(this).hasClass("submit_btn")){
+								return;
+							}
+							
+							$(this).find(".card-wrap").append(prevBtn);
+							curDiv = null;
+							prevBtn = null;
+							$(parent).removeClass("mouse-none");
+							$(".selected").removeClass("selected").blur();
+							$(prevBtn).removeClass("correct").removeClass("incorrect").removeClass("mouse-none");
 
 							if (totalDropedItem != arrAllDraggableitem.length) {
 								$('.submit_btn').prop("disabled", true);
 							}
-							//$(prevBtn).parent().appendTo($(".dragableItemContainer"));                    
-							/* var iid = $(prevBtn).attr("data-placed");*/
+							
 							return;
 						}
 					}
 				}
-
 				console.log("Normal click....");
 				prevBtn = $(this);
 			}
@@ -187,19 +188,19 @@ $(document).ready(function () {
 		/* generating draggable items view */
 		arrAllDraggableitem.each(function (index, el) {
 			var plain = $(el).html().replace("<i>", "").replace("</i>", "");
-			$(".card-wrap").append('<div class="draggableitemCnt draggableitemCnt_' + index + '"><button aria-label="Item to categorize: ' + plain + '"  cat=' + $(el).attr("cat") + ' id="draggableitem_' + index + '" class="draggableitem draggableitem_' + index + '">' + $(el).html() + '</button></div>');
+			$(".card-wrap").append('<div class="draggableitemCnt draggableitemCnt_' + index + '" id="draggableitemCnt_' + index + '"><button aria-label="Item to categorize: ' + plain + '"  cat=' + $(el).attr("cat") + ' id="draggableitem_' + index + '" class="draggableitem draggableitem_' + index + '">' + $(el).html() + '</button></div>');
 
-			enterCounter[`draggableitemWraper_${index}`] = 1;
+			enterCounter[`draggableitemCnt_${index}`] = 1;
 		});
-
+		
 		$('.draggableitem').css({
 			"font-family": draggableitemFontfamily,
 			"color": draggableitemColor,
 			"backgroundColor": draggableitemBackgroundcolor
 		});
 
-		$(".draggableitemCnt").click(function (e) {
-			var curId = $(e.target).attr("id");
+		$(".draggableitemCnt").click(function (e) {			
+			var curId = $(this).attr("id");
 			var gid = $(".dragableItemContainer").attr("curitem");
 
 			if(prevBtn){
@@ -211,13 +212,7 @@ $(document).ready(function () {
                 }
             }
 
-			if (curId == gid) {
-				$(this).blur();
-				$(".dragableItemContainer").attr("curitem", null);
-				return;
-			} else {
-				$(".dragableItemContainer").attr("curitem", curId);
-			}
+			curDiv = this;
 		})
 
 		$(".dragableItemContainer").on("click", function (e) {
@@ -258,7 +253,6 @@ $(document).ready(function () {
 		})
 
 		arrSettingStyleItem.each(function (ind, el) {
-			//console.log("-=-=-=-", $(el).attr("txt"));
 			if (ind == 0) {
 				$(".settinToolsContainer .toolsCnt").append('<div class="toolContainer_' + ind + '"><button aria-label="Color Scheme" bg="' + $(el).attr("background") + '" fg="' + $(el).attr("foreground") + '" class="tool tool_' + ind + '">button</button><p l lang="en" class="toolTxt toolTxt_' + ind + '">' + $(el).attr("txt") + '</p></div>');
 			} else {
@@ -333,11 +327,10 @@ $(document).ready(function () {
 	}
 
 	function selectCategory() {
-		var id = $(".dragableItemContainer").attr("curitem");
-		if (id) {
-			var index = id.split("_")[1];
+		if (curDiv) {
+			var index = $(curDiv).attr("id").split("_")[1];
 			var categoryDroppableCnt = $(this).parents(".category").find(".categoryDroppableCnt");
-			isMobile && $(".draggableitemCnt_" + index).find(".draggableitem").removeAttr('disabled');
+			//isMobile && $(".draggableitemCnt_" + index).find(".draggableitem").removeAttr('disabled');
 
 			if ($(categoryDroppableCnt).children().length == 6) {
 				curDiv = null;
@@ -345,12 +338,10 @@ $(document).ready(function () {
 				return;
 			}
 
-			$(".draggableitemCnt_" + index).appendTo(categoryDroppableCnt);
-			$(".draggableitemWraper_" + index).addClass("mouse-none");
+			$(curDiv).appendTo(categoryDroppableCnt);
 			console.log($(categoryDroppableCnt).children().length, "=====")
 
 			enterCounter["draggableitemCnt_" + index] = 1;
-			$(".dragableItemContainer").removeAttr("curitem");
 
 			isMobile && $(".container .draggableitem").last().removeAttr('disabled');
 			curDiv = null;
@@ -373,9 +364,8 @@ $(document).ready(function () {
 				});
 
 			})
-			console.log('totalDropedItem=', totalDropedItem);
+			//console.log('totalDropedItem=', totalDropedItem);
 			if (totalDropedItem == arrAllDraggableitem.length) {
-				//$('.nav-container').show()
 				$('.submit_btn').prop("disabled", false);
 				$('.submit_btn').removeClass("submit-hide");
 				$('.submit_btn').off().on("click", submitListener);
