@@ -213,6 +213,11 @@ $(document).ready(function () {
             }
 
 			curDiv = this;
+
+			if($(curDiv).parent().hasClass("categoryDroppableCnt")){
+				const elemId = $(curDiv).attr('id');
+                enterCounter[elemId] += 1;
+			}
 		})
 
 		$(".dragableItemContainer").on("click", function (e) {
