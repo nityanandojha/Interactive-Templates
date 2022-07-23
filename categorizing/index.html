@@ -1,5 +1,6 @@
 ﻿<!DOCTYPE html>
 <html lang="en">
+
 <head>
     <title>Composition Category Interactive</title>
     <meta charset="utf-8" />
@@ -8,87 +9,8 @@
     <script src="js/jquery-3.1.1.min.js"></script>
     <script src="js/main.js"></script>
     <script src="js/accessibilityJs.js"></script>
-
-    <style>
-        .category-3 .left-card{
-                width: 216px;
-    float: left;
-        }
-        .category-3 .right-card{
-            width: calc(100vw - 226px);
-    overflow-x: auto;
-        }
-        .category-3 .card1 button{
-            background: #000;
-    width: 176px;
-    height: 166px;
-    border-radius: 10px;
-    color: #fff;
-        }
-        .category-3 .card1 button p{
-            font-size: 18px;
-    line-height: 26px;
-    font-family: 'HelveticaNeue-Bold';
-        }
-        .category-3 .card1{
-            width: 216px;
-    height: 197px;
-    background: red;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-        }
-        .category-3 .card2{
-            width: 216px;
-    height: 200px;
-    background: blue;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-        }
-        .category-3 .card3{
-            width: 216px;
-    height: 200px;
-    background: green;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-        }
-
-        .category-3 .rt-card1 button{
-            width: 358px;
-    display: flex;
-    height: 73px;
-    background: #fff;
-    border: 1px solid gray;
-    border-radius: 14px;
-    justify-content: center;
-    align-items: center;
-        }
-        .category-3 .rt-card1 button p{
-            font-size: 16px;
-    font-family: 'HelveticaNeue-Regular';
-    letter-spacing: 1px;
-    font-weight: 700;
-    width: 336px;
-    text-align: start;
-        }
-        .category-3 .rt-card1{
-            height: 197px;
-    padding: 20px 15px;
-    overflow: hidden;
-    width: calc(100vw - 216px);
-        }
-        .category-3 .rt-card-wrap{
-            display: grid;
-    grid-template-rows: repeat(2, 80px);
-    gap: 10px;
-    grid-template-columns: repeat(3, 359px);
-        }
-    </style>
-
-
 </head>
+
 <body>
     <header>
         <div class="container">
@@ -96,11 +18,13 @@
                 <button aria-label="help" tabindex="1" class="showText help-bg" title='Instruction Text' role="button">
                     <!-- <img src="images/doubts-button.png" alt="help-button"> -->
                 </button>
-                <button aria-label="Color Scheme Settings" tabindex="3" class="setting" title='Color Contrast Settings' role="button">
+                <button aria-label="Color Scheme Settings" tabindex="3" class="setting" title='Color Contrast Settings'
+                    role="button">
                     <!-- <img src="images/gear-option.png" alt="settings-button"> -->
                 </button>
                 <div class="help-popup">
-                    <button tabindex="2" aria-label="close" class="popup-close" title='Close' role="button">&#10006;</button>
+                    <button tabindex="2" aria-label="close" class="popup-close" title='Close'
+                        role="button">&#10006;</button>
                     <p id="instructionnorm"></p>
                 </div>
                 <div class="settinToolsContainer">
@@ -110,33 +34,39 @@
             </div>
             <h1 id="title"></h1>
             <p id="instructionbold"></p>
-            
+
         </div>
         <div class="fd-border">
             <div class="container">
                 <div class="row dragableItemContainer">
                     <div class="card-wrap">
-    
+
                     </div>
                     <div class="feedback">
-                        <p>Correct! You’ve matched each review excerpt to its category. You understand that summaries/observations are objective statements, while evaluations/analyses are subjective statements about the subject of the review. Correct! You’ve matched each review excerpt to its category. You understand that summaries/observations are objective statements, while evaluations analyses are subjective statements ab</p>
+                        <p>Correct! You’ve matched each review excerpt to its category. You understand that
+                            summaries/observations are objective statements, while evaluations/analyses are subjective
+                            statements about the subject of the review. Correct! You’ve matched each review excerpt to
+                            its category. You understand that summaries/observations are objective statements, while
+                            evaluations analyses are subjective statements ab</p>
                     </div>
                     <div class="nav-container">
-                        <button aria-label="submit" class="submit_btn submit-hide" disabled title="Submit" role="button">
+                        <button aria-label="submit" class="submit_btn submit-hide" disabled title="Submit"
+                            role="button">
                             Submit
                         </button>
-                        <button aria-label="try again" class="tryagain_btn invisible" disabled title="Try Again" role="button">
+                        <button aria-label="try again" class="tryagain_btn invisible" disabled title="Try Again"
+                            role="button">
                             Try Again
                         </button>
                         <button aria-label="reset" class="reset_btn invisible" disabled title="Reset" role="button">
                             Reset
                         </button>
-                    </div>                   
+                    </div>
                 </div>
             </div>
         </div>
     </header>
-      <section class="main-sec">
+    <section class="main-sec">
         <div class="container">
             <div class="content custom-Scroll">
                 <div id="tempDiv" style="display:none"></div>
@@ -146,12 +76,13 @@
             </div>
         </div>
     </section>
-   <section>
-    <button aria-label="collapse/expand categories" class="bottom-btn" role="button">
-        COLLAPSE<br>CATEGORIES &#62;
-    </button>
-   </section>
+    <section>
+        <button aria-label="collapse/expand categories" class="bottom-btn" role="button">
+            COLLAPSE<br>CATEGORIES &#62;
+        </button>
+    </section>
 
-   
+
 </body>
+
 </html>
