@@ -380,6 +380,7 @@ button, select {
     background-image: url(../images/close.svg);
     background-repeat: no-repeat;
     background-size: contain;
+    border: none;
 }
 
 .toolContainer {
@@ -404,6 +405,10 @@ button, select {
     justify-content: center;
     width: 100%;
     gap: 0px;
+}
+
+.toolsCnt .toolContainer:focus, .toolsCnt .toolContainer:focus-visible {
+    border: 2px solid black;
 }
 
 .toolContainer_0 {
