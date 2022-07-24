@@ -659,14 +659,13 @@ button[disabled] {
 
     .category-2 .categoryTitleCnt_0 {
         position: fixed;
-        top: 144px;
+        top: 150px;
         padding: 33px 32px;
-        background: #fff;
         z-index: 99;
     }
 
     .category-2 .categoryTitleCnt {
-        padding: 38px 32px;
+        padding: 34px 32px;
     }
 
     .category-2 .categoryTitleCnt_1 {
@@ -929,6 +928,7 @@ button[disabled] {
     .hidden2 {
         visibility: hidden;
         pointer-events: none;
+        overflow: auto;
     }
 
 }
@@ -997,7 +997,7 @@ button[disabled] {
 
     .draggableitem {
         font-size: 14px;
-        min-height: 8vh;
+        height: 100%;
         line-height: 20px;
         border: 0.2px solid #4a4a4a5c;
     }

@@ -470,24 +470,29 @@ $(document).ready(function () {
 		//$(".settingContainer").css("zIndex","unset");
 	});
 
-	/* $(".bottom-btn").on("click", function () {
-		console.log("-----------------");
-
-		if ($(".categoryDroppableCnt").hasClass("hidden")) {
-			$(".categoryDroppableCnt").removeClass("hidden");
-			$(this).html("REVIEW YOUR<br>SORTED ANSWERS");
-		} else {
-			$(".categoryDroppableCnt").addClass("hidden");
-			$(this).html("COLLAPSE<br>CATEGORIES");
-		}
+	$(".bottom-btn").on("click", function () {
 		if ($(".categoryDroppableCnt").hasClass("hidden2")) {
 			$(".categoryDroppableCnt").removeClass("hidden2");
-			$(this).html("REVIEW YOUR<br>SORTED ANSWERS");
+			$(this).html("COLLAPSE<br>CATEGORIES");
 		} else {
 			$(".categoryDroppableCnt").addClass("hidden2");
-			$(this).html("COLLAPSE<br>CATEGORIES");
+			$(this).html("REVIEW YOUR SORTED ANSWERS");			
 		}
-	}) */
+
+		var x = window.matchMedia("(max-width: 231px)");
+		if (x.matches) {
+			console.log(" 1111111111111111111 ");
+			if ($(".categoryDroppableCnt").hasClass("hidden")) {
+				$(".categoryDroppableCnt").removeClass("hidden");
+				$(".categoryDroppableCnt").removeClass("hidden2");
+				$(this).html("REVIEW YOUR SORTED ANSWERS");
+			} else {
+				$(".categoryDroppableCnt").addClass("hidden");
+				$(".categoryDroppableCnt").removeClass("hidden2");
+				$(this).html("COLLAPSE CATEGORIES");
+			}
+		}
+	})
 
 });
 
