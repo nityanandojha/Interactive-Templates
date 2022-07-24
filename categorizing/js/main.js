@@ -129,8 +129,8 @@ $(document).ready(function () {
 		setting = $(settingDoc);
 
 		//focus setting
-		var focusColor = setting.find("focuscolor").attr('color');
-		$('body').append('<style>input[type=button]:focus{outline: 1px solid ' + focusColor + '; border: 2px solid transparent;} button:focus{outline: 1px solid ' + focusColor + '; border: 2px solid transparent;}</style>');
+		//var focusColor = setting.find("focuscolor").attr('color');
+		//$('body').append('<style>input[type=button]:focus{outline: 1px solid ' + focusColor + '; border: 2px solid transparent;} button:focus{outline: 1px solid ' + focusColor + '; border: 2px solid transparent;}</style>');
 
 		// title style from from setting.xml
 		var fontfamily = setting.find("title").attr('fontfamily');
@@ -325,7 +325,7 @@ $(document).ready(function () {
 			$('.submit_btn,.tryagain_btn,.reset_btn').find("rect").attr('fill', color1);
 
 			$('.settinToolsContainer').css({ backgroundColor: color3 });
-			$('.setting').find("path").attr('fill', color1);
+			//$('.setting').find("path").attr('fill', color1);
 
 		}
 

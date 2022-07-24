@@ -15,21 +15,19 @@
     <header>
         <div class="container">
             <div class="settingContainer">
-                <button aria-label="help" tabindex="1" class="showText help-bg" title='Instruction Text' role="button">
-                    <!-- <img src="images/doubts-button.png" alt="help-button"> -->
-                </button>
-                <button aria-label="Color Scheme Settings" tabindex="3" class="setting" title='Color Contrast Settings'
-                    role="button">
-                    <!-- <img src="images/gear-option.png" alt="settings-button"> -->
-                </button>
+                <!-- <button aria-label="help" tabindex="1" class="showText" title='Instruction Text'></button>
+                <button aria-label="Color Scheme Settings" tabindex="3" class="setting" title='Color Contrast Settings'></button> -->
+
+                <button aria-label="Help" type="button" class="showText"  title='Instruction Text' ><img height="16" width="16" src="images/doubts-button.png" alt="Help"></button>
+                <button aria-label="Setting" type="button" class="cog setting"  title='Color Scheme Settings' ><img height="16" width="16" src="images/gear-option.png" alt="Color Scheme Settings"></button>
+
                 <div class="help-popup">
-                    <button tabindex="2" aria-label="close" class="popup-close" title='Close'
-                        role="button">&#10006;</button>
+                    <button tabindex="2" aria-label="close" class="popup-close" title='Close'>&#10006;</button>
                     <p id="instructionnorm"></p>
                 </div>
                 <div class="settinToolsContainer">
                     <div class="toolsCnt"></div>
-                    <button aria-label="close" tabindex="4" class="close" title='Close' role="button"></button>
+                    <button aria-label="close" tabindex="4" class="close" title='Close'></button>
                 </div>
             </div>
             <h1 id="title"></h1>
@@ -50,17 +48,9 @@
                             evaluations analyses are subjective statements ab</p>
                     </div>
                     <div class="nav-container">
-                        <button aria-label="submit" class="submit_btn submit-hide" disabled title="Submit"
-                            role="button">
-                            Submit
-                        </button>
-                        <button aria-label="try again" class="tryagain_btn invisible" disabled title="Try Again"
-                            role="button">
-                            Try Again
-                        </button>
-                        <button aria-label="reset" class="reset_btn invisible" disabled title="Reset" role="button">
-                            Reset
-                        </button>
+                        <button aria-label="submit" class="submit_btn submit-hide" disabled title="Submit">Submit</button>
+                        <button aria-label="try again" class="tryagain_btn invisible" disabled title="Try Again">Try Again</button>
+                        <button aria-label="reset" class="reset_btn invisible" disabled title="Reset">Reset</button>
                     </div>
                 </div>
             </div>
@@ -77,12 +67,8 @@
         </div>
     </section>
     <section>
-        <button aria-label="collapse/expand categories" class="bottom-btn" role="button">
-            COLLAPSE<br>CATEGORIES &#62;
-        </button>
+        <button aria-label="collapse/expand categories" class="bottom-btn">COLLAPSE<br>CATEGORIES &#62;</button>
     </section>
 
-
 </body>
-
 </html>

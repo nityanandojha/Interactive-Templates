@@ -56,12 +56,6 @@ body {
     overflow: auto;
 }
 
-.toolsCnt button:focus {
-    outline: 1px solid green;
-    border: 2px solid transparent;
-    padding: 8px 0px;
-}
-
 .mouse-none {
     pointer-events: none;
 }
@@ -94,28 +88,14 @@ section .container {
 }
 
 header {
-    /* border-bottom: 2px dotted #d5d5d5; */
     padding-bottom: 11px;
     box-shadow: 0px 1px 10px #d6d6d6;
 }
 
 .category {
     display: flex;
-    /* border-bottom: 2px dotted #d5d5d5; */
     align-items: center;
     position: relative;
-}
-
-/* .category-3:after{
-    position: absolute;
-    content: '';
-    width: 300px;
-    height: 2px;
-    background: red;
-} */
-.categoryTitle button:focus {
-    outline: 2px solid green;
-    border: 2px solid transparent;
 }
 
 .wrong-cat {
@@ -128,14 +108,7 @@ header {
 
 .categoryTitleCnt {
     padding: 13px 32px;
-    /* position: fixed;
-    z-index: 999;
-    background: #fff; */
 }
-
-/* .categoryDroppableCnt{
-    margin-left: 250px;
-} */
 
 .categoryTitleCnt.twoCnt {
     padding: 42px 32px;
@@ -273,6 +246,11 @@ header {
     font-size: 22px;
     border-radius: 10px;
     line-height: 16px;
+    outline: none;
+}
+
+.nav-container button:focus-visible{
+    box-shadow: 0 0 0 0.15rem rgb(0 0 255) !important;
 }
 
 .nav-container button[disabled] {
@@ -329,38 +307,43 @@ header {
     right: 24px;
     position: fixed;
     z-index: 4;
-}
-
-.setting {
-    background-image: url(../images/gear-option.png);
-    color: #fff;
-    background-color: #fff;
-    width: 30px;
-    height: 32px;
-    border: 2px solid transparent;
-    font-size: 18px;
-    margin-right: 8px;
-    background-size: auto;
-    background-repeat: no-repeat;
-    background-position: bottom;
-    background-position-y: 14px;
-    border: 2px transparent;
+    display: flex;
 }
 
 .showText {
-    background-image: url(../images/doubts-button.png);
+    margin: 0;
+    background: #5f6062;
     color: #fff;
-    background-color: #5f6062;
-    width: 30px;
-    border: 2px transparent;
-    height: 32px;
-    border: 2px solid transparent;
+    padding: 8px 5px 0 5px;
+    border: none;
+    font-size: 18px;
+    margin-right: 8px;    
+}
+
+.showText img{
+    vertical-align: middle;
+}
+
+.cog{
+    margin: 0;
+    background: transparent;
+    color: #fff;
+    padding: 2px 5px 0 5px;
+    border: none;
     font-size: 18px;
     margin-right: 8px;
-    background-size: auto;
-    background-repeat: no-repeat;
-    background-position: bottom;
-    background-position-y: 11px;
+}
+
+.cog:focus-visible{
+    outline: -webkit-focus-ring-color auto 2px;;
+}
+
+.cog img{
+    vertical-align: middle;
+}
+
+button, select {
+    text-transform: none;
 }
 
 .settinToolsContainer {
@@ -458,14 +441,21 @@ header {
 }
 
 .help-popup .popup-close {
-    color: #ffff;
     z-index: 99999999;
     font-size: 25px;
+    font-family: "HelveticaNeue";
     background: none;
+    border: none;
+    color: #fff;
     position: absolute;
     right: 23px;
     top: 11px;
-    font-family: "HelveticaNeue";
+    font-weight: normal;
+    padding: 0 5px 0 5px;
+}
+
+.help-popup:focus .popup-close:focus {
+    outline: 1px solid white;
 }
 
 #instructionnorm {
@@ -542,6 +532,10 @@ hr.first {
     font-family: "HelveticaNeue" !important;
 }
 
+.draggableitem:focus-visible, .draggableitem:focus {
+    border: 2px solid #6666FF !important;
+}
+
 #loadingImg {
     width: 200px;
     height: 200px;
@@ -567,20 +561,8 @@ input[type=button]:focus {
     border: 0px solid;
 }
 
-button {
-    cursor: pointer;
-    border: 0px solid transparent;
-    outline: 0px solid transparent;
-    /* font-size: 0px; */
-}
-
 button[disabled] {
     cursor: auto;
-}
-
-button:focus {
-    outline: 1px solid red;
-    /* border: 0px solid transparent !important; */
 }
 
 .template {
@@ -601,6 +583,11 @@ button:focus {
     border-radius: 10px;
     border: 2px solid transparent;
     font-family: "HelveticaNeue-Bold" !important;
+    outline: none;
+}
+
+.categoryTitle:focus{
+    box-shadow: 0 0 0 0.15rem rgb(0 0 255)
 }
 
 .categoryTitle.paddingCnt {
