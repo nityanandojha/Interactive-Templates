@@ -663,7 +663,6 @@ button[disabled] {
         position: fixed;
         top: 161px;
         padding: 33px 32px;
-        background: #fff;
         z-index: 99;
     }
 
@@ -931,6 +930,7 @@ button[disabled] {
     .hidden2 {
         visibility: hidden;
         pointer-events: none;
+        overflow: auto;
     }
 
 }
@@ -999,7 +999,7 @@ button[disabled] {
 
     .draggableitem {
         font-size: 14px;
-        min-height: 8vh;
+        height: 100%;
         line-height: 20px;
         border: 0.2px solid #4a4a4a5c;
     }
