@@ -117,6 +117,7 @@ header {
 .categoryTitleCnt.right {
     background: #C0D9A8;
     padding: 13px 32px;
+  
 }
 
 .categoryTitleCnt.wrong {
@@ -298,8 +299,9 @@ header {
     width: 808px;
     margin: 0px 0 4px 0px;
     font-family: "HelveticaNeue-Bold";
-    min-height: 56px;
+    min-height: 72px;
     padding: 8px;
+
 }
 
 .settingContainer {
@@ -659,7 +661,7 @@ button[disabled] {
 
     .category-2 .categoryTitleCnt_0 {
         position: fixed;
-        top: 150px;
+        top: 161px;
         padding: 33px 32px;
         z-index: 99;
     }
@@ -1094,6 +1096,10 @@ button[disabled] {
         font-size: 0px !important;
         padding: 0 !important;
     }
+    .draggableitemCnt {
+        width: 276px;
+        border-radius: 14px;
+    }
 
     .feedback p {
         font-size: 16px;
@@ -1119,10 +1125,12 @@ button[disabled] {
     .settingContainer {
         text-align: end;
         position: unset;
+        display: block;
     }
 
     #title {
         margin: 0px 0 12px 0px;
+        
     }
 
     .draggableitemWraper {
