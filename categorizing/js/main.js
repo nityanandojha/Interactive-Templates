@@ -479,7 +479,7 @@ $(document).ready(function () {
 			$(this).html("REVIEW YOUR SORTED ANSWERS");			
 		}
 
-		var x = window.matchMedia("(max-width: 231px)");
+		var x = window.matchMedia("(max-width: 321px)");
 		if (x.matches) {
 			console.log(" 1111111111111111111 ");
 			if ($(".categoryDroppableCnt").hasClass("hidden")) {
