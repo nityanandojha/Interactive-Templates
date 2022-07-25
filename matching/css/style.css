@@ -452,9 +452,10 @@ header{
     display: none;
 }
 .head-btn{
-    position: relative;
+    position: fixed;
     right: 14px;
     text-align: end;
+    display: flex;
 }
 .head-btn-wrap{
     position: absolute;
@@ -724,7 +725,7 @@ header{
         width: 198px;
     }
     .activity-title {
-        font-size: 17px;
+        font-size: 16px;
        font-family: "HelveticaNeue-Bold";
         font-weight: bold;
         line-height: 22px;
@@ -791,6 +792,12 @@ header{
         width: 198px;
         flex-direction: column;
     }
+}
+@media screen and (max-width: 565px){
+    .matchedEvent:last-of-type{
+        margin-bottom: 50px;
+    }
+    
 }
 
 @media screen and (max-width: 529px){

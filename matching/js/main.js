@@ -56,6 +56,7 @@ var matching = (function() {
         $(".clickable-item").prop("disabled", false);
         $(".matching-item").prop("disabled", false);
         $(".clickableBlock").removeClass("no-grid");
+        console.log("111", $(".clickableBlock"));
 
         $(".matching-element").find(".clickable-item").removeClass("wrong-border-up");
         $(".matching-element").find(".matching-item").removeClass("wrong-border-bottom");
@@ -80,6 +81,7 @@ var matching = (function() {
         $(".submit_btn").addClass("disabled");
         $(".submit_btn").addClass("mobile-submit");
         $(".submit_btn").prop("disabled", true);
+        
 
         $(".matching-element").removeClass("submitted").removeClass("correct-ans");
         $(".matching-element").removeClass("submitted").removeClass("wrong-ans");
@@ -212,6 +214,8 @@ var matching = (function() {
                                 $(prevBtn).removeAttr("data-placed");
                                 $(".submit_btn").addClass("disabled");
                                 $(".submit_btn").prop("disabled", true);
+                                $(".clickableBlock").removeClass("no-grid");
+                                console.log("111", $(".clickableBlock"));
                                 prevBtn=null;
                                 $(".selected").removeClass("selected");
                                 $(".matching-item").blur();
@@ -357,6 +361,9 @@ var matching = (function() {
             $(".submit_btn").removeClass("mobile-submit");
             $(".activity-header").addClass("pad0");
             $(".clickableBlock").addClass("no-grid");
+        }else{
+            $(".clickableBlock").removeClass("no-grid");
+            console.log("111", $(".clickableBlock"));
         }
     }
 
@@ -458,7 +465,9 @@ var matching = (function() {
                         $("#"+iid).removeAttr("data-placed");
                         $(prevBtn).removeAttr("data-placed");
                         $(".submit_btn").addClass("disabled");
-                        $(".submit_btn").prop("disabled", true);
+                        $(".submit_btn").prop("disabled", true);                        
+                        $(".clickableBlock").removeClass("no-grid");
+                        console.log("111", $(".clickableBlock"));
                         $(".selected").removeClass("selected");
                         $(".matching-item").blur();
                         $(".clickable-item").blur();
