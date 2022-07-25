@@ -231,6 +231,10 @@ header {
     border-radius: 14px;
 }
 
+.draggableitemCnt.selected button{
+    border: 2px solid #f5ba5c;
+}
+
 .feedback {
     letter-spacing: 0.2px;
     font-family: "HelveticaNeue-Regular";

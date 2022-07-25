@@ -199,7 +199,7 @@ $(document).ready(function () {
 			"backgroundColor": draggableitemBackgroundcolor
 		});
 
-		$(".draggableitemCnt").click(function (e) {			
+		$(".draggableitemCnt").click(function (e) {
 			var curId = $(this).attr("id");
 			var gid = $(".dragableItemContainer").attr("curitem");
 
@@ -213,6 +213,8 @@ $(document).ready(function () {
             }
 
 			curDiv = this;
+			$(".draggableitemCnt").removeClass("selected");
+			$(curDiv).addClass("selected");
 
 			if($(curDiv).parent().hasClass("categoryDroppableCnt")){
 				const elemId = $(curDiv).attr('id');
@@ -239,6 +241,7 @@ $(document).ready(function () {
                         }
 						
 						$(this).find(".card-wrap").append(prevBtn);
+						$(".draggableitemCnt").removeClass("selected");
 						curDiv = null;
 						prevBtn = null;
 						$(parent).removeClass("mouse-none");
@@ -338,6 +341,7 @@ $(document).ready(function () {
 			//isMobile && $(".draggableitemCnt_" + index).find(".draggableitem").removeAttr('disabled');
 
 			if ($(categoryDroppableCnt).children().length == 6) {
+				$(".draggableitemCnt").removeClass("selected");
 				curDiv = null;
 				prevBtn = null;
 				return;
@@ -349,6 +353,7 @@ $(document).ready(function () {
 			enterCounter["draggableitemCnt_" + index] = 1;
 
 			isMobile && $(".container .draggableitem").last().removeAttr('disabled');
+			$(".draggableitemCnt").removeClass("selected");
 			curDiv = null;
 			prevBtn = null;
 			
