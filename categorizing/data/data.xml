@@ -8,7 +8,7 @@ item and then select the corresponding category.  Replay this interaction as man
   <category>
       <categorytitle cat="one">Summary/ Observation</categorytitle>
       <categorytitle cat="two">Evaluation/ Analysis</categorytitle>
-       <!-- <categorytitle cat="three">Rebecca Bunch is relatable because the Rebecca Bunch is relat</categorytitle>  -->
+       <categorytitle cat="three">Rebecca Bunch is relatable because the Rebecca Bunch is relat</categorytitle> 
   </category>
 
   <draggableitem>
@@ -22,6 +22,8 @@ item and then select the corresponding category.  Replay this interaction as man
     <item cat="two">Romantic comedies are well suited to solitary viewing, making Netflix the perfect distribution medium.</item>
     <item cat="two">Some of <i>Crazy Ex-Girlfriend's</i> best punch lines are delivered through music, which helps them land better.</item>
     <item cat="two">Like previous versions, <i>The Texas Chainsaw Massacre</i> (2003) serves as a time capsule for the early 2000s.</item>
+     <item cat="two">Like previous versions, <i>The Texas Chainsaw Massacre</i> (2003) serves as a time capsule for the early 2000s.</item>
+      <item cat="two">Like previous versions, <i>The Texas Chainsaw Massacre</i> (2003) serves as a time capsule for the early 2000s.</item>
     
   </draggableitem>
   <feedback>

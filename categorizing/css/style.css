@@ -107,7 +107,7 @@ header {
 }
 
 .categoryTitleCnt {
-    padding: 13px 32px;
+    padding: 10px 32px;
 }
 
 .categoryTitleCnt.twoCnt {
@@ -117,6 +117,7 @@ header {
 .categoryTitleCnt.right {
     background: #C0D9A8;
     padding: 13px 32px;
+  
 }
 
 .categoryTitleCnt.wrong {
@@ -298,8 +299,9 @@ header {
     width: 808px;
     margin: 0px 0 4px 0px;
     font-family: "HelveticaNeue-Bold";
-    min-height: 56px;
+    min-height: 72px;
     padding: 8px;
+
 }
 
 .settingContainer {
@@ -652,21 +654,20 @@ button[disabled] {
     .categoryDroppableCnt {
         display: grid;
         grid-template-rows: repeat(2, 80px);
-        gap: 10px 8px;
+        gap: 8px 8px;
         grid-auto-flow: column;
         grid-auto-columns: 360px;
     }
 
     .category-2 .categoryTitleCnt_0 {
         position: fixed;
-        top: 144px;
+        top: 161px;
         padding: 33px 32px;
-        background: #fff;
         z-index: 99;
     }
 
     .category-2 .categoryTitleCnt {
-        padding: 38px 32px;
+        padding: 34px 32px;
     }
 
     .category-2 .categoryTitleCnt_1 {
@@ -682,7 +683,7 @@ button[disabled] {
 
     .category-2 .categoryDroppableCnt {
         width: 84%;
-        height: 306px;
+        height: 296px;
         margin-left: 240px;
         /* background: blue; */
         padding: 55px 0;
@@ -929,6 +930,7 @@ button[disabled] {
     .hidden2 {
         visibility: hidden;
         pointer-events: none;
+        overflow: auto;
     }
 
 }
@@ -997,7 +999,7 @@ button[disabled] {
 
     .draggableitem {
         font-size: 14px;
-        min-height: 8vh;
+        height: 100%;
         line-height: 20px;
         border: 0.2px solid #4a4a4a5c;
     }
@@ -1094,6 +1096,10 @@ button[disabled] {
         font-size: 0px !important;
         padding: 0 !important;
     }
+    .draggableitemCnt {
+        width: 276px;
+        border-radius: 14px;
+    }
 
     .feedback p {
         font-size: 16px;
@@ -1119,10 +1125,12 @@ button[disabled] {
     .settingContainer {
         text-align: end;
         position: unset;
+        display: block;
     }
 
     #title {
         margin: 0px 0 12px 0px;
+        
     }
 
     .draggableitemWraper {
