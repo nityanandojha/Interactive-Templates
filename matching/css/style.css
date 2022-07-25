@@ -793,7 +793,7 @@ header{
         flex-direction: column;
     }
 }
-@media screen and (max-width: 565px){
+@media screen and (max-width: 800px) and (orientation: landscape){
     .matchedEvent:last-of-type{
         margin-bottom: 50px;
     }
@@ -860,7 +860,7 @@ header{
         width: 100%;
     }
     .head-btn-wrap{
-        position: unset;
+        /* position: unset; */
     }
     .setting-btn {
         position: unset;
