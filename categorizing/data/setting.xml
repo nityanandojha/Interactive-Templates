@@ -10,6 +10,6 @@
         <styleitem colors="#FFFFFF,#001936,#F5BA5C" txt="default" tooltextcolor="#001936" picname='default.svg'></styleitem>
         <styleitem colors="#97322B,#C6DCD0,#F5BA5C" txt="red/green"  tooltextcolor="#001936" picname='red-green.svg'></styleitem>
         <styleitem colors="#001936,#f8cd5e,#F5BA5C" txt="blue/yellow"  tooltextcolor="#001936" picname='blue-yellow.svg'></styleitem>
-        <styleitem colors="#212022,#ed70ef,#F5BA5C" txt="highcontrast"  tooltextcolor="#001936" picname='highcontrast.svg'></styleitem>
+        <styleitem colors="#212022,#ed70ef,#F5BA5C" txt="High contrast"  tooltextcolor="#001936" picname='highcontrast.svg'></styleitem>
     </setting>
 </dataset>

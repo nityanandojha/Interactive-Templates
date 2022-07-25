@@ -176,7 +176,7 @@ $(document).ready(function () {
 
 		/* generating category view */
 		arrAllCategory.each(function (index, el) {
-			$(".categoryContainer").append('<div class="category category-' + arrAllCategory.length + '"><div class="categoryTitleCnt categoryTitleCnt_' + index + '"><button aria-label="Category: ' + $(el).html() + '" cat=' + $(el).attr("cat") + ' class="categoryTitle categoryTitle_' + index + '">' + $(el).html() + '</button></div><div class="hidden categoryDroppableCnt categoryDroppableCnt_' + index + '"></div></div><hr class="catHr"/>');
+			$(".categoryContainer").append('<div class="category category-' + arrAllCategory.length + '"><div class="categoryTitleCnt categoryTitleCnt_' + index + '"><button aria-label="Category: ' + $(el).html() + '" cat=' + $(el).attr("cat") + ' class="categoryTitle categoryTitle_' + index + '">' + $(el).html() + '</button></div><div class="hidden categoryDroppableCnt categoryDroppableCnt_' + index + '"></div></div><hr aria-hidden="true" class="catHr"/>');
 		});
 
 		$('.categoryTitle').css({
