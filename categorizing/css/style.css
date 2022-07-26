@@ -303,14 +303,12 @@ header {
 }
 
 #title {
-    font-size: 20px;
+    font-size: 22px;
     line-height: 28px;
     width: 808px;
-    margin: 0px 0 4px 0px;
+    padding-top: 15px;
     font-family: "HelveticaNeue-Bold";
     min-height: 72px;
-    padding: 8px;
-
 }
 
 .settingContainer {
