@@ -6,13 +6,13 @@
 
 }
 
-/* @font-face {
+     @font-face {
     font-family: "HelveticaNeue";
     src: url("./fonts/HelveticaNeue.ttf");
     -webkit-font-smoothing: antialiased;
     -webkit-text-size-adjust: auto;
 
-} */
+} 
 
 @font-face {
     font-family: "HelveticaNeue-Regular";
@@ -57,6 +57,9 @@ body {
 
 .hidden-feed {
     display: none !important;
+}
+.close:focus{
+    outline: 2px solid;
 }
 
 .mainContainer {
@@ -223,8 +226,8 @@ header {
     line-height: 28px;
     width: 1120px;
     font-family: "HelveticaNeue-Regular";
-    font-weight: 700;
-    letter-spacing: 1px;
+    font-weight: normal;
+    letter-spacing: 0.2px;
 }
 
 .draggableitemCnt {
@@ -238,6 +241,7 @@ header {
 
 .feedback {
     letter-spacing: 0.2px;
+    font-weight: normal;
     font-family: "HelveticaNeue-Regular";
     font-size: 18px;
 }
@@ -373,7 +377,7 @@ button, select {
 
 .toolTxt {
     font-family: "HelveticaNeue-Regular";
-    letter-spacing: 1px;
+    letter-spacing: 0.2px;
     font-weight: normal;
     text-transform: capitalize;
 }
@@ -385,11 +389,12 @@ button, select {
     height: 22px;
     right: 0px;
     top: 0px;
-    border-radius: 50%;
+    /* border-radius: 50%; */
+    background-color: transparent;
     cursor: pointer;
     background-image: url(../images/remove.png);
     background-repeat: no-repeat;
-    background-size: contain;
+    background-size: 22px 22px;
     border: none;
 }
 
@@ -466,6 +471,7 @@ button, select {
     right: 23px;
     top: 11px;
     font-weight: normal;
+    letter-spacing: 0.2px;
     padding: 0 5px 0 5px;
 }
 
@@ -533,6 +539,7 @@ hr.first {
     position: relative;
     align-items: center;
     justify-content: space-between;
+    min-height: 75.6px;
 }
 
 .draggableitem {
@@ -544,8 +551,9 @@ hr.first {
     border-radius: 14px;
     border: 2px solid #fff;
     outline: 1px solid transparent;
-    min-height: 9vh;
+    min-height: 73px;
     letter-spacing: 0.2px;
+    font-weight: normal;
     font-family: "HelveticaNeue-Regular" !important;
 }
 
@@ -781,8 +789,8 @@ button[disabled] {
     .feedback {
         font-size: 14px;
         width: 522px;
-        letter-spacing: 1px;
-        font-weight: 700;
+        letter-spacing: 0.2px;
+        font-weight: normal;
         line-height: 20px;
         font-family: "HelveticaNeue";
     }
@@ -1116,8 +1124,8 @@ button[disabled] {
         line-height: 20px;
         width: auto;
         font-family: "HelveticaNeue";
-        font-weight: 700;
-        letter-spacing: 1px;
+        font-weight: normal;
+        letter-spacing: 0.2px;
     }
 
     .dragableItemContainer {

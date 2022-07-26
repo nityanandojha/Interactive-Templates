@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <dataset>
-<title>Composition Category Interactive</title>
+<title>Summary or Evaluation?</title>
 <instruction>
     <instructionnorm>To complete the activity, select each 
 item and then select the corresponding category.  Replay this interaction as many times as you need. There is no time limit. Your responses will not be graded.</instructionnorm>
@@ -8,7 +8,7 @@ item and then select the corresponding category.  Replay this interaction as man
   <category>
       <categorytitle cat="one">Summary/ Observation</categorytitle>
       <categorytitle cat="two">Evaluation/ Analysis</categorytitle>
-       <categorytitle cat="three">Rebecca Bunch is relatable because the Rebecca Bunch is relat</categorytitle> 
+       <!-- <categorytitle cat="three">Rebecca Bunch is relatable because the Rebecca Bunch is relat</categorytitle>  -->
   </category>
 
   <draggableitem>

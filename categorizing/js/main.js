@@ -450,12 +450,13 @@ $(document).ready(function () {
 		$(".settingContainer").css("zIndex", "2");
 		$(".help-popup").css("zIndex", "1");
 		$('.settinToolsContainer').addClass('showhide');
-		$('.settinToolsContainer .close').off().on('click', closeSetting);
+		$('.settinToolsContainer .close').off().on('click', closeSetting).focus();
 	}
 
 	function closeSetting() {
 		$('.settinToolsContainer').removeClass('showhide');
 		$(".settinToolsContainer").css("zIndex", "unset");
+		$('.setting').focus();
 	}
 });
 
