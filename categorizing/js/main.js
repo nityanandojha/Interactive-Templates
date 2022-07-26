@@ -36,59 +36,10 @@ $(document).ready(function () {
 
 		//escape key for deselect 
 		if (keycode == 27) {
-			//prevBtn.removeClass("selected");
-			prevBtn = null;
-			$(curDiv).find(".clickable-item").removeClass("selected");
 			curDiv = null;
+			prevBtn = null;
 			$(".selected").removeClass("selected");
-			$(".matching-item").blur();
-			$(".clickable-item").blur();
 		}
-
-		//if key for enter event
-		if (keycode == 13) {
-			//get the count of enter pressed on element
-			const enterCount = enterCounter[elemId];
-			//if enter has pressed two times
-			if (enterCount > 2) {
-				var same = true;
-				try {
-					same = prevBtn == $(this);
-				} catch (err) {
-					console.log(err);
-					same = true;
-				}
-				if (!same) {
-					if (prevBtn) {
-						if ($(prevBtn).hasClass("dragableItemContainer")) {
-							//console.log("SAME......");
-						} else {
-							totalDropedItem--;
-							if($(this).hasClass("submit_btn")){
-								return;
-							}
-							
-							$(this).find(".card-wrap").append(prevBtn);
-							curDiv = null;
-							prevBtn = null;
-							$(parent).removeClass("mouse-none");
-							$(".selected").removeClass("selected").blur();
-							$(prevBtn).removeClass("correct").removeClass("incorrect").removeClass("mouse-none");
-
-							if (totalDropedItem != arrAllDraggableitem.length) {
-								$('.submit_btn').prop("disabled", true);
-							}
-							
-							return;
-						}
-					}
-				}
-				console.log("Normal click....");
-				prevBtn = $(this);
-			}
-			enterCounter[elemId] += 1;
-		}
-		console.log(keycode, " ************ ");
 	});
 
 	$("#tempDiv").load("data/data.xml", function (response, status, xhr) {
@@ -100,9 +51,6 @@ $(document).ready(function () {
 					$("#loadingImg").hide();
 					/*End*/
 					displayStaticContent();
-					//$('.container').focus();
-					//alert('ok');
-					//specifyForMobile();
 				}
 			});
 		}
@@ -127,10 +75,6 @@ $(document).ready(function () {
 		//objAccessibility=new Accessibility(pageLength); // call Accessibility funcion from accessibilityJs
 		var settingDoc = $.parseXML($("#tempSetting").html());
 		setting = $(settingDoc);
-
-		//focus setting
-		//var focusColor = setting.find("focuscolor").attr('color');
-		//$('body').append('<style>input[type=button]:focus{outline: 1px solid ' + focusColor + '; border: 2px solid transparent;} button:focus{outline: 1px solid ' + focusColor + '; border: 2px solid transparent;}</style>');
 
 		// title style from from setting.xml
 		var fontfamily = setting.find("title").attr('fontfamily');
@@ -190,7 +134,7 @@ $(document).ready(function () {
 			var plain = $(el).html().replace("<i>", "").replace("</i>", "");
 			$(".card-wrap").append('<div class="draggableitemCnt draggableitemCnt_' + index + '" id="draggableitemCnt_' + index + '"><button aria-label="Item to categorize: ' + plain + '"  cat=' + $(el).attr("cat") + ' id="draggableitem_' + index + '" class="draggableitem draggableitem_' + index + '">' + $(el).html() + '</button></div>');
 
-			enterCounter[`draggableitemCnt_${index}`] = 1;
+			//enterCounter[`draggableitemCnt_${index}`] = 1;
 		});
 		
 		$('.draggableitem').css({
@@ -200,26 +144,35 @@ $(document).ready(function () {
 		});
 
 		$(".draggableitemCnt").click(function (e) {
-			var curId = $(this).attr("id");
-			var gid = $(".dragableItemContainer").attr("curitem");
+			if($(prevBtn)[0] == $(this)[0] && $(prevBtn)[0]==e.currentTarget){
+				totalDropedItem--;
+				$(".card-wrap").append(prevBtn);
+				prevBtn.find("button").removeClass("correct").removeClass("incorrect").removeClass("mouse-none");
+				prevBtn.removeClass("selected");
 
-			if(prevBtn){
-                console.log("back.......");
-            }else{
-                if(!$(this).closest('.dragableItemContainer').length){
-                    console.log("placed");
-                    prevBtn = $(this);
-                }
-            }
+				if (totalDropedItem != arrAllDraggableitem.length) {
+					$('.submit_btn').prop("disabled", true);
+				}
+
+				curDiv = null;
+				prevBtn = null;
+				console.log("double click..........");
+				return;
+			}else{
+				console.log("back....... 222222222222");
+				if(!$(this).closest('.dragableItemContainer').length){
+					prevBtn = $(this);
+				}
+			}
 
 			curDiv = this;
 			$(".draggableitemCnt").removeClass("selected");
 			$(curDiv).addClass("selected");
 
-			if($(curDiv).parent().hasClass("categoryDroppableCnt")){
+			/* if($(curDiv).parent().hasClass("categoryDroppableCnt")){
 				const elemId = $(curDiv).attr('id');
                 enterCounter[elemId] += 1;
-			}
+			} */
 		})
 
 		$(".dragableItemContainer").on("click", function (e) {
@@ -230,6 +183,7 @@ $(document).ready(function () {
 				console.log(err);
 				same = true;
 			}
+			console.log(same, prevBtn, " 44444444444444444444");
 			if (!same) {
 				if (prevBtn) {
 					if ($(prevBtn).hasClass("dragableItemContainer")) {
@@ -241,17 +195,15 @@ $(document).ready(function () {
                         }
 						
 						$(this).find(".card-wrap").append(prevBtn);
+						prevBtn.find("button").focus();
 						$(".draggableitemCnt").removeClass("selected");
-						curDiv = null;
-						prevBtn = null;
-						$(parent).removeClass("mouse-none");
-						$(".selected").removeClass("selected").blur();
-						$(prevBtn).removeClass("correct").removeClass("incorrect").removeClass("mouse-none");
+						$(prevBtn).find("button").removeClass("correct").removeClass("incorrect").removeClass("mouse-none");
 
 						if (totalDropedItem != arrAllDraggableitem.length) {
 							$('.submit_btn').prop("disabled", true);
 						}
-						
+						curDiv = null;
+						prevBtn = null;					
 						return;
 					}
 				}
@@ -282,7 +234,7 @@ $(document).ready(function () {
 
 		$('.settinToolsContainer .toolContainer').each(function (index, el) {
 			var arr = $(arrSettingStyleItem[index]).attr('fontfamily');
-			$(el).find('.toolTxt').css({ "font-family": $(arrSettingStyleItem[index + 1]).attr('fontfamily'), "color": $(arrSettingStyleItem[index + 1]).attr('tooltextcolor') });
+			$(el).find('.toolTxt').css({ "font-family": $(arrSettingStyleItem[index + 1]).attr('fontfamily'), "color": "#000000" });//$(arrSettingStyleItem[index + 1]).attr('tooltextcolor')
 		});
 
 		//displayDynContent(counter);
@@ -328,31 +280,25 @@ $(document).ready(function () {
 			$('.submit_btn,.tryagain_btn,.reset_btn').find("rect").attr('fill', color1);
 
 			$('.settinToolsContainer').css({ backgroundColor: color3 });
-			//$('.setting').find("path").attr('fill', color1);
-
 		}
-
 	}
 
 	function selectCategory() {
 		if (curDiv) {
 			var index = $(curDiv).attr("id").split("_")[1];
 			var categoryDroppableCnt = $(this).parents(".category").find(".categoryDroppableCnt");
-			//isMobile && $(".draggableitemCnt_" + index).find(".draggableitem").removeAttr('disabled');
 
-			if ($(categoryDroppableCnt).children().length == 6) {
+			/* if ($(categoryDroppableCnt).children().length == 6) {
 				$(".draggableitemCnt").removeClass("selected");
 				curDiv = null;
 				prevBtn = null;
 				return;
-			}
+			} */
 
 			$(curDiv).appendTo(categoryDroppableCnt);
-			console.log($(categoryDroppableCnt).children().length, "=====")
+			//enterCounter["draggableitemCnt_" + index] = 1;
 
-			enterCounter["draggableitemCnt_" + index] = 1;
-
-			isMobile && $(".container .draggableitem").last().removeAttr('disabled');
+			//isMobile && $(".container .draggableitem").last().removeAttr('disabled');
 			$(".draggableitemCnt").removeClass("selected");
 			curDiv = null;
 			prevBtn = null;
@@ -463,7 +409,7 @@ $(document).ready(function () {
 $(document).ready(function () {
 
 	if (window.innerWidth < 529) {
-		$(".bottom-btn").html("REVIEW YOUR<br>SORTED ANSWERS");
+		$(".bottom-btn").html("REVIEW YOUR<br>SORTED ANSWERS &#62;");
 	}
 	$(".showText").click(function () {
 		$(".help-popup").show();
@@ -482,7 +428,7 @@ $(document).ready(function () {
 			$(this).html("COLLAPSE<br>CATEGORIES");
 		} else {
 			$(".categoryDroppableCnt").addClass("hidden2");
-			$(this).html("REVIEW YOUR SORTED ANSWERS");			
+			$(this).html("REVIEW YOUR SORTED ANSWERS &#62;");			
 		}
 
 		var x = window.matchMedia("(max-width: 321px)");
@@ -491,7 +437,7 @@ $(document).ready(function () {
 			if ($(".categoryDroppableCnt").hasClass("hidden")) {
 				$(".categoryDroppableCnt").removeClass("hidden");
 				$(".categoryDroppableCnt").removeClass("hidden2");
-				$(this).html("REVIEW YOUR SORTED ANSWERS");
+				$(this).html("REVIEW YOUR SORTED ANSWERS &#62;");
 			} else {
 				$(".categoryDroppableCnt").addClass("hidden");
 				$(".categoryDroppableCnt").removeClass("hidden2");

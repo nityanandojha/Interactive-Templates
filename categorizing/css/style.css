@@ -354,7 +354,7 @@ button, select {
 
 .settinToolsContainer {
     background: #BFBFBF !important;
-    padding: 10px;
+    padding: 13px;
     border-radius: 6px;
     color: #001936;
     box-shadow: 0px 3px 6px 0px rgb(112 112 112);
@@ -369,9 +369,10 @@ button, select {
 
 .toolTxt {
     font-family: "HelveticaNeue-Regular";
-    letter-spacing: 0.2px;
+    letter-spacing: 1px;
     font-weight: normal;
     text-transform: capitalize;
+    text-align: center;
 }
 
 
@@ -446,8 +447,8 @@ button, select {
     position: absolute;
     background: #5e6062;
     right: 29px;
-    width: 612px;
-    padding: 23px 107px 18px 20px;
+    width: 588px;
+    padding: 24px 59px 16px 22px;
     z-index: 4;
     top: 0;
 }
@@ -461,7 +462,7 @@ button, select {
     color: #fff;
     position: absolute;
     right: 23px;
-    top: 11px;
+    top: 7px;
     font-weight: normal;
     letter-spacing: 0.2px;
     padding: 0 5px 0 5px;
@@ -476,7 +477,7 @@ button, select {
 #instructionnorm {
     font-family: "HelveticaNeue-Regular";
     color: #fff;
-    font-size: 18px;
+    font-size: 20px;
     line-height: 26px;
     letter-spacing: 0.2px;
     font-weight: normal;
