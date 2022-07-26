@@ -70,10 +70,11 @@ body {
 .container {
     width: 96%;
     margin: auto;
-    /* overflow-y: auto; */
     height: 100%;
     position: relative;
-
+}
+.container button{
+    cursor: pointer;
 }
 
 section .container {
