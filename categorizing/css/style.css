@@ -6,14 +6,6 @@
 
 }
 
-/* @font-face {
-    font-family: "HelveticaNeue";
-    src: url("./fonts/HelveticaNeue.ttf");
-    -webkit-font-smoothing: antialiased;
-    -webkit-text-size-adjust: auto;
-
-} */
-
 @font-face {
     font-family: "HelveticaNeue-Regular";
     src: url("./fonts/HelveticaNeue.ttf");
@@ -784,7 +776,7 @@ button[disabled] {
         letter-spacing: 1px;
         font-weight: 700;
         line-height: 20px;
-        font-family: "HelveticaNeue";
+        font-family: "HelveticaNeue-Regular";
     }
 
     .bottom-btn {
@@ -803,7 +795,7 @@ button[disabled] {
 
 
     #instructionnorm {
-        font-family: "HelveticaNeue";
+        font-family: "HelveticaNeue-Regular";
         color: #fff;
         font-size: 12px;
         line-height: 18px;
@@ -1115,7 +1107,7 @@ button[disabled] {
         font-size: 16px;
         line-height: 20px;
         width: auto;
-        font-family: "HelveticaNeue";
+        font-family: "HelveticaNeue-Regular";
         font-weight: 700;
         letter-spacing: 1px;
     }
