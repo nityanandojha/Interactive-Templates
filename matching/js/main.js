@@ -167,6 +167,7 @@ var matching = (function() {
         $(document).keyup(function(event) {
             //get the id of element on which enter key pressed
             const elemId = $(prevBtn).attr('id');
+            console.log("ENTER prev: ", elemId);
 
             event.preventDefault();
             var keycode = (event.keyCode ? event.keyCode : event.which);
@@ -184,6 +185,8 @@ var matching = (function() {
 
             //if key for enter event
             if (keycode == 13) {
+                console.log("enter...");
+                return;
                 //get the count of enter pressed on element
                 const enterCount = enterCounter[elemId];
                 //if enter has pressed two times
@@ -259,7 +262,7 @@ var matching = (function() {
                 "class": "toolTxt toolTxt_"+(index+1),                
             }).html($(element).find("title").html()).appendTo(btn);
 
-            console.log($(".toolContainer")[0]);
+            //console.log($(".toolContainer")[0]);
             $(".toolContainer:first").attr("aria-pressed", "true");
             $(btn).on("click", function(e){
                 console.log($(this).attr("data-color"));
@@ -413,6 +416,37 @@ var matching = (function() {
 
     function bindEvents(){
         $(".clickedEvent").click(function clickableHandler(e){
+            console.clear();
+            console.log("prev: ", prevBtn);
+            console.log("$prev: ", $(prevBtn));
+            console.log("this: ", $(this));
+            console.log("target: ", e.target);
+            console.log("c target: ", e.currentTarget);
+            console.log("prev[0]", $(prevBtn)[0]);
+            console.log("c1: ", $(prevBtn)[0] == $(this)[0]);
+            console.log("c2: ", $(prevBtn)[0]==e.currentTarget);
+
+            if($(prevBtn)[0] == $(this)[0] && $(prevBtn)[0]==e.currentTarget){
+                console.log("double click..........");
+                $(prevBtn).appendTo($(".clickable-items").find(".clickableBlock")); 
+                console.log($(".clickable-items").find(".clickableBlock"));                   
+                var iid = $(prevBtn).attr("data-placed");
+                console.info('iid', iid);
+                $("#"+iid).removeClass("placed");
+                $("#"+iid).removeAttr("data-placed");
+                $(prevBtn).removeAttr("data-placed");
+                $(".submit_btn").addClass("disabled");
+                $(".submit_btn").prop("disabled", true);
+                $(".clickableBlock").removeClass("no-grid");
+                console.log("111", $(".clickableBlock"));
+                prevBtn=null;
+                $(".selected").removeClass("selected");
+                $(".matching-item").blur();
+                $(".clickable-item").blur();
+                e.stopImmediatePropagation();
+                return;
+            }
+            console.log("-------------test-----------");
             if(prevBtn){
                 console.log("back.......");
             }else{
