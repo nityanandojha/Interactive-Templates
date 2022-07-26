@@ -136,7 +136,7 @@ header{
 
 .toolTxt {
     font-family: "HelveticaNeue-Regular";
-    letter-spacing: 1px;
+    letter-spacing: 0.2px;
     text-align: center;
     text-transform: capitalize;
 }
@@ -771,7 +771,7 @@ header{
         top: 10px;
     }
     .notice-card p {
-        letter-spacing: 1px;
+        letter-spacing: 0.2px;
         font-size: 14px;
         line-height: 18px;
     }
@@ -819,7 +819,7 @@ header{
     .feedback{
         width: 100%;
         margin: 0;
-        letter-spacing: 1px;
+        letter-spacing: 0.2px;
         font-size: 16px;
         line-height: 20px;
     }
@@ -841,7 +841,7 @@ header{
         color: var(--color);
         line-height: 18px;
         font-family: "HelveticaNeue-Regular";
-        letter-spacing: 1px;
+        letter-spacing: 0.2px;
     }
     .matching-items .clickable-item {
         /* position: unset; */

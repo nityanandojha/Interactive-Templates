@@ -198,7 +198,7 @@ header {
 
 .card-wrap {
     display: grid;
-    grid-template-columns: repeat(15, 10px);
+    grid-template-columns: repeat(30, 10px);
     column-gap: 0px;
     z-index: 1;
 }
@@ -308,7 +308,7 @@ header {
     width: 808px;
     padding-top: 15px;
     font-family: "HelveticaNeue-Bold";
-    min-height: 72px;
+    min-height: 71px;
 }
 
 .settingContainer {
@@ -368,7 +368,7 @@ button, select {
 
 .toolTxt {
     font-family: "HelveticaNeue-Regular";
-    letter-spacing: 1px;
+    letter-spacing: 0.2px;
     font-weight: normal;
     text-transform: capitalize;
     text-align: center;
@@ -446,7 +446,7 @@ button, select {
     position: absolute;
     background: #5e6062;
     right: 29px;
-    width: 588px;
+    width: 547px;
     padding: 24px 59px 16px 22px;
     z-index: 4;
     top: 0;
@@ -460,8 +460,8 @@ button, select {
     border: none;
     color: #fff;
     position: absolute;
-    right: 23px;
-    top: 7px;
+    right: 10px;
+    top: 17px;
     font-weight: normal;
     letter-spacing: 0.2px;
     padding: 0 5px 0 5px;
@@ -534,6 +534,7 @@ hr.first {
     justify-content: space-between;
     min-height: 75.6px;
 }
+
 
 .draggableitem {
     font-size: 16px;
@@ -644,7 +645,7 @@ button[disabled] {
     font-size: 16px;
     color: #fff;
     font-family: "HelveticaNeue-Bold";
-    padding: 5px 81px;
+    padding: 5px 74px;
     width: 100%;
     text-transform: capitalize;
     text-align: center;
@@ -653,6 +654,9 @@ button[disabled] {
     bottom: 0px;
 }
 
+@media screen and (-webkit-min-device-pixel-ratio:0) { 
+
+    }
 
 @media screen and (device-width: 1350px),
 (device-height: 760px) {
@@ -717,6 +721,10 @@ button[disabled] {
         border-radius: 14px;
         min-height: 55px;
         border: 2px solid #fff;
+    }
+    .draggableitemCnt {
+        width: 270px;
+        border-radius: 14px;
     }
 
     .catHr {
@@ -806,19 +814,23 @@ button[disabled] {
     #instructionnorm {
         font-family: "HelveticaNeue-Regular";
         color: #fff;
-        font-size: 12px;
+        font-size: 14px;
         line-height: 18px;
     }
 
     .help-popup {
-        width: 287px;
-        padding: 14px 30px 10px 19px;
+        width: 301px;
+        font-size: 14px;
+    font-family: "HelveticaNeue-Regular";
+    line-height: 18px;
+    letter-spacing: 0.2px;
+    padding: 19px 18px 16px 15px;
     }
 
     .help-popup .popup-close {
-        font-size: 16px;
-        right: 9px;
-        top: 7px;
+        font-size: 14px;
+        right: 7px;
+        top: 10px;
     }
 
     .feedback p {
@@ -926,16 +938,17 @@ button[disabled] {
 
     .category-2 .categoryTitleCnt_0 {
         top: 127px;
+        border-bottom: 2px dotted #d5d5d5 !important;
         padding: 19px 16px;
     }
 
     .category-2 .categoryTitleCnt_1 {
-        top: 236px;
+        top: 238px;
         padding: 19px 16px;
     }
 
     .category-2 .categoryDroppableCnt {
-        height: 108px;
+        height: 107px;
     }
 
     .hidden2 {
@@ -952,7 +965,11 @@ button[disabled] {
     .draggableitemWraper {
         width: 316px;
     }
-
+    .draggableitemCnt {
+        width: 316px;
+        border-radius: 14px;
+    }
+    
     .submit-hide {
         visibility: hidden;
         pointer-events: none;
@@ -980,7 +997,7 @@ button[disabled] {
 
     header {
         border-bottom: 2px dotted #d5d5d5;
-        padding-bottom: 45px;
+        padding-bottom: 7px;
     }
 
     .categoryDroppableCnt {
@@ -1056,14 +1073,16 @@ button[disabled] {
     }
 
     .help-popup {
-        width: 320px;
-        padding: 14px 24px 10px 14px;
+        padding: 24px 59px 16px 22px;
+        width: 303px;
+        font-size: 14px;
+        line-height: 18px;
     }
 
     .help-popup .popup-close {
-        font-size: 19px;
-        right: 11px;
-        top: 4px;
+        font-size: 14px;
+    right: 7px;
+    top: 10px;
     }
 
     .nav-container {
@@ -1106,6 +1125,10 @@ button[disabled] {
         width: 0 !important;
         font-size: 0px !important;
         padding: 0 !important;
+    }
+    header {
+        border-bottom: 2px dotted #d5d5d5;
+        padding-bottom: 75px;
     }
     .draggableitemCnt {
         width: 276px;
@@ -1187,13 +1210,12 @@ button[disabled] {
 
     .help-popup {
         width: 255px;
-        padding: 34px 10px 12px 13px;
+    padding: 27px 18px 16px 15px;
     }
 
     .help-popup .popup-close {
-        right: 14px;
-        top: 6px;
-        font-size: 15px;
+        right: 7px;
+        top: 10px;
     }
 
     .category .draggableitemCnt {
