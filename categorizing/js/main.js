@@ -9,7 +9,9 @@ $(document).ready(function () {
 	var totalDropedItem = 0;
 	let enterCounter = {};
 	const isMobile = detectMob();
-	var media = window.matchMedia("(max-width: 321px)");
+	var media = window.matchMedia("(max-width: 529px)");
+	var REVIEW_TXT = "REVIEW YOUR<br>SORTED ANSWERS";
+	var COLLAPSE_TXT = "COLLAPSE CATEGORIES"; 
 	/* detect mobile device start*/
 	function detectMob() {
 		const toMatch = [
@@ -29,18 +31,22 @@ $(document).ready(function () {
 	}
 
 	$(".bottom-btn").css({"opacity": 0.6, "pointer-events":"none"});
-	if (media.matches) {
-		$(".bottom-btn").html("REVIEW YOUR SORTED ANSWERS &#62;");
+	console.log("check: ", REVIEW_TXT,  "---", COLLAPSE_TXT);
+	/* if (media.matches) {
+		$(".bottom-btn").html(REVIEW_TXT);
 	}else{
-		$(".bottom-btn").html("COLLAPSE CATEGORIES &#62;");
-	}
+		$(".bottom-btn").html(COLLAPSE_TXT);
+	} */
+
 	$(".bottom-btn").on("click", function () {
+		console.log(REVIEW_TXT, "-=-=-=", COLLAPSE_TXT);
 		if ($(".categoryDroppableCnt").hasClass("hidden2")) {
 			$(".categoryDroppableCnt").removeClass("hidden2");
-			$(this).html("COLLAPSE CATEGORIES &#62;");
+			$(this).html('COLLAPSE CATEGORIES &#62;');
+			
 		} else {
 			$(".categoryDroppableCnt").addClass("hidden2");
-			$(this).html("REVIEW YOUR SORTED ANSWERS &#62;");
+			$(this).html("REVIEW YOUR<br>SORTED ANSWERS &#62;");
 		}
 
 		if (media.matches) {
@@ -48,12 +54,14 @@ $(document).ready(function () {
 			if ($(".categoryDroppableCnt").hasClass("hidden")) {
 				$(".categoryDroppableCnt").removeClass("hidden");
 				$(".categoryDroppableCnt").removeClass("hidden2");
-				$(this).html("COLLAPSE CATEGORIES &#62;");
+				$(this).html(COLLAPSE_TXT);
 			} else {
 				$(".categoryDroppableCnt").addClass("hidden");
 				$(".categoryDroppableCnt").removeClass("hidden2");
-				$(this).html("REVIEW YOUR SORTED ANSWERS &#62;");
+				$(this).html(REVIEW_TXT);
 			}
+		}else{
+			console.log("no............");
 		}
 	})
 
@@ -456,10 +464,17 @@ $(document).ready(function () {
 });
 
 $(document).ready(function () {
-
+	
 	if (window.innerWidth < 529) {
-		$(".bottom-btn").html("REVIEW YOUR<br>SORTED ANSWERS &#62;");
+		REVIEW_TXT = "REVIEW YOUR<br>SORTED ANSWERS";
+		COLLAPSE_TXT = "COLLAPSE CATEGORIES";
+		$(".bottom-btn").html(REVIEW_TXT);
+	}else{
+		REVIEW_TXT = "REVIEW YOUR<br>SORTED ANSWERS &#62;";
+		COLLAPSE_TXT = "COLLAPSE CATEGORIES &#62;";
+		$(".bottom-btn").html(COLLAPSE_TXT);
 	}
+	console.log("ready: ", REVIEW_TXT, "--", COLLAPSE_TXT);
 	$(".showText").click(function () {
 		$(".help-popup").show();
 		$(".settinToolsContainer").css("zIndex", "2");
