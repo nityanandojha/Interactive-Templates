@@ -663,8 +663,7 @@ button[disabled] {
 
     }
 
-@media screen and (device-width: 1350px),
-(device-height: 760px) {
+@media screen and (max-width: 1350px),(max-height: 760px) {
 
     .nav-container button {
         font-family: "HelveticaNeue-Bold";
@@ -715,8 +714,7 @@ button[disabled] {
 
 @media screen and (max-width: 900px) {}
 
-@media screen and (device-width: 650px),
-(device-height: 365px) {
+@media screen and (max-width: 650px),(max-height: 365px) {
 
 
 ::-webkit-scrollbar {
@@ -1031,8 +1029,7 @@ button[disabled] {
 
 }
 
-@media screen and (device-width: 530px),
-(device-height: 943px),
+@media screen and (max-width: 530px),(max-height: 943px),
 (orientation: portrait) {
     .draggableitemWraper {
         width: 316px;

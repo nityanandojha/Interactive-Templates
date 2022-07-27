@@ -223,6 +223,7 @@ $(document).ready(function () {
 		})
 
 		$(".dragableItemContainer").on("click", function (e) {
+
 			var same = true;
 			try {
 				same = prevBtn == $(this);
@@ -392,6 +393,7 @@ $(document).ready(function () {
 		$(".draggableitem").addClass("inactive");
 		$(".card-wrap").addClass("hidden-feed");
 		$('.submit_btn').addClass("submit-hide");
+		$("header").addClass("t-border");
 		var feedback = rightFeedback;
 		$('.category').each(function (index, el) {
 			var catTitle = $(el).find(".categoryTitle").attr("cat");
@@ -425,6 +427,7 @@ $(document).ready(function () {
 	}
 
 	function resetCategory() {
+		$("header").removeClass("t-border");
 		$(".categoryTitle").removeClass("inactive");
 		$(".draggableitem").removeClass("inactive");
 		$(".right-cat").removeClass("right-cat");
