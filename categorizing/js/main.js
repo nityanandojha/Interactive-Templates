@@ -68,7 +68,7 @@ $(document).ready(function () {
 		if (keycode == 27) {
 			curDiv = null;
 			prevBtn = null;
-			$(".selected").removeClass("selected");
+			$(".selected").removeClass("selected").blur();;
 		}
 	});
 

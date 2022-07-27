@@ -96,6 +96,7 @@ header {
     box-shadow: 0px 1px 10px #d6d6d6;
 }
 
+
 .category {
     display: flex;
     align-items: center;
@@ -111,7 +112,7 @@ header {
 }
 
 .categoryTitleCnt {
-    padding: 8px 32px;
+    padding: 10px 32px;
 }
 
 .categoryTitleCnt.twoCnt {
@@ -129,24 +130,23 @@ header {
     padding: 13px 32px;
 }
 
-::-webkit-scrollbar {
+/* ::-webkit-scrollbar {
     width: 10px;
     height: 7px;
     border-radius: 10px;
-}
+} */
 
 /* Track */
-::-webkit-scrollbar-track {
+/* ::-webkit-scrollbar-track {
     border: 1px solid #ddd;
     border-radius: 10px;
     -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.1);
     background-color: #d5d5d5;
     opacity: 1;
-
-}
+} */
 
 /* Handle */
-::-webkit-scrollbar-thumb {
+/* ::-webkit-scrollbar-thumb {
     background: #fff;
     border-radius: 10px;
     background-clip: content-box;
@@ -162,26 +162,26 @@ header {
     display: block;
     background-size: 10px;
     background-repeat: no-repeat;
-}
+} */
 
 /*left*/
-::-webkit-scrollbar-button:single-button:horizontal:decrement {
+/* ::-webkit-scrollbar-button:single-button:horizontal:decrement {
     height: 12px;
     width: 12px;
     background-position: 0px 0px;
     background-image: url(../images/left.png);
 
-}
-
+} */
+/* 
 ::-webkit-scrollbar-button:single-button:horizontal:decrement:hover {
     background-image: url(../images/left.png);
 }
 
 ::-webkit-scrollbar-button:single-button:horizontal:decrement:active {
     background-image: url(../images/left.png);
-}
+} */
 
-::-webkit-scrollbar-button:single-button:horizontal:increment {
+/* ::-webkit-scrollbar-button:single-button:horizontal:increment {
     height: 12px;
     width: 12px;
     background-position: 0px 0px;
@@ -194,7 +194,7 @@ header {
 
 ::-webkit-scrollbar-button:single-button:horizontal:increment:active {
     background-image: url(../images/right.png);
-}
+} */
 
 .card-wrap {
     display: grid;
@@ -237,6 +237,7 @@ header {
     font-weight: normal;
     font-family: "HelveticaNeue-Regular";
     font-size: 18px;
+    padding-top: 23px;
 }
 
 .nav-container {
@@ -379,7 +380,7 @@ button, select {
     position: absolute;
     width: 22px;
     height: 22px;
-    right: 0px;
+    right: 4px;
     top: 0px;
     /* border-radius: 50%; */
     background-color: transparent;
@@ -713,6 +714,73 @@ button[disabled] {
 @media screen and (device-width: 650px),
 (device-height: 365px) {
 
+
+::-webkit-scrollbar {
+    width: 10px;
+    height: 7px;
+    border-radius: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.1);
+    background-color: #d5d5d5;
+    opacity: 1;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: #fff;
+    border-radius: 10px;
+    background-clip: content-box;
+    border: 1px solid #ddd;
+    width: 1px;
+    opacity: 0.4;
+    background-image: url(../images/left.png);
+}
+
+::-webkit-scrollbar-button:single-button {
+    background-color: rgb(0, 0, 0);
+
+    display: block;
+    background-size: 10px;
+    background-repeat: no-repeat;
+}
+
+/*left*/
+::-webkit-scrollbar-button:single-button:horizontal:decrement {
+    height: 12px;
+    width: 12px;
+    background-position: 0px 0px;
+    background-image: url(../images/left.png);
+
+}
+
+::-webkit-scrollbar-button:single-button:horizontal:decrement:hover {
+    background-image: url(../images/left.png);
+}
+
+::-webkit-scrollbar-button:single-button:horizontal:decrement:active {
+    background-image: url(../images/left.png);
+}
+
+::-webkit-scrollbar-button:single-button:horizontal:increment {
+    height: 12px;
+    width: 12px;
+    background-position: 0px 0px;
+    background-image: url(../images/right.png);
+}
+
+::-webkit-scrollbar-button:single-button:horizontal:increment:hover {
+    background-image: url(../images/right.png);
+}
+
+::-webkit-scrollbar-button:single-button:horizontal:increment:active {
+    background-image: url(../images/right.png);
+}
+
     .draggableitem {
         font-size: 12px;
         padding: 7px 8px;
@@ -789,7 +857,7 @@ button[disabled] {
 
     .feedback {
         font-size: 14px;
-        width: 522px;
+        width: 1212px;
         letter-spacing: 0.2px;
         font-weight: normal;
         line-height: 20px;
@@ -944,7 +1012,7 @@ button[disabled] {
 
     .category-2 .categoryTitleCnt_1 {
         top: 238px;
-        padding: 19px 16px;
+        padding: 17px 16px;
     }
 
     .category-2 .categoryDroppableCnt {
@@ -1117,6 +1185,10 @@ button[disabled] {
 }
 
 @media screen and (max-width: 529px) {
+    .toolContainer{
+        width: 39%;
+        margin: 0px 5px 10px 0px;
+    }
     .submit-hide {
         visibility: hidden;
         pointer-events: none;
@@ -1266,16 +1338,17 @@ button[disabled] {
 
     .toolTxt {
         text-align: center;
+        margin-bottom: 1rem;
     }
 
     .settinToolsContainer {
         width: 232px;
     }
 
-    .toolContainer {
+    /* .toolContainer {
         width: 39%;
         margin: 14px 8px;
-    }
+    } */
 
     .toolContainer_0 {
         width: 100%;

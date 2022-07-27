@@ -602,7 +602,10 @@ header{
     }
 }
 
-@media screen and (device-width: 650px), (device-height: 365px){
+@media screen and (max-width: 650px), (max-height: 365px){
+    .matching-items .matching-element{
+        left: calc(var(--bs-gutter-x)/ 2);
+    }
     .activity-header{
         position: fixed;
         width: 100%;
