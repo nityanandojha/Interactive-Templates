@@ -122,7 +122,7 @@ header.t-border::before{
 }
 
 .categoryTitleCnt {
-    padding: 10px 32px;
+    padding: 11px 32px;
 }
 
 .categoryTitleCnt.twoCnt {
@@ -680,7 +680,7 @@ button[disabled] {
 
 @media screen and (max-width: 529px),(orientation: portrait) {
     .category:last-of-type .draggableitemCnt:last-of-type{
-        margin-bottom: 150px;
+        margin-bottom: 180px;
     }
      .category:last-of-type .categoryDroppableCnt{
         
@@ -871,18 +871,18 @@ button[disabled] {
         background: #fafafa;
         position: fixed;
         z-index: 999;
-        top: 125px;
+        top: 122px;
         left: 0px;
         box-shadow: 0 3px 6px 0px rgb(0 0 0 / 16%);
     }
 
     .category-3 .categoryTitleCnt_1 {
-        top: 201px;
+        top: 198px;
         left: 0px;
     }
 
     .category-3 .categoryTitleCnt_2 {
-        top: 273px;
+        top: 270px;
         left: 0px;
     }
 
@@ -985,7 +985,7 @@ button[disabled] {
     #title {
         font-size: 14px;
         line-height: 20px;
-        margin: 5px 0px 4px 0px;
+        margin: 0px 0px 4px 0px;
         width: 548px;
         min-height: 40px;
     }
@@ -1044,13 +1044,13 @@ button[disabled] {
     }
 
     .category-2 .categoryTitleCnt_0 {
-        top: 127px;
+        top: 123px;
         border-bottom: 2px dotted #d5d5d5 !important;
         padding: 19px 16px;
     }
 
     .category-2 .categoryTitleCnt_1 {
-        top: 238px;
+        top: 234px;
         padding: 17px 16px;
     }
 
@@ -1150,7 +1150,7 @@ button[disabled] {
         font-size: 16px;
         line-height: 20px;
         width: 410px;
-        margin: 24px 0 2px 0px;
+        margin: 0px 0 2px 0px;
         min-height: 59px;
     }
 
