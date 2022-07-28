@@ -220,6 +220,7 @@ $(document).ready(function () {
 				const elemId = $(curDiv).attr('id');
                 enterCounter[elemId] += 1;
 			} */
+			checkLast();
 		})
 
 		$(".dragableItemContainer").on("click", function (e) {
@@ -384,6 +385,18 @@ $(document).ready(function () {
 			}else{
 				$(".bottom-btn").css({"opacity": 1, "pointer-events":"auto"});
 			}
+			checkLast();
+			
+			//if($('.category:last-of-type .categoryDroppableCnt').children)
+		}
+	}
+
+	function checkLast(){
+		console.log($('.category:last-of-type .categoryDroppableCnt').children().length);
+		if($('.category:last-of-type .categoryDroppableCnt').children().length){
+			$('.category:last-of-type').removeClass("mar-bt");
+		}else{
+			$('.category:last-of-type').addClass("mar-bt");
 		}
 	}
 
@@ -398,6 +411,7 @@ $(document).ready(function () {
 		$('.category').each(function (index, el) {
 			var catTitle = $(el).find(".categoryTitle").attr("cat");
 			var rightCat = "right-cat";
+			
 
 			$(el).find(".categoryDroppableCnt").children().each(function (ind, ell) {
 				if ($(ell).find(".draggableitem").hasClass("correct")) {
@@ -410,9 +424,14 @@ $(document).ready(function () {
 				}
 
 			});
+			if(!$(el).find(".categoryDroppableCnt").children().length){
+				rightCat = "wrong-cat";				
+			}
+
 			console.log("FINAL CAT: ", rightCat);
 			$(".categoryTitleCnt_" + index).addClass(rightCat);
 		});
+
 		//console.log('correctCounter=',correctCounter);
 		$("header").addClass("pad-0");
 		$(".feedback").html(feedback).show();

@@ -94,7 +94,17 @@ section .container {
 header {
     padding-bottom: 11px;
     box-shadow: 0px 1px 10px #d6d6d6;
+    position: relative;
 }
+header.t-border::before{
+    position: absolute;
+    width: 100%;
+    height: 0.5px;
+    top: 76px;
+    content: '';
+    background: #d5d5d5;
+}
+
 
 
 .category {
@@ -662,8 +672,26 @@ button[disabled] {
 @media screen and (-webkit-min-device-pixel-ratio:0) { 
 
     }
+@media screen and(min-width: 530px), (max-width: 713px),(orientation: portrait) {
+    .category:last-of-type .draggableitemCnt:last-of-type{
+        margin-bottom: 80px;
+    }
+}
 
-@media screen and (max-width: 1350px),(max-height: 760px) {
+@media screen and (max-width: 529px),(orientation: portrait) {
+    .category:last-of-type .draggableitemCnt:last-of-type{
+        margin-bottom: 150px;
+    }
+     .category:last-of-type .categoryDroppableCnt{
+        
+    } 
+    .mar-bt{
+        margin-bottom: 150px;
+    }
+
+}
+
+@media screen and (device-width: 1350px),(device-height: 760px) {
 
     .nav-container button {
         font-family: "HelveticaNeue-Bold";
@@ -709,77 +737,86 @@ button[disabled] {
     }
 }
 
-@media screen and (min-width: 1024px),
-(max-width: 1349px) {}
+@media screen and (min-width: 1024px),(max-width: 1349px) {}
 
 @media screen and (max-width: 900px) {}
 
-@media screen and (max-width: 650px),(max-height: 365px) {
+@media screen and (device-width: 650px), (device-height: 365px) {
+    .content {
+        overflow-x: auto;
+        height: calc(100vh - 137px);
+    }
+    header.t-border::before{
+        position: absolute;
+        width: 100%;
+        height: 0.5px;
+        top: 60px;
+        content: '';
+        background: #d5d5d5;
+    }
 
-
-::-webkit-scrollbar {
+/* width */
+.custom-Scroll::-webkit-scrollbar {
     width: 10px;
-    height: 7px;
+    height: 10px;
     border-radius: 10px;
-}
-
-/* Track */
-::-webkit-scrollbar-track {
+  }
+  
+  /* Track */
+  .custom-Scroll::-webkit-scrollbar-track {
     border: 1px solid #ddd;
     border-radius: 10px;
-    -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.1);
-    background-color: #d5d5d5;
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.1);
+	background-color: #F5F5F5;
     opacity: 1;
-}
-
-/* Handle */
-::-webkit-scrollbar-thumb {
+  }
+  
+  /* Handle */
+  .custom-Scroll::-webkit-scrollbar-thumb {
     background: #fff;
     border-radius: 10px;
     background-clip: content-box;
     border: 1px solid #ddd;
     width: 1px;
     opacity: 0.4;
-    background-image: url(../images/left.png);
-}
-
-::-webkit-scrollbar-button:single-button {
+  }
+  
+  .custom-Scroll::-webkit-scrollbar-button:single-button {
     background-color: rgb(0, 0, 0);
-
     display: block;
     background-size: 10px;
-    background-repeat: no-repeat;
-}
-
-/*left*/
-::-webkit-scrollbar-button:single-button:horizontal:decrement {
+  }
+  /*left*/
+  .custom-Scroll::-webkit-scrollbar-button:single-button:horizontal:decrement {
     height: 12px;
-    width: 12px;
-    background-position: 0px 0px;
+    width: 16px;
+    background-position: center 4px;
     background-image: url(../images/left.png);
+    
 
 }
 
-::-webkit-scrollbar-button:single-button:horizontal:decrement:hover {
+.custom-Scroll::-webkit-scrollbar-button:single-button:horizontal:decrement:hover {
     background-image: url(../images/left.png);
 }
 
-::-webkit-scrollbar-button:single-button:horizontal:decrement:active {
+.custom-Scroll::-webkit-scrollbar-button:single-button:horizontal:decrement:active {
     background-image: url(../images/left.png);
-}
-
-::-webkit-scrollbar-button:single-button:horizontal:increment {
+} 
+/*right*/
+.custom-Scroll::-webkit-scrollbar-button:single-button:horizontal:increment {
     height: 12px;
-    width: 12px;
-    background-position: 0px 0px;
+    width: 16px;
+    background-position: center 4px;
+    background-image: url(../images/right.png);
+    
+}
+
+.custom-Scroll::-webkit-scrollbar-button:single-button:horizontal:increment:hover {
     background-image: url(../images/right.png);
 }
 
-::-webkit-scrollbar-button:single-button:horizontal:increment:hover {
-    background-image: url(../images/right.png);
-}
-
-::-webkit-scrollbar-button:single-button:horizontal:increment:active {
+.custom-Scroll::-webkit-scrollbar-button:single-button:horizontal:increment:active {
     background-image: url(../images/right.png);
 }
 
@@ -1029,10 +1066,18 @@ button[disabled] {
 
 }
 
-@media screen and (max-width: 530px),(max-height: 943px),
+@media screen and (device-width: 530px),(device-height: 943px),
 (orientation: portrait) {
     .draggableitemWraper {
         width: 316px;
+    }
+    header.t-border::before{
+        position: absolute;
+        width: 100%;
+        height: 0.5px;
+        top: 60px;
+        content: '';
+        background: #d5d5d5;
     }
     .draggableitemCnt {
         width: 316px;
@@ -1181,11 +1226,17 @@ button[disabled] {
         position: absolute;
         right: 40%;
     }
-
-
 }
 
 @media screen and (max-width: 529px) {
+    header.t-border::before{
+        position: absolute;
+        width: 100%;
+        height: 0.5px;
+        top: 118px;
+        content: '';
+        background: #d5d5d5;
+    }
     .toolContainer{
         width: 39%;
         margin: 0px 5px 10px 0px;
@@ -1251,8 +1302,8 @@ button[disabled] {
     }
 
     .main-sec {
-        overflow: auto;
-        height: 260px;
+        /* overflow: auto;
+        height: 260px; */
     }
 
     header.pad-0 {
