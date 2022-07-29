@@ -673,7 +673,7 @@ button[disabled] {
 
     }
 
-@media screen and (max-width: 1350px),(max-height: 760px) {
+@media screen and (device-width: 1350px),(device-height: 760px) {
 
     .nav-container button {
         font-family: "HelveticaNeue-Bold";
@@ -719,13 +719,11 @@ button[disabled] {
     }
 }
 
-@media screen and (min-width: 1024px),
-(max-width: 1349px) {}
+@media screen and (min-width: 1024px),(max-width: 1349px) {}
 
 @media screen and (max-width: 900px) {}
 
-@media screen and (max-width: 650px),
-(device-height: 365px) {
+@media screen and (device-width: 650px), (device-height: 365px) {
     .content {
         overflow-x: auto;
         height: calc(100vh - 137px);
@@ -1050,7 +1048,7 @@ button[disabled] {
 
 }
 
-@media screen and (max-width: 530px),(max-height: 943px),
+@media screen and (device-width: 530px),(device-height: 943px),
 (orientation: portrait) {
     .draggableitemWraper {
         width: 316px;
