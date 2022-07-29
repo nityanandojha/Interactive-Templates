@@ -979,10 +979,6 @@ body {
 
 @media screen and (max-width: 529px) {
 
-    .p-48p {
-        top: 48% !important;
-    }
-
     .matchedEvent:last-of-type {
         margin-bottom: 100px;
     }
@@ -1041,8 +1037,6 @@ body {
         min-width: 198px;
         margin-top: auto;
         max-width: 198px;
-        /* display: flex;
-    align-items: flex-end; */
     }
 
     .col-6 {

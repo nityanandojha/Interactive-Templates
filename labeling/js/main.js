@@ -420,7 +420,7 @@ var matching = (function() {
         $(".clickable-item").prop("disabled", true);
         $(".matching-item").prop("disabled", true);
         
-        $(".activity-header").addClass("h-48p");
+        //$(".activity-header").addClass("h-48p");
         $(".activity-content").addClass("p-48p");
         for(var i=0; i<data.ques.length; i++){
             var clicksId = $("#cloneItem_"+i).attr("id").replace("cloneItem_", "");
