@@ -560,19 +560,17 @@ var matching = (function() {
 
         var isDown = true;
         $('#reviewBtn').click(function(){
-            /* var transformY = 582;
-            console.log(media.matches, " ----------------------");
-            if(media.matches){
-                transformY = 399;
-            } */
-
             if(isDown){
-                $("#reviewContainer").css({"transform" : "translate(0px, -89vh)"});
+                //$("#reviewContainer").css({"transform" : "translate(0px, -89vh)"});
+                $("#reviewContainer").removeClass("moveDown");
+                $("#reviewContainer").addClass("moveTOP");
                 $("#reviewBtn i").removeClass("up").addClass("down");
                 $("#reviewBtn p").html("Review Activity");
                 isDown = false;
             }else{
-                $("#reviewContainer").css({"transform" : "translate(0px, 0px)"});
+                //$("#reviewContainer").css({"transform" : "translate(0px, 0px)"});
+                $("#reviewContainer").removeClass("moveTOP");
+                $("#reviewContainer").addClass("moveDown");
                 $("#reviewBtn i").removeClass("down").addClass("up");
                 $("#reviewBtn p").html("Begin Activity");
                 $("#reviewContainer").css({"background-color": "rgb(112 112 112 / 80%)"});
