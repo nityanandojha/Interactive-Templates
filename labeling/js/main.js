@@ -5,8 +5,9 @@ var matching = (function() {
     var curDiv = null;
     var curMatchbox = true;
     var prevBtn = null;
-    var classnames = "";
+    var classnames = "";    
     const regex = /assets.*\.(png|jpg|jpeg)/gm;
+    var media = window.matchMedia("(max-width: 529px)");
 
     this.init = function(data) {
         this.loadXML();
@@ -51,12 +52,14 @@ var matching = (function() {
         $(".reset_btn").off().on("click", function(){
             tryAgain();
         })
+
     }
 
     var tryAgain = function(){
         $(".clickable-item").prop("disabled", false);
         $(".matching-item").prop("disabled", false);
         $(".clickableBlock").removeClass("no-grid");
+        console.log("111", $(".clickableBlock"));
 
         $(".matching-element").find(".clickable-item").removeClass("wrong-border-up");
         $(".matching-element").find(".matching-item").removeClass("wrong-border-bottom");
@@ -81,6 +84,7 @@ var matching = (function() {
         $(".submit_btn").addClass("disabled");
         $(".submit_btn").addClass("mobile-submit");
         $(".submit_btn").prop("disabled", true);
+        
 
         $(".matching-element").removeClass("submitted").removeClass("correct-ans");
         $(".matching-element").removeClass("submitted").removeClass("wrong-ans");
@@ -88,7 +92,6 @@ var matching = (function() {
         $("#r-feedback").hide();
         $("#w-feedback").hide();
 
-        $(".clickable-items").removeClass("clickable-itemsunset");
         $(".activity-header").removeClass("pad0");
     }
 
@@ -114,7 +117,6 @@ var matching = (function() {
     var fetchData = function(xml){
         $(".activity-title").html(xml.find("title").text());
         $(".notice-card p").html(xml.find("instruction").text());
-
         $("#reviewImg").attr("src", xml.find("reviewimage").text());
 
         var items = xml.find("items").find("item");
@@ -151,8 +153,6 @@ var matching = (function() {
             if(m != null){
                 $(".matching-item").addClass("img-wrap");
                 var img;
-                //img = `<img class='matchingImage' src=${txt} alt='Item to match: '${txt}>`;
-                //$("#matchBox_d .matching-item").html(img);
 
                 img = new Image();
                 img.src = txt;
@@ -178,9 +178,11 @@ var matching = (function() {
                 $("#matchBox_d .matching-item").html("<p></p>");
                 $("#matchBox_d .matching-item p").html(txt);
             }
-            
+
             $("#matchBox_d").addClass("matchedEvent");
             $("#matchBox_d").attr("id", "matchBox_"+index);
+
+
         });
 
         $("#cloneItem_d").remove();
@@ -203,12 +205,12 @@ var matching = (function() {
         var maxHeight = Math.max(...heightArr);
         var maxHofClickitem = $('.clickable-item').outerHeight();
         //$('.matching-item').css({"height":maxHeight+"px"});
-
         //$('.matchedEvent').css({"height": (maxHeight+maxHofClickitem+15)+"px"});
 
         $(document).keyup(function(event) {
             //get the id of element on which enter key pressed
             const elemId = $(prevBtn).attr('id');
+            console.log("ENTER prev: ", elemId);
 
             event.preventDefault();
             var keycode = (event.keyCode ? event.keyCode : event.which);
@@ -226,6 +228,8 @@ var matching = (function() {
 
             //if key for enter event
             if (keycode == 13) {
+                console.log("enter...");
+                return;
                 //get the count of enter pressed on element
                 const enterCount = enterCounter[elemId];
                 //if enter has pressed two times
@@ -256,6 +260,8 @@ var matching = (function() {
                                 $(prevBtn).removeAttr("data-placed");
                                 $(".submit_btn").addClass("disabled");
                                 $(".submit_btn").prop("disabled", true);
+                                $(".clickableBlock").removeClass("no-grid");
+                                console.log("111", $(".clickableBlock"));
                                 prevBtn=null;
                                 $(".selected").removeClass("selected");
                                 $(".matching-item").blur();
@@ -299,6 +305,7 @@ var matching = (function() {
                 "class": "toolTxt toolTxt_"+(index+1),                
             }).html($(element).find("title").html()).appendTo(btn);
 
+            //console.log($(".toolContainer")[0]);
             $(".toolContainer:first").attr("aria-pressed", "true");
             $(btn).on("click", function(e){
                 console.log($(this).attr("data-color"));
@@ -400,7 +407,9 @@ var matching = (function() {
             $(".submit_btn").removeClass("mobile-submit");
             $(".activity-header").addClass("pad0");
             $(".clickableBlock").addClass("no-grid");
-            $(".clickable-items").removeClass("clickable-itemsunset");
+        }else{
+            $(".clickableBlock").removeClass("no-grid");
+            console.log("111", $(".clickableBlock"));
         }
     }
 
@@ -450,6 +459,37 @@ var matching = (function() {
 
     function bindEvents(){
         $(".clickedEvent").click(function clickableHandler(e){
+            console.clear();
+            console.log("prev: ", prevBtn);
+            console.log("$prev: ", $(prevBtn));
+            console.log("this: ", $(this));
+            console.log("target: ", e.target);
+            console.log("c target: ", e.currentTarget);
+            console.log("prev[0]", $(prevBtn)[0]);
+            console.log("c1: ", $(prevBtn)[0] == $(this)[0]);
+            console.log("c2: ", $(prevBtn)[0]==e.currentTarget);
+
+            if($(prevBtn)[0] == $(this)[0] && $(prevBtn)[0]==e.currentTarget){
+                console.log("double click..........");
+                $(prevBtn).appendTo($(".clickable-items").find(".clickableBlock")); 
+                console.log($(".clickable-items").find(".clickableBlock"));                   
+                var iid = $(prevBtn).attr("data-placed");
+                console.info('iid', iid);
+                $("#"+iid).removeClass("placed");
+                $("#"+iid).removeAttr("data-placed");
+                $(prevBtn).removeAttr("data-placed");
+                $(".submit_btn").addClass("disabled");
+                $(".submit_btn").prop("disabled", true);
+                $(".clickableBlock").removeClass("no-grid");
+                console.log("111", $(".clickableBlock"));
+                prevBtn=null;
+                $(".selected").removeClass("selected");
+                $(".matching-item").blur();
+                $(".clickable-item").blur();
+                e.stopImmediatePropagation();
+                return;
+            }
+            console.log("-------------test-----------");
             if(prevBtn){
                 console.log("back.......");
             }else{
@@ -502,9 +542,9 @@ var matching = (function() {
                         $("#"+iid).removeAttr("data-placed");
                         $(prevBtn).removeAttr("data-placed");
                         $(".submit_btn").addClass("disabled");
+                        $(".submit_btn").prop("disabled", true);                        
                         $(".clickableBlock").removeClass("no-grid");
-                        $(".clickable-items").addClass("clickable-itemsunset");
-                        $(".submit_btn").prop("disabled", true);
+                        console.log("111", $(".clickableBlock"));
                         $(".selected").removeClass("selected");
                         $(".matching-item").blur();
                         $(".clickable-item").blur();
@@ -513,20 +553,26 @@ var matching = (function() {
                     }
                 }
             }
+
             console.log("Normal click....");
             prevBtn = $(this);
         })
 
         var isDown = true;
-
         $('#reviewBtn').click(function(){
+            /* var transformY = 582;
+            console.log(media.matches, " ----------------------");
+            if(media.matches){
+                transformY = 399;
+            } */
+
             if(isDown){
-                $("#reviewContainer").css({"transform" : "translate(0px, -582px)"});
+                $("#reviewContainer").css({"transform" : "translate(0px, -89vh)"});
                 $("#reviewBtn i").removeClass("up").addClass("down");
                 $("#reviewBtn p").html("Review Activity");
                 isDown = false;
             }else{
-                $("#reviewContainer").css({"transform" : "translate(0px, -82px)"});
+                $("#reviewContainer").css({"transform" : "translate(0px, 0px)"});
                 $("#reviewBtn i").removeClass("down").addClass("up");
                 $("#reviewBtn p").html("Begin Activity");
                 $("#reviewContainer").css({"background-color": "rgb(112 112 112 / 80%)"});
@@ -540,6 +586,7 @@ var matching = (function() {
                 $(this).css({"background-color": "rgb(112 112 112 / 0%)"});
             }
         });
+
     }
 
     $.fn.shuffleChildren = function() {
