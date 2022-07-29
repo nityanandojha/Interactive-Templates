@@ -1010,7 +1010,7 @@ body {
     }
 
     .matching-items .clickable-item {
-        /* position: unset; */
+        position: unset;
         padding: 20px;
     }
 
