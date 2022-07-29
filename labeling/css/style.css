@@ -166,11 +166,11 @@ body {
 }
 
 .hr-line{
-    border-bottom-color: currentcolor;
-    border-bottom-style: none;
-    border-bottom-width: medium;
+    border: none;
     border-bottom: 2px dotted #d5d5d5;
     margin: 0px 0px;
+    background-color: transparent;
+    opacity: 0.5;
 }
 
 .text-end {
