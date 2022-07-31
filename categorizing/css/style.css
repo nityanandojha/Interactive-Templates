@@ -691,7 +691,7 @@ button[disabled] {
 
 }
 
-@media screen and (device-width: 1350px),(device-height: 760px) {
+@media screen and (device-width: 1950px), (min-height: 760px){
 
     .nav-container button {
         font-family: "HelveticaNeue-Bold";
@@ -705,15 +705,27 @@ button[disabled] {
         grid-auto-flow: column;
         grid-auto-columns: 360px;
     }
-
+    .category-3 .categoryTitleCnt {
+        position: fixed;
+        left: 0px;
+        background: #fff;
+    }
+    .category-3 .categoryTitleCnt_0 {
+        position: fixed;
+        top: 161px;
+        left: 0px;
+        background: #fff;
+    }
     .category-2 .categoryTitleCnt_0 {
         position: fixed;
         top: 161px;
         padding: 33px 32px;
         z-index: 99;
+        background: #fff;
     }
 
     .category-2 .categoryTitleCnt {
+        left: 0;
         padding: 34px 32px;
     }
 
@@ -731,20 +743,25 @@ button[disabled] {
     .category-2 .categoryDroppableCnt {
         width: 84%;
         height: 296px;
-        margin-left: 240px;
+        margin-left: 0px;
         /* background: blue; */
         padding: 55px 0;
     }
+    .content {
+        overflow: auto;
+        margin-left: 240px;
+        height: auto;
+    }
 }
 
-@media screen and (min-width: 1024px),(max-width: 1349px) {}
-
-@media screen and (max-width: 900px) {}
 
 @media screen and (device-width: 650px), (device-height: 365px) {
     .content {
         overflow-x: auto;
         height: calc(100vh - 137px);
+    }
+    .category:last-of-type .draggableitemCnt:last-of-type {
+        margin-bottom: 0px;
     }
     header.t-border::before{
         position: absolute;
@@ -1071,6 +1088,18 @@ button[disabled] {
     .draggableitemWraper {
         width: 316px;
     }
+    .category-3 .categoryTitleCnt {
+        position: unset;
+    }
+    .category-3 .categoryTitleCnt_0 {
+         position: unset;
+    }
+    .content {
+        overflow: auto;
+        margin-left: 0px;
+        height: auto;
+    }
+ 
     header.t-border::before{
         position: absolute;
         width: 100%;
@@ -1116,6 +1145,7 @@ button[disabled] {
 
     .categoryDroppableCnt {
         padding: 0px 0px;
+        display: block;
     }
 
     .container {
@@ -1229,6 +1259,10 @@ button[disabled] {
 }
 
 @media screen and (max-width: 529px) {
+    .draggableitemCnt {
+        width: 276px;
+        border-radius: 14px;
+    }
     header.t-border::before{
         position: absolute;
         width: 100%;
@@ -1254,7 +1288,14 @@ button[disabled] {
         border-bottom: 2px dotted #d5d5d5;
         padding-bottom: 75px;
     }
-    .draggableitemCnt {
+    .categoryDroppableCnt {
+        /* display: grid; */
+        grid-template-rows: repeat(2, 80px);
+        gap: 8px 8px;
+        grid-auto-flow: column;
+        grid-auto-columns: 360px;
+    }
+    .category .draggableitemCnt{
         width: 276px;
         border-radius: 14px;
     }
@@ -1342,9 +1383,9 @@ button[disabled] {
         top: 10px;
     }
 
-    .category .draggableitemCnt {
+    /* .category .draggableitemCnt {
         width: 87%;
-    }
+    } */
 
     #instructionnorm {
         font-size: 14px;
