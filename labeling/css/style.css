@@ -86,20 +86,35 @@ body {
     transform: translate(0px, -89vh);
 }
 
+.containerTOP{
+    transform: translate(0px, 0vh);
+}
+
 .moveDown{
     transform: translate(0px, 0px);
 }
 
-#reviewContainer {
+.containerDown{
+    transform: translate(0px, 0px);
+}
+
+#reviewParent{
+    width: 100%;
+    height: 100vh;
     position: absolute;
     top: 0;
-    width: 100%;
-    transition: transform 1s;
-    background-color: rgb(112 112 112 / 80%);
+    background-color: rgb(112 112 112 / 80%);    
+    z-index: 1;
+    transition: transform 0.5s;
+}
+
+.reviewContainer {
+    transition: transform 0.5s;
     overflow: hidden;
     height: 100vh;
     border-radius: 0 0 0 11px;
     z-index: 1;
+    transform: translate(0, 0);
 }
 
 #imageCont {
@@ -740,13 +755,26 @@ body {
     .moveTOP{
         transform: translate(0px, -79vh);
     }
+
+    .containerTOP{
+        transform: translate(0px, 0);
+    }
     
     .moveDown{
         transform: translate(0px, 0px);
     }
 
+    .containerDown{
+        transform: translate(0px, 0);
+    }
+
+    #imageCont{
+        width: 100%;
+    }
+
     #imageCont img {
-        width: 290px;
+        width: 261px;
+        margin-top: 42px;
     }
     
     .matching-element.submitted::after {
@@ -925,8 +953,21 @@ body {
         width: 100%;
     }
 
+    #imageCont img{
+        width: 67%;
+        margin-top: 510px;
+    }
+
     .moveTOP {
         transform: translate(0px, -91vh);
+    }
+
+    .containerDown{
+        transform: translate(0px, -50vh);
+    }
+
+    .containerTOP{
+        transform: translate(0px, 0);
     }
 
     .btn-submit {
@@ -992,8 +1033,16 @@ body {
         width: 100%;
     }
 
+    #imageCont img{
+        margin-top: 312px;
+    }
+
     .moveTOP{
         transform: translate(0px, -89vh);
+    }
+
+    .containerTOP{
+        transform: translate(0px, 0);
     }
 
     .feedback {
