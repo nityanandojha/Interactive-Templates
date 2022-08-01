@@ -66,7 +66,7 @@ body {
     position: relative;
     border-bottom: solid 1px #ddd;
     box-shadow: 0px 1px 10px #d6d6d6;
-    background-color: #fff;
+    background-color: #fafafa;
     padding-bottom: 5px;
     z-index: 2;
 }
