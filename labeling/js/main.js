@@ -205,9 +205,7 @@ var matching = (function() {
         });
 
         var maxHeight = Math.max(...heightArr);
-        var maxHofClickitem = $('.clickable-item').outerHeight();
         //$('.matching-item').css({"height":maxHeight+"px"});
-        //$('.matchedEvent').css({"height": (maxHeight+maxHofClickitem+15)+"px"});
 
         $(document).keyup(function(event) {
             //get the id of element on which enter key pressed

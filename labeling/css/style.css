@@ -809,7 +809,6 @@ body {
     }
 
     .feedback {
-        /* width: calc(100% - 135px); */
         margin-left: 0px;
         line-height: 20px;
         letter-spacing: 0.2px;
@@ -826,7 +825,6 @@ body {
     .activity-content {
         position: fixed;
         top: 52%;
-        /* height: 51%; */
         overflow-y: auto;
     }
 
@@ -889,10 +887,10 @@ body {
 
     .activity-content {
         top: 250px;
+        height: 73vh;
     }
 
     .feedback {
-        /* width: calc(100% - 135px); */
         margin-left: 0px;
         line-height: 20px;
         letter-spacing: 0.2px;
