@@ -839,7 +839,7 @@ button[disabled] {
 
     .draggableitem {
         font-size: 12px;
-        padding: 7px 8px;
+        padding: 7px 10px;
         text-align: start;
         background: white;
         border-radius: 14px;
@@ -1097,7 +1097,7 @@ button[disabled] {
     .content {
         overflow: auto;
         margin-left: 0px;
-        height: auto;
+        height: calc(100vh - 163px);
     }
  
     header.t-border::before{
@@ -1143,9 +1143,11 @@ button[disabled] {
         padding-bottom: 7px;
     }
 
-    .categoryDroppableCnt {
+    .category-2 .categoryDroppableCnt {
         padding: 0px 0px;
         display: block;
+        margin: auto;
+        height: auto;
     }
 
     .container {
@@ -1190,17 +1192,19 @@ button[disabled] {
         text-align: center;
     }
 
-    .categoryTitle {
+    .category-2 .categoryTitle {
         font-size: 16px;
         line-height: 20px;
         width: 316px;
+        height: 64px;
         min-height: 64px;
         padding: 8px 16px;
     }
 
 
-    .categoryTitleCnt {
+    .category-2 .categoryTitleCnt {
         padding: 14px 32px;
+        position: unset;
     }
 
     .category .draggableitemCnt {
@@ -1256,12 +1260,33 @@ button[disabled] {
         position: absolute;
         right: 40%;
     }
+    .categoryTitle {
+        font-size: 16px;
+        line-height: 20px;
+        width: 316px;
+        min-height: 64px;
+        padding: 8px 16px;
+    }
+    .categoryDroppableCnt {
+        padding: 0px 0px;
+        display: block;
+    }
 }
 
 @media screen and (max-width: 529px) {
     .draggableitemCnt {
         width: 276px;
         border-radius: 14px;
+    }
+    .categoryTitleCnt {
+        padding: 10px 0px;
+    }
+    .categoryTitle {
+        font-size: 14px;
+        line-height: 20px;
+        min-height: 55px;
+        width: 276px;
+        padding: 6px 10px;
     }
     header.t-border::before{
         position: absolute;
@@ -1351,7 +1376,7 @@ button[disabled] {
         padding-bottom: 12px;
     }
 
-    .categoryTitle {
+    .category-2 .categoryTitle {
         font-size: 14px;
         line-height: 20px;
         min-height: 55px;
@@ -1419,7 +1444,7 @@ button[disabled] {
         display: block;
     }
 
-    .categoryTitleCnt {
+    .category-2 .categoryTitleCnt {
         padding: 10px 0px;
     }
 
