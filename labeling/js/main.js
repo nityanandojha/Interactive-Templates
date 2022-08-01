@@ -171,6 +171,8 @@ var matching = (function() {
                             maxH = Math.max(maxH,$(this).outerHeight());
                         });
                         $(".matching-item").css("height", maxH);
+                        var maxHofClickitem = $('.clickable-item').outerHeight();
+                        $('.matchedEvent').css({"height": (maxH+maxHofClickitem+15)+"px"});
                     }
                    
                 }
