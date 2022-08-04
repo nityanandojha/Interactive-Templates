@@ -48,6 +48,7 @@ body {
     background-color: #fafafa;
     font-family: "HelveticaNeue-Regular";
     font-weight: normal;
+    overflow: hidden;
 }
 header{
     background: #fff;
@@ -263,7 +264,7 @@ header{
     text-align: end;
 }
 .head-btn-wrap{
-    width: 150px;
+    width: 100px;
     z-index: 1;
     float: right;
 }
@@ -294,7 +295,7 @@ header{
 .head-btn .note{
     background: #5f6062;
     color: #fff;
-    padding: 2px 5px 0 5px;
+    padding: 20px 8px 2px 8px;
     border: none;
     font-size: 18px;
     margin-right: 8px;
@@ -350,11 +351,13 @@ header{
 
 @media screen and (device-width: 650px), (device-height: 365px){
     .activity-header{
-        position: fixed;
+        /* position: fixed; */
         width: 100%;
         /* height: 49%; */
     }
-   
+   .top-description{
+        height: 50px;
+   }
 
 
     .feedback {
@@ -398,7 +401,7 @@ header{
 
 @media screen and (device-width: 530px), (device-height: 943px), (orientation: portrait) {
     .activity-header{
-        position: fixed;
+        /* position: fixed; */
         width: 100%;
 
     }
@@ -447,7 +450,7 @@ header{
     
   
     .activity-header{
-        position: fixed;
+        /* position: fixed; */
         width: 100%;
     }
     .activity-content{

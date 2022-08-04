@@ -46,7 +46,7 @@
     font-family: 'HelveticaNeue-Regular';
     }
     .main-heading {
-    width: 808px;
+    width: calc(100% - 154px);
     float: left;
 }
     .activity-title {
@@ -61,11 +61,31 @@
 header{
     padding-bottom: 9px !important;
 }
+.a-container{
+  margin-top: 80px;
+  text-align: center;
+  height: calc(100vh - 162px);
+  overflow-y: auto;
+}
+.cards-container{
+  text-align: center;
+  max-width: 1024px;
+  margin: 0 auto;
+  /* margin-top: 20px; */
+}
+.card-wrap{
+  display: inline-block;
+  margin: 0 10px 25px 10px;
 
+}
 .flip-card {
   perspective: 1000px;
    transition: transform 0.6s;
    border-radius: 12px;
+   background-color: transparent;
+   border: none;
+   width: 212px;
+   height: 246px;
 }
 
 .flip-card-inner {
@@ -133,16 +153,15 @@ header{
 
         <header class="activity-header clearfix">
            <div class="container-fluid">
-
-            <div class="col-lg-12">
-                <div class="top-description">
+            
+                
                   <div class="main-heading">
                     <h1 class="activity-title">Target Audiences and Messaging in Healthcare<br></h1>
                   </div>
                   <div class="head-btn-wrap">
                     <div class="head-btn">
-                        <button aria-label="Help" role="button"  type="button" class="note"  title='Instruction Text' ><img height="16" width="16" src="images/doubts-button.png" alt="Help"></button>
-                        <button aria-label="Setting" role="button" type="button" class="cog setting-button"  title='Color Contrast Settings' ><img height="16" width="16" src="images/gear-option.png" alt="Color Scheme Settings"></button>
+                        <button aria-label="Help" role="button"  type="button" class="note"  title='Instruction Text' ><img height="25" width="25" src="images/doubts-button.png" alt="Help"></button>
+                        <button aria-label="Setting" role="button" type="button" class="cog setting-button"  title='Color Contrast Settings' ><img height="25" width="24" src="images/gear-option.png" alt="Color Scheme Settings"></button>
                         
                         <div class="notice-card">
                             <button aria-label="Help instruction Close" role="button" type="button"  class="close-bt" title='Close' >&#x2715</button>
@@ -160,138 +179,143 @@ header{
                                 </div>
                             </div>
                         </div>
-
                     </div>
-                  </div>
-                   
+                  
                 </div>
-            </div>
-        
+            
            </div>
-
         </header>
-     
-
         <section>
-            <div class="container">
-                <div class="">
-                    <div class="mid-cards">
-                        <div class="card flip-card" onclick="cardRotate(this);">
-                            <div class="flip-card-inner">
-                              <div class="flip-card-front">
-                                <p>Vaccines against COVID-19 should be mandated.
-                                    <br>
-                                    <br>
-                                    No one has the right to mandate what goes into an individual’s body.</p>
-                              </div>
-                              <div class="flip-card-back">
-                                <p>Yes, this is a reasonable counterclaim. 
-                                    <br>
-                                    <br>
-                                    Both statements focus on the right of the government to mandate health issues.</p>
-                              </div>
-                            </div>
-                          </div>
+            <div class="a-container">
+                <div class="cards-container">
+                        <div class="card-wrap">
                           <div class="card flip-card" onclick="cardRotate(this);">
-                            <div class="flip-card-inner">
-                              <div class="flip-card-front">
-                                <p>Vaccines against COVID-19 should be mandated.
-                                    <br>
-                                    <br>
-                                    No one has the right to mandate what goes into an individual’s body.</p>
-                              </div>
-                              <div class="flip-card-back">
-                                <p>Yes, this is a reasonable counterclaim. 
-                                    <br>
-                                    <br>
-                                    Both statements focus on the right of the government to mandate health issues.</p>
+                              <div class="flip-card-inner">
+                                <div class="flip-card-front">
+                                  <p>Vaccines against COVID-19 should be mandated.
+                                      <br>
+                                      <br>
+                                      No one has the right to mandate what goes into an individual’s body.</p>
+                                </div>
+                                <div class="flip-card-back">
+                                  <p>Yes, this is a reasonable counterclaim.
+                                      <br>
+                                      <br>
+                                      Both statements focus on the right of the government to mandate health issues.</p>
+                                </div>
                               </div>
                             </div>
-                          </div>
+                        </div>
+                        <div class="card-wrap">
                           <div class="card flip-card" onclick="cardRotate(this);">
-                            <div class="flip-card-inner">
-                              <div class="flip-card-front">
-                                <p>Vaccines against COVID-19 should be mandated.
-                                    <br>
-                                    <br>
-                                    No one has the right to mandate what goes into an individual’s body.</p>
-                              </div>
-                              <div class="flip-card-back">
-                                <p>Yes, this is a reasonable counterclaim. 
-                                    <br>
-                                    <br>
-                                    Both statements focus on the right of the government to mandate health issues.</p>
+                              <div class="flip-card-inner">
+                                <div class="flip-card-front">
+                                  <p>Vaccines against COVID-19 should be mandated.
+                                      <br>
+                                      <br>
+                                      No one has the right to mandate what goes into an individual’s body.</p>
+                                </div>
+                                <div class="flip-card-back">
+                                  <p>Yes, this is a reasonable counterclaim.
+                                      <br>
+                                      <br>
+                                      Both statements focus on the right of the government to mandate health issues.</p>
+                                </div>
                               </div>
                             </div>
-                          </div>
+                        </div>
+                        <div class="card-wrap">
                           <div class="card flip-card" onclick="cardRotate(this);">
-                            <div class="flip-card-inner">
-                              <div class="flip-card-front">
-                                <p>Vaccines against COVID-19 should be mandated.
-                                    <br>
-                                    <br>
-                                    No one has the right to mandate what goes into an individual’s body.</p>
-                              </div>
-                              <div class="flip-card-back">
-                                <p>Yes, this is a reasonable counterclaim. 
-                                    <br>
-                                    <br>
-                                    Both statements focus on the right of the government to mandate health issues.</p>
+                              <div class="flip-card-inner">
+                                <div class="flip-card-front">
+                                  <p>Vaccines against COVID-19 should be mandated.
+                                      <br>
+                                      <br>
+                                      No one has the right to mandate what goes into an individual’s body.</p>
+                                </div>
+                                <div class="flip-card-back">
+                                  <p>Yes, this is a reasonable counterclaim.
+                                      <br>
+                                      <br>
+                                      Both statements focus on the right of the government to mandate health issues.</p>
+                                </div>
                               </div>
                             </div>
-                          </div>
+                        </div>
+                        <div class="card-wrap">
+                          <div class="card flip-card" onclick="cardRotate(this);">
+                              <div class="flip-card-inner">
+                                <div class="flip-card-front">
+                                  <p>Vaccines against COVID-19 should be mandated.
+                                      <br>
+                                      <br>
+                                      No one has the right to mandate what goes into an individual’s body.</p>
+                                </div>
+                                <div class="flip-card-back">
+                                  <p>Yes, this is a reasonable counterclaim.
+                                      <br>
+                                      <br>
+                                      Both statements focus on the right of the government to mandate health issues.</p>
+                                </div>
+                              </div>
+                            </div>
+                        </div>
+                        <div class="card-wrap">
+                          <div class="card flip-card" onclick="cardRotate(this);">
+                              <div class="flip-card-inner">
+                                <div class="flip-card-front">
+                                  <p>Vaccines against COVID-19 should be mandated.
+                                      <br>
+                                      <br>
+                                      No one has the right to mandate what goes into an individual’s body.</p>
+                                </div>
+                                <div class="flip-card-back">
+                                  <p>Yes, this is a reasonable counterclaim.
+                                      <br>
+                                      <br>
+                                      Both statements focus on the right of the government to mandate health issues.</p>
+                                </div>
+                              </div>
+                            </div>
+                        </div>
+                        <div class="card-wrap">
+                          <div class="card flip-card" onclick="cardRotate(this);">
+                              <div class="flip-card-inner">
+                                <div class="flip-card-front">
+                                  <p>Vaccines against COVID-19 should be mandated.
+                                      <br>
+                                      <br>
+                                      No one has the right to mandate what goes into an individual’s body.</p>
+                                </div>
+                                <div class="flip-card-back">
+                                  <p>Yes, this is a reasonable counterclaim.
+                                      <br>
+                                      <br>
+                                      Both statements focus on the right of the government to mandate health issues.</p>
+                                </div>
+                              </div>
+                            </div>
+                        </div>
+                        <div class="card-wrap">
+                          <div class="card flip-card" onclick="cardRotate(this);">
+                              <div class="flip-card-inner">
+                                <div class="flip-card-front">
+                                  <p>Vaccines against COVID-19 should be mandated.
+                                      <br>
+                                      <br>
+                                      No one has the right to mandate what goes into an individual’s body.</p>
+                                </div>
+                                <div class="flip-card-back">
+                                  <p>Yes, this is a reasonable counterclaim.
+                                      <br>
+                                      <br>
+                                      Both statements focus on the right of the government to mandate health issues.</p>
+                                </div>
+                              </div>
+                            </div>
+                        </div>
                     </div>
-                    <div class="mid-cards mid-cards-min" >
-                        <div class="card flip-card" onclick="cardRotate(this);">
-                            <div class="flip-card-inner">
-                              <div class="flip-card-front">
-                                <p>Vaccines against COVID-19 should be mandated.
-                                    <br>
-                                    <br>
-                                    No one has the right to mandate what goes into an individual’s body.</p>
-                              </div>
-                              <div class="flip-card-back">
-                                <p>Yes, this is a reasonable counterclaim. 
-                                    <br>
-                                    <br>
-                                    Both statements focus on the right of the government to mandate health issues.</p>
-                              </div>
-                            </div>
-                          </div>
-                          <div class="card flip-card" onclick="cardRotate(this);">
-                            <div class="flip-card-inner">
-                              <div class="flip-card-front">
-                                <p>Vaccines against COVID-19 should be mandated.
-                                    <br>
-                                    <br>
-                                    No one has the right to mandate what goes into an individual’s body.</p>
-                              </div>
-                              <div class="flip-card-back">
-                                <p>Yes, this is a reasonable counterclaim. 
-                                    <br>
-                                    <br>
-                                    Both statements focus on the right of the government to mandate health issues.</p>
-                              </div>
-                            </div>
-                          </div>
-                          <div class="card flip-card" onclick="cardRotate(this);">
-                            <div class="flip-card-inner">
-                              <div class="flip-card-front">
-                                <p>Vaccines against COVID-19 should be mandated.
-                                    <br>
-                                    <br>
-                                    No one has the right to mandate what goes into an individual’s body.</p>
-                              </div>
-                              <div class="flip-card-back">
-                                <p>Yes, this is a reasonable counterclaim. 
-                                    <br>
-                                    <br>
-                                    Both statements focus on the right of the government to mandate health issues.</p>
-                              </div>
-                            </div>
-                          </div>
-                    </div>
-                </div>
+                
             </div>
         </section>
 
