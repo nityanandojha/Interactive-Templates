@@ -13,6 +13,13 @@
     -webkit-text-size-adjust: auto;
 }
 
+@font-face {
+    font-family: "HelveticaNeue-Medium";
+    src: url("./fonts/HelveticaNeueMed.ttf");
+    -webkit-font-smoothing: antialiased;
+    -webkit-text-size-adjust: auto;
+}
+
 
 
 @font-face {
@@ -55,7 +62,14 @@ header{
     z-index: 999;
    
 }
-
+.text-end {
+    text-align: right!important;
+    width: 100%;
+    margin-top: 54px;
+}
+.no-grid{
+    display: none !important;
+}
 
 .close-bt:focus, .close-bt:focus-visible{
     outline: 1px solid white;
@@ -91,28 +105,20 @@ header{
     cursor: auto !important;
 }
 
-
+.container, .container-fluid, .container-lg, .container-md, .container-sm, .container-xl, .container-xxl {
+    width: 97%;
+    padding-right: var(--bs-gutter-x,.75rem);
+    padding-left: var(--bs-gutter-x,.75rem);
+    margin-right: auto;
+    margin-left: auto;
+}
 .disabled{
     pointer-events: none;
     opacity: 0.5;
 }
 
-.submit_btn:focus, .submit_btn:focus-visible, .tryagain_btn:focus,
-.tryagain_btn:focus-visible, .reset_btn:focus,
-.reset_btn:focus-visible{
-    box-shadow: 0 0 0 0.15rem rgb(0 0 255) !important;
-}
 
-.btn-submit{
-    background: #d4450c;
-    border: none;
-    padding: 13px 24px 15px 24px;
-    color: #fff;
-    font-family: "HelveticaNeue-Bold";
-    font-size: 22px;
-    border-radius: 10px;
-    line-height: 16px;
-}
+
 .toolCnt{
     display: flex;
     flex-wrap: wrap;
@@ -124,7 +130,7 @@ header{
 
 .toolTxt {
     font-family: "HelveticaNeue-Regular";
-    letter-spacing: 1px;
+    letter-spacing: 0.2px;
     text-align: center;
     text-transform: capitalize;
 }
@@ -143,9 +149,7 @@ header{
     margin-bottom: 10px;
     cursor: pointer;
 }
-.toolContainer_0 {
-   
-}
+
 .toolContainer_0 {
     font-size: 15px;
     text-align: left;
@@ -180,15 +184,19 @@ header{
 .sticky .head-btn-wrap{
     position: unset;
 }
+.top-description{
+    height: 81px;
+    background-color: #fafafa;
+    padding-left: 38px;
+    display: flex;
+    align-items: center;
+}
+
 .activity-header{
     border-bottom: solid 1px #ddd;
     position: relative;
-    box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.16);
-    padding-bottom: 22px;
-    /* position: fixed; */
+    box-shadow: 0px 1px 10px #d6d6d6;
     width: 100%;
-    min-height: 82px;
-    
     top: 0px;
 }
 .activity-content{
@@ -198,14 +206,12 @@ header{
     overflow-y: auto;
     width: 100%;
 }
-.activity-title{
+/* .activity-title{
     color: var(--color);
     font-size: 22PX;
-   font-family: "HelveticaNeue-Bold";
-   padding: 22px 0;
+    font-family: "HelveticaNeue-Bold";   
     font-weight: bold;
-    min-height: 71px;
-}
+} */
 .activity-instruction{
     font-weight:normal;
     color: var(--color);
@@ -223,15 +229,7 @@ header{
     font-size: 20px;
 }
 
-.buttonCont{
-    float: right;
-}
 
-
-
-.selected:focus{
-    outline: none;
-}
 
 .setting-btn{
     position: fixed;
@@ -257,16 +255,18 @@ header{
     outline: -webkit-focus-ring-color auto 2px;;
 }
 
-
 .head-btn{
-    position: relative;
+    position: fixed;
     right: 14px;
     text-align: end;
+    display: flex;
 }
 .head-btn-wrap{
-    width: 100px;
+    position: absolute;
+    width: 100%;
+    right: 0;
     z-index: 1;
-    float: right;
+    top: 0;
 }
 .sticky .head-btn-wrap{
     position: unset;
@@ -277,9 +277,9 @@ header{
     position: absolute;
     background: #5e6062;
     color: #fff;
-    width: 619px;
-    min-height: 167px;
-    padding: 21px 62px 16px 22px;
+    width: 620px;
+    height: 167px;
+    padding: 24px 59px 16px 22px;
     top: 0;
     font-size: 20px;
     display: none;
@@ -295,7 +295,7 @@ header{
 .head-btn .note{
     background: #5f6062;
     color: #fff;
-    padding: 20px 8px 2px 8px;
+    padding: 2px 5px 0 5px;
     border: none;
     font-size: 18px;
     margin-right: 8px;
@@ -318,164 +318,240 @@ header{
     font-weight: normal;
 }
 
+/*===================================FLIP CARD======================*/
+.mid-cards{
+    width: 85%;
+display: grid;
+grid-template-columns: repeat(4, 243px);
+z-index: 2;
+justify-content: center;
+margin: auto;
+}
+.mid-cards-min{
+    width: 85%;
+    display: grid;
+grid-template-columns: repeat(3, 250px);
+z-index: 2;
+justify-content: center;
+}
+.mid-cards .card{
+    border: none;
+width: 212px;
+min-height: 246px;
+border-radius: 12px;
+margin-bottom: 27px;
+}
+.mid-cards .card p{
+    font-size: 16px;
+line-height: 20px;
+width: 152px;
+margin: auto;
+font-family: 'HelveticaNeue-Regular';
+}
+.main-heading {
+width: calc(100% - 154px);
+float: left;
+}
+.activity-title {
+color: var(--color);
+font-size: 22PX;
+font-family: "HelveticaNeue-Bold";
 
+line-height: 28px;
+width: 808px;
+margin-bottom: 0px !important;
+}
 
+.a-container{
+margin-top: 80px;
+text-align: center;
+height: calc(100vh - 80px);
+overflow-y: auto;
+}
+.cards-container{
+text-align: center;
+max-width: 1024px;
+margin: 0 auto;
+/* margin-top: 20px; */
+}
+.card-wrap{
+display: inline-block;
+margin: 0 10px 25px 10px;
+padding-top: 15px;
 
+}
+.flip-card {
+perspective: 1000px;
+transition: transform 0.6s;
+border-radius: 12px;
+background-color: transparent;
+border: none;
+width: 212px;
+height: 246px;
+padding: 1px 0;
+}
 
+.flip-card-inner {
+position: relative;
+width: 100%;
+height: 100%;
+text-align: center;
+border-radius: 12px;
+transition: transform 0.6s;
+transform-style: preserve-3d;
+box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+}
 
+/* .flip-card:hover .flip-card-inner {
+transform: rotateY(180deg);
+} */
+
+.flip-card-front, .flip-card-back {
+position: absolute;
+width: 100%;
+border-radius: 12px;
+height: 100%;
+-webkit-backface-visibility: hidden;
+backface-visibility: hidden;
+padding: 0 23px 0 23px;
+line-height: 20px;
+}
+
+.flip-card-front {
+font-family:'HelveticaNeue-Regular';
+background-color: var(--background);
+color: var(--color);
+border: 1px solid #707070;
+border-radius: 12px;
+display: flex;
+flex-direction: column;
+justify-content: center;
+}
+
+.flip-card-back {
+font-family: 'HelveticaNeue-Medium';
+background-color: var(--color);
+border: 1px solid #707070;
+color: var(--background);
+border-radius: 12px;
+transform: rotateY(180deg);
+display: flex;
+flex-direction: column;
+justify-content: center;
+}
+
+.flip-toggle{
+transform: rotateY(180deg);
+}
+.container, .container-fluid, .container-lg, .container-md, .container-sm, .container-xl, .container-xxl {
+width: 100%;
+padding-right: 18px;
+padding-left: 36px;
+margin-right: auto;
+margin-left: auto;
+}
+
+/*===================================FLIP CARD======================*/
 @media screen and  (device-width: 1350px), (device-height: 760px){
-  
     .activity-title {
         font-size: 22PX;
         line-height: 28px;
         width: 808px;
-    }
-
+    }    
     .head-btn .notice-card {
         width: 547px;
     }
-
-    
 }
 
-@media screen and (min-width: 1024px), (max-width: 1349px) {
-
-}
-@media (min-width: 1200px){
-
-}
-
-@media screen and (max-width: 900px) {
-   
-}
-
-@media screen and (device-width: 650px), (device-height: 365px){
-    .activity-header{
-        /* position: fixed; */
-        width: 100%;
-        /* height: 49%; */
+@media screen and  (max-width: 1000px) and (orientation:landscape ){
+    .top-description{
+        height: 51px;
     }
-   .top-description{
-        height: 50px;
-   }
-
-
-    .feedback {
-        /* width: calc(100% - 135px); */
-        margin-left: 0px;
-        line-height: 20px;
-        letter-spacing: 0.2px;
-        font-weight: normal;
-        color: #5e6062;
+    .activity-title{
         font-size: 16px;
-    }
-    .notice-card button {
-        top: 10px;
-        right: 7px;
-    }
-    .activity-content{
-        position: fixed;
-        top: 52%;
-        height: 51%;
-        overflow-y: auto;
-    }
-
-    .head-btn .notice-card {
-    width: 301px;
-    font-size: 14px;
-    font-family: "HelveticaNeue-Regular";
-    line-height: 18px;
-    letter-spacing: 0.2px;
-    padding: 19px 18px 16px 15px;
-    }
-   
-    .activity-title {
-        font-size: 16px;
-       font-family: "HelveticaNeue-Bold";
         line-height: 20px;
-        max-height: 141px;
+    }
+    .a-container{
+        margin-top: 0;
+        height: calc(100vh - 55px);
     }
 
+    .head-btn .notice-card{
+        width: 320px;
+        height: 134px;
+        padding: 14px 16px 9px 16px;
+        font-size: 14px;
+        line-height: 18px;
+    }
+    .notice-card button{
+        top: 3px;
+        right: 2px;
+    }
 
 }
 
-@media screen and (device-width: 530px), (device-height: 943px), (orientation: portrait) {
-    .activity-header{
-        /* position: fixed; */
-        width: 100%;
-
+@media screen and (min-width: 530px) and  (max-width: 1000px) and (orientation:portrait ){
+    body .top-description{
+        height: 75px;
     }
-    .activity-content{
-        top: 250px;
-    }
-    .feedback {
-        /* width: calc(100% - 135px); */
-        margin-left: 0px;
-        line-height: 20px;
-        letter-spacing: 0.2px;
-        font-weight: normal;
-        color: #5e6062;
+    body .activity-title {
         font-size: 16px;
-    }
-  
-    .matching-items .matching-item {
-        width: 198px;
-    }
-    .activity-title {
-        font-size: 17px;
-       font-family: "HelveticaNeue-Bold";
-        font-weight: bold;
+         font-family: "HelveticaNeue-Bold";        
         line-height: 22px;
     }
-
-    .head-btn .notice-card {
-        width: 303px;
-        font-size: 14px;
+    
+    body .head-btn .notice-card {
+        width: 356px;
+        height: 149px;
+        font-size: 16px;
         line-height: 18px;
+        padding: 14px 16px 12px 18px;
     }
-    .notice-card button {
+    body .notice-card button {
         right: 7px;
         top: 10px;
     }
-    .notice-card p {
-        letter-spacing: 1px;
-        font-size: 14px;
-        line-height: 18px;
+    body .notice-card p {
+        letter-spacing: 0.2px;
+    }    
+    .a-container{
+        margin-top: 0px;
     }
- 
+    .top-description .notice-card{
+        width: 320px ;
+        height: 134px ;
+        font-size: 14px ;
+        line-height: 18px ;
+        padding: 14px 16px 9px 16px ;
+    }
+    .notice-card button{
+        top: 5px;
+        right: 5px;
+    }
+ }
 
-}
 
-@media screen and (max-width: 529px){
-    
-  
+
+@media screen and (max-width: 529px) and (orientation: portrait){
     .activity-header{
-        /* position: fixed; */
         width: 100%;
-    }
-    .activity-content{
-        position: fixed;
-        overflow-y: auto;
-    }
-    .feedback{
-        width: 100%;
-        margin: 0;
-        letter-spacing: 1px;
-        font-size: 16px;
-        line-height: 20px;
-    }
-  
-    .head-btn .notice-card {
-        width: 547px;
-        line-height: 20px;
     }
     .activity-title {
-        padding-top: 0;
+        font-size: 16px;
+        line-height: 22px;
     }
-    
- 
-    .head-btn-wrap{
-        position: unset;
+    .activity-content{       
+        overflow-y: auto;
+    }
+    .top-description{
+        height: 96px;
+        padding-left: 16px;
+    }
+    .a-container{
+        margin-top: 0px;
+    }
+    .head-btn .note{
+        padding-top: 4px;
     }
     .setting-btn {
         position: unset;
@@ -483,24 +559,24 @@ header{
         top: 0;
         text-align: end;
     }
-    .head-btn .notice-card {
-        width: 255px !important;
-    }
-    .head-btn .notice-card {
-        padding: 27px 18px 16px 15px;
-    }
     
-    
-
+    .head-btn .notice-card {
+        padding: 17px 15px 7px 17px;
+        width: 255px;
+        height: 168px;
+        font-size: 14px;
+        line-height: 18px;  
+    }
+    .notice-card button{
+        top: 7px;
+    }
     .settings-container{
         width: 232px;
     }
-
-    .toolContainer_0 {
+    .toolContainer_0{
         width: 100%;
     }
-
-   
 }
+
 
 
