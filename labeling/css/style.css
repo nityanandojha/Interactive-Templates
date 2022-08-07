@@ -77,7 +77,7 @@ body {
     font-family: "HelveticaNeue-Bold";
     padding-top: 15px;
     font-weight: bold;
-    padding-left: .75rem;
+    padding-left: 1.75rem;
 }
 
 .activity-instruction {
@@ -127,12 +127,10 @@ body {
     width: 80%;
     height: 100%;
     bottom: 10px;
-    background-color: #fff;
-    border-radius: 0 0 25px 0px;
+    border-radius: 0 0 20px 0px;
     text-align: center;
-    box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.29);
     background-color: #fafafa;
-    border-bottom: 2px solid gray;
+    border-bottom: 2px solid #b2b2b2;
 
     display: flex;
     justify-content: center;
@@ -146,7 +144,7 @@ body {
 #reviewCont {
     position: absolute;
     bottom: 0px;
-    border-bottom: 2px solid gray;
+    border-bottom: 2px solid #b2b2b2;
     border-radius: 0 0 10px 10px;
 }
 
@@ -155,11 +153,11 @@ body {
     outline: none;
     color: #d4450c;
     font-family: HelveticaNeue-Medium;
-    font-size: 14px;
+    font-size: 20px;
     line-height: 16px;
-    background-color: #fff;
-    width: 132px;
-    height: 24px;
+    background-color: #fafafa;
+    width: 160px;
+    height: 30px;
     border: none;
 }
 
@@ -189,8 +187,7 @@ body {
     border: none;
     border-bottom: 2px dotted #d5d5d5;
     margin: 0px 0px;
-    background-color: transparent;
-    opacity: 0.5;
+    /* background-color: transparent; */
 }
 
 .text-end {
@@ -340,7 +337,7 @@ body {
 .activity-content {
     position: fixed;
     height: calc(100vh - 209px);
-    top: 209px;
+    top: 225px;
     overflow-y: auto;
     width: 100%;
 }
@@ -371,7 +368,7 @@ body {
     justify-content: end;
     margin-top: 50px;
     z-index: 0;
-    padding-left: .75rem;
+    padding-left: 1.75rem;
     padding-right: .75rem;
 }
 
@@ -829,12 +826,12 @@ body {
 
     .activity-content {
         position: fixed;
-        top: 52%;
         overflow-y: auto;
+        padding-right: 15px;
     }
 
     .head-btn .notice-card {
-        width: 301px;
+        width: 315px;
         font-size: 14px;
         font-family: "HelveticaNeue-Regular";
         line-height: 18px;

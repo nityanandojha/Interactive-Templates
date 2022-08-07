@@ -570,7 +570,7 @@ var matching = (function() {
                 $(".reviewContainer").removeClass("moveDown");
                 $(".reviewContainer").addClass("containerTOP");
                 $("#reviewBtn i").removeClass("up").addClass("down");
-                $("#reviewBtn p").html("Review Activity");
+                $("#reviewBtn p").html("Review Image");
                 isDown = false;
             }else{
                 //$(".reviewContainer").css({"transform" : "translate(0px, 0px)"});
