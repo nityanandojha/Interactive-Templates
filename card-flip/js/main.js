@@ -9,7 +9,6 @@ var matching = (function() {
 
     this.init = function(data) {
         this.loadXML();
-
         $(".notice-card").show();
         $(".notice-card").css("zIndex","3");
         $(".settings-container").css("zIndex","2");
@@ -51,7 +50,6 @@ var matching = (function() {
                     if (status != "error") {
                         var settXml = $.parseXML($("#tempSetting").html());
                         var settingXML = $(settXml);
-
                         var xmlDoc = $.parseXML($("#tempDiv").html());
                         var xml = $(xmlDoc);
                         fetchData(xml);
@@ -69,23 +67,28 @@ var matching = (function() {
 
         var items = xml.find("items").find("item");
         //var matchItem = xml.find("items").find("matching").find("text");
-        
-        
         items.each((index, el) => {
-            
             var ftxt = $(el).find("front text").html();
-            var btxt = $(el).find("back text    ").html();
-            console.log("Front: ", ftxt);
-            console.log("Back: ", btxt);            
-            var frontAria = "card " + (index+1) + ", side 1: "; 
-            var backAria = "card " + (index+1) + ", side 2: "; 
-            $("#cloneItem_d").clone().appendTo(".cards-container").attr("id", "card_"+index);
-            $("#cloneItem_d .flip-card-front").attr("alt", frontAria).html(ftxt);
-            $("#cloneItem_d .flip-card-back").attr("aria-label", backAria).html(btxt);
-            
+            var btxt = $(el).find("back text").html();
+            var frontAria = "Card " + (index+1) + ", Side 1: " + ftxt; 
+            var backAria = "Card " + (index+1) + ", Side 2: " + btxt;
+            frontAria = frontAria.replaceAll("<p>", "");
+            frontAria = frontAria.replaceAll("</p>", " ");
+            backAria = backAria.replaceAll("<p>", "");
+            backAria = backAria.replaceAll("</p>", " ");
+            var item = $("#cloneItem_d").clone()
+            $(item).find(".flip-card").attr({"data-front": frontAria, "data-back": backAria, "aria-label": frontAria});
+            $(item).appendTo(".cards-container").attr("id", "card_"+index);
+            $(item).find(".flip-card-front").html(ftxt).attr("aria-hidden", true);
+            $(item).find(".flip-card-back").html(btxt).attr("aria-hidden", true);
+
+            //$("#cloneItem_d .flip-card-front").html(ftxt);
+            //$("#cloneItem_d .flip-card-back").html(btxt);
+            //console.log($("#card_"+index)[0]);
+            //console.log(item);
         });
 
-        $("#cloneItem_d").remove();
+        //$("#cloneItem_d").remove();
         $(".shuffle").shuffleChildren();
         
     }

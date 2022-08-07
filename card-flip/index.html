@@ -16,9 +16,13 @@
     <script src="js/util.js"></script>
     <script src="js/main.js"></script>
     <script>
-      function cardRotate(e){         
-         $(e).find('.flip-card-inner').toggleClass('flip-toggle')     
-            //document.getElementById('cd-rt').style.transform='rotateY(180deg)';
+      function cardRotate(e){
+         $(e).find('.flip-card-inner').toggleClass('flipped');
+            if($('.flip-card-inner').hasClass("flipped")){
+               $(e).attr("aria-label", $(e).attr("aria-back"));
+            }else{
+                $(e).attr("aria-label", $(e).attr("aria-front"));
+            }
         }
     </script>
 </head>
@@ -53,26 +57,24 @@
         <section>
             <div class="a-container">
                 <div class="cards-container">
-                    <div id="cloneItem_d" class="card-wrap">
-                        <button class="card flip-card" onclick="cardRotate(this);">
-                            <span class="flip-card-inner">
-                                <span class="flip-card-front">
-                                    <p>Vaccines against COVID-19 should be mandated.
-                                        No one has the right to mandate what goes into an individual's body.</p>
-                                </span>
-                                <span class="flip-card-back">
-                                    <p>Yes, this is a reasonable counterclaim.                                    
-                                        Both statements focus on the right of the government to mandate health issues.</p>
-                                </span>
-                            </span>
-                        </button>
-                    </div>
+                    
                 </div>
             </div>
         </section>
-        
     </div>
     <div id="tempDiv" style="display:none"></div>
     <div id="tempSetting" style="display:none"></div>
+    <div id="cloneItem_d" class="card-wrap">
+        <button class="card flip-card" onclick="cardRotate(this);">
+            <span class="flip-card-inner">
+                <span class="flip-card-front">
+                    <p></p>
+                </span>
+                <span class="flip-card-back">
+                    <p></p>
+                </span>
+            </span>
+        </button>
+    </div>
 </body>
 </html>
