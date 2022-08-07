@@ -856,11 +856,11 @@ body {
     }
 }
 
-@media screen and (device-width: 530px), (orientation: landscape){
+/* @media screen and (device-width: 530px), (device-height: 943px), (orientation: landscape){
     .containerTOP {
         transform: translate(0px, 30px);
     }
-}
+} */
 
 @media screen and (device-width: 530px), (device-height: 943px), (orientation: portrait) {
 
