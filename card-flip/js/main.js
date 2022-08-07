@@ -41,53 +41,7 @@ var matching = (function() {
                 $(".settings-container").hide();
                 $(".setting-button").focus();
             })
-        })
-        
-        $(".tryagain_btn").off().on("click", function() {
-            tryAgain();
-        })
-
-        $(".reset_btn").off().on("click", function(){
-            tryAgain();
-        })
-    }
-
-    var tryAgain = function(){
-        $(".clickable-item").prop("disabled", false);
-        $(".matching-item").prop("disabled", false);
-        $(".clickableBlock").removeClass("no-grid");
-
-        $(".matching-element").find(".clickable-item").removeClass("wrong-border-up");
-        $(".matching-element").find(".matching-item").removeClass("wrong-border-bottom");
-        $(".matching-element").find(".clickable-item").removeClass("right-border-up");
-        $(".matching-element").find(".matching-item").removeClass("right-border-bottom");
-       
-
-        $(".activity-header").removeClass("h-48p");
-        $(".activity-content").removeClass("p-48p");
-
-        $(".clickedEvent").appendTo(".clickableBlock");
-        $(".clickedEvent").removeAttr("data-placed");
-        $(".clickedEvent").attr("class", classnames);
-
-        $(".matchedEvent").removeClass("placed");
-        $(".matchedEvent").removeAttr("data-placed");
-        $(".matchedEvent").off().on("click", matchHandler);
-
-        $(".tryagain_btn").hide();
-        $(".reset_btn").hide();
-        $(".submit_btn").show();
-        $(".submit_btn").addClass("disabled");
-        $(".submit_btn").addClass("mobile-submit");
-        $(".submit_btn").prop("disabled", true);
-
-        $(".matching-element").removeClass("submitted").removeClass("correct-ans");
-        $(".matching-element").removeClass("submitted").removeClass("wrong-ans");
-
-        $("#r-feedback").hide();
-        $("#w-feedback").hide();
-
-        $(".activity-header").removeClass("pad0");
+        })          
     }
 
     this.loadXML = function(){
@@ -115,119 +69,25 @@ var matching = (function() {
 
         var items = xml.find("items").find("item");
         //var matchItem = xml.find("items").find("matching").find("text");
-        data["ques"] = [];
+        
+        
         items.each((index, el) => {
-            var tempObj = {};
-            tempObj["clickable"] = $(el).find("clickable text").html();
-            tempObj["matching"] = $(el).find("matching text").html();
-
-            data.ques.push(tempObj);
-            var txt = data.ques[index].clickable;
-            $("#cloneItem_d").clone().appendTo(".clickableBlock");
-            $("#cloneItem_d .clickable-item").attr("alt", "Item to match:  "+ txt);
-            $("#cloneItem_d .clickable-item").attr("aria-label", "Iteam to match: "+txt);
-
-            $("#cloneItem_d .clickable-item p").html(txt);
-            $("#cloneItem_d").addClass("clickedEvent");
-            $("#cloneItem_d").attr("id", "cloneItem_"+index);
-
-            enterCounter[`cloneItem_${index}`] = 1;
             
-            var txt = data.ques[index].matching;
-            $("#matchBox_d .matching-item").attr("alt", "Item to match: "+ txt);
-            $("#matchBox_d .matching-item").attr("aria-label", "Description to match: "+txt);
-            $("#matchBox_d").clone().appendTo(".matchingBlock");
-            $("#matchBox_d .matching-item p").html(data.ques[index].matching);
-            $("#matchBox_d").addClass("matchedEvent");
-            $("#matchBox_d").attr("id", "matchBox_"+index);
+            var ftxt = $(el).find("front text").html();
+            var btxt = $(el).find("back text    ").html();
+            console.log("Front: ", ftxt);
+            console.log("Back: ", btxt);            
+            var frontAria = "card " + (index+1) + ", side 1: "; 
+            var backAria = "card " + (index+1) + ", side 2: "; 
+            $("#cloneItem_d").clone().appendTo(".cards-container").attr("id", "card_"+index);
+            $("#cloneItem_d .flip-card-front").attr("alt", frontAria).html(ftxt);
+            $("#cloneItem_d .flip-card-back").attr("aria-label", backAria).html(btxt);
+            
         });
 
         $("#cloneItem_d").remove();
-        $("#matchBox_d").remove();
-
-        $("#r-feedback p").html(xml.find("rightfeedback").text());
-        $("#w-feedback p").html(xml.find("wrongfeedback").text());
-        
         $(".shuffle").shuffleChildren();
-
-        var heightArr = [];
-        $('.matching-item').each(function(index, element) {
-            var height = $(element).outerHeight();
-            heightArr.push(height);
-        });
-
-        var maxHeight = Math.max(...heightArr);
-        var maxHofClickitem = $('.clickable-item').outerHeight();
-        $('.matching-item').css({"height":maxHeight+"px"});
-
-        $('.matchedEvent').css({"height": (maxHeight+maxHofClickitem+15)+"px"});
-
-        $(document).keyup(function(event) {
-            //get the id of element on which enter key pressed
-            const elemId = $(prevBtn).attr('id');
-
-            event.preventDefault();
-            var keycode = (event.keyCode ? event.keyCode : event.which);
-
-            //escape key for deselect 
-            if(keycode == 27){
-                //prevBtn.removeClass("selected");
-                prevBtn = null;
-                $(curDiv).find(".clickable-item").removeClass("selected");
-                curDiv = null;
-                $(".selected").removeClass("selected");
-                $(".matching-item").blur();
-                $(".clickable-item").blur();
-            }
-
-            //if key for enter event
-            if (keycode == 13) {
-                //get the count of enter pressed on element
-                const enterCount = enterCounter[elemId];
-                //if enter has pressed two times
-                console.log(enterCount, " enter count ", enterCounter);
-                if (enterCount > 2) {
-                    //reset the value
-                    enterCounter[elemId] = 1;
-
-                    var same = true;
-                    try{
-                        same = prevBtn == $(this);
-                    }catch(err){
-                        //console.log(err);
-                        same=true;
-                    }
-                    if(!same){
-                        if(prevBtn){
-                            if($(prevBtn).hasClass("clickable-items")){
-                                //console.log("SAME......");
-                                console.info('if', {prevBtn})
-                            }else{
-                                //console.log("BACK.....Else", prevBtn);
-                                $(prevBtn).appendTo($(".clickable-items").find(".clickableBlock"));                    
-                                var iid = $(prevBtn).attr("data-placed");
-                                console.info('iid', iid);
-                                $("#"+iid).removeClass("placed");
-                                $("#"+iid).removeAttr("data-placed");
-                                $(prevBtn).removeAttr("data-placed");
-                                $(".submit_btn").addClass("disabled");
-                                $(".submit_btn").prop("disabled", true);
-                                prevBtn=null;
-                                $(".selected").removeClass("selected");
-                                $(".matching-item").blur();
-                                $(".clickable-item").blur();
-                                return;
-                            }
-                        }
-                    }
-
-                    console.log("Normal click....");
-                    prevBtn = $(this);
-                }
-                enterCounter[elemId] += 1;
-            }
-            console.log(keycode, " ************ ");
-        });
+        
     }
 
     function createSettingBox(data){
@@ -255,7 +115,7 @@ var matching = (function() {
                 "class": "toolTxt toolTxt_"+(index+1),                
             }).html($(element).find("title").html()).appendTo(btn);
 
-            console.log($(".toolContainer")[0]);
+            //console.log($(".toolContainer")[0]);
             $(".toolContainer:first").attr("aria-pressed", "true");
             $(btn).on("click", function(e){
                 console.log($(this).attr("data-color"));
@@ -267,210 +127,6 @@ var matching = (function() {
                 r.style.setProperty('--selectioncolor', $(this).attr("data-selectioncolor"));
             })
         });
-    }
-
-    function matchHandler(e){        
-        if(!$(e.target).hasClass("clickable-item")){
-            prevBtn = null;
-        }
-        if(curDiv == null){
-            return;
-        }
-
-        if(!$(this).attr("data-placed")){
-            $(this).find(".matching-element").prepend(curDiv);
-
-            const elemId = $(curDiv).attr('id');
-            //reset the value
-            enterCounter[elemId] = 1;
-
-            classnames = $(this).find(".clickedEvent").attr('class');
-            $(this).find(".clickedEvent").attr("class", 'clickedEvent');
-
-            var prevMatched = $(curDiv).attr("data-placed");
-            $("#"+prevMatched).removeAttr("data-placed");
-            $("#"+prevMatched).removeClass("placed");
-            console.log(" *-*-*-*-*-*-*-*-*-* ");
-            $(".selected").removeClass("selected");
-            $(".matching-item").blur();
-            $(".clickable-item").blur();
-        }else{
-            if($(curDiv).attr("data-placed")){
-                if(curMatchbox == $(this).attr("id")){
-                    return;
-                }
-                console.log(" 000000000000000000 ");
-                var parent = $("#"+$(curDiv).attr("data-placed"));                
-                var apend = $("#"+$(this).attr("data-placed"));
-                parent.find(".matching-element").prepend(apend);
-
-                const elemId = $(curDiv).attr('id');
-                //reset the value
-                enterCounter[elemId] = 1;
-
-                classnames = $(this).find(".clickedEvent").attr('class');
-                $(this).find(".clickedEvent").attr("class", 'clickedEvent');
-
-                apend.attr("data-placed", parent.attr("id"));
-                parent.attr("data-placed", apend.attr("id"));
-                parent.addClass("placed");
-                
-                $(this).find(".matching-element").prepend($(curDiv));
-
-                classnames = $(this).find(".clickedEvent").attr('class');
-                $(this).find(".clickedEvent").attr("class", 'clickedEvent');
-            }else{
-                if($("#"+$(this).attr("data-placed"))){
-                    if (curDiv) {
-                        var placedEle = $("#"+$(this).attr("data-placed"));
-                        $(".clickableBlock").append(placedEle);
-
-                        placedEle.removeAttr("data-placed")
-                        
-                        $(this).find(".matching-element").prepend(curDiv);
-
-                        const elemId = $(curDiv).attr('id');
-                        //reset the value
-                        enterCounter[elemId] = 1;
-
-                        classnames = $(this).find(".clickedEvent").attr('class');
-                        $(this).find(".clickedEvent").attr("class", 'clickedEvent');
-                        console.log(" 11111111111111111 ");
-                    }
-                }else{
-                    console.log(" 2222222222222222222222 ");
-                }
-            }
-           
-        }
-
-        $(curDiv).attr("data-placed", $(this).attr("id"));
-        $(this).attr("data-placed", $(curDiv).attr("id"));
-        $(this).addClass("placed");
-
-        $(curDiv).find(".clickable-item").removeClass("selected");
-        curDiv = null;
-
-        if($(".placed").length == data.ques.length){
-            $(".submit_btn").prop("disabled", false)
-            $(".submit_btn").removeClass("disabled");
-            $(".submit_btn").removeClass("mobile-submit");
-            $(".activity-header").addClass("pad0");
-            $(".clickableBlock").addClass("no-grid");
-        }
-    }
-
-    $(".submit_btn").click(function(){
-        
-        var wCount = 0;
-        var rCount = 0;
-        $(".clickable-item").prop("disabled", true);
-        $(".matching-item").prop("disabled", true);
-        
-        $(".activity-header").addClass("h-48p");
-        $(".activity-content").addClass("p-48p");
-        for(var i=0; i<data.ques.length; i++){
-            var clicksId = $("#cloneItem_"+i).attr("id").replace("cloneItem_", "");
-            var machedId = $("#cloneItem_"+i).attr("data-placed").replace("matchBox_", "");
-
-            if(clicksId == machedId){
-                $("#matchBox_"+machedId).find(".matching-element").addClass("submitted").addClass("correct-ans");
-                $("#matchBox_"+machedId).find(".matching-element").find(".clickable-item").addClass("right-border-up");
-                $("#matchBox_"+machedId).find(".matching-element").find(".matching-item").addClass("right-border-bottom");
-                rCount++;
-            }else{
-                $("#matchBox_"+machedId).find(".matching-element").addClass("submitted").addClass("wrong-ans");
-                $("#matchBox_"+machedId).find(".matching-element").find(".clickable-item").addClass("wrong-border-up");
-                $("#matchBox_"+machedId).find(".matching-element").find(".matching-item").addClass("wrong-border-bottom");
-                wCount++;
-            }
-        }
-
-        if(wCount == 0){
-            $(".reset_btn").show().focus();
-            $(".tryagain_btn").hide();
-            $(".submit_btn").hide();
-
-            $("#r-feedback").show();
-        }else{
-            $(".tryagain_btn").show().focus();
-            $(".reset_btn").hide();
-            $(".submit_btn").hide();
-
-            $("#w-feedback").show();
-        }
-
-        curDiv = null;
-        prevBtn = null;
-    })
-
-    function bindEvents(){
-        $(".clickedEvent").click(function clickableHandler(e){
-            if(prevBtn){
-                console.log("back.......");
-            }else{
-                if(!$(this).closest('.clickable-items').length){
-                    console.log("placed");
-                    prevBtn = $(this);
-                }
-            }
-            if(curDiv){
-                $(curDiv).find(".clickable-item").removeClass("selected");
-            }
-            curDiv = this;
-            $(curDiv).find(".clickable-item").addClass("selected");
-
-            if($(curDiv).attr('data-placed') != ""){
-                const elemId = $(curDiv).attr('id');
-                enterCounter[elemId] += 1;
-            }
-
-            if($(this).attr("data-placed")){
-                curMatchbox = $(this).attr("data-placed");
-            }
-            
-            $(".matchedEvent").off().on("click", matchHandler);
-        })
-
-        $(".matchedEvent").off().on("click", matchHandler);
-
-        $(".clickable-items").click(function(e) {
-            var same = true;
-            try{
-                same = prevBtn == $(this);
-            }catch(err){
-                //console.log(err);
-                same=true;
-            }
-            if(!same){
-                if(prevBtn){
-                    if($(prevBtn).hasClass("clickable-items")){
-                        //console.log("SAME......");
-                    }else{
-                        if($(e.target).hasClass("submit_btn")){
-                            return;
-                        }
-                        console.log("BACK.....", prevBtn);
-                        $(prevBtn).appendTo($(".clickable-items").find(".clickableBlock"));                    
-                        var iid = $(prevBtn).attr("data-placed");
-                       // console.log("id ", iid);
-                        $("#"+iid).removeClass("placed");
-                        $("#"+iid).removeAttr("data-placed");
-                        $(prevBtn).removeAttr("data-placed");
-                        $(".submit_btn").addClass("disabled");
-                        $(".submit_btn").prop("disabled", true);
-                        $(".selected").removeClass("selected");
-                        $(".matching-item").blur();
-                        $(".clickable-item").blur();
-                        prevBtn=null;
-                        return;
-                    }
-                }
-            }
-
-            console.log("Normal click....");
-            prevBtn = $(this);
-        })
     }
 
     $.fn.shuffleChildren = function() {
@@ -485,8 +141,6 @@ var matching = (function() {
             $el.empty();
             $find.appendTo($el);
         });
-
-        bindEvents();
     };
 
     return this;
@@ -497,9 +151,3 @@ var matching = (function() {
     matchingObj.init();
  });
  
- //  sticky header  //
-//  window.addEventListener("scroll", function(){
-//      var header = document.querySelector("header");
-//      header.classList.toggle("sticky", window.scrollY > 0);
-//  })
-   //  sticky header  //

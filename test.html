@@ -5,22 +5,17 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <style>
-        body{
-            margin: 0;
-            padding: 0;
+    <script>
+        window.onload= function(){
+            var wd = window.innerWidth;
+            var ht = window.innerHeight;
+            document.getElementById("in-w").innerHTML = "Width: " + wd;
+            document.getElementById("in-h").innerHTML = "height: " + ht;
         }
-        #a{
-            border: 1px solid;
-        }
-        main{
-            /* border: 1px solid; */
-        }
-    </style>
+    </script>
 </head>
 <body>
-    <main>
-        <iframe width="650" height="365" src="labeling/index.html" frameborder="0" id="a"></iframe>
-    </main>
+    <h2 id="in-w"></h2>
+    <h2 id="in-h"></h2>
 </body>
 </html>
