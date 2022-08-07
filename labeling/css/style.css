@@ -88,7 +88,7 @@ body {
 }
 
 .moveTOP{
-    transform: translate(0px, -89vh);
+    transform: translate(0px, -88vh);
 }
 
 .containerTOP{
@@ -263,6 +263,7 @@ body {
     font-size: 22px;
     border-radius: 10px;
     line-height: 16px;
+    width: 142px;
 }
 
 .toolCnt {
@@ -856,16 +857,10 @@ body {
     }
 }
 
-/* @media screen and (device-width: 530px), (device-height: 943px), (orientation: landscape){
-    .containerTOP {
-        transform: translate(0px, 30px);
-    }
-} */
-
 @media screen and (device-width: 530px), (device-height: 943px), (orientation: portrait) {
 
     .activity-content {
-        top: 250px;
+        top: 263px;
         height: 73vh;
     }
 
@@ -940,7 +935,7 @@ body {
     }
 
     #imageCont img{
-        width: 67%;
+        width: 61%;
         margin-top: 510px;
     }
 
@@ -1015,7 +1010,7 @@ body {
     }
 
     #imageCont img{
-        margin-top: 312px;
+        margin-top: 296px;
     }
 
     .moveTOP{
@@ -1023,7 +1018,7 @@ body {
     }
 
     .containerTOP{
-        transform: translate(0px, 0);
+        transform: translate(0px, 8px);
     }
 
     .clickable-items {
@@ -1032,14 +1027,18 @@ body {
 
     .feedback {
         width: 100%;
-        margin: 0;
         letter-spacing: 0.2px;
         font-size: 16px;
         line-height: 20px;
+        padding: 0 25px;
+    }
+
+    .activity-header {
+        height: 260px;
     }
 
     .text-end {
-        margin-top: 20px;
+        margin-top: 0px;
     }
 
     .head-btn .notice-card {
