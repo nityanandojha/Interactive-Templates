@@ -159,6 +159,7 @@ var matching = (function() {
                 img.src = txt;
                 img.className = "matchingImage";
                 temp = img;
+                $(img).attr("alt", "image "+index);
                 iArr.push(temp);
                 img.onload = function (){
                     console.log("loaded", this.height);
@@ -571,6 +572,7 @@ var matching = (function() {
                 $(".reviewContainer").addClass("containerTOP");
                 $("#reviewBtn i").removeClass("up").addClass("down");
                 $("#reviewBtn p").html("Review Image");
+                $("#reviewBtn").attr("aria-label", "Review Image");
                 isDown = false;
             }else{
                 //$(".reviewContainer").css({"transform" : "translate(0px, 0px)"});
@@ -581,6 +583,7 @@ var matching = (function() {
                 $(".reviewContainer").addClass("containerDown");
                 $("#reviewBtn i").removeClass("down").addClass("up");
                 $("#reviewBtn p").html("Begin Activity");
+                $("#reviewBtn").attr("aria-label", "Begin Activity");
 
                 $("#reviewParent").css({"background-color": "rgb(112 112 112 / 80%)"});
                 isDown = true;
