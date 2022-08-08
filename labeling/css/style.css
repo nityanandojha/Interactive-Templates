@@ -695,6 +695,13 @@ body {
 
 }
 
+@media screen and (min-width: 1350px),
+(max-height: 657px) {
+    .moveTOP {
+        transform: translate(0px, -86vh);
+    }
+}
+
 @media screen and (min-width: 1024px),
 (max-width: 1349px) {
     .clickable-items .clickable-item {
