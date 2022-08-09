@@ -118,12 +118,14 @@ header{
 .btn-submit{
     background: #d4450c;
     border: none;
-    padding: 13px 24px 15px 24px;
+    padding: 0px 30px;
     color: #fff;
     font-family: "HelveticaNeue-Bold";
     font-size: 22px;
-    border-radius: 10px;
+    border-radius: 2px;
     line-height: 16px;
+    height: 40px;
+    min-width: 120px;
 }
 .toolCnt{
     display: flex;
@@ -628,8 +630,8 @@ header{
         max-width: 198px;
         min-width: 198px;
     }
-    .no-grid{
-        display: none !important;
+    .clickable-items{
+        height: 115px;
     }
     .clickable-item.wrong-border-up::after{
         height: 20px;
@@ -696,7 +698,7 @@ header{
     }
     .btn-submit {
         font-size: 16px;
-        line-height: 16px;
+        
     }
     .clickable-items .clickable-item{
         width: 198px;
