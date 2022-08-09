@@ -536,6 +536,10 @@ var matching = (function() {
 });
  
  $(document).ready(function() {
+    //console.log($("#gear-icon"));
+    //gear-icon.styel.fill = 'yellow';
+    var icon = document.getElementById("gear-icon");
+    console.log(icon);
     let matchingObj = new matching();
     matchingObj.init();
  });
