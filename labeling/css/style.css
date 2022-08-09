@@ -701,7 +701,12 @@ body {
 @media screen and (min-width: 1350px),
 (max-height: 657px) {
     .moveTOP {
-        transform: translate(0px, -86vh);
+        transform: translate(0px, calc(90px - 100vh));
+    }
+
+    #imageCont img {
+        width: 254px;
+        margin-top: 34px;
     }
 }
 
