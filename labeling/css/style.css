@@ -299,7 +299,10 @@ body {
     cursor: pointer;
 }
 
-.toolContainer_0 {}
+.container-fluid{
+    width: 96%;
+    padding-right: 0;
+}
 
 .toolContainer_0 {
     font-size: 15px;
@@ -336,7 +339,7 @@ body {
 
 .activity-content {
     position: fixed;
-    height: calc(100vh - 209px);
+    height: calc(100vh - 225px);
     top: 225px;
     overflow-y: auto;
     width: 100%;
@@ -693,6 +696,13 @@ body {
         padding: 20px 20px;
     }
 
+}
+
+@media screen and (min-width: 1350px),
+(max-height: 657px) {
+    .moveTOP {
+        transform: translate(0px, -86vh);
+    }
 }
 
 @media screen and (min-width: 1024px),
@@ -1115,4 +1125,45 @@ body {
     .mobile-submit {
         display: none;
     }
+}
+
+
+.activity-content::-webkit-scrollbar-track {
+    /* -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3); */
+    width: 5px;
+    border-radius: 5px;
+    background-color: #d4d4d4;
+  }
+  
+  .activity-content::-webkit-scrollbar {
+    width: 12px;
+    background-color: transparent;
+  }
+  
+  .activity-content::-webkit-scrollbar-thumb {
+    width: 5px;
+    border-radius: 5px;
+    /* -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, .3); */
+    background-color: rgb(255, 255, 255);
+    border: 1px solid #555;
+  }
+ .activity-content::-webkit-scrollbar-button:single-button:vertical:decrement {
+    width: 5px;
+    /* background-color: #0180ff; */
+    background-image: url(../images/up-arrow.png);
+    display: block;
+    background-size:contain;
+    background-repeat: no-repeat;
+}
+/* .activity-content::-webkit-scrollbar-button:single-button:vertical:decrement:hover {
+    background-color: #002d59;    
+} */
+
+.activity-content::-webkit-scrollbar-button:single-button:vertical:increment {
+    width: 5px;
+    /* background-color: #f19a0c; */
+    background-image: url(../images/down-arrow.png);
+    display: block;
+    background-size:contain;
+    background-repeat: no-repeat;
 }
