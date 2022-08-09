@@ -299,7 +299,10 @@ body {
     cursor: pointer;
 }
 
-.toolContainer_0 {}
+.container-fluid{
+    width: 96%;
+    padding-right: 0;
+}
 
 .toolContainer_0 {
     font-size: 15px;
