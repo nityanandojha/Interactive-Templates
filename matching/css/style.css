@@ -832,6 +832,7 @@ header{
     .activity-content{
         position: fixed;
         overflow-y: auto;
+        top: 237px;
     }
     .feedback{
         width: 100%;
@@ -863,6 +864,7 @@ header{
     .matching-items .clickable-item {
         /* position: unset; */
         padding: 20px;
+        width: 198px;
     }
     .matching-items .matching-item {
         width: 198px;
@@ -907,6 +909,7 @@ header{
     .clickable-items .clickable-item {
         min-width: 198px;
         padding: 20px;
+        width: 198px;
     }
 
     .settings-container{

@@ -6,8 +6,7 @@
   <wrongfeedback>Incorrect. Try again. Refer to Chapter 10 of your textbook to review counterclaims, their relation to claims, and their purpose in argument.</wrongfeedback>
   <reviewimage>assets/images/HeartAnatomy.png</reviewimage>
   <items>
-    <item>
-    
+    <item>    
       <clickable>
         <text>Pulminary Vein</text>
       </clickable>
