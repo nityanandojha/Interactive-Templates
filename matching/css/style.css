@@ -268,10 +268,11 @@ header{
     min-height: 100px;
     width: 224px;
     margin: 0 auto 15px auto;
-    border-radius: 15px 15px 0px 0;
+    border-radius: 8px 8px 0px 0;
     padding: 20px 18px;
-    border: solid 2px #BCBCBC;
+    border: solid 2px #D5D5D5;
     cursor: pointer;
+    line-height: 23px;
 }
 .row.clickableBlock{
     display: grid;
@@ -371,9 +372,9 @@ header{
     width: 224px;
     min-width: 224px;
     max-width: 224px;
-    border-radius: 0 0 15px 15px;
+    border-radius: 0 0 8px 8px;
     padding: 10px 10px;
-    border: 2px solid #707070;
+    border: 2px solid #5E6062;
 }
 .matching-items .matching-item p{
     margin-bottom: 0px;

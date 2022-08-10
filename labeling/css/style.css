@@ -115,11 +115,12 @@ body {
 
 .reviewContainer {
     transition: transform 0.5s;
-    overflow: hidden;
+    /* overflow: hidden; */
     height: 100vh;
     border-radius: 0 0 0 11px;
     z-index: 1;
     transform: translate(0, 0);
+    position: relative;
 }
 
 #imageCont {
@@ -131,7 +132,7 @@ body {
     text-align: center;
     background-color: #fafafa;
     border-bottom: 2px solid #b2b2b2;
-
+    box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.29);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -141,24 +142,31 @@ body {
     width: 464px;
 }
 
-#reviewCont {
+/* #reviewCont {
     position: absolute;
     bottom: 0px;
     border-bottom: 2px solid #b2b2b2;
     border-radius: 0 0 10px 10px;
-}
+} */
 
 #reviewBtn {
-    border-radius: 0 0 10px 10px;
+    border-radius: 0 0 18px 18px;
     outline: none;
     color: #d4450c;
     font-family: HelveticaNeue-Medium;
     font-size: 20px;
+    display: flex;
     line-height: 16px;
-    background-color: #fafafa;
-    width: 160px;
+    background-color: #fff;
+    position: absolute;
+    width: 173px;
     height: 30px;
     border: none;
+    bottom: 0px;
+    box-shadow: 0px 5px 12px 0 rgb(0 0 0 / 16%);
+    justify-content: space-between;
+    align-items: baseline;
+    padding: 2px 12px;
 }
 
 .matchingImage {
@@ -643,6 +651,8 @@ body {
     font-weight: normal;
 }
 
+
+
 @media screen and (device-width: 1350px),
 (device-height: 760px) {
     .matching-element.submitted::after {
@@ -871,8 +881,10 @@ body {
     }
 }
 
-@media screen and (device-width: 530px), (device-height: 943px), (orientation: portrait) {
-
+@media screen and (min-width: 530px) and (orientation: portrait) {
+    .matchedEvent:last-of-type{
+        margin-bottom: 100px;
+    }
     .activity-content {
         top: 263px;
         height: 73vh;
@@ -908,9 +920,9 @@ body {
         line-height: 22px;
     }
 
-    .unsetonsubmit{
+    /* .unsetonsubmit{
         display: unset;
-    }
+    } */
 
     .no-grid {
         display: none !important;
@@ -1000,7 +1012,17 @@ body {
         flex-direction: column;
     }
 }
-
+@media screen and  (max-width: 1000px) and (orientation: landscape){
+    .moveTOP {
+        transform: translate(0px, -83vh);
+    }    
+    #imageCont img {
+        width: 235px;
+    }
+    .matchedEvent:last-of-type{
+        margin-bottom: 100px;
+    }
+}
 @media screen and (max-width: 800px) and (orientation: landscape) {
     .matchedEvent:last-of-type {
         margin-bottom: 50px;
