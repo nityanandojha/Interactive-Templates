@@ -162,21 +162,21 @@ var matching = (function() {
                 $(img).attr("alt", "image "+index);
                 iArr.push(temp);
                 img.onload = function (){
-                    console.log("loaded", this.height);
+                    //console.log("loaded", this.height);
                     $("#matchBox_d .matching-item").append($(iArr[counter]));
                     imgMaxHeight = Math.max(imgMaxHeight, this.height);
                     if(++counter == items.length){
-                        console.log("all loaded....", imgMaxHeight, iArr);
+                        //console.log("all loaded....", imgMaxHeight, iArr);
                         $(".matching-item").each(function(index){
-                            $(this).append(iArr[index]);
+                            //$(this).append(iArr[index]);
+                            $("#matchBox_"+index).find(".matching-item").append(iArr[index]);
                             console.log($(this).outerHeight());
                             maxH = Math.max(maxH,$(this).outerHeight());
                         });
                         $(".matching-item").css("height", maxH);
                         var maxHofClickitem = $('.clickable-item').outerHeight();
                         $('.matchedEvent').css({"height": (maxH+maxHofClickitem+15)+"px"});
-                    }
-                   
+                    }                   
                 }
             }else{
                 $("#matchBox_d .matching-item").html("<p></p>");
@@ -423,7 +423,6 @@ var matching = (function() {
         $(".clickable-item").prop("disabled", true);
         $(".matching-item").prop("disabled", true);
         
-        //$(".activity-header").addClass("h-48p");
         $(".activity-content").addClass("p-48p");
         for(var i=0; i<data.ques.length; i++){
             var clicksId = $("#cloneItem_"+i).attr("id").replace("cloneItem_", "");
