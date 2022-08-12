@@ -939,10 +939,6 @@ body {
         line-height: 22px;
     }
 
-    /* .unsetonsubmit{
-        display: unset;
-    } */
-
     .no-grid {
         display: none !important;
     }
@@ -1091,16 +1087,28 @@ body {
         padding-left: 0.75rem;
     }
 
+    .unsetonsubmit{
+        display: unset;
+    }
+    .activity-content-submit {
+        top: 265px;
+    }
+
     .feedback {
         width: 100%;
         letter-spacing: 0.2px;
         font-size: 16px;
         line-height: 20px;
         padding: 0 25px;
+        margin-top: 26px
     }
 
-    .activity-header {
-        height: 220px;
+    .activity-header-submit {
+        height: 261px;
+    }
+
+    .clickable-item.wrong-border-up-sub::after {
+        top: 9px;
     }
 
     .text-end {

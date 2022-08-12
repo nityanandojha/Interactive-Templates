@@ -57,6 +57,9 @@ var matching = (function() {
 
     var tryAgain = function(){
         $(".clickable-items").removeClass("unsetonsubmit");
+        $(".activity-header").removeClass("activity-header-submit");
+        $(".activity-content").removeClass(".activity-content-submit");
+        $(".clickable-item.wrong-border-up").removeClass(".clickable-item.wrong-border-up-sub");
         $(".clickable-item").prop("disabled", false);
         $(".matching-item").prop("disabled", false);
         $(".clickableBlock").removeClass("no-grid");
@@ -420,6 +423,9 @@ var matching = (function() {
         var wCount = 0;
         var rCount = 0;
         $(".clickable-items").addClass("unsetonsubmit");
+        $(".activity-header").addClass("activity-header-submit");
+        $(".activity-content").addClass(".activity-content-submit");
+        $(".clickable-item.wrong-border-up").addClass(".clickable-item.wrong-border-up-sub");
         $(".clickable-item").prop("disabled", true);
         $(".matching-item").prop("disabled", true);
         

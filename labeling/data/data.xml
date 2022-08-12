@@ -8,7 +8,7 @@
   <items>
     <item>    
       <clickable>
-        <text>Pulminary Vein</text>
+        <text>Septum</text>
       </clickable>
       <matching>
         <text>assets/images/HeartAnatomy_01.png</text>
@@ -16,7 +16,7 @@
     </item>
     <item>
       <clickable>
-        <text>Aortic Arch</text>
+        <text>Pulminary Vein</text>
       </clickable>
       <matching>
         <text>assets/images/HeartAnatomy_02.png</text>
@@ -24,7 +24,7 @@
     </item>
     <item>
       <clickable>
-        <text>Pulminary Artery</text>
+        <text>Aortic Arch</text>
       </clickable>
       <matching>
         <text>assets/images/HeartAnatomy_03.png</text>
@@ -32,7 +32,7 @@
     </item>
     <item>
       <clickable>
-        <text>Superior Vena Cava</text>
+        <text>Left Atrium</text>
       </clickable>
       <matching>      
         <text>assets/images/HeartAnatomy_04.png</text>
@@ -40,7 +40,7 @@
     </item>
     <item>
       <clickable>
-        <text>Left Atrium</text>
+        <text>Inferior Vena Cava</text>
       </clickable>
       <matching>      
         <text>assets/images/HeartAnatomy_05.png</text>
@@ -48,7 +48,7 @@
     </item>
     <item>
       <clickable>
-        <text>Left Ventricle</text>
+        <text>Superior Vena Cava</text>
       </clickable>
       <matching>
         <text>assets/images/HeartAnatomy_06.png</text>
@@ -56,7 +56,7 @@
     </item>
     <item>
       <clickable>
-        <text>Septum</text>
+        <text>Pulminary Artery</text>
       </clickable>
       <matching>      
         <text>assets/images/HeartAnatomy_07.png</text>
@@ -72,7 +72,7 @@
     </item>
     <item>
       <clickable>
-        <text>Inferior Vena Cava</text>
+        <text>Right Atrium</text>
       </clickable>
       <matching>      
         <text>assets/images/HeartAnatomy_09.png</text>
@@ -80,7 +80,7 @@
     </item>
     <item>
       <clickable>
-        <text>Right Atrium</text>
+        <text>Left Ventricle</text>
       </clickable>
       <matching>      
         <text>assets/images/HeartAnatomy_10.png</text>
